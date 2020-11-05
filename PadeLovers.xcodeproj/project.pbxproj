@@ -1,0 +1,425 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E4313D98254830F30045447F /* GameTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4313D97254830F30045447F /* GameTableViewController.swift */; };
+		E4316C84254863BE00EED960 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4316C83254863BE00EED960 /* SettingTableViewController.swift */; };
+		E4316C862548737D00EED960 /* InfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4316C852548737D00EED960 /* InfoTableViewController.swift */; };
+		E4316C882548828F00EED960 /* SelectPair1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4316C872548828F00EED960 /* SelectPair1ViewController.swift */; };
+		E4316C8A254882A600EED960 /* SelectPair2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4316C89254882A600EED960 /* SelectPair2ViewController.swift */; };
+		E4324F2F2547EDAB00063A9F /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4324F2D2547EDAB00063A9F /* TableViewCell.swift */; };
+		E4324F302547EDAB00063A9F /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4324F2E2547EDAB00063A9F /* TableViewCell.xib */; };
+		E436135B254B7BAB00A2DB3E /* PlayerReplaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E436135A254B7BAB00A2DB3E /* PlayerReplaseViewController.swift */; };
+		E436135D254BC6EE00A2DB3E /* ResultTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E436135C254BC6EE00A2DB3E /* ResultTableViewController.swift */; };
+		E436135F254BCD2D00A2DB3E /* ResultDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E436135E254BCD2D00A2DB3E /* ResultDetailTableViewController.swift */; };
+		E439941C2548DBF6007BA523 /* GameDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439941B2548DBF6007BA523 /* GameDataModel.swift */; };
+		E439941F2548DD13007BA523 /* GameDataModelBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439941E2548DD13007BA523 /* GameDataModelBrain.swift */; };
+		E43994212548DF26007BA523 /* PadelDataRecordBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43994202548DF26007BA523 /* PadelDataRecordBrain.swift */; };
+		E47F202D2547D56B00996B19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47F202C2547D56B00996B19 /* AppDelegate.swift */; };
+		E47F202F2547D56B00996B19 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47F202E2547D56B00996B19 /* SceneDelegate.swift */; };
+		E47F20312547D56B00996B19 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47F20302547D56B00996B19 /* ViewController.swift */; };
+		E47F20342547D56B00996B19 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E47F20322547D56B00996B19 /* Main.storyboard */; };
+		E47F20362547D56D00996B19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E47F20352547D56D00996B19 /* Assets.xcassets */; };
+		E47F20392547D56D00996B19 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E47F20372547D56D00996B19 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		E4313D97254830F30045447F /* GameTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTableViewController.swift; sourceTree = "<group>"; };
+		E4316C83254863BE00EED960 /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
+		E4316C852548737D00EED960 /* InfoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableViewController.swift; sourceTree = "<group>"; };
+		E4316C872548828F00EED960 /* SelectPair1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPair1ViewController.swift; sourceTree = "<group>"; };
+		E4316C89254882A600EED960 /* SelectPair2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPair2ViewController.swift; sourceTree = "<group>"; };
+		E4324F2D2547EDAB00063A9F /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		E4324F2E2547EDAB00063A9F /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		E436135A254B7BAB00A2DB3E /* PlayerReplaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerReplaseViewController.swift; sourceTree = "<group>"; };
+		E436135C254BC6EE00A2DB3E /* ResultTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTableViewController.swift; sourceTree = "<group>"; };
+		E436135E254BCD2D00A2DB3E /* ResultDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultDetailTableViewController.swift; sourceTree = "<group>"; };
+		E439941B2548DBF6007BA523 /* GameDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDataModel.swift; sourceTree = "<group>"; };
+		E439941E2548DD13007BA523 /* GameDataModelBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDataModelBrain.swift; sourceTree = "<group>"; };
+		E43994202548DF26007BA523 /* PadelDataRecordBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PadelDataRecordBrain.swift; sourceTree = "<group>"; };
+		E47F20292547D56B00996B19 /* PadeLovers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PadeLovers.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E47F202C2547D56B00996B19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E47F202E2547D56B00996B19 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		E47F20302547D56B00996B19 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E47F20332547D56B00996B19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E47F20352547D56D00996B19 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E47F20382547D56D00996B19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E47F203A2547D56D00996B19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E47F20262547D56B00996B19 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E43994192548DB82007BA523 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E47F20322547D56B00996B19 /* Main.storyboard */,
+				E4324F2E2547EDAB00063A9F /* TableViewCell.xib */,
+				E4324F2D2547EDAB00063A9F /* TableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E439941A2548DB9C007BA523 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E47F20302547D56B00996B19 /* ViewController.swift */,
+				E4316C83254863BE00EED960 /* SettingTableViewController.swift */,
+				E4316C852548737D00EED960 /* InfoTableViewController.swift */,
+				E4316C872548828F00EED960 /* SelectPair1ViewController.swift */,
+				E4316C89254882A600EED960 /* SelectPair2ViewController.swift */,
+				E4313D97254830F30045447F /* GameTableViewController.swift */,
+				E436135A254B7BAB00A2DB3E /* PlayerReplaseViewController.swift */,
+				E436135C254BC6EE00A2DB3E /* ResultTableViewController.swift */,
+				E436135E254BCD2D00A2DB3E /* ResultDetailTableViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E439941D2548DC0D007BA523 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E439941B2548DBF6007BA523 /* GameDataModel.swift */,
+				E439941E2548DD13007BA523 /* GameDataModelBrain.swift */,
+				E43994202548DF26007BA523 /* PadelDataRecordBrain.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E47F20202547D56B00996B19 = {
+			isa = PBXGroup;
+			children = (
+				E47F202B2547D56B00996B19 /* PadeLovers */,
+				E47F202A2547D56B00996B19 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E47F202A2547D56B00996B19 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E47F20292547D56B00996B19 /* PadeLovers.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E47F202B2547D56B00996B19 /* PadeLovers */ = {
+			isa = PBXGroup;
+			children = (
+				E47F202C2547D56B00996B19 /* AppDelegate.swift */,
+				E47F202E2547D56B00996B19 /* SceneDelegate.swift */,
+				E439941D2548DC0D007BA523 /* Model */,
+				E439941A2548DB9C007BA523 /* Controller */,
+				E43994192548DB82007BA523 /* View */,
+				E47F20352547D56D00996B19 /* Assets.xcassets */,
+				E47F20372547D56D00996B19 /* LaunchScreen.storyboard */,
+				E47F203A2547D56D00996B19 /* Info.plist */,
+			);
+			path = PadeLovers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E47F20282547D56B00996B19 /* PadeLovers */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E47F203D2547D56D00996B19 /* Build configuration list for PBXNativeTarget "PadeLovers" */;
+			buildPhases = (
+				E47F20252547D56B00996B19 /* Sources */,
+				E47F20262547D56B00996B19 /* Frameworks */,
+				E47F20272547D56B00996B19 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PadeLovers;
+			productName = PadeLovers;
+			productReference = E47F20292547D56B00996B19 /* PadeLovers.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E47F20212547D56B00996B19 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1160;
+				LastUpgradeCheck = 1160;
+				ORGANIZATIONNAME = Yoshitaka;
+				TargetAttributes = {
+					E47F20282547D56B00996B19 = {
+						CreatedOnToolsVersion = 11.6;
+					};
+				};
+			};
+			buildConfigurationList = E47F20242547D56B00996B19 /* Build configuration list for PBXProject "PadeLovers" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E47F20202547D56B00996B19;
+			productRefGroup = E47F202A2547D56B00996B19 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E47F20282547D56B00996B19 /* PadeLovers */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E47F20272547D56B00996B19 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E47F20392547D56D00996B19 /* LaunchScreen.storyboard in Resources */,
+				E4324F302547EDAB00063A9F /* TableViewCell.xib in Resources */,
+				E47F20362547D56D00996B19 /* Assets.xcassets in Resources */,
+				E47F20342547D56B00996B19 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E47F20252547D56B00996B19 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E4316C862548737D00EED960 /* InfoTableViewController.swift in Sources */,
+				E4316C84254863BE00EED960 /* SettingTableViewController.swift in Sources */,
+				E436135B254B7BAB00A2DB3E /* PlayerReplaseViewController.swift in Sources */,
+				E4313D98254830F30045447F /* GameTableViewController.swift in Sources */,
+				E436135D254BC6EE00A2DB3E /* ResultTableViewController.swift in Sources */,
+				E47F20312547D56B00996B19 /* ViewController.swift in Sources */,
+				E4316C8A254882A600EED960 /* SelectPair2ViewController.swift in Sources */,
+				E4324F2F2547EDAB00063A9F /* TableViewCell.swift in Sources */,
+				E47F202D2547D56B00996B19 /* AppDelegate.swift in Sources */,
+				E436135F254BCD2D00A2DB3E /* ResultDetailTableViewController.swift in Sources */,
+				E439941F2548DD13007BA523 /* GameDataModelBrain.swift in Sources */,
+				E439941C2548DBF6007BA523 /* GameDataModel.swift in Sources */,
+				E4316C882548828F00EED960 /* SelectPair1ViewController.swift in Sources */,
+				E47F202F2547D56B00996B19 /* SceneDelegate.swift in Sources */,
+				E43994212548DF26007BA523 /* PadelDataRecordBrain.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		E47F20322547D56B00996B19 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E47F20332547D56B00996B19 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E47F20372547D56D00996B19 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E47F20382547D56D00996B19 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E47F203B2547D56D00996B19 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E47F203C2547D56D00996B19 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E47F203E2547D56D00996B19 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.0.0;
+				DEVELOPMENT_TEAM = VKV3Y2GW5Q;
+				INFOPLIST_FILE = PadeLovers/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yoshitaka.PadeLovers;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E47F203F2547D56D00996B19 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.0.0;
+				DEVELOPMENT_TEAM = VKV3Y2GW5Q;
+				INFOPLIST_FILE = PadeLovers/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yoshitaka.PadeLovers;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E47F20242547D56B00996B19 /* Build configuration list for PBXProject "PadeLovers" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E47F203B2547D56D00996B19 /* Debug */,
+				E47F203C2547D56D00996B19 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E47F203D2547D56D00996B19 /* Build configuration list for PBXNativeTarget "PadeLovers" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E47F203E2547D56D00996B19 /* Debug */,
+				E47F203F2547D56D00996B19 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E47F20212547D56B00996B19 /* Project object */;
+}
