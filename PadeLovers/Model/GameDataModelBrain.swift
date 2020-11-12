@@ -199,12 +199,18 @@ struct GameDataModelBrain {
     }
     
     //試合を記録する
-    mutating func recordMatch(playingPlayer: [PadelModel]) {
-        let match = GameModel(rF: playingPlayer[0], rB: playingPlayer[2], lF: playingPlayer[1], lB: playingPlayer[3])
+    mutating func recordMatch(playingPlayer: [PadelModel], winFlag: Bool? = nil) {
+        var gameDataArray = [GameModel]()
         
-        matchRecord.append(match)
+        if let data = PadelDataRecordBrain().loadGameData() {
+            gameDataArray = data
+        }
+        
+        let gameData = GameModel(rF: playingPlayer[0], rB: playingPlayer[2], lF: playingPlayer[1], lB: playingPlayer[3], winFlag: winFlag)
+        
+        gameDataArray.append(gameData)
+        
+        PadelDataRecordBrain().saveGameData(gameData: gameDataArray)
     }
 }
-
-
 

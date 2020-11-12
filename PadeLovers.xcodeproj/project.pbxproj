@@ -26,6 +26,8 @@
 		E47F20342547D56B00996B19 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E47F20322547D56B00996B19 /* Main.storyboard */; };
 		E47F20362547D56D00996B19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E47F20352547D56D00996B19 /* Assets.xcassets */; };
 		E47F20392547D56D00996B19 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E47F20372547D56D00996B19 /* LaunchScreen.storyboard */; };
+		E4ED0756255BB1B100ED8EB5 /* gameDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4ED0754255BB1B100ED8EB5 /* gameDataTableViewCell.swift */; };
+		E4ED0757255BB1B100ED8EB5 /* gameDataTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4ED0755255BB1B100ED8EB5 /* gameDataTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		E47F20352547D56D00996B19 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E47F20382547D56D00996B19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E47F203A2547D56D00996B19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E4ED0754255BB1B100ED8EB5 /* gameDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gameDataTableViewCell.swift; sourceTree = "<group>"; };
+		E4ED0755255BB1B100ED8EB5 /* gameDataTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = gameDataTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,8 +71,10 @@
 			isa = PBXGroup;
 			children = (
 				E47F20322547D56B00996B19 /* Main.storyboard */,
-				E4324F2E2547EDAB00063A9F /* TableViewCell.xib */,
 				E4324F2D2547EDAB00063A9F /* TableViewCell.swift */,
+				E4324F2E2547EDAB00063A9F /* TableViewCell.xib */,
+				E4ED0754255BB1B100ED8EB5 /* gameDataTableViewCell.swift */,
+				E4ED0755255BB1B100ED8EB5 /* gameDataTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -188,6 +194,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4ED0757255BB1B100ED8EB5 /* gameDataTableViewCell.xib in Resources */,
 				E47F20392547D56D00996B19 /* LaunchScreen.storyboard in Resources */,
 				E4324F302547EDAB00063A9F /* TableViewCell.xib in Resources */,
 				E47F20362547D56D00996B19 /* Assets.xcassets in Resources */,
@@ -215,6 +222,7 @@
 				E439941F2548DD13007BA523 /* GameDataModelBrain.swift in Sources */,
 				E439941C2548DBF6007BA523 /* GameDataModel.swift in Sources */,
 				E4316C882548828F00EED960 /* SelectPair1ViewController.swift in Sources */,
+				E4ED0756255BB1B100ED8EB5 /* gameDataTableViewCell.swift in Sources */,
 				E47F202F2547D56B00996B19 /* SceneDelegate.swift in Sources */,
 				E43994212548DF26007BA523 /* PadelDataRecordBrain.swift in Sources */,
 			);
@@ -361,7 +369,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.0;
+				CURRENT_PROJECT_VERSION = 1.0.1;
 				DEVELOPMENT_TEAM = VKV3Y2GW5Q;
 				INFOPLIST_FILE = PadeLovers/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -369,7 +377,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yoshitaka.PadeLovers;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -382,7 +390,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.0;
+				CURRENT_PROJECT_VERSION = 1.0.1;
 				DEVELOPMENT_TEAM = VKV3Y2GW5Q;
 				INFOPLIST_FILE = PadeLovers/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -390,7 +398,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yoshitaka.PadeLovers;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

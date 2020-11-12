@@ -10,6 +10,8 @@ import UIKit
 
 struct PadelDataRecordBrain {
     let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Padel.plist")
+    
+    let gameDataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("GameData.plist")
 
     func savePlayers(players: [PadelModel]) {
         let encoder = PropertyListEncoder()
@@ -34,5 +36,30 @@ struct PadelDataRecordBrain {
             }
         }
         return players
+    }
+    
+    func saveGameData(gameData: [GameModel]) {
+        let encoder = PropertyListEncoder()
+        
+        do {
+            let data = try encoder.encode(gameData)
+            try data.write(to: gameDataFilePath!)
+        } catch {
+            print("Error encording item, \(error)")
+        }
+    }
+    
+    func loadGameData() -> [GameModel]? {
+        var gameData = [GameModel]()
+        
+        if let data = try? Data(contentsOf: gameDataFilePath!) {
+            let decoder = PropertyListDecoder()
+            do {
+                gameData = try decoder.decode([GameModel].self, from: data)
+            } catch {
+                print("Error decoding, \(error)")
+            }
+        }
+        return gameData
     }
 }

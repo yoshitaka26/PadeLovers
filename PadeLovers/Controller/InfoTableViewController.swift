@@ -16,6 +16,8 @@ class InfoTableViewController: UITableViewController {
     @IBOutlet weak var playModeSwitchA: UISwitch!
     @IBOutlet weak var playModeSwitchB: UISwitch!
     
+    @IBOutlet weak var gameResultSwitch: UISwitch!
+    
     @IBAction func playModeSwitchAChanged(_ sender: UISwitch) {
         if playModeSwitchA.isOn {
             playModeSwitchB.isOn = false
@@ -160,6 +162,8 @@ class InfoTableViewController: UITableViewController {
         if gameStartFlag {
             setTotalPlayerArray()
             savePlayModeBool()
+            saveGameResultBool()
+            setGameData()
             gameStartFlag = false
         }
         
@@ -184,6 +188,7 @@ class InfoTableViewController: UITableViewController {
         playerCounts.text = String(min)
         setCourtFlag()
         setPlayModeFlag()
+        setGameResultFlag()
         
         tableView.reloadData()
     }
@@ -196,7 +201,7 @@ class InfoTableViewController: UITableViewController {
         let tableViewCon = NavigationController.topViewController as! GameTableViewController
         tableViewCon.gameSetFlag = false
         
-        updateInfoAlert(title: "試合設定が変更できます")
+        updateInfoAlert(title: "試合設定を変更できます")
     }
     
     @IBAction func decideButtonPressed(_ sender: UIBarButtonItem) {
@@ -209,6 +214,7 @@ class InfoTableViewController: UITableViewController {
             checkPairingData()
             saveCourtBool()
             savePlayModeBool()
+            saveGameResultBool()
             switchLock(lock: true)
             
             updateInfoAlert(title: "試合設定を更新しました")
@@ -234,6 +240,12 @@ class InfoTableViewController: UITableViewController {
                 tableViewCon.courtSecond = false
             }
             
+            if gameResultSwitch.isOn {
+                tableViewCon.gameDataFlag = true
+            } else {
+                tableViewCon.gameDataFlag = false
+            }
+            
             tabBarController?.selectedViewController = NavigationController
         } else {
             updateInfoAlert(title: "参加プレイヤーが不足しています")
@@ -245,7 +257,7 @@ class InfoTableViewController: UITableViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         
-        return 4
+        return 5
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -254,10 +266,12 @@ class InfoTableViewController: UITableViewController {
         case 0:
             return 2
         case 1:
-            return 2
+            return 1
         case 2:
             return 2
         case 3:
+            return 2
+        case 4:
             return 22
             
         default:
@@ -276,6 +290,12 @@ class InfoTableViewController: UITableViewController {
         if let playModeBool = UserDefaults.standard.value(forKey: "playModeBool") as? Bool {
             playModeSwitchA.isOn = playModeBool
             playModeSwitchB.isOn = !playModeBool
+        }
+    }
+    
+    func setGameResultFlag() {
+        if let gameResultBool = UserDefaults.standard.value(forKey: "gameResultBool") as? Bool {
+            gameResultSwitch.isOn = gameResultBool
         }
     }
     
@@ -337,6 +357,7 @@ class InfoTableViewController: UITableViewController {
         c2s.isEnabled = !lock
         playModeSwitchA.isEnabled = !lock
         playModeSwitchB.isEnabled = !lock
+        gameResultSwitch.isEnabled = !lock
     }
     
     func setTotalPlayerArray() {
@@ -351,6 +372,12 @@ class InfoTableViewController: UITableViewController {
             
         }
         playerDataRecord.savePlayers(players: players)
+    }
+    
+    func setGameData() {
+        let gameData: [GameModel] = []
+        
+        playerDataRecord.saveGameData(gameData: gameData)
     }
     
     func savePlayersData() {
@@ -372,6 +399,11 @@ class InfoTableViewController: UITableViewController {
     func savePlayModeBool() {
         let playModeBool = playModeSwitchA.isOn
         UserDefaults.standard.set(playModeBool, forKey: "playModeBool")
+    }
+    
+    func saveGameResultBool() {
+        let gameResultBool = gameResultSwitch.isOn
+        UserDefaults.standard.set(gameResultBool, forKey: "gameResultBool")
     }
     
     func changePairingLabel(playersData: [PadelModel]) {

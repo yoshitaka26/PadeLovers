@@ -13,12 +13,14 @@ class GameModel: Codable {
     var rightBackside: PadelModel
     var leftForeside: PadelModel
     var leftBackside: PadelModel
+    var winFlag: Bool?
     
-    init(rF: PadelModel, rB: PadelModel, lF: PadelModel, lB: PadelModel) {
+    init(rF: PadelModel, rB: PadelModel, lF: PadelModel, lB: PadelModel, winFlag: Bool? = nil) {
         self.rightForeside = rF
         self.rightBackside = rB
         self.leftForeside = lF
         self.leftBackside = lB
+        self.winFlag = winFlag
     }
 }
 

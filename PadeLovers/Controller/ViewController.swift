@@ -44,18 +44,30 @@ class ViewController: UIViewController {
     }
     
     @IBAction func ContinueGameButtonPressed(_ sender: UIButton) {
-        let alert = UIAlertController(title: "試合を再開します", message: "前回の試合データを読み込みます", preferredStyle: .alert)
-        
-        let action = UIAlertAction(title: "OK", style: .default) { (action) in
-            self.performSegue(withIdentifier: "ContinueGame", sender: self)
+        let dataBrain = PadelDataRecordBrain()
+        if let data = dataBrain.loadPlayers() {
+            if data != [] {
+                let alert = UIAlertController(title: "試合を再開します", message: "前回の試合データを読み込みます", preferredStyle: .alert)
+                
+                let action = UIAlertAction(title: "OK", style: .default) { (action) in
+                    self.performSegue(withIdentifier: "ContinueGame", sender: self)
+                }
+                let actionCancel = UIAlertAction(title: "キャンセル", style: .cancel)
+                
+                alert.addAction(action)
+                alert.addAction(actionCancel)
+                
+                present(alert, animated: true, completion: nil)
+            } else {
+                let alert = UIAlertController(title: "試合データがありません", message: "", preferredStyle: .alert)
+                
+                let action = UIAlertAction(title: "OK", style: .default)
+                
+                alert.addAction(action)
+                
+                present(alert, animated: true, completion: nil)
+            }
         }
-        let actionCancel = UIAlertAction(title: "キャンセル", style: .cancel)
-        
-        alert.addAction(action)
-        alert.addAction(actionCancel)
-        
-        present(alert, animated: true, completion: nil)
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
