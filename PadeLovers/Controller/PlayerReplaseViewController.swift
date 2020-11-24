@@ -14,7 +14,7 @@ protocol DataReturn {
 
 class PlayerReplaseViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource  {
     var delegate: DataReturn?
-
+    
     @IBOutlet weak var currentPlayerPicker: UIPickerView!
     @IBOutlet weak var waitingPlayerPicker: UIPickerView!
     @IBOutlet weak var finishButton: UIButton!
@@ -44,23 +44,37 @@ class PlayerReplaseViewController: UIViewController, UIPickerViewDelegate, UIPic
         let replasePlayerNum = currentPlayerPicker.selectedRow(inComponent: 0)
         let newPlayerNum = waitingPlayerPicker.selectedRow(inComponent: 0)
         let replasePlayer = playingPlayer[replasePlayerNum]
-        let newPlayer = waitingPlayer[newPlayerNum]
         
-        let alert = UIAlertController(title: "プレイヤーを交代します", message: "\(replasePlayer.name)→\(newPlayer.name)", preferredStyle: .alert)
-        
-        let action = UIAlertAction(title: "OK", style: .default) { (action) in
-            self.delegate?.returnData(curretPlayer: replasePlayer, newPlayer: newPlayer)
-              
-              self.navigationController?.popViewController(animated: true)
+        if waitingPlayer != [] {
+            let newPlayer = waitingPlayer[newPlayerNum]
+            let alert = UIAlertController(title: "プレイヤーを交代します", message: "\(replasePlayer.name)→\(newPlayer.name)", preferredStyle: .alert)
+            
+            let action = UIAlertAction(title: "OK", style: .default) { (action) in
+                self.delegate?.returnData(curretPlayer: replasePlayer, newPlayer: newPlayer)
+                
+                self.navigationController?.popViewController(animated: true)
+            }
+            let actionCancel = UIAlertAction(title: "キャンセル", style: .cancel)
+            
+            alert.addAction(action)
+            alert.addAction(actionCancel)
+            
+            present(alert, animated: true, completion: nil)
+            
+        } else {
+            let alert = UIAlertController(title: "交代プレイヤーがいません", message: "", preferredStyle: .alert)
+            
+            let action = UIAlertAction(title: "OK", style: .default) { (action) in
+                self.navigationController?.popViewController(animated: true)
+            }
+            
+            alert.addAction(action)
+            
+            present(alert, animated: true, completion: nil)
         }
-        let actionCancel = UIAlertAction(title: "キャンセル", style: .cancel)
         
-        alert.addAction(action)
-        alert.addAction(actionCancel)
         
-        present(alert, animated: true, completion: nil)
         
-  
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

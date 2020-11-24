@@ -318,7 +318,85 @@ class GameTableViewController: UITableViewController, DataReturn {
     
     @objc func moveToChangePlayerView(_ sender: UIButton) {
         changePlayerCourtTag = sender.tag
-        performSegue(withIdentifier: "ChangePlayer", sender: self)
+        
+        var message: String = ""
+        switch sender.tag {
+        case 11:
+            message = courtFirstName
+        case 22:
+            message = courtSecondName
+        default:
+            message = ""
+        }
+        
+        let alert = UIAlertController(title: message, message: "選択してください", preferredStyle: .actionSheet)
+        
+        let action1 = UIAlertAction(title: "もう一度組み合わせ", style: .destructive) { (action) in
+            switch self.changePlayerCourtTag {
+            case 11:
+                let playersBeforeChanged = self.courtFirstGamePlayers
+                
+                self.courtFirstGamePlayers = nil
+                
+                self.loadPlayersData()
+                
+                if let playingPlayers = self.courtSecondGamePlayers {
+                    for player in playingPlayers {
+                        self.players = self.players.filter { $0.name != player.name }
+                    }
+                }
+                
+                let newPlayers = self.gameDataModelBrain.organizeMatch(totalPlayers: self.players, playMode: self.playModeFlag)
+                
+                let array = playersBeforeChanged!.filter { !newPlayers.contains($0)}
+                
+                if array != [] {
+                    self.courtFirstGamePlayers = newPlayers
+                } else {
+                    self.courtFirstGamePlayers = self.gameDataModelBrain.organizeMatchWithoutCounts(totalPlayers: self.players)
+                }
+                
+            case 22:
+                let playersBeforeChanged = self.courtSecondGamePlayers
+                
+                self.courtSecondGamePlayers = nil
+                
+                self.loadPlayersData()
+                
+                if let playingPlayers = self.courtFirstGamePlayers {
+                    for player in playingPlayers {
+                        self.players = self.players.filter { $0.name != player.name }
+                    }
+                }
+                
+                let newPlayers = self.gameDataModelBrain.organizeMatch(totalPlayers: self.players, playMode: self.playModeFlag)
+                
+                let array = playersBeforeChanged!.filter { !newPlayers.contains($0)}
+                
+                if array != [] {
+                    self.courtSecondGamePlayers = newPlayers
+                } else {
+                    self.courtSecondGamePlayers = self.gameDataModelBrain.organizeMatchWithoutCounts(totalPlayers: self.players)
+                }
+            
+            default:
+                return
+            }
+            
+            self.tableView.reloadData()
+        }
+        
+        let action2 = UIAlertAction(title: "プレイヤー交代", style: .default) { (action) in
+            self.performSegue(withIdentifier: "ChangePlayer", sender: self)
+        }
+        
+        let actionCancel = UIAlertAction(title: "キャンセル", style: .cancel)
+               
+        alert.addAction(action1)
+        alert.addAction(action2)
+        alert.addAction(actionCancel)
+               
+        present(alert, animated: true, completion: nil)
     }
     
     @objc func gameEnd(_ sender: UIButton) {

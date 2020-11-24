@@ -44,15 +44,15 @@ struct GameDataModelBrain {
             p1Paires = p1Paires.filter { !$0.pairing2 }
             
             if playMode {
-                p1Paires = self.pickUpPaires(player: player1, players: p1Paires)
-                if let player = checkArray(players: p1Paires) {
+                let p1PairesNew = self.pickUpPaires(player: player1, players: p1Paires)
+                if let player = checkArray(players: p1PairesNew) {
                     pair1 = player
                 } else {
-                    p1Paires = self.pickUpByCounts(players: players)
+                    p1Paires = self.pickUpByCounts(players: p1Paires)
                     pair1 = p1Paires.randomElement()!
                 }
             } else {
-                p1Paires = self.pickUpByCounts(players: players)
+                p1Paires = self.pickUpByCounts(players: p1Paires)
                 pair1 = p1Paires.randomElement()!
             }
         }
@@ -69,11 +69,11 @@ struct GameDataModelBrain {
             var p2Paires = players.filter { !$0.pairing1 }
             p2Paires = p2Paires.filter { !$0.pairing2 }
             
-            p2Paires = self.pickUpPaires(player: player2, players: p2Paires)
-            if let player = checkArray(players: p2Paires) {
+            let p2PairesNew = self.pickUpPaires(player: player2, players: p2Paires)
+            if let player = checkArray(players: p2PairesNew) {
                 pair2 = player
             } else {
-                p2Paires = self.pickUpByCounts(players: players)
+                p2Paires = self.pickUpByCounts(players: p2Paires)
                 pair2 = p2Paires.randomElement()!
             }
         }
@@ -83,6 +83,53 @@ struct GameDataModelBrain {
         let currentPlayers = [player1,player2,pair1,pair2]
         return currentPlayers
     }
+    
+    
+    mutating func organizeMatchWithoutCounts(totalPlayers: [PadelModel]) -> [PadelModel] {
+        var players = totalPlayers
+        
+        player1 = players.randomElement()!
+        players = players.filter { $0.name != player1.name}
+        
+        if player1.pairing1 {
+            let array = players.filter { $0.pairing1 }
+            pair1 = array[0]
+            players = players.filter { $0.name != pair1.name }
+        } else if player1.pairing2 {
+            let array = players.filter { $0.pairing2 }
+            pair1 = array[0]
+            players = players.filter { $0.name != pair1.name }
+        } else {
+            var array = players.filter { !$0.pairing1 }
+            array = array.filter { !$0.pairing2 }
+            pair1 = array.randomElement()!
+            players = players.filter { $0.name != pair1.name }
+        }
+        
+        player2 = players.randomElement()!
+        players = players.filter { $0.name != player2.name}
+        
+        if player2.pairing1 {
+            let array = players.filter { $0.pairing1 }
+            pair2 = array[0]
+            players = players.filter { $0.name != pair2.name  }
+        } else if player2.pairing2 {
+            let array = players.filter { $0.pairing2 }
+            pair2 = array[0]
+            players = players.filter { $0.name != pair2.name  }
+        } else {
+            var array = players.filter { !$0.pairing1 }
+            array = array.filter { !$0.pairing2 }
+            pair2 = array.randomElement()!
+            players = players.filter { $0.name != pair2.name }
+        }
+        
+        
+        let currentPlayers = [player1,player2,pair1,pair2]
+        return currentPlayers
+    }
+    
+    
     
     func recordGameDataOnPlayersData(currentPlayers: [PadelModel], playingPlayers: [PadelModel], totalPlayers: [PadelModel]) -> [PadelModel] {
         var players = totalPlayers

@@ -77,7 +77,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="120" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.85098039219999999" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                <state key="normal" title="プレイヤー交代">
+                                <state key="normal" title="チェンジ">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>

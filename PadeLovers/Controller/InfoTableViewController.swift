@@ -240,6 +240,10 @@ class InfoTableViewController: UITableViewController {
                 tableViewCon.courtSecond = false
             }
             
+            if let gameData = PadelDataRecordBrain().loadGameData() {
+                tableViewCon.gameDataArray = gameData
+            }
+            
             if gameResultSwitch.isOn {
                 tableViewCon.gameDataFlag = true
             } else {
