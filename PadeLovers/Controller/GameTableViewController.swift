@@ -30,9 +30,8 @@ class GameTableViewController: UITableViewController, DataReturn {
         tableView.reloadData()
     }
     
-    var gameSetFlag = false
-    
-    var playModeFlag = true
+    var gameSetFlag = false     //試合の設定が完了しているかどうか->試合を組める状態
+    var playModeFlag = true     //組み合わせ重視モードor試合数重視モード->試合の組み方が変わる
     
     var courtFirst: Bool = false
     var courtSecond: Bool = false
@@ -55,6 +54,7 @@ class GameTableViewController: UITableViewController, DataReturn {
     var gameDataFlag: Bool = false
     var gameDataArray = [GameModel]()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -67,10 +67,10 @@ class GameTableViewController: UITableViewController, DataReturn {
             courtFirstName = "コートA"
             courtSecondName = "コートB"
         }
-        
         tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "GameCell")
         tableView.register(UINib(nibName: "gameDataTableViewCell", bundle: nil), forCellReuseIdentifier: "GameDataCell")
     }
+    
     @IBAction func backToHomeButtonPressed(_ sender: UIBarButtonItem) {
         
         let alert = UIAlertController(title: "ホーム画面へ戻ります", message: "", preferredStyle: .alert)
@@ -313,11 +313,11 @@ class GameTableViewController: UITableViewController, DataReturn {
             
             return cell
         }
-        
     }
     
+    //試合表示xibのチェンジボタンを押した時
     @objc func moveToChangePlayerView(_ sender: UIButton) {
-        changePlayerCourtTag = sender.tag
+        changePlayerCourtTag = sender.tag   //どっちのコートのボタンなのか判定
         
         var message: String = ""
         switch sender.tag {
@@ -331,23 +331,50 @@ class GameTableViewController: UITableViewController, DataReturn {
         
         let alert = UIAlertController(title: message, message: "選択してください", preferredStyle: .actionSheet)
         
-        let action1 = UIAlertAction(title: "もう一度組み合わせ", style: .destructive) { (action) in
+        
+        let action1 = UIAlertAction(title: "試合取り消し", style: .destructive) { (action) in
+            
+            switch self.changePlayerCourtTag {
+            case 11:
+                self.courtFirstReloadFlag = true
+                self.courtFirstGamePlayers = nil
+                self.courtArray = self.courtArray.filter { $0 != self.courtFirstName }
+            
+            case 22:
+                self.courtSecondReloadFlag = true
+                self.courtSecondGamePlayers = nil
+                self.courtArray = self.courtArray.filter { $0 != self.courtSecondName }
+                
+            default:
+                return
+            }
+            
+            self.tableView.reloadData()
+        }
+        
+        //選択① もう一度組み合わせる　但し、何度組み合わせてもメンバーが変わらない場合は（例えば12人プレイ）
+        //メンバーが変わるようにアルゴリズムを変えている
+        let action2 = UIAlertAction(title: "もう一度組み合わせ", style: .destructive) { (action) in
             switch self.changePlayerCourtTag {
             case 11:
                 let playersBeforeChanged = self.courtFirstGamePlayers
                 
                 self.courtFirstGamePlayers = nil
                 
-                self.loadPlayersData()
+                self.loadPlayersData()      //参加選手を取得（players更新）
                 
+                //playersから他コートに入ってる選手を除外
                 if let playingPlayers = self.courtSecondGamePlayers {
                     for player in playingPlayers {
                         self.players = self.players.filter { $0.name != player.name }
                     }
                 }
                 
+                //整理したplayersデータから試合を一度組む
                 let newPlayers = self.gameDataModelBrain.organizeMatch(totalPlayers: self.players, playMode: self.playModeFlag)
                 
+                //チェンジ前に試合メンバーから一度組んだ試合メンバーを除去する->一致したら空アレイになる
+                //もし空アレイになったら、試合回数を無視して組み直し（何度もやれば変わるだろう）
                 let array = playersBeforeChanged!.filter { !newPlayers.contains($0)}
                 
                 if array != [] {
@@ -361,16 +388,20 @@ class GameTableViewController: UITableViewController, DataReturn {
                 
                 self.courtSecondGamePlayers = nil
                 
-                self.loadPlayersData()
+                self.loadPlayersData()      //参加選手を取得（players更新）
                 
+                //playersから他コートに入ってる選手を除外
                 if let playingPlayers = self.courtFirstGamePlayers {
                     for player in playingPlayers {
                         self.players = self.players.filter { $0.name != player.name }
                     }
                 }
                 
+                //整理したplayersデータから試合を一度組む
                 let newPlayers = self.gameDataModelBrain.organizeMatch(totalPlayers: self.players, playMode: self.playModeFlag)
                 
+                //チェンジ前に試合メンバーから一度組んだ試合メンバーを除去する->一致したら空アレイになる
+                //もし空アレイになったら、試合回数を無視して組み直し（何度もやれば変わるだろう）
                 let array = playersBeforeChanged!.filter { !newPlayers.contains($0)}
                 
                 if array != [] {
@@ -386,14 +417,15 @@ class GameTableViewController: UITableViewController, DataReturn {
             self.tableView.reloadData()
         }
         
-        let action2 = UIAlertAction(title: "プレイヤー交代", style: .default) { (action) in
+        let action3 = UIAlertAction(title: "プレイヤー交代", style: .default) { (action) in
             self.performSegue(withIdentifier: "ChangePlayer", sender: self)
         }
         
         let actionCancel = UIAlertAction(title: "キャンセル", style: .cancel)
-               
+        
         alert.addAction(action1)
         alert.addAction(action2)
+        alert.addAction(action3)
         alert.addAction(actionCancel)
                
         present(alert, animated: true, completion: nil)
@@ -468,7 +500,7 @@ class GameTableViewController: UITableViewController, DataReturn {
                         
                         self.present(alert, animated: true, completion: nil)
                     } else {
-                         self.gameDataModelBrain.recordMatch(playingPlayer: self.courtFirstGamePlayers!)
+                        self.gameDataModelBrain.recordMatch(playingPlayer: self.courtFirstGamePlayers!)
                         self.courtFirstReloadFlag = true
                         self.courtFirstGamePlayers = nil
                         self.courtArray = self.courtArray.filter { $0 != self.courtFirstName }
@@ -563,6 +595,7 @@ class GameTableViewController: UITableViewController, DataReturn {
         }
     }
     
+    //参加選手を取得
     func loadPlayersData() {
         if let playersData = playerDataRecord.loadPlayers() {
             players = playersData.filter { $0.playingFlag }
