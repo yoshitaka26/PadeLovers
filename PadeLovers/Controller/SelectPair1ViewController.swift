@@ -34,8 +34,8 @@ class SelectPair1ViewController: UIViewController, UIPickerViewDelegate, UIPicke
         pair1Picker.dataSource = self
         pair2Picker.delegate = self
         pair2Picker.dataSource = self
-        
     }
+    
     
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -51,6 +51,7 @@ class SelectPair1ViewController: UIViewController, UIPickerViewDelegate, UIPicke
     }
     
     @IBAction func resetButtonPressed(_ sender: UIButton) {
+        //FileManagerのデータを呼び出して、ペアリング1を削除して上書き保存
         if let playersData = playerDataRecord.loadPlayers() {
             var players = playersData
             players = players.map {
@@ -65,10 +66,12 @@ class SelectPair1ViewController: UIViewController, UIPickerViewDelegate, UIPicke
         let alert = UIAlertController(title: " 固定ペア１をリセット", message: "", preferredStyle: .alert)
         
         let action = UIAlertAction(title: "OK", style: .default) { (action) in
+            
+            //NotificationCenter通知の送信
             NotificationCenter.default.post(name: .updateDataNotification,
                        object: nil)
             
-            self.navigationController?.popViewController(animated: true)
+            self.dismiss(animated: true, completion: nil)
         }
         
         alert.addAction(action)
@@ -80,13 +83,10 @@ class SelectPair1ViewController: UIViewController, UIPickerViewDelegate, UIPicke
     
     @IBAction func okButtonPressed(_ sender: UIButton) {
         if pair1Picker.selectedRow(inComponent: 0) == 0 {
-            print("p1空白")
             updateInfoAlert(title: "プレイヤー１が未選択です")
         } else if pair2Picker.selectedRow(inComponent: 0) == 0 {
-            print("p2空白")
             updateInfoAlert(title: "プレイヤー２が未選択です")
         } else if pair1Picker.selectedRow(inComponent: 0) == pair2Picker.selectedRow(inComponent: 0) {
-            print("同じプレイヤー選択")
             updateInfoAlert(title: "同じプレイヤーを選択しています")
         } else {
             let p1Num = pair1Picker.selectedRow(inComponent: 0)
@@ -94,6 +94,7 @@ class SelectPair1ViewController: UIViewController, UIPickerViewDelegate, UIPicke
             let p2Num = pair2Picker.selectedRow(inComponent: 0)
             let player2 = nameData[p2Num]
             
+            //FileManagerのデータを呼び出して、ペアリング1を削除して、新しいペアリング1を記録して上書き保存
             if let playersData = playerDataRecord.loadPlayers() {
                 var players = playersData
                 players = players.map {
@@ -121,14 +122,16 @@ class SelectPair1ViewController: UIViewController, UIPickerViewDelegate, UIPicke
                 playerDataRecord.savePlayers(players: players)
             }
         }
+        
         let alert = UIAlertController(title: "ペアを固定しました", message: "", preferredStyle: .alert)
         
         let action = UIAlertAction(title: "OK", style: .default) { (action) in
             
+            //NotificationCenter通知の送信
             NotificationCenter.default.post(name: .updateDataNotification,
             object: nil)
             
-            self.navigationController?.popViewController(animated: true)
+            self.dismiss(animated: true, completion: nil)
         }
         
         alert.addAction(action)

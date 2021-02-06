@@ -69,8 +69,7 @@ class SettingTableViewController: UITableViewController {
         }
         
         let textFieldArray = [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21]
-        let segmentArray = [p1g, p2g, p3g, p4g, p5g, p6g, p7g, p8g, p9g, p10g, p11g, p12g, p13g, p14g, p15g, p16g, p17g, p18g, p19g,
-        p20g, p21g]
+        let segmentArray = [p1g, p2g, p3g, p4g, p5g, p6g, p7g, p8g, p9g, p10g, p11g, p12g, p13g, p14g, p15g, p16g, p17g, p18g, p19g,p20g, p21g]
         
         
         if let player = UserDefaults.standard.value(forKey: "player") as? [String] {
@@ -104,8 +103,7 @@ class SettingTableViewController: UITableViewController {
         courtNameArray = [court1, court2]
 
         let textFieldArray = [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21]
-        let segmentArray = [p1g, p2g, p3g, p4g, p5g, p6g, p7g, p8g, p9g, p10g, p11g, p12g, p13g, p14g, p15g, p16g, p17g, p18g, p19g,
-        p20g, p21g]
+        let segmentArray = [p1g, p2g, p3g, p4g, p5g, p6g, p7g, p8g, p9g, p10g, p11g, p12g, p13g, p14g, p15g, p16g, p17g, p18g, p19g,p20g, p21g]
         
         for textField in textFieldArray {
             let name = textField?.text ?? "X"

@@ -47,7 +47,11 @@ class SelectPair2ViewController: UIViewController, UIPickerViewDelegate, UIPicke
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return nameData[row]
     }
+    
     @IBAction func resetButtonPressed(_ sender: UIButton) {
+        
+        
+        //FileManagerのデータを呼び出して、ペアリング1を削除して上書き保存
         if let playersData = playerDataRecord.loadPlayers() {
             var players = playersData
             players = players.map {
@@ -62,10 +66,12 @@ class SelectPair2ViewController: UIViewController, UIPickerViewDelegate, UIPicke
         let alert = UIAlertController(title: "固定ペア２をリセット", message: "", preferredStyle: .alert)
         
         let action = UIAlertAction(title: "OK", style: .default) { (action) in
+            
+            //NotificationCenter通知の送信
             NotificationCenter.default.post(name: .updateDataNotification,
                        object: nil)
             
-            self.navigationController?.popViewController(animated: true)
+            self.dismiss(animated: true, completion: nil)
         }
         
         alert.addAction(action)
@@ -89,6 +95,7 @@ class SelectPair2ViewController: UIViewController, UIPickerViewDelegate, UIPicke
             let p2Num = pair2Picker.selectedRow(inComponent: 0)
             let player2 = nameData[p2Num]
             
+            //FileManagerのデータを呼び出して、ペアリング1を削除して、新しいペアリング1を記録して上書き保存
             if let playersData = playerDataRecord.loadPlayers() {
                 var players = playersData
                 players = players.map {
@@ -119,10 +126,11 @@ class SelectPair2ViewController: UIViewController, UIPickerViewDelegate, UIPicke
         
         let action = UIAlertAction(title: "OK", style: .default) { (action) in
             
+            //NotificationCenter通知の送信
             NotificationCenter.default.post(name: .updateDataNotification,
             object: nil)
             
-            self.navigationController?.popViewController(animated: true)
+            self.dismiss(animated: true, completion: nil)
         }
         
         alert.addAction(action)
