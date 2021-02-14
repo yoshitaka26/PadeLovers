@@ -26,9 +26,14 @@ class SelectPair2ViewController: UIViewController, UIPickerViewDelegate, UIPicke
         finishButton.layer.cornerRadius = finishButton.frame.size.height / 4
         resetButton.layer.cornerRadius = resetButton.frame.size.height / 4
         
-        if let player = UserDefaults.standard.value(forKey: "player") as? [String] {
-            nameData.append(contentsOf: player)
+        if let playersData = playerDataRecord.loadPlayers() {
+            if playersData.count == 21 {
+                for i in 0...20 {
+                    nameData.append(playersData[i].name)
+                }
+            }
         }
+        
         pair1Picker.delegate = self
         pair1Picker.dataSource = self
         pair2Picker.delegate = self

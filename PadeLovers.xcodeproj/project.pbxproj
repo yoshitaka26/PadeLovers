@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B7C49D69804C4EA3B9AA5C13 /* Pods_PadeLovers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBB530121C8F675D2684E078 /* Pods_PadeLovers.framework */; };
 		E4313D98254830F30045447F /* GameTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4313D97254830F30045447F /* GameTableViewController.swift */; };
 		E4316C84254863BE00EED960 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4316C83254863BE00EED960 /* SettingTableViewController.swift */; };
 		E4316C862548737D00EED960 /* InfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4316C852548737D00EED960 /* InfoTableViewController.swift */; };
@@ -31,6 +32,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		621A020FB01D3566D822BC7F /* Pods-PadeLovers.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PadeLovers.debug.xcconfig"; path = "Target Support Files/Pods-PadeLovers/Pods-PadeLovers.debug.xcconfig"; sourceTree = "<group>"; };
+		BBB530121C8F675D2684E078 /* Pods_PadeLovers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PadeLovers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4313D97254830F30045447F /* GameTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTableViewController.swift; sourceTree = "<group>"; };
 		E4316C83254863BE00EED960 /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		E4316C852548737D00EED960 /* InfoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +57,7 @@
 		E47F203A2547D56D00996B19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E4ED0754255BB1B100ED8EB5 /* gameDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gameDataTableViewCell.swift; sourceTree = "<group>"; };
 		E4ED0755255BB1B100ED8EB5 /* gameDataTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = gameDataTableViewCell.xib; sourceTree = "<group>"; };
+		E8911760E1ABF8DB5F2D01DD /* Pods-PadeLovers.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PadeLovers.release.xcconfig"; path = "Target Support Files/Pods-PadeLovers/Pods-PadeLovers.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,12 +65,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7C49D69804C4EA3B9AA5C13 /* Pods_PadeLovers.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		074D8F64121C7F069BC67DF0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				621A020FB01D3566D822BC7F /* Pods-PadeLovers.debug.xcconfig */,
+				E8911760E1ABF8DB5F2D01DD /* Pods-PadeLovers.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		09DADB0EF7A374FA46EAE935 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BBB530121C8F675D2684E078 /* Pods_PadeLovers.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E43994192548DB82007BA523 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +133,8 @@
 			children = (
 				E47F202B2547D56B00996B19 /* PadeLovers */,
 				E47F202A2547D56B00996B19 /* Products */,
+				074D8F64121C7F069BC67DF0 /* Pods */,
+				09DADB0EF7A374FA46EAE935 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -143,9 +168,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E47F203D2547D56D00996B19 /* Build configuration list for PBXNativeTarget "PadeLovers" */;
 			buildPhases = (
+				F5BC0ADF6AAA7DBB028FC5BE /* [CP] Check Pods Manifest.lock */,
 				E47F20252547D56B00996B19 /* Sources */,
 				E47F20262547D56B00996B19 /* Frameworks */,
 				E47F20272547D56B00996B19 /* Resources */,
+				934F2E9B4763C98C9E3BC27F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -203,6 +230,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		934F2E9B4763C98C9E3BC27F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PadeLovers/Pods-PadeLovers-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PadeLovers/Pods-PadeLovers-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PadeLovers/Pods-PadeLovers-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F5BC0ADF6AAA7DBB028FC5BE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PadeLovers-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E47F20252547D56B00996B19 /* Sources */ = {
@@ -368,6 +437,7 @@
 		};
 		E47F203E2547D56D00996B19 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 621A020FB01D3566D822BC7F /* Pods-PadeLovers.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -389,6 +459,7 @@
 		};
 		E47F203F2547D56D00996B19 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E8911760E1ABF8DB5F2D01DD /* Pods-PadeLovers.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

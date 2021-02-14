@@ -144,7 +144,7 @@ class InfoTableViewController: UITableViewController {
     
     //新しく試合を始めたどうか
     var gameStartFlag: Bool = false
-    
+    var names: [String] = []
     var genderArray = [Bool]()
     
     override func viewDidLoad() {
@@ -161,34 +161,28 @@ class InfoTableViewController: UITableViewController {
             c2.text = "コートB"
         }
         
-        //pp1A.text = pp1AName
-        //pp1B.text = pp1BName
+        var team: Int = 0
         
-        let playerNameLabelArray = [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21]
-        
-        if let gender = UserDefaults.standard.value(forKey: "gender") as? [Bool] {
-            genderArray = gender
+        if let teamNum = UserDefaults.standard.value(forKey: "team") as? Int {
+            team = teamNum
         }
         
-        if let player = UserDefaults.standard.value(forKey: "player") as? [String] {
-            if player.count == 21 {
-                for i in 0...20 {
-                    playerNameLabelArray[i]?.text = player[i]
-                    if genderArray != [] {
-                        if !genderArray[i] {
-                            playerNameLabelArray[i]?.textColor = .red
-                        }
-                    }
-                }
-            }
+        switch team {
+        case 0:
+            setUI(nameKey: "player", genderKey: "gender", gameStartFlag)
+        case 1:
+            setUI(nameKey: "player2", genderKey: "gender2", gameStartFlag)
+        case 2:
+            setUI(nameKey: "player3", genderKey: "gender3", gameStartFlag)
+        default:
+            setUI(nameKey: "player", genderKey: "gender", gameStartFlag)
         }
         
         //新しく試合を始めた場合はtrueで入ってくる->データをセットしてfalseへ
         if gameStartFlag {
-            setTotalPlayerArray()
-            savePlayModeBool()
-            saveGameResultBool()
-            setGameData()
+            savePlayModeBool()  //UIよりプレイモードを取得、UserDefaultsへ書き込み
+            saveGameResultBool()    //UIよりゲーム記録モードを取得、UserDefaultsへ書き込み
+            setGameData()   //空のゲームデータアレイを作成、FileManagerへ記録（データ作成）
             gameStartFlag = false
         }
         
@@ -206,6 +200,8 @@ class InfoTableViewController: UITableViewController {
         
         if players.count == 21 {
             changePlayingFlagByData(playersData: players)
+            //印数のモデルより全プレイヤーのプレイ有無を取得、UIへ反映させる
+            //起動時は全てtrueに変わるはずだが、非同期にしてないので変わらず
             changePairingLabel(playersData: players)
         }
         
@@ -287,7 +283,6 @@ class InfoTableViewController: UITableViewController {
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        
         return 5
     }
     
@@ -309,6 +304,88 @@ class InfoTableViewController: UITableViewController {
             return 0
         }
     }
+    
+    //ゲーム開始時のUIセッティング
+    func setUI(nameKey: String, genderKey: String, _ isNew: Bool) {
+        let playerNameLabelArray = [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21]
+        
+        let playingFlagSwitchArray = [p1s, p2s, p3s, p4s, p5s, p6s, p7s, p8s, p9s, p10s, p11s, p12s, p13s, p14s, p15s, p16s, p17s, p18s, p19s, p20s, p21s]
+        
+        if let gender = UserDefaults.standard.value(forKey: genderKey) as? [Bool] {
+            genderArray = gender
+        }
+        
+        if let player = UserDefaults.standard.value(forKey: nameKey) as? [String] {
+            if player.count == 21 {
+                for i in 0...20 {
+                    names.append(player[i])
+                    DispatchQueue.main.async {
+                        playerNameLabelArray[i]?.text = player[i]
+                        if self.genderArray != [] {
+                            if !self.genderArray[i] {
+                                playerNameLabelArray[i]?.textColor = .red
+                            }
+                        }
+                    }
+                }
+            }
+        } else {
+            for nameLabel in playerNameLabelArray {
+                names.append(nameLabel?.text ?? "プレイヤー")
+            }
+        }
+        
+        if isNew {
+            for flag in playingFlagSwitchArray {
+                DispatchQueue.main.async {
+                    flag?.isOn = false
+                }
+            }
+            
+            if names.count == 21 {
+                for i in 0...20 {
+                    if genderArray != [] {
+                        players.append(PadelModel(name: names[i], gender: genderArray[i]))
+                    } else {
+                        players.append(PadelModel(name: names[i]))
+                    }
+                }
+                playerDataRecord.savePlayers(players: players)
+            }
+        } else {
+            if let playersData = playerDataRecord.loadPlayers() {
+                players = playersData
+            }
+            if players.count == 21 && names.count == 21 && genderArray.count == 21 {
+                for i in 0...20 {
+                    players[i].name = names[i]
+                    players[i].gender = genderArray[i]
+                }
+            }
+            playerDataRecord.savePlayers(players: players)
+        }
+    }
+    
+    //UIよりプレイモードを取得、UserDefaultsへ書き込み
+    func savePlayModeBool() {
+        let playModeBool = playModeSwitchA.isOn
+        UserDefaults.standard.set(playModeBool, forKey: "playModeBool")
+    }
+    
+    //UIよりゲーム記録モードを取得、UserDefaultsへ書き込み
+    func saveGameResultBool() {
+        let gameResultBool = gameResultSwitch.isOn
+        UserDefaults.standard.set(gameResultBool, forKey: "gameResultBool")
+    }
+    
+    //空のゲームデータアレイを作成、FileManagerへ記録（データ作成）
+    func setGameData() {
+        let gameData: [GameModel] = []
+        playerDataRecord.saveGameData(gameData: gameData)
+    }
+    
+    
+    
     
     //UserDefaultsから使用コート数を取得
     func setCourtFlag() {
@@ -350,18 +427,7 @@ class InfoTableViewController: UITableViewController {
         return count
     }
     
-    //UIからプレイヤー全21名の名前を取得
-    func makeNameArray() -> [String] {
-        let playerNameLabelArray = [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21]
-        var names: [String] = []
-        for i in 0...20 {
-            let name = playerNameLabelArray[i]?.text ?? "X"
-            names.append(name)
-        }
-        return names
-    }
-    
-    //印数のモデルより全プレイヤーのプレイ有無を取得、UIへ反映させる
+    //印数のモデルより全プレイヤーのプレイ有無を取得、UIへ反映させる（起動時は全trueだが、非同期なので変わらず）
     func changePlayingFlagByData(playersData: [PadelModel]) {
         let playingFlagSwitchArray = [p1s, p2s, p3s, p4s, p5s, p6s, p7s, p8s, p9s, p10s, p11s, p12s, p13s, p14s, p15s, p16s, p17s, p18s, p19s, p20s, p21s]
         
@@ -388,28 +454,6 @@ class InfoTableViewController: UITableViewController {
         playModeSwitchA.isEnabled = !lock
         playModeSwitchB.isEnabled = !lock
         gameResultSwitch.isEnabled = !lock
-    }
-    
-    //UIから全プレイヤーの名前、性別アレイより各プレイヤーの性別を取得、FileManagerへ記録する（データを作成）
-    func setTotalPlayerArray() {
-        let names = self.makeNameArray()
-        
-        for i in 0...20 {
-            if genderArray != [] {
-                players.append(PadelModel(name: names[i], gender: genderArray[i]))
-            } else {
-                players.append(PadelModel(name: names[i]))
-            }
-            
-        }
-        playerDataRecord.savePlayers(players: players)
-    }
-    
-    //空のゲームデータアレイを作成、FileManagerへ記録（データ作成）
-    func setGameData() {
-        let gameData: [GameModel] = []
-        
-        playerDataRecord.saveGameData(gameData: gameData)
     }
     
     //UIよりプレイヤー全21名のプレイ有無を取得
@@ -445,17 +489,6 @@ class InfoTableViewController: UITableViewController {
     func saveCourtBool() {
         let courtBool = [c1s.isOn, c2s.isOn]
         UserDefaults.standard.set(courtBool, forKey: "courtBool")
-    }
-    //UIよりプレイモードを取得、UserDefaultsへ書き込み
-    func savePlayModeBool() {
-        let playModeBool = playModeSwitchA.isOn
-        UserDefaults.standard.set(playModeBool, forKey: "playModeBool")
-    }
-    
-    //UIよりゲーム記録モードを取得、UserDefaultsへ書き込み
-    func saveGameResultBool() {
-        let gameResultBool = gameResultSwitch.isOn
-        UserDefaults.standard.set(gameResultBool, forKey: "gameResultBool")
     }
     
     //印数のモデルよりペアリングデータを取得、UIにプレイヤー名を反映させる（ペアリング１と２両方）
@@ -600,7 +633,6 @@ class InfoTableViewController: UITableViewController {
             pp2A.text = ""
             pp2B.text = ""
             
-            let names = self.makeNameArray()
             let flags = self.makePlayingFlagArray()
             
             if pair1.count == 2 {

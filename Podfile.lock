@@ -1,0 +1,16 @@
+PODS:
+  - Gecco (2.0.0)
+
+DEPENDENCIES:
+  - Gecco
+
+SPEC REPOS:
+  trunk:
+    - Gecco
+
+SPEC CHECKSUMS:
+  Gecco: 6d4225d0b58f6cf952d198a831904d50e646ec3f
+
+PODFILE CHECKSUM: 1439f951f9c2dcab0414502211b9fb36f4f166ba
+
+COCOAPODS: 1.9.1
