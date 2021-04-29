@@ -6,5 +6,8 @@ target 'PadeLovers' do
   use_frameworks!
 
   # Pods for PadeLovers
+  pod 'SwiftLint'
+  pod 'Gifu'
+
 
 end

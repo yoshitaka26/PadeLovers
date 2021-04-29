@@ -25,7 +25,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bgb-2q-aK9">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="409"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="BCH-yw-MzL">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BCH-yw-MzL">
                                                 <rect key="frame" x="20" y="20" width="374" height="369"/>
                                             </imageView>
                                         </subviews>
@@ -131,6 +131,7 @@
                     </view>
                     <connections>
                         <outlet property="infoButton" destination="a48-Zn-4lu" id="gnu-gT-7Sm"/>
+                        <outlet property="mainImage" destination="BCH-yw-MzL" id="3Tr-tO-aHA"/>
                         <outlet property="playButton" destination="Uan-KJ-Bsb" id="QMs-CY-uVR"/>
                         <outlet property="restartButton" destination="fhC-jy-69P" id="oVI-L2-0PE"/>
                         <segue destination="esk-DW-kkG" kind="presentation" identifier="PlayGame" modalPresentationStyle="fullScreen" id="IFh-Hc-QE6"/>
@@ -151,24 +152,24 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ResultCell" id="h2x-P5-EMG">
-                                <rect key="frame" x="0.0" y="28" width="414" height="133.5"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="134.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="h2x-P5-EMG" id="VV7-JN-ojS">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="133.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="134.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="BaJ-ad-TiL">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="133.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="134.5"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="R74-19-5pj">
-                                                    <rect key="frame" x="0.0" y="54.5" width="207" height="24"/>
+                                                    <rect key="frame" x="0.0" y="55" width="207" height="24"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d8D-1Y-dCE">
-                                                    <rect key="frame" x="207" y="54.5" width="207" height="24"/>
+                                                    <rect key="frame" x="207" y="55" width="207" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -2841,7 +2842,6 @@
         <image name="7.square" catalog="system" width="128" height="114"/>
         <image name="8.square" catalog="system" width="128" height="114"/>
         <image name="9.square" catalog="system" width="128" height="114"/>
-        <image name="Image" width="1026" height="1036"/>
         <image name="doc.text.magnifyingglass" catalog="system" width="113" height="128"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="lock.fill" catalog="system" width="128" height="128"/>

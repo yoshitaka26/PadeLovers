@@ -3,69 +3,198 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		52B60EC2A583F24ACBB69C113F5488B9 /* SwiftLint */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = AE7B4FB01588B9E6DF09CB79FC7CE7BD /* Build configuration list for PBXAggregateTarget "SwiftLint" */;
+			buildPhases = (
+			);
+			dependencies = (
+			);
+			name = SwiftLint;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
-		1FF3605EDEB75D0115360674DD98916D /* Pods-PadeLovers-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 43EE11D1EC0804F88BC51037DE526CDF /* Pods-PadeLovers-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		60DF846D3FC128D673C5699A0F3A9F85 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		9CFC990DAEA88AD8EB034AE4C87C7332 /* Pods-PadeLovers-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC2DCFA26B828F55FAA2037F8AFB506 /* Pods-PadeLovers-dummy.m */; };
+		0133233B8FA3F7CD520BF2320BBB48D1 /* FrameStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB841FC303A29B1C656E1C7CFA5A838E /* FrameStore.swift */; };
+		1207ECB6099D5772A98E8DAE604BBB0F /* Pods-PadeLovers-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B8B4545778A37DFE16A0AC3E1580F193 /* Pods-PadeLovers-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2C94A3135168EFCB30223DAC7080F1A8 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201EF72C211BA56783B61FF34582FD84 /* UIImage.swift */; };
+		412892682BE8AA0CE911F1C04590BEF5 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E976ABB60ACA2F4F4DDF943B27BC47 /* Array.swift */; };
+		45984E7480A4DB592B40F0DA0DAE7514 /* Gifu-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A3301A08B36D6AC856911C68B0F466C1 /* Gifu-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4F8F54512992CAE265C593B52F34532D /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7B70DF2359FA9E92A2F307279129EC /* UIImageView.swift */; };
+		579C1FBFB7E8AB0557C8FD0D89A9AD05 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0874299D04670B58DDE9034A1D3766B6 /* Animator.swift */; };
+		81F4999D1D7F3ABE96A5432BB59E7368 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		93547DAC83B7FCC4FB7DA7851E8A8EAB /* CGSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DFDC1A229B04E3D308215A451799CA /* CGSize.swift */; };
+		A6A76623CE01F0CBAB470BDA582AEDB3 /* GIFImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19614DF4261AB42239C40B546ADDFDB1 /* GIFImageView.swift */; };
+		B1EEB201E44E9E562D052F9181538E23 /* Gifu-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 67042E0C5BDF2DE45F2093655F57F7DA /* Gifu-dummy.m */; };
+		B36CF03A512E05741F8B8F58834B08BB /* AnimatedFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD36C620E5C4DDE05F64D4952BE11C0 /* AnimatedFrame.swift */; };
+		BE18109174E3B3A854ABBCC35222BDE6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		BFAB974FF64B922647A22B70C3BA5C57 /* Pods-PadeLovers-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F88DF72F9F53FAEC3DE9651777F8B4B6 /* Pods-PadeLovers-dummy.m */; };
+		D6D1B805F4ED0B8805CEB5DCE192FEA9 /* ImageSourceHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E254AE4B67AEBFBE67A5F02D9163A9FD /* ImageSourceHelpers.swift */; };
+		DBC9BB953E1263398D517CF24DA43FA0 /* GIFAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939D306FAE7E6BC2538821A2D711889C /* GIFAnimatable.swift */; };
+		E8583EF4F023B694EA051DD60BF2BAFA /* Gifu.h in Headers */ = {isa = PBXBuildFile; fileRef = 42951DB766E1F14F0B4C9AACBB614FD8 /* Gifu.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		433F1A57A1B6851BF414EE965EEEEF4E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 52B60EC2A583F24ACBB69C113F5488B9;
+			remoteInfo = SwiftLint;
+		};
+		7C1008C914E3FF2334B84FBE91F04E14 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 830B5AB9E16163B4A1BA339D625FE46C;
+			remoteInfo = Gifu;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		026689B84A1C56D939AAE517470048C6 /* Pods-PadeLovers.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PadeLovers.debug.xcconfig"; sourceTree = "<group>"; };
+		0874299D04670B58DDE9034A1D3766B6 /* Animator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Animator.swift; path = Sources/Gifu/Classes/Animator.swift; sourceTree = "<group>"; };
 		0ABA776ECFEAF9A9CB1DCD168BBD3AF6 /* Pods_PadeLovers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_PadeLovers.framework; path = "Pods-PadeLovers.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2EC2DCFA26B828F55FAA2037F8AFB506 /* Pods-PadeLovers-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PadeLovers-dummy.m"; sourceTree = "<group>"; };
+		19614DF4261AB42239C40B546ADDFDB1 /* GIFImageView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GIFImageView.swift; path = Sources/Gifu/Classes/GIFImageView.swift; sourceTree = "<group>"; };
+		201EF72C211BA56783B61FF34582FD84 /* UIImage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIImage.swift; path = Sources/Gifu/Extensions/UIImage.swift; sourceTree = "<group>"; };
+		2062549C1CD009FAC75C184B6C87A0FB /* Pods-PadeLovers.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PadeLovers.release.xcconfig"; sourceTree = "<group>"; };
+		21DFDC1A229B04E3D308215A451799CA /* CGSize.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CGSize.swift; path = Sources/Gifu/Extensions/CGSize.swift; sourceTree = "<group>"; };
 		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		43EE11D1EC0804F88BC51037DE526CDF /* Pods-PadeLovers-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-PadeLovers-umbrella.h"; sourceTree = "<group>"; };
-		4D7F4895C05FDD477C36593226C20950 /* Pods-PadeLovers-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PadeLovers-acknowledgements.plist"; sourceTree = "<group>"; };
-		6C20EB37F68FE530769D3C583FA96F10 /* Pods-PadeLovers-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PadeLovers-acknowledgements.markdown"; sourceTree = "<group>"; };
-		81F37D01F00ED0E9BE0908EBC0D881FA /* Pods-PadeLovers.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PadeLovers.release.xcconfig"; sourceTree = "<group>"; };
+		40E5F8D9277E714962AFA02550F15F8A /* Gifu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Gifu.framework; path = Gifu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		42951DB766E1F14F0B4C9AACBB614FD8 /* Gifu.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Gifu.h; path = Sources/Gifu.h; sourceTree = "<group>"; };
+		511A428AAB3CEBBEC1C15C6798A98968 /* Pods-PadeLovers-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PadeLovers-frameworks.sh"; sourceTree = "<group>"; };
+		564E9E36A1B6BE8F0D531D2FFC65BB57 /* Gifu-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Gifu-Info.plist"; sourceTree = "<group>"; };
+		67042E0C5BDF2DE45F2093655F57F7DA /* Gifu-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Gifu-dummy.m"; sourceTree = "<group>"; };
+		71DBB372A17948ED02117776EB9555ED /* Gifu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Gifu.release.xcconfig; sourceTree = "<group>"; };
+		78E976ABB60ACA2F4F4DDF943B27BC47 /* Array.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Array.swift; path = Sources/Gifu/Extensions/Array.swift; sourceTree = "<group>"; };
+		809DBA256DD61BD670874DDEFC7AFE1C /* Gifu-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Gifu-prefix.pch"; sourceTree = "<group>"; };
+		8263F0713353E0D5A97E23585B1602D7 /* Pods-PadeLovers-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PadeLovers-acknowledgements.plist"; sourceTree = "<group>"; };
+		870C4D7FCA887FF6A636D7C5C15B5E8D /* SwiftLint.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftLint.release.xcconfig; sourceTree = "<group>"; };
+		8A4BACD39AC63B68D8F8705884B9300F /* Pods-PadeLovers.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-PadeLovers.modulemap"; sourceTree = "<group>"; };
+		8AD36C620E5C4DDE05F64D4952BE11C0 /* AnimatedFrame.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnimatedFrame.swift; path = Sources/Gifu/Classes/AnimatedFrame.swift; sourceTree = "<group>"; };
+		8F7B70DF2359FA9E92A2F307279129EC /* UIImageView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIImageView.swift; path = Sources/Gifu/Extensions/UIImageView.swift; sourceTree = "<group>"; };
+		939D306FAE7E6BC2538821A2D711889C /* GIFAnimatable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GIFAnimatable.swift; path = Sources/Gifu/Classes/GIFAnimatable.swift; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		AE415ED5DB3499A580E5AE4300AF0E41 /* Pods-PadeLovers-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PadeLovers-Info.plist"; sourceTree = "<group>"; };
-		EEF84CCC3E51D35A91025F90BFF18909 /* Pods-PadeLovers.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-PadeLovers.modulemap"; sourceTree = "<group>"; };
-		F70B70AD1AB125F74B4B9CA795A36EDE /* Pods-PadeLovers.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PadeLovers.debug.xcconfig"; sourceTree = "<group>"; };
+		A3301A08B36D6AC856911C68B0F466C1 /* Gifu-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Gifu-umbrella.h"; sourceTree = "<group>"; };
+		B8B4545778A37DFE16A0AC3E1580F193 /* Pods-PadeLovers-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-PadeLovers-umbrella.h"; sourceTree = "<group>"; };
+		BADA321CB4FE0B543EFE67E3C122B98E /* Gifu.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Gifu.modulemap; sourceTree = "<group>"; };
+		BB2737D16D8D0D88F7DE7E817CCCAD22 /* Pods-PadeLovers-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PadeLovers-acknowledgements.markdown"; sourceTree = "<group>"; };
+		CF3F8EE0F43D59E977D99A0316CBC31C /* SwiftLint.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftLint.debug.xcconfig; sourceTree = "<group>"; };
+		D06CF7C3CE7CDB1A1121ABD8B0A1AE46 /* Pods-PadeLovers-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PadeLovers-Info.plist"; sourceTree = "<group>"; };
+		D96E86785162E0EFC578A4A0012910A5 /* Gifu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Gifu.debug.xcconfig; sourceTree = "<group>"; };
+		E254AE4B67AEBFBE67A5F02D9163A9FD /* ImageSourceHelpers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageSourceHelpers.swift; path = Sources/Gifu/Helpers/ImageSourceHelpers.swift; sourceTree = "<group>"; };
+		EB841FC303A29B1C656E1C7CFA5A838E /* FrameStore.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FrameStore.swift; path = Sources/Gifu/Classes/FrameStore.swift; sourceTree = "<group>"; };
+		F88DF72F9F53FAEC3DE9651777F8B4B6 /* Pods-PadeLovers-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PadeLovers-dummy.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		B29C39828B30BC0F544E8046EC9359BA /* Frameworks */ = {
+		163D417D85B4100BC56AD223C4F9F293 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				60DF846D3FC128D673C5699A0F3A9F85 /* Foundation.framework in Frameworks */,
+				81F4999D1D7F3ABE96A5432BB59E7368 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9D67FA5C7D83687C867E0A5B3F0B5086 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE18109174E3B3A854ABBCC35222BDE6 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		03836E7EC2BD6ECA30B3AF421C3ADCD6 /* Products */ = {
+		289860BE31D83C0EF8634834F291D453 /* Gifu */ = {
 			isa = PBXGroup;
 			children = (
-				0ABA776ECFEAF9A9CB1DCD168BBD3AF6 /* Pods_PadeLovers.framework */,
+				8AD36C620E5C4DDE05F64D4952BE11C0 /* AnimatedFrame.swift */,
+				0874299D04670B58DDE9034A1D3766B6 /* Animator.swift */,
+				78E976ABB60ACA2F4F4DDF943B27BC47 /* Array.swift */,
+				21DFDC1A229B04E3D308215A451799CA /* CGSize.swift */,
+				EB841FC303A29B1C656E1C7CFA5A838E /* FrameStore.swift */,
+				939D306FAE7E6BC2538821A2D711889C /* GIFAnimatable.swift */,
+				19614DF4261AB42239C40B546ADDFDB1 /* GIFImageView.swift */,
+				42951DB766E1F14F0B4C9AACBB614FD8 /* Gifu.h */,
+				E254AE4B67AEBFBE67A5F02D9163A9FD /* ImageSourceHelpers.swift */,
+				201EF72C211BA56783B61FF34582FD84 /* UIImage.swift */,
+				8F7B70DF2359FA9E92A2F307279129EC /* UIImageView.swift */,
+				64814D74024F0587CCFF23CE382F82FA /* Support Files */,
 			);
-			name = Products;
+			name = Gifu;
+			path = Gifu;
 			sourceTree = "<group>";
 		};
-		085124777A1D3357A0E1A055B97E8984 /* Pods-PadeLovers */ = {
+		2DB5564C635ED6771A4973345E55C82F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				EEF84CCC3E51D35A91025F90BFF18909 /* Pods-PadeLovers.modulemap */,
-				6C20EB37F68FE530769D3C583FA96F10 /* Pods-PadeLovers-acknowledgements.markdown */,
-				4D7F4895C05FDD477C36593226C20950 /* Pods-PadeLovers-acknowledgements.plist */,
-				2EC2DCFA26B828F55FAA2037F8AFB506 /* Pods-PadeLovers-dummy.m */,
-				AE415ED5DB3499A580E5AE4300AF0E41 /* Pods-PadeLovers-Info.plist */,
-				43EE11D1EC0804F88BC51037DE526CDF /* Pods-PadeLovers-umbrella.h */,
-				F70B70AD1AB125F74B4B9CA795A36EDE /* Pods-PadeLovers.debug.xcconfig */,
-				81F37D01F00ED0E9BE0908EBC0D881FA /* Pods-PadeLovers.release.xcconfig */,
+				289860BE31D83C0EF8634834F291D453 /* Gifu */,
+				69B34D9638E2FF45D3DC93E71DC015E4 /* SwiftLint */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		5C725934E5CAC9DEFC170DDAE1FC18DE /* Pods-PadeLovers */ = {
+			isa = PBXGroup;
+			children = (
+				8A4BACD39AC63B68D8F8705884B9300F /* Pods-PadeLovers.modulemap */,
+				BB2737D16D8D0D88F7DE7E817CCCAD22 /* Pods-PadeLovers-acknowledgements.markdown */,
+				8263F0713353E0D5A97E23585B1602D7 /* Pods-PadeLovers-acknowledgements.plist */,
+				F88DF72F9F53FAEC3DE9651777F8B4B6 /* Pods-PadeLovers-dummy.m */,
+				511A428AAB3CEBBEC1C15C6798A98968 /* Pods-PadeLovers-frameworks.sh */,
+				D06CF7C3CE7CDB1A1121ABD8B0A1AE46 /* Pods-PadeLovers-Info.plist */,
+				B8B4545778A37DFE16A0AC3E1580F193 /* Pods-PadeLovers-umbrella.h */,
+				026689B84A1C56D939AAE517470048C6 /* Pods-PadeLovers.debug.xcconfig */,
+				2062549C1CD009FAC75C184B6C87A0FB /* Pods-PadeLovers.release.xcconfig */,
 			);
 			name = "Pods-PadeLovers";
 			path = "Target Support Files/Pods-PadeLovers";
 			sourceTree = "<group>";
 		};
-		0CEB8F37930525F9B2A5D58A884ECE89 /* Targets Support Files */ = {
+		64814D74024F0587CCFF23CE382F82FA /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				085124777A1D3357A0E1A055B97E8984 /* Pods-PadeLovers */,
+				BADA321CB4FE0B543EFE67E3C122B98E /* Gifu.modulemap */,
+				67042E0C5BDF2DE45F2093655F57F7DA /* Gifu-dummy.m */,
+				564E9E36A1B6BE8F0D531D2FFC65BB57 /* Gifu-Info.plist */,
+				809DBA256DD61BD670874DDEFC7AFE1C /* Gifu-prefix.pch */,
+				A3301A08B36D6AC856911C68B0F466C1 /* Gifu-umbrella.h */,
+				D96E86785162E0EFC578A4A0012910A5 /* Gifu.debug.xcconfig */,
+				71DBB372A17948ED02117776EB9555ED /* Gifu.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Gifu";
+			sourceTree = "<group>";
+		};
+		69B34D9638E2FF45D3DC93E71DC015E4 /* SwiftLint */ = {
+			isa = PBXGroup;
+			children = (
+				6AFF5F19ADB762DB498A4A0C07E31741 /* Support Files */,
+			);
+			name = SwiftLint;
+			path = SwiftLint;
+			sourceTree = "<group>";
+		};
+		6AFF5F19ADB762DB498A4A0C07E31741 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				CF3F8EE0F43D59E977D99A0316CBC31C /* SwiftLint.debug.xcconfig */,
+				870C4D7FCA887FF6A636D7C5C15B5E8D /* SwiftLint.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SwiftLint";
+			sourceTree = "<group>";
+		};
+		6FBA4860D89EB130B9D762E24973C893 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				5C725934E5CAC9DEFC170DDAE1FC18DE /* Pods-PadeLovers */,
 			);
 			name = "Targets Support Files";
 			sourceTree = "<group>";
@@ -83,8 +212,9 @@
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
-				03836E7EC2BD6ECA30B3AF421C3ADCD6 /* Products */,
-				0CEB8F37930525F9B2A5D58A884ECE89 /* Targets Support Files */,
+				2DB5564C635ED6771A4973345E55C82F /* Pods */,
+				E6D9AFAB0AA3645DD012A43F0DFD02B3 /* Products */,
+				6FBA4860D89EB130B9D762E24973C893 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,14 +226,32 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E6D9AFAB0AA3645DD012A43F0DFD02B3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				40E5F8D9277E714962AFA02550F15F8A /* Gifu.framework */,
+				0ABA776ECFEAF9A9CB1DCD168BBD3AF6 /* Pods_PadeLovers.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		BE6E261F3D9EE6BCEC5E14788047FFC8 /* Headers */ = {
+		6C82A261E114E04E54D5D64380D759BE /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1FF3605EDEB75D0115360674DD98916D /* Pods-PadeLovers-umbrella.h in Headers */,
+				45984E7480A4DB592B40F0DA0DAE7514 /* Gifu-umbrella.h in Headers */,
+				E8583EF4F023B694EA051DD60BF2BAFA /* Gifu.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		89CC10B257D30923754639AE0B499D1A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1207ECB6099D5772A98E8DAE604BBB0F /* Pods-PadeLovers-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,20 +260,40 @@
 /* Begin PBXNativeTarget section */
 		247BE1781CB7F9C3EA2C9D859C5C39AC /* Pods-PadeLovers */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 03CDE6862F1C0CA18E0C4B137B373812 /* Build configuration list for PBXNativeTarget "Pods-PadeLovers" */;
+			buildConfigurationList = 84C01A9347D63CB1D8305679D0760A40 /* Build configuration list for PBXNativeTarget "Pods-PadeLovers" */;
 			buildPhases = (
-				BE6E261F3D9EE6BCEC5E14788047FFC8 /* Headers */,
-				17D5ECD188555AEC586268E66CF7BB37 /* Sources */,
-				B29C39828B30BC0F544E8046EC9359BA /* Frameworks */,
-				528CD35EEDDB4684478A8B8C87DBFF26 /* Resources */,
+				89CC10B257D30923754639AE0B499D1A /* Headers */,
+				81E7DED870D7C7F1F5E94254EA6433F6 /* Sources */,
+				163D417D85B4100BC56AD223C4F9F293 /* Frameworks */,
+				4F8AE2F5BC25DD9157F448074EF39310 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				864D116853991DABF57513224E6CDF90 /* PBXTargetDependency */,
+				169C6638C45D86313DE0625490657E55 /* PBXTargetDependency */,
+			);
+			name = "Pods-PadeLovers";
+			productName = "Pods-PadeLovers";
+			productReference = 0ABA776ECFEAF9A9CB1DCD168BBD3AF6 /* Pods_PadeLovers.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		830B5AB9E16163B4A1BA339D625FE46C /* Gifu */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04BF61807C7C6D0918F26F2E99C6D024 /* Build configuration list for PBXNativeTarget "Gifu" */;
+			buildPhases = (
+				6C82A261E114E04E54D5D64380D759BE /* Headers */,
+				08A0F7D54E6E96D496EF1270392D981E /* Sources */,
+				9D67FA5C7D83687C867E0A5B3F0B5086 /* Frameworks */,
+				1637D52521EF70529E9091617E2F70CE /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Pods-PadeLovers";
-			productName = "Pods-PadeLovers";
-			productReference = 0ABA776ECFEAF9A9CB1DCD168BBD3AF6 /* Pods_PadeLovers.framework */;
+			name = Gifu;
+			productName = Gifu;
+			productReference = 40E5F8D9277E714962AFA02550F15F8A /* Gifu.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -138,7 +306,7 @@
 				LastUpgradeCheck = 1100;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
-			compatibilityVersion = "Xcode 10.0";
+			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -146,17 +314,26 @@
 				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = 03836E7EC2BD6ECA30B3AF421C3ADCD6 /* Products */;
+			productRefGroup = E6D9AFAB0AA3645DD012A43F0DFD02B3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				830B5AB9E16163B4A1BA339D625FE46C /* Gifu */,
 				247BE1781CB7F9C3EA2C9D859C5C39AC /* Pods-PadeLovers */,
+				52B60EC2A583F24ACBB69C113F5488B9 /* SwiftLint */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		528CD35EEDDB4684478A8B8C87DBFF26 /* Resources */ = {
+		1637D52521EF70529E9091617E2F70CE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4F8AE2F5BC25DD9157F448074EF39310 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -166,15 +343,48 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		17D5ECD188555AEC586268E66CF7BB37 /* Sources */ = {
+		08A0F7D54E6E96D496EF1270392D981E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9CFC990DAEA88AD8EB034AE4C87C7332 /* Pods-PadeLovers-dummy.m in Sources */,
+				B36CF03A512E05741F8B8F58834B08BB /* AnimatedFrame.swift in Sources */,
+				579C1FBFB7E8AB0557C8FD0D89A9AD05 /* Animator.swift in Sources */,
+				412892682BE8AA0CE911F1C04590BEF5 /* Array.swift in Sources */,
+				93547DAC83B7FCC4FB7DA7851E8A8EAB /* CGSize.swift in Sources */,
+				0133233B8FA3F7CD520BF2320BBB48D1 /* FrameStore.swift in Sources */,
+				DBC9BB953E1263398D517CF24DA43FA0 /* GIFAnimatable.swift in Sources */,
+				A6A76623CE01F0CBAB470BDA582AEDB3 /* GIFImageView.swift in Sources */,
+				B1EEB201E44E9E562D052F9181538E23 /* Gifu-dummy.m in Sources */,
+				D6D1B805F4ED0B8805CEB5DCE192FEA9 /* ImageSourceHelpers.swift in Sources */,
+				2C94A3135168EFCB30223DAC7080F1A8 /* UIImage.swift in Sources */,
+				4F8F54512992CAE265C593B52F34532D /* UIImageView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		81E7DED870D7C7F1F5E94254EA6433F6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BFAB974FF64B922647A22B70C3BA5C57 /* Pods-PadeLovers-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		169C6638C45D86313DE0625490657E55 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftLint;
+			target = 52B60EC2A583F24ACBB69C113F5488B9 /* SwiftLint */;
+			targetProxy = 433F1A57A1B6851BF414EE965EEEEF4E /* PBXContainerItemProxy */;
+		};
+		864D116853991DABF57513224E6CDF90 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Gifu;
+			target = 830B5AB9E16163B4A1BA339D625FE46C /* Gifu */;
+			targetProxy = 7C1008C914E3FF2334B84FBE91F04E14 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		1422B121EAEAEA11307496903FA623C6 /* Release */ = {
@@ -237,9 +447,77 @@
 			};
 			name = Release;
 		};
-		6CFE49B66223E4D276280BB7AB8CE181 /* Debug */ = {
+		2FD83B7A415395438CFE891119DAC6AB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F70B70AD1AB125F74B4B9CA795A36EDE /* Pods-PadeLovers.debug.xcconfig */;
+			baseConfigurationReference = D96E86785162E0EFC578A4A0012910A5 /* Gifu.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Gifu/Gifu-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Gifu/Gifu-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Gifu/Gifu.modulemap";
+				PRODUCT_MODULE_NAME = Gifu;
+				PRODUCT_NAME = Gifu;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.3;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		6F0305621208201F306E4BD73BA7F445 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 870C4D7FCA887FF6A636D7C5C15B5E8D /* SwiftLint.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A881FCB28916AE81F257BFFD4DFA1CB8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CF3F8EE0F43D59E977D99A0316CBC31C /* SwiftLint.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AACB658328A5AE69DF6CE7E8778EE2CE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 026689B84A1C56D939AAE517470048C6 /* Pods-PadeLovers.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -275,9 +553,9 @@
 			};
 			name = Debug;
 		};
-		C1351A151D589B0521BB2ECABB96BDF5 /* Release */ = {
+		DA56EE23C41D97DA1DFBC68D981516FE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 81F37D01F00ED0E9BE0908EBC0D881FA /* Pods-PadeLovers.release.xcconfig */;
+			baseConfigurationReference = 2062549C1CD009FAC75C184B6C87A0FB /* Pods-PadeLovers.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -378,14 +656,50 @@
 			};
 			name = Debug;
 		};
+		F53E6586C024C2AD32BF080A81FD5FD4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 71DBB372A17948ED02117776EB9555ED /* Gifu.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Gifu/Gifu-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Gifu/Gifu-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Gifu/Gifu.modulemap";
+				PRODUCT_MODULE_NAME = Gifu;
+				PRODUCT_NAME = Gifu;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.3;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		03CDE6862F1C0CA18E0C4B137B373812 /* Build configuration list for PBXNativeTarget "Pods-PadeLovers" */ = {
+		04BF61807C7C6D0918F26F2E99C6D024 /* Build configuration list for PBXNativeTarget "Gifu" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6CFE49B66223E4D276280BB7AB8CE181 /* Debug */,
-				C1351A151D589B0521BB2ECABB96BDF5 /* Release */,
+				2FD83B7A415395438CFE891119DAC6AB /* Debug */,
+				F53E6586C024C2AD32BF080A81FD5FD4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -395,6 +709,24 @@
 			buildConfigurations = (
 				ED7888FA6713EABBF66D26A8003AD1CA /* Debug */,
 				1422B121EAEAEA11307496903FA623C6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		84C01A9347D63CB1D8305679D0760A40 /* Build configuration list for PBXNativeTarget "Pods-PadeLovers" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AACB658328A5AE69DF6CE7E8778EE2CE /* Debug */,
+				DA56EE23C41D97DA1DFBC68D981516FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AE7B4FB01588B9E6DF09CB79FC7CE7BD /* Build configuration list for PBXAggregateTarget "SwiftLint" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A881FCB28916AE81F257BFFD4DFA1CB8 /* Debug */,
+				6F0305621208201F306E4BD73BA7F445 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

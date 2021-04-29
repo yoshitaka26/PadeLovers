@@ -1,0 +1,39 @@
+# 無効にするルール
+disabled_rules:
+# warningが走るため無効にする
+
+# ビルドが失敗するルールを無効にする
+- variable_name
+- file_length
+- function_body_length
+- line_length
+- type_body_length
+- variable_name_max_length
+- variable_name_min_length
+- force_cast
+- force_try
+- shorthand_operator
+- empty_count
+- cyclomatic_complexity
+- type_name
+- implicit_getter
+
+# デフォルトルール以外でopt-inから適用させるルールの設定
+opt_in_rules:
+# ここに採用したいルールを追加していく #
+
+
+# SwiftLintの適用から外すディレクトリ
+# (UnitTestやUITestもある場合は修正されますので入れます)
+excluded:
+# cocoapodsを使っている場合#
+- Pods/
+# Carthageを使っている場合#
+- Carthage/
+
+
+
+# 1行あたりの文字数制限を300に変更
+line_length: 300
+
+# etc

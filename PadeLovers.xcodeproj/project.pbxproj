@@ -27,6 +27,7 @@
 		E47F20342547D56B00996B19 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E47F20322547D56B00996B19 /* Main.storyboard */; };
 		E47F20362547D56D00996B19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E47F20352547D56D00996B19 /* Assets.xcassets */; };
 		E47F20392547D56D00996B19 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E47F20372547D56D00996B19 /* LaunchScreen.storyboard */; };
+		E481F408263AA18300D2B879 /* welcome.gif in Resources */ = {isa = PBXBuildFile; fileRef = E481F407263AA18300D2B879 /* welcome.gif */; };
 		E4ED0756255BB1B100ED8EB5 /* gameDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4ED0754255BB1B100ED8EB5 /* gameDataTableViewCell.swift */; };
 		E4ED0757255BB1B100ED8EB5 /* gameDataTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4ED0755255BB1B100ED8EB5 /* gameDataTableViewCell.xib */; };
 /* End PBXBuildFile section */
@@ -55,6 +56,7 @@
 		E47F20352547D56D00996B19 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E47F20382547D56D00996B19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E47F203A2547D56D00996B19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E481F407263AA18300D2B879 /* welcome.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = welcome.gif; sourceTree = "<group>"; };
 		E4ED0754255BB1B100ED8EB5 /* gameDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gameDataTableViewCell.swift; sourceTree = "<group>"; };
 		E4ED0755255BB1B100ED8EB5 /* gameDataTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = gameDataTableViewCell.xib; sourceTree = "<group>"; };
 		E8911760E1ABF8DB5F2D01DD /* Pods-PadeLovers.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PadeLovers.release.xcconfig"; path = "Target Support Files/Pods-PadeLovers/Pods-PadeLovers.release.xcconfig"; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				E439941A2548DB9C007BA523 /* Controller */,
 				E43994192548DB82007BA523 /* View */,
 				E47F20352547D56D00996B19 /* Assets.xcassets */,
+				E481F407263AA18300D2B879 /* welcome.gif */,
 				E47F20372547D56D00996B19 /* LaunchScreen.storyboard */,
 				E47F203A2547D56D00996B19 /* Info.plist */,
 			);
@@ -171,6 +174,8 @@
 				E47F20252547D56B00996B19 /* Sources */,
 				E47F20262547D56B00996B19 /* Frameworks */,
 				E47F20272547D56B00996B19 /* Resources */,
+				B70A5C5A315480C27E1CF6B7 /* [CP] Embed Pods Frameworks */,
+				E481F411263ABED400D2B879 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -222,6 +227,7 @@
 				E4ED0757255BB1B100ED8EB5 /* gameDataTableViewCell.xib in Resources */,
 				E47F20392547D56D00996B19 /* LaunchScreen.storyboard in Resources */,
 				E4324F302547EDAB00063A9F /* TableViewCell.xib in Resources */,
+				E481F408263AA18300D2B879 /* welcome.gif in Resources */,
 				E47F20362547D56D00996B19 /* Assets.xcassets in Resources */,
 				E47F20342547D56B00996B19 /* Main.storyboard in Resources */,
 			);
@@ -230,6 +236,40 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		B70A5C5A315480C27E1CF6B7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PadeLovers/Pods-PadeLovers-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PadeLovers/Pods-PadeLovers-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PadeLovers/Pods-PadeLovers-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E481F411263ABED400D2B879 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which \"${PODS_ROOT}/SwiftLint/swiftlint\" >/dev/null; then\n${PODS_ROOT}/SwiftLint/swiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
 		F5BC0ADF6AAA7DBB028FC5BE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

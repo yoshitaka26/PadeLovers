@@ -1,3 +1,20 @@
-PODFILE CHECKSUM: ddd99db8dabd2424319cfc69df19f8d371af65d5
+PODS:
+  - Gifu (3.3)
+  - SwiftLint (0.43.1)
+
+DEPENDENCIES:
+  - Gifu
+  - SwiftLint
+
+SPEC REPOS:
+  trunk:
+    - Gifu
+    - SwiftLint
+
+SPEC CHECKSUMS:
+  Gifu: 97c2a3c3865fbc834ab13f797e2e8e7729a1853c
+  SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
+
+PODFILE CHECKSUM: 4526da425d7a4bbbfcc2c0e4536f6232a555d72d
 
 COCOAPODS: 1.9.1

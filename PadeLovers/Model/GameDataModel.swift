@@ -14,7 +14,7 @@ class GameModel: Codable {
     var leftForeside: PadelModel
     var leftBackside: PadelModel
     var winFlag: Bool?
-    
+
     init(rF: PadelModel, rB: PadelModel, lF: PadelModel, lB: PadelModel, winFlag: Bool? = nil) {
         self.rightForeside = rF
         self.rightBackside = rB
@@ -28,21 +28,21 @@ class PadelModel: Comparable, Codable {
     static func < (lhs: PadelModel, rhs: PadelModel) -> Bool {
         lhs.playCounts < rhs.playCounts
     }
-    
+
     static func == (lhs: PadelModel, rhs: PadelModel) -> Bool {
         lhs.pairedPlayer == rhs.pairedPlayer
     }
-    
+
     var name: String
-    var playCounts:Int
+    var playCounts: Int
     var pairedPlayer: [String]
     var pairedPlayer2: [String]
     var gender: Bool
     var pairing1: Bool
     var pairing2: Bool
     var playingFlag: Bool
-    
-    init(name: String, playCounts:Int = 0, pairedPlayer:[String] = [], pairedPlayer2: [String] = [], gender: Bool = true, pairing1: Bool = false, pairing2: Bool = false, playingFlag: Bool = true) {
+
+    init(name: String, playCounts: Int = 0, pairedPlayer: [String] = [], pairedPlayer2: [String] = [], gender: Bool = true, pairing1: Bool = false, pairing2: Bool = false, playingFlag: Bool = true) {
         self.name = name
         self.playCounts = playCounts
         self.pairedPlayer = pairedPlayer
@@ -53,5 +53,3 @@ class PadelModel: Comparable, Codable {
         self.playingFlag = playingFlag
     }
 }
-
-

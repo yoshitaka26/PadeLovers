@@ -12,9 +12,9 @@ class SettingTableViewController: UITableViewController {
 
     @IBOutlet weak var c1: UITextField!
     @IBOutlet weak var c2: UITextField!
-    
+
     @IBOutlet weak var teamSegment: UISegmentedControl!
-    
+
     @IBOutlet weak var p1: UITextField!
     @IBOutlet weak var p1g: UISegmentedControl!
     @IBOutlet weak var p2: UITextField!
@@ -57,26 +57,26 @@ class SettingTableViewController: UITableViewController {
     @IBOutlet weak var p20g: UISegmentedControl!
     @IBOutlet weak var p21: UITextField!
     @IBOutlet weak var p21g: UISegmentedControl!
-    
+
     var courtNameArray: [String] = []
     var nameArray: [String] = []
     var genderArray: [Bool] = []
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         var team: Int = 0
-        
+
         if let teamNum = UserDefaults.standard.value(forKey: "team") as? Int {
             team = teamNum
             teamSegment.selectedSegmentIndex = teamNum
         }
-        
+
         if let court = UserDefaults.standard.value(forKey: "court") as? [String] {
             c1.text = court[0]
             c2.text = court[1]
         }
-        
+
         switch team {
         case 0:
             updateNameUI(nameKey: "player")
@@ -92,23 +92,23 @@ class SettingTableViewController: UITableViewController {
             updateGenderUI(genderKey: "gender")
         }
     }
-    
+
     override func viewDidDisappear(_ animated: Bool) {
-        
+
         let court1 = c1.text ?? "Aコート"
         let court2 = c2.text ?? "Bコート"
         courtNameArray = [court1, court2]
 
         let textFieldArray = createNameArray()
         let segmentArray = createGenderArray()
-        
+
         let team = teamSegment.selectedSegmentIndex
-        
+
         for textField in textFieldArray {
             let name = textField?.text ?? "X"
             nameArray.append(name)
         }
-        
+
         for segment in segmentArray {
             let index = segment?.selectedSegmentIndex
             if index == 0 {
@@ -117,10 +117,10 @@ class SettingTableViewController: UITableViewController {
                 genderArray.append(false)
             }
         }
-        
+
         UserDefaults.standard.set(courtNameArray, forKey: "court")
         UserDefaults.standard.set(team, forKey: "team")
-        
+
         if team == 0 {
             UserDefaults.standard.set(nameArray, forKey: "player")
             UserDefaults.standard.set(genderArray, forKey: "gender")
@@ -132,11 +132,10 @@ class SettingTableViewController: UITableViewController {
             UserDefaults.standard.set(genderArray, forKey: "gender3")
         }
     }
-    
-    
+
     @IBAction func segmentChanged(_ sender: UISegmentedControl) {
         let team = teamSegment.selectedSegmentIndex
-        
+
         switch team {
         case 0:
             updateNameUI(nameKey: "player")
@@ -152,7 +151,6 @@ class SettingTableViewController: UITableViewController {
             updateGenderUI(genderKey: "gender")
         }
     }
-    
 
     // MARK: - Table view data source
 
@@ -162,31 +160,31 @@ class SettingTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+
         switch section {
         case 0:
             return 2
         case 1:
             return 22
-            
+
         default:
             return 0
         }
     }
-    
+
     func createNameArray() -> [UITextField?] {
         let textFieldArray = [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21]
         return textFieldArray
     }
-    
+
     func createGenderArray() -> [UISegmentedControl?] {
-        let segmentArray = [p1g, p2g, p3g, p4g, p5g, p6g, p7g, p8g, p9g, p10g, p11g, p12g, p13g, p14g, p15g, p16g, p17g, p18g, p19g,p20g, p21g]
+        let segmentArray = [p1g, p2g, p3g, p4g, p5g, p6g, p7g, p8g, p9g, p10g, p11g, p12g, p13g, p14g, p15g, p16g, p17g, p18g, p19g, p20g, p21g]
         return segmentArray
     }
-    
+
     func updateNameUI(nameKey: String) {
         let textFieldArray = createNameArray()
-        
+
         if let player = UserDefaults.standard.value(forKey: nameKey) as? [String] {
             if player.count == 21 {
                 for i in 0...20 {
@@ -218,10 +216,10 @@ class SettingTableViewController: UITableViewController {
             }
         }
     }
-    
+
     func updateGenderUI(genderKey: String) {
         let segmentArray = createGenderArray()
-        
+
         if let gender = UserDefaults.standard.value(forKey: genderKey) as? [Bool] {
             if gender.count == 21 {
                 for i in 0...20 {

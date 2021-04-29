@@ -17,7 +17,7 @@ class gameDataTableViewCell: UITableViewCell {
     @IBOutlet weak var rightPlayersImage: UIImageView!
     @IBOutlet weak var leftPlayersImage: UIImageView!
     @IBOutlet weak var gameTitle: UILabel!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -28,5 +28,5 @@ class gameDataTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+
 }
