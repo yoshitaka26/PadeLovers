@@ -3,146 +3,71 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0411247C35F047BA52C52B64864D9DDB /* Gecco-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CA162078FFF162D65E0F7FB9B2E466A2 /* Gecco-dummy.m */; };
-		3D64560CC55340941D4A1C006C27B12E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		442E38A44D5FBC7DBE324386ED02A684 /* SpotlightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01609ABA1FE2FB49EA19420634D9EF52 /* SpotlightViewController.swift */; };
-		4EAEAE01424D48383A4E83C89F3D9EF6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		580FB938029B3C412014922D1EDADDC8 /* Pods-PadeLovers-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F88DF72F9F53FAEC3DE9651777F8B4B6 /* Pods-PadeLovers-dummy.m */; };
-		BD2BD03BFA71EA2B2E321961C9CDDC12 /* Pods-PadeLovers-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B8B4545778A37DFE16A0AC3E1580F193 /* Pods-PadeLovers-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DD3DC9EEA5541FA110DD78DACDF632D8 /* SpotlightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C377CDF950A0DE4AB5507F677E59D86 /* SpotlightView.swift */; };
-		DDE8B41A6C5A2D1979EBDC21D3DA24BF /* SpotlightTransitionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A6F1D9B8076FC14E87EE68C95E0103 /* SpotlightTransitionController.swift */; };
-		EBF4FC387028F2771532AEA584B3ACEA /* Gecco-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F5BF1B663BFA12848C8A61310BE0FD96 /* Gecco-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F4246C5665D5FDA4A7D3B4F80ED8520A /* Spotlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7D7913575F03EED98C0464E384C7EF /* Spotlight.swift */; };
+		1FF3605EDEB75D0115360674DD98916D /* Pods-PadeLovers-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 43EE11D1EC0804F88BC51037DE526CDF /* Pods-PadeLovers-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		60DF846D3FC128D673C5699A0F3A9F85 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		9CFC990DAEA88AD8EB034AE4C87C7332 /* Pods-PadeLovers-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC2DCFA26B828F55FAA2037F8AFB506 /* Pods-PadeLovers-dummy.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		F574DB70D215BB4F5885E47DB7AF1EFA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 33DD237F589B2B8BEB915CB572B3D9DA;
-			remoteInfo = Gecco;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		01609ABA1FE2FB49EA19420634D9EF52 /* SpotlightViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SpotlightViewController.swift; path = Classes/SpotlightViewController.swift; sourceTree = "<group>"; };
-		026689B84A1C56D939AAE517470048C6 /* Pods-PadeLovers.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PadeLovers.debug.xcconfig"; sourceTree = "<group>"; };
-		0ABA776ECFEAF9A9CB1DCD168BBD3AF6 /* Pods_PadeLovers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PadeLovers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		10CD3F62392A391FCB40160878E52AAA /* Gecco-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Gecco-prefix.pch"; sourceTree = "<group>"; };
-		2062549C1CD009FAC75C184B6C87A0FB /* Pods-PadeLovers.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PadeLovers.release.xcconfig"; sourceTree = "<group>"; };
-		209503A15AFFC632CE0558151E636B26 /* Gecco.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Gecco.modulemap; sourceTree = "<group>"; };
+		0ABA776ECFEAF9A9CB1DCD168BBD3AF6 /* Pods_PadeLovers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_PadeLovers.framework; path = "Pods-PadeLovers.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2EC2DCFA26B828F55FAA2037F8AFB506 /* Pods-PadeLovers-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PadeLovers-dummy.m"; sourceTree = "<group>"; };
 		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		4C377CDF950A0DE4AB5507F677E59D86 /* SpotlightView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SpotlightView.swift; path = Classes/SpotlightView.swift; sourceTree = "<group>"; };
-		4F7D7913575F03EED98C0464E384C7EF /* Spotlight.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Spotlight.swift; path = Classes/Spotlight.swift; sourceTree = "<group>"; };
-		511A428AAB3CEBBEC1C15C6798A98968 /* Pods-PadeLovers-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PadeLovers-frameworks.sh"; sourceTree = "<group>"; };
-		5533EC33596967D1496A2ADA5EEF67C3 /* Gecco.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Gecco.debug.xcconfig; sourceTree = "<group>"; };
-		8263F0713353E0D5A97E23585B1602D7 /* Pods-PadeLovers-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PadeLovers-acknowledgements.plist"; sourceTree = "<group>"; };
-		85D6559E73A637A10564BA9B537354F4 /* Gecco.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Gecco.release.xcconfig; sourceTree = "<group>"; };
-		8A4BACD39AC63B68D8F8705884B9300F /* Pods-PadeLovers.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-PadeLovers.modulemap"; sourceTree = "<group>"; };
-		95A6F1D9B8076FC14E87EE68C95E0103 /* SpotlightTransitionController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SpotlightTransitionController.swift; path = Classes/SpotlightTransitionController.swift; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		B8B4545778A37DFE16A0AC3E1580F193 /* Pods-PadeLovers-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-PadeLovers-umbrella.h"; sourceTree = "<group>"; };
-		BB2737D16D8D0D88F7DE7E817CCCAD22 /* Pods-PadeLovers-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PadeLovers-acknowledgements.markdown"; sourceTree = "<group>"; };
-		BD6380F67728A3C9D32F354A2248FC32 /* Gecco-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Gecco-Info.plist"; sourceTree = "<group>"; };
-		CA162078FFF162D65E0F7FB9B2E466A2 /* Gecco-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Gecco-dummy.m"; sourceTree = "<group>"; };
-		D06CF7C3CE7CDB1A1121ABD8B0A1AE46 /* Pods-PadeLovers-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PadeLovers-Info.plist"; sourceTree = "<group>"; };
-		F5BF1B663BFA12848C8A61310BE0FD96 /* Gecco-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Gecco-umbrella.h"; sourceTree = "<group>"; };
-		F88DF72F9F53FAEC3DE9651777F8B4B6 /* Pods-PadeLovers-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PadeLovers-dummy.m"; sourceTree = "<group>"; };
-		FE1A6524D053874D91CDFE7D015A353B /* Gecco.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Gecco.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		43EE11D1EC0804F88BC51037DE526CDF /* Pods-PadeLovers-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-PadeLovers-umbrella.h"; sourceTree = "<group>"; };
+		4D7F4895C05FDD477C36593226C20950 /* Pods-PadeLovers-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PadeLovers-acknowledgements.plist"; sourceTree = "<group>"; };
+		6C20EB37F68FE530769D3C583FA96F10 /* Pods-PadeLovers-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PadeLovers-acknowledgements.markdown"; sourceTree = "<group>"; };
+		81F37D01F00ED0E9BE0908EBC0D881FA /* Pods-PadeLovers.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PadeLovers.release.xcconfig"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		AE415ED5DB3499A580E5AE4300AF0E41 /* Pods-PadeLovers-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PadeLovers-Info.plist"; sourceTree = "<group>"; };
+		EEF84CCC3E51D35A91025F90BFF18909 /* Pods-PadeLovers.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-PadeLovers.modulemap"; sourceTree = "<group>"; };
+		F70B70AD1AB125F74B4B9CA795A36EDE /* Pods-PadeLovers.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PadeLovers.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		3005C10879952B88F14392FA04F0AF90 /* Frameworks */ = {
+		B29C39828B30BC0F544E8046EC9359BA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D64560CC55340941D4A1C006C27B12E /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B806C6973D61BF89C0F49960BB8CFCCB /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4EAEAE01424D48383A4E83C89F3D9EF6 /* Foundation.framework in Frameworks */,
+				60DF846D3FC128D673C5699A0F3A9F85 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		04881C39DE35A8C0F69EEBFD29CFA94D /* Products */ = {
+		03836E7EC2BD6ECA30B3AF421C3ADCD6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FE1A6524D053874D91CDFE7D015A353B /* Gecco.framework */,
 				0ABA776ECFEAF9A9CB1DCD168BBD3AF6 /* Pods_PadeLovers.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		13C625D2541745DBFAE96927745E77A5 /* Gecco */ = {
+		085124777A1D3357A0E1A055B97E8984 /* Pods-PadeLovers */ = {
 			isa = PBXGroup;
 			children = (
-				4F7D7913575F03EED98C0464E384C7EF /* Spotlight.swift */,
-				95A6F1D9B8076FC14E87EE68C95E0103 /* SpotlightTransitionController.swift */,
-				4C377CDF950A0DE4AB5507F677E59D86 /* SpotlightView.swift */,
-				01609ABA1FE2FB49EA19420634D9EF52 /* SpotlightViewController.swift */,
-				685EF064A11CE16CF286C3EDBEAF9886 /* Support Files */,
-			);
-			path = Gecco;
-			sourceTree = "<group>";
-		};
-		5C725934E5CAC9DEFC170DDAE1FC18DE /* Pods-PadeLovers */ = {
-			isa = PBXGroup;
-			children = (
-				8A4BACD39AC63B68D8F8705884B9300F /* Pods-PadeLovers.modulemap */,
-				BB2737D16D8D0D88F7DE7E817CCCAD22 /* Pods-PadeLovers-acknowledgements.markdown */,
-				8263F0713353E0D5A97E23585B1602D7 /* Pods-PadeLovers-acknowledgements.plist */,
-				F88DF72F9F53FAEC3DE9651777F8B4B6 /* Pods-PadeLovers-dummy.m */,
-				511A428AAB3CEBBEC1C15C6798A98968 /* Pods-PadeLovers-frameworks.sh */,
-				D06CF7C3CE7CDB1A1121ABD8B0A1AE46 /* Pods-PadeLovers-Info.plist */,
-				B8B4545778A37DFE16A0AC3E1580F193 /* Pods-PadeLovers-umbrella.h */,
-				026689B84A1C56D939AAE517470048C6 /* Pods-PadeLovers.debug.xcconfig */,
-				2062549C1CD009FAC75C184B6C87A0FB /* Pods-PadeLovers.release.xcconfig */,
+				EEF84CCC3E51D35A91025F90BFF18909 /* Pods-PadeLovers.modulemap */,
+				6C20EB37F68FE530769D3C583FA96F10 /* Pods-PadeLovers-acknowledgements.markdown */,
+				4D7F4895C05FDD477C36593226C20950 /* Pods-PadeLovers-acknowledgements.plist */,
+				2EC2DCFA26B828F55FAA2037F8AFB506 /* Pods-PadeLovers-dummy.m */,
+				AE415ED5DB3499A580E5AE4300AF0E41 /* Pods-PadeLovers-Info.plist */,
+				43EE11D1EC0804F88BC51037DE526CDF /* Pods-PadeLovers-umbrella.h */,
+				F70B70AD1AB125F74B4B9CA795A36EDE /* Pods-PadeLovers.debug.xcconfig */,
+				81F37D01F00ED0E9BE0908EBC0D881FA /* Pods-PadeLovers.release.xcconfig */,
 			);
 			name = "Pods-PadeLovers";
 			path = "Target Support Files/Pods-PadeLovers";
 			sourceTree = "<group>";
 		};
-		685EF064A11CE16CF286C3EDBEAF9886 /* Support Files */ = {
+		0CEB8F37930525F9B2A5D58A884ECE89 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				209503A15AFFC632CE0558151E636B26 /* Gecco.modulemap */,
-				CA162078FFF162D65E0F7FB9B2E466A2 /* Gecco-dummy.m */,
-				BD6380F67728A3C9D32F354A2248FC32 /* Gecco-Info.plist */,
-				10CD3F62392A391FCB40160878E52AAA /* Gecco-prefix.pch */,
-				F5BF1B663BFA12848C8A61310BE0FD96 /* Gecco-umbrella.h */,
-				5533EC33596967D1496A2ADA5EEF67C3 /* Gecco.debug.xcconfig */,
-				85D6559E73A637A10564BA9B537354F4 /* Gecco.release.xcconfig */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/Gecco";
-			sourceTree = "<group>";
-		};
-		6FBA4860D89EB130B9D762E24973C893 /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				5C725934E5CAC9DEFC170DDAE1FC18DE /* Pods-PadeLovers */,
+				085124777A1D3357A0E1A055B97E8984 /* Pods-PadeLovers */,
 			);
 			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		B49AB0A00044C32461E15013691643F8 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				13C625D2541745DBFAE96927745E77A5 /* Gecco */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		C0834CEBB1379A84116EF29F93051C60 /* iOS */ = {
@@ -158,9 +83,8 @@
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
-				B49AB0A00044C32461E15013691643F8 /* Pods */,
-				04881C39DE35A8C0F69EEBFD29CFA94D /* Products */,
-				6FBA4860D89EB130B9D762E24973C893 /* Targets Support Files */,
+				03836E7EC2BD6ECA30B3AF421C3ADCD6 /* Products */,
+				0CEB8F37930525F9B2A5D58A884ECE89 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
@@ -175,19 +99,11 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		36166D2F0A98A295607712215C978431 /* Headers */ = {
+		BE6E261F3D9EE6BCEC5E14788047FFC8 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EBF4FC387028F2771532AEA584B3ACEA /* Gecco-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		67E626885F50B6D3AF4C22659BF50B71 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BD2BD03BFA71EA2B2E321961C9CDDC12 /* Pods-PadeLovers-umbrella.h in Headers */,
+				1FF3605EDEB75D0115360674DD98916D /* Pods-PadeLovers-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,39 +112,20 @@
 /* Begin PBXNativeTarget section */
 		247BE1781CB7F9C3EA2C9D859C5C39AC /* Pods-PadeLovers */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 161E48CF5BD8A1A21B945CEDFEEA9A31 /* Build configuration list for PBXNativeTarget "Pods-PadeLovers" */;
+			buildConfigurationList = 03CDE6862F1C0CA18E0C4B137B373812 /* Build configuration list for PBXNativeTarget "Pods-PadeLovers" */;
 			buildPhases = (
-				67E626885F50B6D3AF4C22659BF50B71 /* Headers */,
-				4A4B945070B47464F5A465A12E999ECD /* Sources */,
-				3005C10879952B88F14392FA04F0AF90 /* Frameworks */,
-				B0AB1B5BB73FDE8EE1E0AA212AE41113 /* Resources */,
+				BE6E261F3D9EE6BCEC5E14788047FFC8 /* Headers */,
+				17D5ECD188555AEC586268E66CF7BB37 /* Sources */,
+				B29C39828B30BC0F544E8046EC9359BA /* Frameworks */,
+				528CD35EEDDB4684478A8B8C87DBFF26 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				3E54030FA48B235FB1251679EFB6FB78 /* PBXTargetDependency */,
 			);
 			name = "Pods-PadeLovers";
 			productName = "Pods-PadeLovers";
 			productReference = 0ABA776ECFEAF9A9CB1DCD168BBD3AF6 /* Pods_PadeLovers.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		33DD237F589B2B8BEB915CB572B3D9DA /* Gecco */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = EE9DA91BA67293C563A72799160AB8C8 /* Build configuration list for PBXNativeTarget "Gecco" */;
-			buildPhases = (
-				36166D2F0A98A295607712215C978431 /* Headers */,
-				76BB72C425E8914AF0D09ED37A8A013E /* Sources */,
-				B806C6973D61BF89C0F49960BB8CFCCB /* Frameworks */,
-				E11C4F0688A6EFFC17DA3D7CCBA2BC7A /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = Gecco;
-			productName = Gecco;
-			productReference = FE1A6524D053874D91CDFE7D015A353B /* Gecco.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -238,10 +135,10 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
-				LastUpgradeCheck = 1220;
+				LastUpgradeCheck = 1100;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -249,25 +146,17 @@
 				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = 04881C39DE35A8C0F69EEBFD29CFA94D /* Products */;
+			productRefGroup = 03836E7EC2BD6ECA30B3AF421C3ADCD6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				33DD237F589B2B8BEB915CB572B3D9DA /* Gecco */,
 				247BE1781CB7F9C3EA2C9D859C5C39AC /* Pods-PadeLovers */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		B0AB1B5BB73FDE8EE1E0AA212AE41113 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E11C4F0688A6EFFC17DA3D7CCBA2BC7A /* Resources */ = {
+		528CD35EEDDB4684478A8B8C87DBFF26 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -277,36 +166,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		4A4B945070B47464F5A465A12E999ECD /* Sources */ = {
+		17D5ECD188555AEC586268E66CF7BB37 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				580FB938029B3C412014922D1EDADDC8 /* Pods-PadeLovers-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		76BB72C425E8914AF0D09ED37A8A013E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0411247C35F047BA52C52B64864D9DDB /* Gecco-dummy.m in Sources */,
-				F4246C5665D5FDA4A7D3B4F80ED8520A /* Spotlight.swift in Sources */,
-				DDE8B41A6C5A2D1979EBDC21D3DA24BF /* SpotlightTransitionController.swift in Sources */,
-				DD3DC9EEA5541FA110DD78DACDF632D8 /* SpotlightView.swift in Sources */,
-				442E38A44D5FBC7DBE324386ED02A684 /* SpotlightViewController.swift in Sources */,
+				9CFC990DAEA88AD8EB034AE4C87C7332 /* Pods-PadeLovers-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		3E54030FA48B235FB1251679EFB6FB78 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Gecco;
-			target = 33DD237F589B2B8BEB915CB572B3D9DA /* Gecco */;
-			targetProxy = F574DB70D215BB4F5885E47DB7AF1EFA /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		1422B121EAEAEA11307496903FA623C6 /* Release */ = {
@@ -335,7 +203,6 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -370,9 +237,9 @@
 			};
 			name = Release;
 		};
-		61CF42E28109B9B8EC2BCDA7E7D0E27F /* Debug */ = {
+		6CFE49B66223E4D276280BB7AB8CE181 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 026689B84A1C56D939AAE517470048C6 /* Pods-PadeLovers.debug.xcconfig */;
+			baseConfigurationReference = F70B70AD1AB125F74B4B9CA795A36EDE /* Pods-PadeLovers.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -408,9 +275,9 @@
 			};
 			name = Debug;
 		};
-		7AA625707ABE6296642D37BEE80BF1B5 /* Release */ = {
+		C1351A151D589B0521BB2ECABB96BDF5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2062549C1CD009FAC75C184B6C87A0FB /* Pods-PadeLovers.release.xcconfig */;
+			baseConfigurationReference = 81F37D01F00ED0E9BE0908EBC0D881FA /* Pods-PadeLovers.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -446,79 +313,6 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
-		};
-		E56EDB7E063619FB3162908BE3C011EE /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 85D6559E73A637A10564BA9B537354F4 /* Gecco.release.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/Gecco/Gecco-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Gecco/Gecco-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/Gecco/Gecco.modulemap";
-				PRODUCT_MODULE_NAME = Gecco;
-				PRODUCT_NAME = Gecco;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		ED508F01345E8C2CB946E05DD26A2560 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5533EC33596967D1496A2ADA5EEF67C3 /* Gecco.debug.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/Gecco/Gecco-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Gecco/Gecco-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/Gecco/Gecco.modulemap";
-				PRODUCT_MODULE_NAME = Gecco;
-				PRODUCT_NAME = Gecco;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
 		};
 		ED7888FA6713EABBF66D26A8003AD1CA /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -546,7 +340,6 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -588,11 +381,11 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		161E48CF5BD8A1A21B945CEDFEEA9A31 /* Build configuration list for PBXNativeTarget "Pods-PadeLovers" */ = {
+		03CDE6862F1C0CA18E0C4B137B373812 /* Build configuration list for PBXNativeTarget "Pods-PadeLovers" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				61CF42E28109B9B8EC2BCDA7E7D0E27F /* Debug */,
-				7AA625707ABE6296642D37BEE80BF1B5 /* Release */,
+				6CFE49B66223E4D276280BB7AB8CE181 /* Debug */,
+				C1351A151D589B0521BB2ECABB96BDF5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -602,15 +395,6 @@
 			buildConfigurations = (
 				ED7888FA6713EABBF66D26A8003AD1CA /* Debug */,
 				1422B121EAEAEA11307496903FA623C6 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		EE9DA91BA67293C563A72799160AB8C8 /* Build configuration list for PBXNativeTarget "Gecco" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				ED508F01345E8C2CB946E05DD26A2560 /* Debug */,
-				E56EDB7E063619FB3162908BE3C011EE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -197,10 +197,12 @@ if [ -r "${ARTIFACT_LIST_FILE}" ]; then
 fi
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/Gecco/Gecco.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/EAIntroView/EAIntroView.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/EARestrictedScrollView/EARestrictedScrollView.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/Gecco/Gecco.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/EAIntroView/EAIntroView.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/EARestrictedScrollView/EARestrictedScrollView.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

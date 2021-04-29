@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -78,7 +78,6 @@
 				621A020FB01D3566D822BC7F /* Pods-PadeLovers.debug.xcconfig */,
 				E8911760E1ABF8DB5F2D01DD /* Pods-PadeLovers.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -172,7 +171,6 @@
 				E47F20252547D56B00996B19 /* Sources */,
 				E47F20262547D56B00996B19 /* Frameworks */,
 				E47F20272547D56B00996B19 /* Resources */,
-				934F2E9B4763C98C9E3BC27F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -232,23 +230,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		934F2E9B4763C98C9E3BC27F /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PadeLovers/Pods-PadeLovers-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PadeLovers/Pods-PadeLovers-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PadeLovers/Pods-PadeLovers-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		F5BC0ADF6AAA7DBB028FC5BE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

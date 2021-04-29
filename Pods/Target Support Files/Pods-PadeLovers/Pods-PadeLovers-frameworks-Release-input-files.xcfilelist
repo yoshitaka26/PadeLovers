@@ -1,2 +1,3 @@
 ${PODS_ROOT}/Target Support Files/Pods-PadeLovers/Pods-PadeLovers-frameworks.sh
-${BUILT_PRODUCTS_DIR}/Gecco/Gecco.framework
+${BUILT_PRODUCTS_DIR}/EAIntroView/EAIntroView.framework
+${BUILT_PRODUCTS_DIR}/EARestrictedScrollView/EARestrictedScrollView.framework

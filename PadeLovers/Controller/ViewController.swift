@@ -9,6 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
     @IBOutlet weak var infoButton: UIButton!
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var restartButton: UIButton!
@@ -24,6 +25,11 @@ class ViewController: UIViewController {
         
         UITabBar.appearance().tintColor = UIColor(red: 255/255, green: 63/255, blue: 101/255, alpha: 1.0)
         UITabBar.appearance().unselectedItemTintColor = UIColor(red: 255/255, green: 121/255, blue: 63/255, alpha: 1.0)
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
     }
 
@@ -42,6 +48,7 @@ class ViewController: UIViewController {
         present(alert, animated: true, completion: nil)
         
     }
+    
     
     @IBAction func ContinueGameButtonPressed(_ sender: UIButton) {
         let dataBrain = PadelDataRecordBrain()
