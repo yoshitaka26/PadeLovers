@@ -18,7 +18,6 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         let imageView = GIFImageView(frame: CGRect(x: 0, y: 0, width: 300, height: 300))
         imageView.animate(withGIFNamed: "welcome")
         mainImage.addSubview(imageView)

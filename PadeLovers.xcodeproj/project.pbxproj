@@ -28,6 +28,7 @@
 		E47F20362547D56D00996B19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E47F20352547D56D00996B19 /* Assets.xcassets */; };
 		E47F20392547D56D00996B19 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E47F20372547D56D00996B19 /* LaunchScreen.storyboard */; };
 		E481F408263AA18300D2B879 /* welcome.gif in Resources */ = {isa = PBXBuildFile; fileRef = E481F407263AA18300D2B879 /* welcome.gif */; };
+		E481F42F263AE71600D2B879 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E481F42E263AE71600D2B879 /* R.generated.swift */; };
 		E4ED0756255BB1B100ED8EB5 /* gameDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4ED0754255BB1B100ED8EB5 /* gameDataTableViewCell.swift */; };
 		E4ED0757255BB1B100ED8EB5 /* gameDataTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4ED0755255BB1B100ED8EB5 /* gameDataTableViewCell.xib */; };
 /* End PBXBuildFile section */
@@ -57,6 +58,7 @@
 		E47F20382547D56D00996B19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E47F203A2547D56D00996B19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E481F407263AA18300D2B879 /* welcome.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = welcome.gif; sourceTree = "<group>"; };
+		E481F42E263AE71600D2B879 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		E4ED0754255BB1B100ED8EB5 /* gameDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gameDataTableViewCell.swift; sourceTree = "<group>"; };
 		E4ED0755255BB1B100ED8EB5 /* gameDataTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = gameDataTableViewCell.xib; sourceTree = "<group>"; };
 		E8911760E1ABF8DB5F2D01DD /* Pods-PadeLovers.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PadeLovers.release.xcconfig"; path = "Target Support Files/Pods-PadeLovers/Pods-PadeLovers.release.xcconfig"; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 			children = (
 				E47F202C2547D56B00996B19 /* AppDelegate.swift */,
 				E47F202E2547D56B00996B19 /* SceneDelegate.swift */,
+				E481F42E263AE71600D2B879 /* R.generated.swift */,
 				E439941D2548DC0D007BA523 /* Model */,
 				E439941A2548DB9C007BA523 /* Controller */,
 				E43994192548DB82007BA523 /* View */,
@@ -176,6 +179,7 @@
 				E47F20272547D56B00996B19 /* Resources */,
 				B70A5C5A315480C27E1CF6B7 /* [CP] Embed Pods Frameworks */,
 				E481F411263ABED400D2B879 /* ShellScript */,
+				E481F42C263AE57500D2B879 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -270,6 +274,25 @@
 			shellPath = /bin/sh;
 			shellScript = "if which \"${PODS_ROOT}/SwiftLint/swiftlint\" >/dev/null; then\n${PODS_ROOT}/SwiftLint/swiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
+		E481F42C263AE57500D2B879 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$TEMP_DIR/rswift-lastrun",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				$SRCROOT/R.generated.swift,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/R.generated.swift\"\n";
+		};
 		F5BC0ADF6AAA7DBB028FC5BE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -307,6 +330,7 @@
 				E47F20312547D56B00996B19 /* ViewController.swift in Sources */,
 				E4316C8A254882A600EED960 /* SelectPair2ViewController.swift in Sources */,
 				E4324F2F2547EDAB00063A9F /* TableViewCell.swift in Sources */,
+				E481F42F263AE71600D2B879 /* R.generated.swift in Sources */,
 				E47F202D2547D56B00996B19 /* AppDelegate.swift in Sources */,
 				E436135F254BCD2D00A2DB3E /* ResultDetailTableViewController.swift in Sources */,
 				E439941F2548DD13007BA523 /* GameDataModelBrain.swift in Sources */,
