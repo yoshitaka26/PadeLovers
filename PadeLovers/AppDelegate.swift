@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 import CocoaLumberjack
 
 @UIApplicationMain
@@ -19,11 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         fileLogger.logFileManager.maximumNumberOfLogFiles = 7
         DDLog.add(fileLogger)
 
-//        DDLogVerbose("Verbose")
-//        DDLogDebug("Debug")
-//        DDLogInfo("Info")
-//        DDLogWarn("Warn")
-//        DDLogError("Error")
         return true
     }
     // MARK: UISceneSession Lifecycle

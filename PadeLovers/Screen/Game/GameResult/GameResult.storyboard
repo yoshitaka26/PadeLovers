@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hpO-Zu-dzg">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--試合回数-->
+        <scene sceneID="oFE-E6-dEU">
+            <objects>
+                <tableViewController storyboardIdentifier="GameResult" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hpO-Zu-dzg" customClass="GameResultTableViewController" customModule="PadeLovers" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Rpr-E3-8C5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ResultCell" id="h2x-P5-EMG">
+                                <rect key="frame" x="0.0" y="28" width="414" height="152.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="h2x-P5-EMG" id="VV7-JN-ojS">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="152.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="BaJ-ad-TiL">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="152.5"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="R74-19-5pj">
+                                                    <rect key="frame" x="0.0" y="64" width="207" height="24"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d8D-1Y-dCE">
+                                                    <rect key="frame" x="207" y="64" width="207" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="BaJ-ad-TiL" firstAttribute="leading" secondItem="VV7-JN-ojS" secondAttribute="leading" id="ctC-gJ-XTB"/>
+                                        <constraint firstAttribute="bottom" secondItem="BaJ-ad-TiL" secondAttribute="bottom" id="nNP-Q3-UgM"/>
+                                        <constraint firstItem="BaJ-ad-TiL" firstAttribute="top" secondItem="VV7-JN-ojS" secondAttribute="top" id="vNI-g9-fdu"/>
+                                        <constraint firstAttribute="trailing" secondItem="BaJ-ad-TiL" secondAttribute="trailing" id="z7Q-nV-f3M"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="hpO-Zu-dzg" id="S5b-UP-CMd"/>
+                            <outlet property="delegate" destination="hpO-Zu-dzg" id="MCv-XQ-U4h"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="試合回数" image="doc.text.magnifyingglass" catalog="system" id="luk-xp-Dga"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RCT-ur-CEq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3244.9275362318845" y="789.50892857142856"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="doc.text.magnifyingglass" catalog="system" width="113" height="128"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
