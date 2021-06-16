@@ -8,11 +8,6 @@
 
 import UIKit
 
-enum PairingType {
-    case pairingA
-    case pairingB
-}
-
 class FixedPairViewController: BaseViewController {
     
     @IBOutlet private weak var pair1Picker: UIPickerView!

@@ -1,71 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hpO-Zu-dzg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7dJ-ee-CSC">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--試合回数-->
-        <scene sceneID="oFE-E6-dEU">
+        <!--試合結果-->
+        <scene sceneID="bOh-Ws-XXW">
             <objects>
-                <tableViewController storyboardIdentifier="GameResult" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hpO-Zu-dzg" customClass="GameResultTableViewController" customModule="PadeLovers" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Rpr-E3-8C5">
+                <viewController storyboardIdentifier="GameResult" useStoryboardIdentifierAsRestorationIdentifier="YES" id="7dJ-ee-CSC" customClass="GameResultViewController" customModule="PadeLovers" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VIj-2k-rKW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="h9j-RS-ZtO">
+                                <rect key="frame" x="0.0" y="84" width="414" height="778"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="mCf-bj-yRJ">
+                                    <size key="itemSize" width="150" height="100"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="lZI-3X-AZ8">
+                                        <rect key="frame" x="20" y="0.0" width="150" height="100"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Jkg-nQ-Po3">
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="59F-hr-YNZ">
+                                <rect key="frame" x="0.0" y="44" width="414" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="NDz-TV-Att"/>
+                                </constraints>
+                                <items/>
+                            </toolbar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="4UD-uF-lwB"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ResultCell" id="h2x-P5-EMG">
-                                <rect key="frame" x="0.0" y="28" width="414" height="152.5"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="h2x-P5-EMG" id="VV7-JN-ojS">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="152.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="BaJ-ad-TiL">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="152.5"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="R74-19-5pj">
-                                                    <rect key="frame" x="0.0" y="64" width="207" height="24"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d8D-1Y-dCE">
-                                                    <rect key="frame" x="207" y="64" width="207" height="24"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </stackView>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="BaJ-ad-TiL" firstAttribute="leading" secondItem="VV7-JN-ojS" secondAttribute="leading" id="ctC-gJ-XTB"/>
-                                        <constraint firstAttribute="bottom" secondItem="BaJ-ad-TiL" secondAttribute="bottom" id="nNP-Q3-UgM"/>
-                                        <constraint firstItem="BaJ-ad-TiL" firstAttribute="top" secondItem="VV7-JN-ojS" secondAttribute="top" id="vNI-g9-fdu"/>
-                                        <constraint firstAttribute="trailing" secondItem="BaJ-ad-TiL" secondAttribute="trailing" id="z7Q-nV-f3M"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="hpO-Zu-dzg" id="S5b-UP-CMd"/>
-                            <outlet property="delegate" destination="hpO-Zu-dzg" id="MCv-XQ-U4h"/>
-                        </connections>
-                    </tableView>
-                    <tabBarItem key="tabBarItem" title="試合回数" image="doc.text.magnifyingglass" catalog="system" id="luk-xp-Dga"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RCT-ur-CEq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                        <constraints>
+                            <constraint firstItem="4UD-uF-lwB" firstAttribute="bottom" secondItem="h9j-RS-ZtO" secondAttribute="bottom" id="1gu-7b-XPA"/>
+                            <constraint firstItem="59F-hr-YNZ" firstAttribute="leading" secondItem="4UD-uF-lwB" secondAttribute="leading" id="Qh0-J1-m26"/>
+                            <constraint firstItem="4UD-uF-lwB" firstAttribute="trailing" secondItem="h9j-RS-ZtO" secondAttribute="trailing" id="WmA-5P-If5"/>
+                            <constraint firstItem="59F-hr-YNZ" firstAttribute="trailing" secondItem="4UD-uF-lwB" secondAttribute="trailing" id="Zj1-aq-kce"/>
+                            <constraint firstItem="h9j-RS-ZtO" firstAttribute="leading" secondItem="4UD-uF-lwB" secondAttribute="leading" id="hvw-Tk-Dep"/>
+                            <constraint firstItem="h9j-RS-ZtO" firstAttribute="top" secondItem="59F-hr-YNZ" secondAttribute="bottom" id="qd8-OL-k0U"/>
+                            <constraint firstItem="59F-hr-YNZ" firstAttribute="top" secondItem="4UD-uF-lwB" secondAttribute="top" id="tSH-JK-3bs"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="試合結果" id="qE7-Ci-g1W"/>
+                    <connections>
+                        <outlet property="customCollectionView" destination="h9j-RS-ZtO" id="NzZ-uj-cG4"/>
+                        <outlet property="customToolbar" destination="59F-hr-YNZ" id="1PJ-Ze-oLQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yLl-ju-d1z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3244.9275362318845" y="789.50892857142856"/>
+            <point key="canvasLocation" x="3920" y="209"/>
         </scene>
     </scenes>
     <resources>
-        <image name="doc.text.magnifyingglass" catalog="system" width="113" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

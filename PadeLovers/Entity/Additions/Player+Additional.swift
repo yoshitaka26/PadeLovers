@@ -18,7 +18,7 @@ extension Player {
         }
         return true
     }
-    func isPairingPlayer(type: PairingType) -> Bool {
+    func isPairedPlayer(type: PairingType) -> Bool {
         switch type {
         case .pairingA:
             if let pA = pairingA, pA.isOn { return true }

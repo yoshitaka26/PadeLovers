@@ -39,7 +39,7 @@ extension EditDataViewModel {
         loadData.subscribe(onNext: { [weak self] playerID in
             guard let self = self else { return }
             guard let playerID = playerID else { return }
-            guard let player = self.coreDataManager.loadPlayerForEditingData(uuidString: self.padelID, index: playerID) else { return }
+            guard let player = self.coreDataManager.loadPlayerForEditingData(uuidString: self.padelID, playerID: playerID) else { return }
             self.playerData.accept(player)
             self.playerName.accept(player.name)
             self.playerGender.accept(player.gender ? 0 : 1)

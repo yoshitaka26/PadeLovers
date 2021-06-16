@@ -2,7 +2,7 @@
 //  Padel+CoreDataProperties.swift
 //  PadeLovers
 //
-//  Created by Yoshitaka on 2021/06/10.
+//  Created by Yoshitaka on 2021/06/12.
 //  Copyright © 2021 Yoshitaka. All rights reserved.
 //
 //
@@ -18,9 +18,12 @@ extension Padel {
     }
 
     @NSManaged public var date: Date?
+    @NSManaged public var gameCounts: Int16
+    @NSManaged public var isReady: Bool
     @NSManaged public var padelID: UUID?
     @NSManaged public var playMode: Bool
     @NSManaged public var showResult: Bool
+    @NSManaged public var gameIDNumber: Int16
     @NSManaged public var courts: NSOrderedSet?
     @NSManaged public var games: NSOrderedSet?
     @NSManaged public var pairingA: PairingA?

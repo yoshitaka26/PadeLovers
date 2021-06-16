@@ -94,9 +94,6 @@
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="決定"/>
-                                                <connections>
-                                                    <action selector="replaseDecideButton:" destination="pNP-Mt-e0t" eventType="touchUpInside" id="7Gv-Ey-mfx"/>
-                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -132,9 +129,6 @@
                             <constraint firstItem="7I1-NQ-Y2u" firstAttribute="bottom" secondItem="TKR-36-oFc" secondAttribute="bottom" id="uIo-tm-yNj"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="83g-xx-Pr5">
-                        <barButtonItem key="backBarButtonItem" title="&lt;" id="ojk-VK-cwb"/>
-                    </navigationItem>
                     <connections>
                         <outlet property="currentPlayerPicker" destination="1Om-u0-fTA" id="b7x-I7-ZHd"/>
                         <outlet property="finishButton" destination="EE8-W2-7P4" id="0Ps-ht-xSu"/>

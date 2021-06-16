@@ -113,9 +113,11 @@ class GamePlayerViewModel: BaseViewModel {
         return Observable.combineLatest(playingPlayerCounts, minPlayerCounts) { counts, minCounts in
             let num = counts - minCounts
             if num >= 0 {
+                self.coreDataManager.setReadyStatusOnPadel(uuidString: self.padelID, isReady: true)
                 let value = NSAttributedString(string: "\(counts)人", attributes: [.foregroundColor: UIColor.black])
                 return  value
             } else {
+                self.coreDataManager.setReadyStatusOnPadel(uuidString: self.padelID, isReady: false)
                 let value = NSAttributedString(string: "\(abs(num))人不足しています", attributes: [.foregroundColor: UIColor.red])
                 return value
             }
@@ -129,7 +131,7 @@ class GamePlayerViewModel: BaseViewModel {
         super.init()
         if let uuidString = UserDefaults.standard.value(forKey: "PadelID") as? String { padelID = uuidString }
         if !coreDataManager.checkMainDataByID(uuidString: padelID) {
-            coreDataManager.initGame(uuidString: padelID)
+            coreDataManager.initPadel(uuidString: padelID)
             UserDefaults.standard.set(padelID, forKey: "PadelID")
         }
         dataBind()
@@ -140,7 +142,7 @@ class GamePlayerViewModel: BaseViewModel {
         for (index, playerSwitch) in playersSwitches.enumerated() {
             playerSwitch.subscribe(onNext: { [weak self] isOn in
                 guard let self = self else { return }
-                let value = self.coreDataManager.updateIsPlaying(uuidString: self.padelID, index: index, isOn: isOn)
+                let value = self.coreDataManager.updateIsPlaying(uuidString: self.padelID, playerID: index, isOn: isOn)
                 switch value {
                 case 0:
                     break
@@ -157,7 +159,7 @@ class GamePlayerViewModel: BaseViewModel {
         for (index, courtSwitch) in courtsSwitches.enumerated() {
             courtSwitch.subscribe(onNext: { [weak self] isOn in
                 guard let self = self else { return }
-                guard self.coreDataManager.updateCourtIsOn(uuidString: self.padelID, index: index, isOn: isOn) else { return }
+                guard self.coreDataManager.updateCourtIsOn(uuidString: self.padelID, courtID: index, isOn: isOn) else { return }
             }).disposed(by: disposeBag)
         }
         playModeAisChanged.subscribe(onNext: { [weak self] isOn in
@@ -211,7 +213,7 @@ class GamePlayerViewModel: BaseViewModel {
             self.pairingB1name.accept("")
             self.pairingB2name.accept("")
             
-            guard let mainData = self.coreDataManager.loadMainData(uuidString: self.padelID) else { return }
+            guard let mainData = self.coreDataManager.loadPadel(uuidString: self.padelID) else { return }
             guard let paringA = mainData.pairingA else { return }
             guard let paringB = mainData.pairingB else { return }
             
@@ -235,7 +237,7 @@ class GamePlayerViewModel: BaseViewModel {
         playerUIUpdate.subscribe(onNext: { [weak self] _ in
             guard let self = self else { return }
             var gameData: [Int:Player] = [:]
-            guard let players = self.coreDataManager.loadPlayers(uuidString: self.padelID) else { return }
+            let players = self.coreDataManager.loadAllPlayers(uuidString: self.padelID)
             for player in players { gameData[Int(player.playerID)] = player }
             for (index, playerLabel) in self.playersLabels.enumerated() {
                 guard let player = gameData[index] else { return }
@@ -254,8 +256,9 @@ extension GamePlayerViewModel {
     func dataBind() {
         var gameData: [Int:Player] = [:]
         var courtData: [Int:Court] = [:]
-        guard let players = coreDataManager.loadPlayers(uuidString: padelID) else { return }
-        guard let courts = coreDataManager.loadCourts(uuidString: padelID) else { return }
+        let players = coreDataManager.loadAllPlayers(uuidString: padelID)
+        let courts = coreDataManager.loadCourts(uuidString: padelID)
+        guard players.count == 21, courts.count == 3 else { fatalError("プレイヤー・コートデータが正しく取得できない") }
         for player in players { gameData[Int(player.playerID)] = player }
         for court in courts { courtData[Int(court.courtID)] = court }
         for (index, playerLabel) in playersLabels.enumerated() {
@@ -274,7 +277,7 @@ extension GamePlayerViewModel {
             guard let court = courtData[index] else { return }
             courtSwitch.accept(court.isOn)
         }
-        guard let mainData = coreDataManager.loadMainData(uuidString: padelID) else { return }
+        guard let mainData = coreDataManager.loadPadel(uuidString: padelID) else { return }
         playModeA.accept(mainData.playMode)
         playModeB.accept(!mainData.playMode)
         gameResult.accept(mainData.showResult)

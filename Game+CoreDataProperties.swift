@@ -2,7 +2,7 @@
 //  Game+CoreDataProperties.swift
 //  PadeLovers
 //
-//  Created by Yoshitaka on 2021/06/10.
+//  Created by Yoshitaka on 2021/06/11.
 //  Copyright © 2021 Yoshitaka. All rights reserved.
 //
 //
@@ -17,14 +17,14 @@ extension Game {
         return NSFetchRequest<Game>(entityName: "Game")
     }
 
+    @NSManaged public var backA: Int16
+    @NSManaged public var backB: Int16
+    @NSManaged public var driveA: Int16
+    @NSManaged public var driveB: Int16
     @NSManaged public var gameID: Int16
     @NSManaged public var isEnd: Bool
     @NSManaged public var padelID: UUID?
-    @NSManaged public var winner: Bool
-    @NSManaged public var backB: Int16
-    @NSManaged public var backA: Int16
-    @NSManaged public var driveB: Int16
-    @NSManaged public var driveA: Int16
+    @NSManaged public var startAt: Date?
     @NSManaged public var court: Court?
     @NSManaged public var padel: Padel?
     @NSManaged public var players: NSSet?

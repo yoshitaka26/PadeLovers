@@ -40,7 +40,7 @@ extension FixedPairViewModel {
         loadData.subscribe(onNext: {[weak self] in
             guard let self = self else { return }
             guard let type = self.pairingType.value else { return }
-            let players = self.coreDataManager.loadPairingPlayers(uuidString: self.padelID, pairingType: type)
+            let players = self.coreDataManager.loadPlayersForPairing(uuidString: self.padelID, pairingType: type)
             self.pairingPlayers.accept(players)
             var numbers: (Int?, Int?) = (nil, nil)
             switch type {
@@ -78,7 +78,7 @@ extension FixedPairViewModel {
             }
             let player1 = self.pairingPlayers.value[picker1Row]
             let player2 = self.pairingPlayers.value[picker2Row]
-            guard let mainData = self.coreDataManager.loadMainData(uuidString: self.padelID) else { return }
+            guard let mainData = self.coreDataManager.loadPadel(uuidString: self.padelID) else { return }
             guard let type = self.pairingType.value else { return }
             switch type {
             case .pairingA:

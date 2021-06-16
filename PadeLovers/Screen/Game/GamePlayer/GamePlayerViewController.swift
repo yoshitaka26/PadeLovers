@@ -193,7 +193,7 @@ class GamePlayerViewController: BaseTableViewController {
             let modalVC = storyboard.instantiateViewController(identifier: "EditData")
             if let editDataVC = modalVC as? EditDataViewController {
                 editDataVC.playerID = value
-                self.present(modalVC, animated: true)
+                self.openReplaceWindow(windowNavigation: modalVC)
             }
             
         }).disposed(by: disposeBag)

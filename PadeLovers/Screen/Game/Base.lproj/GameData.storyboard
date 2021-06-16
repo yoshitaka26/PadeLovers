@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--試合-->
+        <!--試合組合せ-->
         <scene sceneID="HTQ-fC-NNu">
             <objects>
                 <tableViewController storyboardIdentifier="GameData" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bF7-uh-iwP" customClass="GameDataTableViewController" customModule="PadeLovers" customModuleProvider="target" sceneMemberID="viewController">
@@ -31,19 +31,7 @@
                             <outlet property="delegate" destination="bF7-uh-iwP" id="DdV-nP-eqM"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="試合" image="paperplane" catalog="system" id="G4y-n6-9h7"/>
-                    <navigationItem key="navigationItem" id="hbY-Bt-1bv">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="house.fill" catalog="system" id="z2E-C3-rSC">
-                            <connections>
-                                <action selector="backToHomeButtonPressed:" destination="bF7-uh-iwP" id="z5a-nx-0v1"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="person.3.fill" catalog="system" id="zgB-mF-XpX">
-                            <connections>
-                                <action selector="setGamesButtonPressed:" destination="bF7-uh-iwP" id="BlZ-ls-MIV"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="試合組合せ" id="hbY-Bt-1bv"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kgo-FE-0wS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -51,9 +39,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="house.fill" catalog="system" width="128" height="106"/>
-        <image name="paperplane" catalog="system" width="128" height="118"/>
-        <image name="person.3.fill" catalog="system" width="128" height="61"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

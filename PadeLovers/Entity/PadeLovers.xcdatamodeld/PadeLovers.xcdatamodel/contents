@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20D91" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20F71" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Court" representedClassName="Court" syncable="YES">
         <attribute name="courtID" attributeType="Integer 16" minValueString="0" maxValueString="2" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="isOn" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
@@ -9,14 +9,14 @@
         <relationship name="padel" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Padel" inverseName="courts" inverseEntity="Padel"/>
     </entity>
     <entity name="Game" representedClassName="Game" syncable="YES">
-        <attribute name="backA" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="backB" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="driveA" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="driveB" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="backA" optional="YES" attributeType="Integer 16" usesScalarValueType="YES"/>
+        <attribute name="backB" optional="YES" attributeType="Integer 16" usesScalarValueType="YES"/>
+        <attribute name="driveA" optional="YES" attributeType="Integer 16" usesScalarValueType="YES"/>
+        <attribute name="driveB" optional="YES" attributeType="Integer 16" usesScalarValueType="YES"/>
         <attribute name="gameID" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="isEnd" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isEnd" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="padelID" attributeType="UUID" usesScalarValueType="NO"/>
-        <attribute name="winner" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="startAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <relationship name="court" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Court" inverseName="onGame" inverseEntity="Court"/>
         <relationship name="padel" optional="YES" maxCount="1" deletionRule="Nullify" ordered="YES" destinationEntity="Padel" inverseName="games" inverseEntity="Padel"/>
         <relationship name="players" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Player" inverseName="onGame" inverseEntity="Player"/>
@@ -24,6 +24,9 @@
     </entity>
     <entity name="Padel" representedClassName="Padel" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="gameCounts" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="gameIDNumber" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="isReady" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="padelID" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="playMode" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
         <attribute name="showResult" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
@@ -74,7 +77,7 @@
     <elements>
         <element name="Court" positionX="-234" positionY="-45" width="128" height="119"/>
         <element name="Game" positionX="-395.9187622070312" positionY="-31.359130859375" width="128" height="209"/>
-        <element name="Padel" positionX="-249.4500122070312" positionY="-208.9654541015625" width="128" height="164"/>
+        <element name="Padel" positionX="-249.4500122070312" positionY="-208.9654541015625" width="128" height="209"/>
         <element name="PairingA" positionX="-234" positionY="-45" width="128" height="89"/>
         <element name="PairingB" positionX="-225" positionY="-36" width="128" height="89"/>
         <element name="Player" positionX="-67.89739990234375" positionY="107.3436889648438" width="128" height="209"/>
