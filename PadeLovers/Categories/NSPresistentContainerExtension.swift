@@ -26,8 +26,7 @@ extension NSPersistentContainer {
         
         do {
             try context.save()
-        }
-        catch let error as NSError {
+        } catch let error as NSError {
             print("Error: \(error), \(error.userInfo)")
         }
     }

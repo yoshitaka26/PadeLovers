@@ -16,203 +16,121 @@ class GameResultViewController: BaseViewController {
     
     @IBOutlet weak var customCollectionView: UICollectionView!
     @IBOutlet weak var customToolbar: UIToolbar!
+    @IBOutlet weak var playerButton: UIBarButtonItem!
+    @IBOutlet weak var gameButton: UIBarButtonItem!
     
     override func bind() {
         rxViewDidLoad.subscribe(onNext: { [weak self] in
             guard let self = self else { return }
-            self.navigationController?.navigationBar.barTintColor = .navigationBarColor
+            self.viewModel.setPadelID.onNext(())
+            
+            self.navigationItem.rightBarButtonItem = self.createBarButtonItem(image: UIImage.named("house.fill"), select: #selector(self.back))
             self.navigationController?.isNavigationBarHidden = false
             self.customCollectionView.register(UINib(nibName: "PlayerResultCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PlayerCell")
+            self.customCollectionView.register(UINib(nibName: "GameResultCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "GameCell")
             self.viewModel.loadGameData.onNext(())
-            self.createToolbar()
         }).disposed(by: disposeBag)
         rxViewWillAppear.subscribe(onNext: { [weak self] in
             guard let self = self else { return }
             self.viewModel.loadGameData.onNext(())
+            self.viewModel.scoreType.accept(.player)
+            self.customCollectionView.reloadData()
+            self.viewModel.playerButtonColor.accept(.appRed)
+            self.viewModel.gameButtonColor.accept(.appBlue)
         }).disposed(by: disposeBag)
         viewModel.reloadTableView.subscribe(onNext: { [weak self] in
             guard let self = self else { return }
             self.customCollectionView.reloadData()
         }).disposed(by: disposeBag)
+        viewModel.pushToEditDataModalView.subscribe(onNext: { [weak self] game in
+            guard let self = self else { return }
+            let storyboard = UIStoryboard(name: "RecordScore", bundle: nil)
+            let modalVC = storyboard.instantiateViewController(identifier: "RecordScore")
+            if let recordVC = modalVC as? RecordScoreViewController {
+                recordVC.delegate = self
+                recordVC.gameData = game
+                self.openReplaceWindow(windowNavigation: modalVC)
+            }
+        }).disposed(by: disposeBag)
+        playerButton.rx.tap.subscribe(onNext: { [weak self] _ in
+            guard let self = self else { return }
+            self.viewModel.scoreType.accept(.player)
+            self.customCollectionView.reloadData()
+            self.viewModel.playerButtonColor.accept(.appRed)
+            self.viewModel.gameButtonColor.accept(.appBlue)
+        }).disposed(by: disposeBag)
+        gameButton.rx.tap.subscribe(onNext: { [weak self] _ in
+            guard let self = self else { return }
+            self.viewModel.scoreType.accept(.game)
+            self.customCollectionView.reloadData()
+            self.viewModel.playerButtonColor.accept(.appBlue)
+            self.viewModel.gameButtonColor.accept(.appRed)
+            self.customCollectionView.scrollToItem(at: IndexPath(item: self.viewModel.allGames.value.count - 1, section: 0), at: .bottom, animated: true)
+        }).disposed(by: disposeBag)
+        viewModel.playerButtonColor.subscribe(onNext: { [weak self] color in
+            guard let self = self else { return }
+            self.playerButton.tintColor = color
+        }).disposed(by: disposeBag)
+        viewModel.gameButtonColor.subscribe(onNext: { [weak self] color in
+            guard let self = self else { return }
+            self.gameButton.tintColor = color
+        }).disposed(by: disposeBag)
     }
     
-    func createToolbar() {
-        customToolbar.isTranslucent = false
-        customToolbar.barTintColor = .navigationBarColor
-        
-        let playerButton = UIButton(frame: CGRect(x: 0, y: 0, width: 120, height: 60))
-        playerButton.setImage(UIImage(systemName: "person.crop.square"), for: .normal)
-        playerButton.setTitle("プレイヤ", for: .normal)
-        playerButton.tintColor = UIColor.white
-        playerButton.addTarget(self, action: #selector(playerData), for: .touchUpInside)
-        let playerButtonItem = UIBarButtonItem(customView: playerButton)
-        let gameButton = UIButton(frame: CGRect(x: 0, y: 0, width: 120, height: 60))
-        gameButton.setImage(UIImage(systemName: "rectangle.grid.2x2.fill"), for: .normal)
-        gameButton.setTitle("ゲーム", for: .normal)
-        gameButton.tintColor = UIColor.white
-        gameButton.addTarget(self, action: #selector(gameData), for: .touchUpInside)
-        let gameButtonItem = UIBarButtonItem(customView: gameButton)
-        let spaceFlex = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        
-        customToolbar.setItems([spaceFlex, playerButtonItem, spaceFlex, gameButtonItem, spaceFlex], animated: true)
+    @objc
+    func back() {
+        self.confirmationAlertView(withTitle: "ホーム画面に戻ります", cancelString: "キャンセル", confirmString: "OK") {
+            guard let tabBarCon = self.navigationController?.parent as? UITabBarController else { return }
+            guard let mainNavCon = tabBarCon.parent as? UINavigationController else { return }
+            mainNavCon.popViewController(animated: true)
+        }
     }
-    @objc func playerData() {
-        
-    }
-    @objc func gameData() {
-        
-    }
-//    let playerDataRecord = PadelDataRecordBrain()
-//
-//    var players = [PadelModel]()
-//    var playingPlayers = [PadelModel]()
-//    var restingPlayers = [PadelModel]()
-//
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        self.navigationItem.title = "プレイヤー"
-//
-//    }
-//
-//    override func viewWillAppear(_ animated: Bool) {
-//        if let playersData = playerDataRecord.loadPlayers() {
-//            players = playersData
-//        }
-//
-//        playingPlayers = players.filter { $0.playingFlag }
-//
-//        restingPlayers = players.filter { !$0.playingFlag }
-//        restingPlayers = restingPlayers.filter { $0.playCounts > 0 }
-//
-//        tableView.reloadData()
-//    }
-//
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//
-//        if restingPlayers != [] {
-//            return 2
-//        } else {
-//            return 1
-//        }
-//    }
-//    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        switch section {
-//        case 0:
-//            let label = UILabel()
-//            label.text = "参加プレイヤーの試合回数"
-//            label.textColor = .white
-//            label.font = UIFont.systemFont(ofSize: 22)
-//            label.textAlignment = .center
-//            label.backgroundColor = UIColor(red: 255/255, green: 121/255, blue: 63/255, alpha: 1.0)
-//            return label
-//
-//        case 1:
-//        let label = UILabel()
-//        label.text = "離脱プレイヤーの試合回数"
-//        label.textColor = .white
-//        label.font = UIFont.systemFont(ofSize: 22)
-//        label.textAlignment = .center
-//        label.backgroundColor = UIColor(red: 255/255, green: 121/255, blue: 63/255, alpha: 1.0)
-//
-//        return label
-//
-//        default:
-//            return nil
-//        }
-//
-//    }
-//
-//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//
-//        switch section {
-//        case 0:
-//            return playingPlayers.count
-//        case 1:
-//            return restingPlayers.count
-//        default:
-//            return 0
-//        }
-//    }
-//
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "ResultCell", for: indexPath)
-//
-//        switch indexPath.section {
-//        case 0:
-//            let nameLabel = cell.contentView.viewWithTag(1) as! UILabel
-//            nameLabel.text = playingPlayers[indexPath.row].name
-//            if !playingPlayers[indexPath.row].gender {
-//                nameLabel.textColor = .red
-//            } else {
-//                nameLabel.textColor = .label
-//            }
-//
-//            let countLabel = cell.contentView.viewWithTag(2) as! UILabel
-//            countLabel.text = "\(String(playingPlayers[indexPath.row].playCounts))試合"
-//            cell.selectionStyle = .none
-//
-//            return cell
-//
-//        case 1:
-//            let nameLabel = cell.contentView.viewWithTag(1) as! UILabel
-//            nameLabel.text = restingPlayers[indexPath.row].name
-//            if !restingPlayers[indexPath.row].gender {
-//                nameLabel.textColor = .red
-//            } else {
-//                nameLabel.textColor = .label
-//            }
-//
-//            let countLabel = cell.contentView.viewWithTag(2) as! UILabel
-//            countLabel.text = "\(String(restingPlayers[indexPath.row].playCounts))試合"
-//            cell.selectionStyle = .none
-//
-//            return cell
-//
-//        default:
-//            return cell
-//        }
-//
-//    }
-//
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let storyboard = UIStoryboard(name: "ResultDetail", bundle: nil)
-//        let modalVC = storyboard.instantiateViewController(identifier: "ResultDetail")
-//        if let resultDetailVC = modalVC as? ResultDetailTableViewController {
-//            resultDetailVC.playerArrayNumber = indexPath.row
-//            switch indexPath.section {
-//            case 0:
-//                resultDetailVC.player = playingPlayers[indexPath.row]
-//            case 1:
-//                resultDetailVC.player = restingPlayers[indexPath.row]
-//            default:
-//                return
-//            }
-//            present(modalVC, animated: true)
-//        }
-//    }
 }
 
-extension GameResultViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
+extension GameResultViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         customCollectionView.delegate = self
         customCollectionView.dataSource = self
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(cellLongPressed))
+        longPressRecognizer.delegate = self
+        longPressRecognizer.minimumPressDuration = 2.0
+        customCollectionView.addGestureRecognizer(longPressRecognizer)
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.allPlayers.value.count
+        switch viewModel.scoreType.value {
+        case .player:
+            return viewModel.allPlayers.value.count
+        case .game:
+            return viewModel.allGames.value.count
+        }
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PlayerCell", for: indexPath)
-        guard let playerCell = cell as? PlayerResultCollectionViewCell else { return cell }
-        playerCell.setUI(player: viewModel.allPlayers.value[indexPath.row], minCount: viewModel.minGameCount.value)
-        return cell
+        switch viewModel.scoreType.value {
+        case .player:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PlayerCell", for: indexPath)
+            guard let playerCell = cell as? PlayerResultCollectionViewCell else { return cell }
+            playerCell.setUI(player: viewModel.allPlayers.value[indexPath.row], minCount: viewModel.minGameCount.value)
+            return playerCell
+        case .game:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GameCell", for: indexPath)
+            guard let gameCell = cell as? GameResultCollectionViewCell else { return cell }
+            gameCell.setUI(game: viewModel.allGames.value[indexPath.row], playersList: viewModel.allPlayers.value, count: indexPath.row)
+            return gameCell
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let playerCellWidth = Int(collectionView.frame.width - 6.0) / 2
-        let playerCellHeight = 100
-        return CGSize(width: playerCellWidth, height: playerCellHeight)
+        switch viewModel.scoreType.value {
+        case .player:
+            let playerCellWidth = Int(collectionView.frame.width - 6.0) / 2
+            let playerCellHeight = 100
+            return CGSize(width: playerCellWidth, height: playerCellHeight)
+        case .game:
+            let gameCellWidth = Int(collectionView.frame.width - 4.0)
+            let gameCellHeight = 170
+            return CGSize(width: gameCellWidth, height: gameCellHeight)
+        }
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 2.0, left: 2.0, bottom: 2.0, right: 2.0)
@@ -222,5 +140,18 @@ extension GameResultViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 2.0
+    }
+    @objc
+    func cellLongPressed(recognizer: UILongPressGestureRecognizer) {
+        let point = recognizer.location(in: customCollectionView)
+        let indexPath = customCollectionView.indexPathForItem(at: point)
+        guard let index = indexPath else { return }
+        guard viewModel.scoreType.value == .game else { return }
+        viewModel.longPressedScore.accept(index.row)
+    }
+}
+extension GameResultViewController: RecordScoreViewControllerDelegate {
+    func returnFromRecordScoreViewController() {
+        viewModel.reloadTableView.onNext(())
     }
 }

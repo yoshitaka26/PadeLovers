@@ -13,6 +13,17 @@ extension UIViewController: UIPopoverPresentationControllerDelegate {
         return .none
     }
     
+    func createBarButtonItem(image: UIImage, select: Selector?) -> UIBarButtonItem {
+        let button = UIButton(type: .custom)
+        button.setImage(image, for: .normal)
+        button.tintColor = .darkGray
+        if let safeSelect = select {
+            button.addTarget(self, action: safeSelect, for: .touchUpInside)
+        }
+        let barButtonItem = UIBarButtonItem(customView: button)
+        return barButtonItem
+    }
+    
     func openReplaceWindow(windowNavigation: UIViewController) {
         let selectWindowContentSize = CGSize(width: 400, height: 600)
         let windowRect = CGRect(x: view.center.x, y: 0,
@@ -33,11 +44,7 @@ extension UIViewController: UIPopoverPresentationControllerDelegate {
         popUpController.preferredContentSize = rect.size
         popUpController.popoverPresentationController?.delegate = self
         popUpController.popoverPresentationController?.sourceView = sourceView
-        if arrowDirections == [] {
-            popUpController.popoverPresentationController?.sourceRect = CGRect(x: 0, y: 130, width: sourceView.frame.size.width / 2, height: 0)
-        } else {
-            popUpController.popoverPresentationController?.sourceRect = CGRect(x: 0, y: 0, width: sourceView.frame.size.width / 2, height: 0)
-        }
+        popUpController.popoverPresentationController?.sourceRect = CGRect(x: 300, y: 40, width: sourceView.frame.size.width / 2, height: 0)
         popUpController.popoverPresentationController?.permittedArrowDirections = arrowDirections
         popUpController.popoverPresentationController?.canOverlapSourceViewRect = canOverlapSourceViewRect
         present(popUpController, animated: true, completion: nil)

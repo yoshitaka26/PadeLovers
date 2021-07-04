@@ -78,88 +78,97 @@ class GamePlayerViewController: BaseTableViewController {
     @IBOutlet private weak var p21: UILabel!
     @IBOutlet private weak var p21s: UISwitch!
     
+    var startGameType: TableType?
+    var padelID: UUID?
+    
     override func bind() {
-        _ = viewModel.playModeA.bind(to: playModeSwitchA.rx.isOn)
-        _ = playModeSwitchA.rx.isOn.bind(to: viewModel.playModeA)
-        _ = playModeSwitchA.rx.isOn.bind(to: viewModel.playModeAisChanged)
-        _ = viewModel.playModeB.bind(to: playModeSwitchB.rx.isOn)
-        _ = playModeSwitchB.rx.isOn.bind(to: viewModel.playModeB)
-        _ = playModeSwitchB.rx.isOn.bind(to: viewModel.playModeBisChanged)
         
-        _ = gameResultSwitch.rx.isOn <-> viewModel.gameResult
+        disposeBag.insert(
+            viewModel.playModeA.bind(to: playModeSwitchA.rx.isOn),
+            playModeSwitchA.rx.isOn.bind(to: viewModel.playModeA),
+            playModeSwitchA.rx.isOn.bind(to: viewModel.playModeAisChanged),
+            viewModel.playModeB.bind(to: playModeSwitchB.rx.isOn),
+            playModeSwitchB.rx.isOn.bind(to: viewModel.playModeB),
+            playModeSwitchB.rx.isOn.bind(to: viewModel.playModeBisChanged),
+            gameResultSwitch.rx.isOn <-> viewModel.gameResult
+        )
+        disposeBag.insert(
+            viewModel.courtAname.bind(to: courtAname.rx.text),
+            viewModel.courtBname.bind(to: courtBname.rx.text),
+            viewModel.courtCname.bind(to: courtCname.rx.text),
+            courtA.rx.isOn <-> viewModel.courtAisON,
+            courtA.rx.isOn.bind(to: viewModel.courtAisChanged),
+            courtB.rx.isOn <-> viewModel.courtBisON,
+            courtB.rx.isOn.bind(to: viewModel.courtBisChanged),
+            courtC.rx.isOn <-> viewModel.courtCisON,
+            courtC.rx.isOn.bind(to: viewModel.courtCisChanged)
+        )
+        disposeBag.insert(
+            viewModel.pairingA1name.bind(to: pairingA1Label.rx.text),
+            viewModel.pairingA2name.bind(to: pairingA2Label.rx.text),
+            viewModel.pairingB1name.bind(to: pairingB1Label.rx.text),
+            viewModel.pairingB2name.bind(to: pairingB2Label.rx.text),
+            viewModel.pairingAisOn.bind(to: pairingAswitch.rx.isOn),
+            pairingAswitch.rx.isOn.bind(to: viewModel.pairingAisOn),
+            pairingAswitch.rx.isOn.bind(to: viewModel.pairingAisChanged),
+            viewModel.pairingBisOn.bind(to: pairingBswitch.rx.isOn),
+            pairingBswitch.rx.isOn.bind(to: viewModel.pairingBisOn),
+            pairingBswitch.rx.isOn.bind(to: viewModel.pairingBisChanged)
+        )
         
-        _ = viewModel.courtAname.bind(to: courtAname.rx.text)
-        _ = viewModel.courtBname.bind(to: courtBname.rx.text)
-        _ = viewModel.courtCname.bind(to: courtCname.rx.text)
-        _ = courtA.rx.isOn <-> viewModel.courtAisON
-        _ = courtA.rx.isOn.bind(to: viewModel.courtAisChanged)
-        _ = courtB.rx.isOn <-> viewModel.courtBisON
-        _ = courtB.rx.isOn.bind(to: viewModel.courtBisChanged)
-        _ = courtC.rx.isOn <-> viewModel.courtCisON
-        _ = courtC.rx.isOn.bind(to: viewModel.courtCisChanged)
-        
-        _ = viewModel.pairingA1name.bind(to: pairingA1Label.rx.text)
-        _ = viewModel.pairingA2name.bind(to: pairingA2Label.rx.text)
-        _ = viewModel.pairingB1name.bind(to: pairingB1Label.rx.text)
-        _ = viewModel.pairingB2name.bind(to: pairingB2Label.rx.text)
-        _ = viewModel.pairingAisOn.bind(to: pairingAswitch.rx.isOn)
-        _ = pairingAswitch.rx.isOn.bind(to: viewModel.pairingAisOn)
-        _ = pairingAswitch.rx.isOn.bind(to: viewModel.pairingAisChanged)
-        _ = viewModel.pairingBisOn.bind(to: pairingBswitch.rx.isOn)
-        _ = pairingBswitch.rx.isOn.bind(to: viewModel.pairingBisOn)
-        _ = pairingBswitch.rx.isOn.bind(to: viewModel.pairingBisChanged)
-        
-        _ = viewModel.playingPlayerCountsLabel.bind(to: playerCounts.rx.attributedText)
-
-        _ = viewModel.player1name.bind(to: p1.rx.attributedText)
-        _ = p1s.rx.isOn <-> viewModel.player1isOn
-        _ = viewModel.player2name.bind(to: p2.rx.attributedText)
-        _ = p2s.rx.isOn <-> viewModel.player2isOn
-        _ = viewModel.player3name.bind(to: p3.rx.attributedText)
-        _ = p3s.rx.isOn <-> viewModel.player3isOn
-        _ = viewModel.player4name.bind(to: p4.rx.attributedText)
-        _ = p4s.rx.isOn <-> viewModel.player4isOn
-        _ = viewModel.player5name.bind(to: p5.rx.attributedText)
-        _ = p5s.rx.isOn <-> viewModel.player5isOn
-        _ = viewModel.player6name.bind(to: p6.rx.attributedText)
-        _ = p6s.rx.isOn <-> viewModel.player6isOn
-        _ = viewModel.player7name.bind(to: p7.rx.attributedText)
-        _ = p7s.rx.isOn <-> viewModel.player7isOn
-        _ = viewModel.player8name.bind(to: p8.rx.attributedText)
-        _ = p8s.rx.isOn <-> viewModel.player8isOn
-        _ = viewModel.player9name.bind(to: p9.rx.attributedText)
-        _ = p9s.rx.isOn <-> viewModel.player9isOn
-        _ = viewModel.player10name.bind(to: p10.rx.attributedText)
-        _ = p10s.rx.isOn <-> viewModel.player10isOn
-        _ = viewModel.player11name.bind(to: p11.rx.attributedText)
-        _ = p11s.rx.isOn <-> viewModel.player11isOn
-        _ = viewModel.player12name.bind(to: p12.rx.attributedText)
-        _ = p12s.rx.isOn <-> viewModel.player12isOn
-        _ = viewModel.player13name.bind(to: p13.rx.attributedText)
-        _ = p13s.rx.isOn <-> viewModel.player13isOn
-        _ = viewModel.player14name.bind(to: p14.rx.attributedText)
-        _ = p14s.rx.isOn <-> viewModel.player14isOn
-        _ = viewModel.player15name.bind(to: p15.rx.attributedText)
-        _ = p15s.rx.isOn <-> viewModel.player15isOn
-        _ = viewModel.player16name.bind(to: p16.rx.attributedText)
-        _ = p16s.rx.isOn <-> viewModel.player16isOn
-        _ = viewModel.player17name.bind(to: p17.rx.attributedText)
-        _ = p17s.rx.isOn <-> viewModel.player17isOn
-        _ = viewModel.player18name.bind(to: p18.rx.attributedText)
-        _ = p18s.rx.isOn <-> viewModel.player18isOn
-        _ = viewModel.player19name.bind(to: p19.rx.attributedText)
-        _ = p19s.rx.isOn <-> viewModel.player19isOn
-        _ = viewModel.player20name.bind(to: p20.rx.attributedText)
-        _ = p20s.rx.isOn <-> viewModel.player20isOn
-        _ = viewModel.player21name.bind(to: p21.rx.attributedText)
-        _ = p21s.rx.isOn <-> viewModel.player21isOn
+        disposeBag.insert(
+            viewModel.playingPlayerCountsLabel.bind(to: playerCounts.rx.attributedText),
+            viewModel.player1name.bind(to: p1.rx.attributedText),
+            p1s.rx.isOn <-> viewModel.player1isOn,
+            viewModel.player2name.bind(to: p2.rx.attributedText),
+            p2s.rx.isOn <-> viewModel.player2isOn,
+            viewModel.player3name.bind(to: p3.rx.attributedText),
+            p3s.rx.isOn <-> viewModel.player3isOn,
+            viewModel.player4name.bind(to: p4.rx.attributedText),
+            p4s.rx.isOn <-> viewModel.player4isOn,
+            viewModel.player5name.bind(to: p5.rx.attributedText),
+            p5s.rx.isOn <-> viewModel.player5isOn,
+            viewModel.player6name.bind(to: p6.rx.attributedText),
+            p6s.rx.isOn <-> viewModel.player6isOn,
+            viewModel.player7name.bind(to: p7.rx.attributedText),
+            p7s.rx.isOn <-> viewModel.player7isOn,
+            viewModel.player8name.bind(to: p8.rx.attributedText),
+            p8s.rx.isOn <-> viewModel.player8isOn,
+            viewModel.player9name.bind(to: p9.rx.attributedText),
+            p9s.rx.isOn <-> viewModel.player9isOn,
+            viewModel.player10name.bind(to: p10.rx.attributedText),
+            p10s.rx.isOn <-> viewModel.player10isOn,
+            viewModel.player11name.bind(to: p11.rx.attributedText),
+            p11s.rx.isOn <-> viewModel.player11isOn,
+            viewModel.player12name.bind(to: p12.rx.attributedText),
+            p12s.rx.isOn <-> viewModel.player12isOn,
+            viewModel.player13name.bind(to: p13.rx.attributedText),
+            p13s.rx.isOn <-> viewModel.player13isOn,
+            viewModel.player14name.bind(to: p14.rx.attributedText),
+            p14s.rx.isOn <-> viewModel.player14isOn,
+            viewModel.player15name.bind(to: p15.rx.attributedText),
+            p15s.rx.isOn <-> viewModel.player15isOn,
+            viewModel.player16name.bind(to: p16.rx.attributedText),
+            p16s.rx.isOn <-> viewModel.player16isOn,
+            viewModel.player17name.bind(to: p17.rx.attributedText),
+            p17s.rx.isOn <-> viewModel.player17isOn,
+            viewModel.player18name.bind(to: p18.rx.attributedText),
+            p18s.rx.isOn <-> viewModel.player18isOn,
+            viewModel.player19name.bind(to: p19.rx.attributedText),
+            p19s.rx.isOn <-> viewModel.player19isOn,
+            viewModel.player20name.bind(to: p20.rx.attributedText),
+            p20s.rx.isOn <-> viewModel.player20isOn,
+            viewModel.player21name.bind(to: p21.rx.attributedText),
+            p21s.rx.isOn <-> viewModel.player21isOn
+        )
         
         rxViewDidLoad.subscribe(onNext: { [weak self] in
             guard let self = self else { return }
-            self.navigationController?.navigationBar.barTintColor = .navigationBarColor
             // NotificationCenterの受信設定
             NotificationCenter.default.addObserver(self, selector: #selector(self.callbackByPairingModal), name: .updateDataNotificationByEditPair, object: nil)
             NotificationCenter.default.addObserver(self, selector: #selector(self.callbackByEditDataModal), name: .updateDataNotificationByEditData, object: nil)
+            guard let type = self.startGameType else { return }
+            self.viewModel.dataBind.onNext((type, self.padelID))
         }).disposed(by: disposeBag)
         rxViewWillAppear.subscribe(onNext: { [weak self] in
             guard let self = self else { return }
@@ -195,26 +204,31 @@ class GamePlayerViewController: BaseTableViewController {
                 editDataVC.playerID = value
                 self.openReplaceWindow(windowNavigation: modalVC)
             }
-            
         }).disposed(by: disposeBag)
     }
-    @objc func callbackByPairingModal() {
+    
+    @objc
+    func callbackByPairingModal() {
         viewModel.pairingUIUpdate.onNext(())
     }
-    @objc func callbackByEditDataModal() {
+    
+    @objc
+    func callbackByEditDataModal() {
         viewModel.playerUIUpdate.onNext(())
     }
 }
-//
+
 extension GamePlayerViewController: UIGestureRecognizerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(cellLongPressed))
         longPressRecognizer.delegate = self
-        longPressRecognizer.minimumPressDuration = 3.0
+        longPressRecognizer.minimumPressDuration = 1.5
         tableView.addGestureRecognizer(longPressRecognizer)
     }
-    @objc func cellLongPressed(recognizer: UILongPressGestureRecognizer) {
+    
+    @objc
+    func cellLongPressed(recognizer: UILongPressGestureRecognizer) {
         let point = recognizer.location(in: tableView)
         let indexPath = tableView.indexPathForRow(at: point)
         guard let index = indexPath else { return }

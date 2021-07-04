@@ -54,8 +54,8 @@
         <attribute name="isPlaying" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="padelID" attributeType="UUID" usesScalarValueType="NO"/>
-        <attribute name="pair1" attributeType="Transformable"/>
-        <attribute name="pair2" attributeType="Transformable"/>
+        <attribute name="pair1" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName"/>
+        <attribute name="pair2" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName"/>
         <attribute name="playerID" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="onGame" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Game" inverseName="players" inverseEntity="Game"/>
         <relationship name="padel" optional="YES" maxCount="1" deletionRule="Nullify" ordered="YES" destinationEntity="Padel" inverseName="players" inverseEntity="Padel"/>
@@ -64,14 +64,15 @@
     </entity>
     <entity name="Score" representedClassName="Score" syncable="YES">
         <attribute name="padelID" attributeType="UUID" usesScalarValueType="NO"/>
-        <attribute name="playTIme" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="score1A" optional="YES" attributeType="Integer 16" maxValueString="7" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="score1B" optional="YES" attributeType="Integer 16" maxValueString="7" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="score2A" optional="YES" attributeType="Integer 16" maxValueString="7" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="score2B" optional="YES" attributeType="Integer 16" maxValueString="7" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="score3A" optional="YES" attributeType="Integer 16" maxValueString="7" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="score3B" optional="YES" attributeType="Integer 16" maxValueString="1" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="winner" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="playTime" optional="YES" attributeType="String"/>
+        <attribute name="score1A" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="score1B" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="score2A" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="score2B" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="score3A" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="score3B" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="totalA" optional="YES" attributeType="Integer 16" maxValueString="3" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="totalB" optional="YES" attributeType="Integer 16" maxValueString="3" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="game" maxCount="1" deletionRule="Nullify" destinationEntity="Game" inverseName="score" inverseEntity="Game"/>
     </entity>
     <elements>
@@ -81,6 +82,6 @@
         <element name="PairingA" positionX="-234" positionY="-45" width="128" height="89"/>
         <element name="PairingB" positionX="-225" positionY="-36" width="128" height="89"/>
         <element name="Player" positionX="-67.89739990234375" positionY="107.3436889648438" width="128" height="209"/>
-        <element name="Score" positionX="-234" positionY="-45" width="128" height="179"/>
+        <element name="Score" positionX="-234" positionY="-45" width="128" height="194"/>
     </elements>
 </model>

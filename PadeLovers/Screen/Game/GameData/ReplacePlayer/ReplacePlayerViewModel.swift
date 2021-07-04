@@ -6,7 +6,6 @@
 //  Copyright © 2021 Yoshitaka. All rights reserved.
 //
 
-
 import Foundation
 import RxSwift
 import RxCocoa
@@ -25,7 +24,7 @@ class ReplacePlayerViewModel: BaseViewModel {
     }
 
     let coreDataManager = CoreDataManager.shared
-    let gameCreateManager = GameCreateManager.shared
+    let gameCreateManager = GameOrganizeManager.shared
     var padelID: String = UserDefaults.standard.value(forKey: "PadelID") as! String
     
     var playersOnGame: BehaviorRelay<[Player]> = BehaviorRelay(value: [])
@@ -72,13 +71,13 @@ extension ReplacePlayerViewModel {
             }
 
             if player2.onGame == nil {
-                self.gameCreateManager.replacePlayers(player1: player1, player2: player2)
+                self.gameCreateManager.replacePlayersFromWaiting(player1: player1, player2: player2)
                 self.pushWith.onNext(.replacedPlayerFromWaiting)
             }
             
             if let game = player2.onGame, let mainGame = player1.onGame {
                 if game.gameID == mainGame.gameID {
-                    self.gameCreateManager.replacePlayers(player1: player1, player2: player2)
+                    self.gameCreateManager.replacePlayersOnSameGame(player1: player1, player2: player2)
                     self.pushWith.onNext(.replacedPlayerOnSameGame)
                 } else {
                     self.pushWith.onNext(.replacePlayerFromAnotherGame)
@@ -93,7 +92,7 @@ extension ReplacePlayerViewModel {
             let playersForeReplace = self.playersForReplace.value
             let player1 = playersOnGame[row1]
             let player2 = playersForeReplace[row2]
-            self.gameCreateManager.replacePlayers(player1: player1, player2: player2)
+            self.gameCreateManager.replacePlayersFromAnotherGame(player1: player1, player2: player2)
         }).disposed(by: disposeBag)
     }
 }

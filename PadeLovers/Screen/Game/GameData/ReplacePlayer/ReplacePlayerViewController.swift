@@ -8,12 +8,12 @@
 
 import UIKit
 
-protocol ReplacePlayerViewControllerDelegate {
+protocol ReplacePlayerViewControllerDelegate: AnyObject {
     func returnFromReplacePlayerViewController()
 }
 
 class ReplacePlayerViewController: BaseViewController {
-    var delegate: ReplacePlayerViewControllerDelegate?
+    weak var delegate: ReplacePlayerViewControllerDelegate?
     var courtID: Int = 0
     
     private var viewModel = ReplacePlayerViewModel()
@@ -51,13 +51,16 @@ class ReplacePlayerViewController: BaseViewController {
                     self.dismiss(animated: true, completion: nil)
                 })
             case .replacedPlayerOnSameGame:
-                self.warningAlertView(withTitle: "同じ試合内でポジション変更しました", action: {
+                self.warningAlertView(withTitle: "同じ試合内で\nポジション変更しました", action: {
                     self.delegate?.returnFromReplacePlayerViewController()
                     self.dismiss(animated: true, completion: nil)
                 })
             case .replacePlayerFromAnotherGame:
-                self.confirmationAlertView(withTitle: "他の試合に入っています", message: "", cancelString: "キャンセル", confirmString: "OK") {
-                    self.viewModel.replacePlayerFromAnotherGame
+                let row2 = self.viewModel.picker2SelectedRow.value
+                let playersForeReplace = self.viewModel.playersForReplace.value
+                guard let player2 = playersForeReplace[row2].name else { return }
+                self.confirmationAlertView(withTitle: "\(player2)は試合中です", message: "他の試合と入れ替えますか？", cancelString: "キャンセル", confirmString: "OK") {
+                    self.viewModel.replacePlayerFromAnotherGame.onNext(())
                     self.delegate?.returnFromReplacePlayerViewController()
                     self.dismiss(animated: true, completion: nil)
                 }

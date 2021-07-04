@@ -25,41 +25,64 @@ class GameTableViewCell: UITableViewCell {
 
         playerChangeButton.layer.cornerRadius = playerChangeButton.frame.size.height / 4
         gameFinishButton.layer.cornerRadius = gameFinishButton.frame.size.height / 4
-
+        
         playerChangeButton.layer.borderColor = UIColor.gray.cgColor
         playerChangeButton.layer.borderWidth = 1.0
-
+        
         gameFinishButton.layer.borderColor = UIColor.gray.cgColor
         gameFinishButton.layer.borderWidth = 1.0
 
     }
     
-    func setGameCell(game: Game) {
-        let players = game.fetchAllPlayers()
-        driveALabel.attributedText = NSAttributedString.setNameOnLabel(name: players[.driveA]!.name ?? "", gender: players[.driveA]!.gender)
-        backALabel.attributedText = NSAttributedString.setNameOnLabel(name: players[.backA]!.name ?? "", gender: players[.backA]!.gender)
-        driveBLabel.attributedText = NSAttributedString.setNameOnLabel(name: players[.driveB]!.name ?? "", gender: players[.driveB]!.gender)
-        backBLabel.attributedText = NSAttributedString.setNameOnLabel(name: players[.backB]!.name ?? "", gender: players[.backB]!.gender)
-        courtLabel.text = game.court!.name ?? ""
+    func setGameCell(court: Court) {
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.calendar = Calendar(identifier: .gregorian)
-        dateFormatter.locale = Locale(identifier: "ja_JP")
-        dateFormatter.timeStyle = .short
-        timeLabel.text = dateFormatter.string(from:  game.startAt!)
+        courtLabel.text = court.name ?? ""
         
-        self.tag = Int(game.court!.courtID)
+        self.tag = Int(court.courtID)
         gameFinishButton.tag = self.tag
         playerChangeButton.tag = self.tag
         
         switch  self.tag {
         case 0:
-            self.backgroundColor = UIColor(displayP3Red: 255/255, green: 121/255, blue: 63/255, alpha: 0.8)
+            self.backgroundColor = .appSpecialYellow
         case 1:
-            self.backgroundColor = UIColor(displayP3Red: 63/255, green: 197/255, blue: 255/255, alpha: 0.8)
+            self.backgroundColor = .appSpecialGreen
         default:
-            self.backgroundColor = UIColor(displayP3Red: 120/255, green: 160/255, blue: 150/255, alpha: 0.8)
+            self.backgroundColor = .appSpecialBlue
         }
+        
+        guard let game = court.onGame else {
+            timeLabel.text = ""
+            driveALabel.text = ""
+            backALabel.text = ""
+            driveBLabel.text = ""
+            backBLabel.text = ""
+            playerChangeButton.isHidden = true
+            gameFinishButton.setTitle("試合を組む", for: .normal)
+            return
+        }
+        playerChangeButton.isHidden = false
+        gameFinishButton.setTitle("試合終了", for: .normal)
+        
+        let players = game.fetchAllPlayers()
+        guard players.count == 4 else { return }
+        guard let driveA = players[.driveA] else { return }
+        guard let backA = players[.backA] else { return }
+        guard let driveB = players[.driveB] else { return }
+        guard let backB = players[.backB] else { return }
+        guard let court = game.court else { return }
+        driveALabel.attributedText = NSAttributedString.setNameOnLabel(name: driveA.name ?? "", gender: driveA.gender)
+        backALabel.attributedText = NSAttributedString.setNameOnLabel(name: backA.name ?? "", gender: backA.gender)
+        driveBLabel.attributedText = NSAttributedString.setNameOnLabel(name: driveB.name ?? "", gender: driveB.gender)
+        backBLabel.attributedText = NSAttributedString.setNameOnLabel(name: backB.name ?? "", gender: backB.gender)
+        courtLabel.text = court.name ?? ""
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.calendar = Calendar(identifier: .gregorian)
+        dateFormatter.locale = Locale(identifier: "ja_JP")
+        dateFormatter.timeStyle = .short
+        timeLabel.text = dateFormatter.string(from: game.startAt ?? Date())
+        
         self.selectionStyle = .none
     }
     

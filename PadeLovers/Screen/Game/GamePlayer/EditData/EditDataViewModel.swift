@@ -15,7 +15,7 @@ class EditDataViewModel: BaseViewModel {
         super.init()
         self.mutate()
     }
-
+    let validationManager = ValidationManager.shared
     let coreDataManager = CoreDataManager.shared
     var padelID: String = UserDefaults.standard.value(forKey: "PadelID") as! String
     
@@ -28,6 +28,7 @@ class EditDataViewModel: BaseViewModel {
     var playerData: BehaviorRelay<Player?> = BehaviorRelay(value: nil)
     let doneAction = PublishSubject<Void>()
     let dataSaved = PublishSubject<Void>()
+    let validationError = PublishSubject<Void>()
 }
 
 extension EditDataViewModel {
@@ -48,6 +49,12 @@ extension EditDataViewModel {
         }).disposed(by: disposeBag)
         doneAction.subscribe(onNext: { [weak self] in
             guard let self = self else { return }
+            let result: ValidationResult = self.validationManager.validate(self.playerName.value ?? "")
+            guard result != .invalid else {
+                self.validationError.onNext(())
+                return
+            }
+            
             guard let playerData = self.playerData.value else { return }
             if let name = self.playerName.value { playerData.name = name }
             playerData.gender = self.playerGender.value == 0 ? true :  false

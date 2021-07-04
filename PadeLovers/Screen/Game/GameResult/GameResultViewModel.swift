@@ -10,23 +10,32 @@ import Foundation
 import RxSwift
 import RxCocoa
 
+enum ScoreType {
+    case player
+    case game
+}
+
 class GameResultViewModel: BaseViewModel {
 
     let coreDataManager = CoreDataManager.shared
-    let gameCreateManager = GameCreateManager.shared
-    var padelID: String = UserDefaults.standard.value(forKey: "PadelID") as! String
+    let gameCreateManager = GameOrganizeManager.shared
     
+    var padelID: BehaviorRelay<String> = BehaviorRelay(value: "")
+    let setPadelID = PublishSubject<Void>()
+    
+    var scoreType: BehaviorRelay<ScoreType> = BehaviorRelay(value: .player)
     var allPlayers: BehaviorRelay<[Player]> = BehaviorRelay(value: [])
     var minGameCount: BehaviorRelay<Int16> = BehaviorRelay(value: 0)
     var allGames: BehaviorRelay<[Game]> = BehaviorRelay(value: [])
-    let errorAlert = PublishSubject<ErrorAlert>()
     
     let loadGameData = PublishSubject<Void>()
     let reloadTableView = PublishSubject<Void>()
-    let organizeGame = PublishSubject<Void>()
-    let gameEnd = PublishSubject<Int>()
-    let deleteGame = PublishSubject<Int>()
-    let reOrganaizeGame = PublishSubject<Int>()
+    
+    var longPressedScore: BehaviorRelay<Int> = BehaviorRelay(value: 0)
+    let pushToEditDataModalView = PublishSubject<Game>()
+    
+    var playerButtonColor: BehaviorRelay<UIColor> = BehaviorRelay(value: .appRed)
+    var gameButtonColor: BehaviorRelay<UIColor> = BehaviorRelay(value: .appBlue)
     
     override init() {
         super.init()
@@ -36,47 +45,23 @@ class GameResultViewModel: BaseViewModel {
 
 extension GameResultViewModel {
     func mutate() {
+        setPadelID.subscribe(onNext: { [weak self] _ in
+            guard let self = self else { return }
+            let padelID = UserDefaults.standard.value(forKey: "PadelID") as! String
+            self.padelID.accept(padelID)
+        }).disposed(by: disposeBag)
         loadGameData.subscribe(onNext: { [weak self] _ in
             guard let self = self else { return }
-            self.allPlayers.accept(self.coreDataManager.loadPlayersForResultData(uuidString: self.padelID))
-            self.minGameCount.accept(self.coreDataManager.checkMinCountOfPlayingGame(uuidString: self.padelID))
-            self.allGames.accept(self.coreDataManager.loadOnGames(uuidString: self.padelID))
+            self.allPlayers.accept(self.coreDataManager.loadPlayersForResultData(uuidString: self.padelID.value))
+            self.minGameCount.accept(self.coreDataManager.checkMinCountOfPlayingGame(uuidString: self.padelID.value))
+            self.allGames.accept(self.coreDataManager.loadGamesForResult(uuidString: self.padelID.value))
             self.reloadTableView.onNext(())
         }).disposed(by: disposeBag)
-        organizeGame.subscribe(onNext: { [weak self] _ in
+        longPressedScore.subscribe(onNext: { [weak self] index in
             guard let self = self else { return }
-            guard let padel = self.coreDataManager.loadPadel(uuidString: self.padelID) else {
-                self.errorAlert.onNext(.unexpectedError)
-                return
-            }
-            guard padel.isReady else {
-                self.errorAlert.onNext(.lessPlayers)
-                return
-            }
-            let emptyCourtNum = self.coreDataManager.returnEmptyCourtNum(uuidString: self.padelID)
-            guard emptyCourtNum != 0 else {
-                self.errorAlert.onNext(.noCourtError)
-                return
-            }
-            for _ in 0...emptyCourtNum - 1 {
-                self.gameCreateManager.organaizeMatch()
-            }
-            self.loadGameData.onNext(())
-        }).disposed(by: disposeBag)
-        gameEnd.subscribe(onNext: { [weak self] courtID in
-            guard let self = self else { return }
-            self.gameCreateManager.gameEnd(courtID: courtID)
-            self.loadGameData.onNext(())
-        }).disposed(by: disposeBag)
-        deleteGame.subscribe(onNext: { [weak self] courtID in
-            guard let self = self else { return }
-            self.gameCreateManager.gameDelete(courtID: courtID)
-            self.loadGameData.onNext(())
-        }).disposed(by: disposeBag)
-        reOrganaizeGame.subscribe(onNext: { [weak self] courtID in
-            guard let self = self else { return }
-            self.gameCreateManager.reOrganizeGame(courtID: courtID)
-            self.loadGameData.onNext(())
+            guard self.allGames.value.count > index else { return }
+            let selectedGame = self.allGames.value[index]
+            self.pushToEditDataModalView.onNext((selectedGame))
         }).disposed(by: disposeBag)
     }
 }

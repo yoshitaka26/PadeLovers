@@ -37,7 +37,7 @@ class FixedPairViewModel: BaseViewModel {
 
 extension FixedPairViewModel {
     func mutate() {
-        loadData.subscribe(onNext: {[weak self] in
+        loadData.subscribe(onNext: { [weak self] in
             guard let self = self else { return }
             guard let type = self.pairingType.value else { return }
             let players = self.coreDataManager.loadPlayersForPairing(uuidString: self.padelID, pairingType: type)
@@ -46,7 +46,7 @@ extension FixedPairViewModel {
             switch type {
             case .pairingA:
                 for (index, player) in players.enumerated() {
-                    guard let pairing = player.pairingA else { continue }
+                    guard player.pairingA != nil else { continue }
                     if numbers.0 == nil {
                         numbers.0 = index
                     } else {
@@ -55,7 +55,7 @@ extension FixedPairViewModel {
                 }
             case .pairingB:
                 for (index, player) in players.enumerated() {
-                    guard let pairing = player.pairingB else { continue }
+                    guard player.pairingB != nil else { continue }
                     if numbers.0 == nil {
                         numbers.0 = index
                     } else {

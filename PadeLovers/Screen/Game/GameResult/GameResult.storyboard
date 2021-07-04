@@ -6,7 +6,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -19,31 +18,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="h9j-RS-ZtO">
-                                <rect key="frame" x="0.0" y="84" width="414" height="778"/>
+                                <rect key="frame" x="0.0" y="94" width="414" height="768"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="mCf-bj-yRJ">
-                                    <size key="itemSize" width="150" height="100"/>
+                                    <size key="itemSize" width="100" height="100"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="20" maxY="0.0"/>
                                 </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="lZI-3X-AZ8">
-                                        <rect key="frame" x="20" y="0.0" width="150" height="100"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Jkg-nQ-Po3">
-                                            <rect key="frame" x="0.0" y="0.0" width="150" height="100"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </collectionViewCellContentView>
-                                    </collectionViewCell>
-                                </cells>
+                                <cells/>
                             </collectionView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="59F-hr-YNZ">
-                                <rect key="frame" x="0.0" y="44" width="414" height="40"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="NDz-TV-Att"/>
+                                    <constraint firstAttribute="height" constant="50" id="NDz-TV-Att"/>
                                 </constraints>
-                                <items/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="i2j-oW-7b4"/>
+                                    <barButtonItem title="Item" image="person.crop.rectangle" catalog="system" id="WHP-3V-HMp"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Vdk-fR-bMv"/>
+                                    <barButtonItem image="rectangle.grid.2x2.fill" catalog="system" id="M7u-ak-CTe"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="xlw-TF-hsf"/>
+                                </items>
                             </toolbar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4UD-uF-lwB"/>
@@ -62,6 +58,8 @@
                     <connections>
                         <outlet property="customCollectionView" destination="h9j-RS-ZtO" id="NzZ-uj-cG4"/>
                         <outlet property="customToolbar" destination="59F-hr-YNZ" id="1PJ-Ze-oLQ"/>
+                        <outlet property="gameButton" destination="M7u-ak-CTe" id="BgT-lH-ZOf"/>
+                        <outlet property="playerButton" destination="WHP-3V-HMp" id="oPG-Yl-I5y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yLl-ju-d1z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -70,6 +68,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="person.crop.rectangle" catalog="system" width="128" height="93"/>
+        <image name="rectangle.grid.2x2.fill" catalog="system" width="128" height="99"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -20,7 +20,7 @@ class BaseTableViewController: UITableViewController {
     let rxViewDidDisappear = PublishSubject<Void>()
 
     func bind() {
-//        fatalError("Must Override")
+        fatalError("Must Override")
     }
     override func viewDidLoad() {
         super.viewDidLoad()

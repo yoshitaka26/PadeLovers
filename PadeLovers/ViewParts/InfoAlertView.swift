@@ -15,7 +15,8 @@ class InfoAlertView: UIAlertController {
         Timer.scheduledTimer(timeInterval: TimeInterval(integerLiteral: infoDialogTime), target: self, selector: #selector(performDismiss), userInfo: nil, repeats: false)
     }
     
-    @objc func performDismiss(timer: Timer) {
+    @objc
+    func performDismiss(timer: Timer) {
         dismiss(animated: true, completion: afterDismiss)
     }
 }

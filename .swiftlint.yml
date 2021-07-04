@@ -74,13 +74,13 @@ disabled_rules:
 
 
 # ビルドが失敗するルールを無効にする
-- variable_name
+- identifier_name
 - file_length
 - function_body_length
 #- line_length
 - type_body_length
-- variable_name_max_length
-- variable_name_min_length
+#- variable_name_max_length # returnがあった方がわかりやすい　※※※
+#- variable_name_min_length # returnがあった方がわかりやすい　※※※
 - force_cast
 #- force_try
 #- shorthand_operator
@@ -95,7 +95,7 @@ opt_in_rules:
     - anyobject_protocol
     - array_init
     - attributes
-    - closure_body_length
+    #- closure_body_length # RxSwiftだと厳しい　※※※
     - closure_end_indentation
     - closure_spacing
     - collection_alignment
@@ -117,7 +117,7 @@ opt_in_rules:
     - fallthrough
     - fatal_error_message
     #- file_header # このルールの意味を理解していないため
-    - file_name
+    #- file_name # extensionの場合を除きたいため　※※※
     - first_where
     - force_unwrapping
     - function_default_parameter_at_end
@@ -171,9 +171,9 @@ opt_in_rules:
     #- trailing_closure # RxViewControllerで定義したいため　※※※
     #- unavailable_function # RxViewControllerで定義したいため　※※※
     - unneeded_parentheses_in_closure_argument
-    - untyped_error_in_catch
+    #- untyped_error_in_catch # as Error にしても警告されるため　※※※
     - unused_import
-    - unused_private_declaration
+    #- unused_private_declaration
     - vertical_parameter_alignment_on_call
     #- vertical_whitespace_between_cases # Switch文のケース間に空白行を設けたくないこともあるため
     #- vertical_whitespace_closing_braces # 中括弧を閉じる前に空白行を設けたいことがあるため
@@ -197,6 +197,8 @@ excluded:
 - DIKit
 - SourcePackages
 - Generated
+- PadeLovers/R.generated.swift
+- PadeLovers/Entity/ManagedObject
 
 
 # 1行あたりの文字数制限を300に変更

@@ -17,7 +17,7 @@ class FixedPairViewController: BaseViewController {
     
     private var viewModel = FixedPairViewModel()
     
-    var pairing: PairingType? = nil
+    var pairing: PairingType?
     private var nameData: [String] = []
     
     override func bind() {
@@ -34,7 +34,7 @@ class FixedPairViewController: BaseViewController {
             self.resetButton.layer.cornerRadius = self.resetButton.frame.size.height / 4
         }).disposed(by: disposeBag)
         rxViewWillDisappear.subscribe(onNext: { [weak self] in
-            guard let self = self else { return }
+            guard self != nil else { return }
             NotificationCenter.default.post(name: .updateDataNotificationByEditPair, object: nil)
         }).disposed(by: disposeBag)
         viewModel.picker1SelectedRow.subscribe(onNext: { [weak self] value in

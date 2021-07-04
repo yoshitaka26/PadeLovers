@@ -10,7 +10,6 @@ import Foundation
 
 let infoDialogTime = 1.0
 
-
 let DIALOG_OK = "OK" // ダイアログボタン(OK)
 let DIALOG_CANCEL = "キャンセル" // ダイアログボタン(キャンセル)
 
@@ -25,7 +24,7 @@ let ALERT_MESSAGE_RESTART = "試合データがありません"
 let TITLE_FIXED_PAIR_1_RESET = " 固定ペア１をリセット"
 let TITLE_FIXED_PAIR_2_RESET = " 固定ペア２をリセット"
 
-let ALERT_MESSAGE_SELECTED_SAME_PLAYER = "同じプレイヤーを選択しています"
+let ALERT_MESSAGE_SELECTED_SAME_PLAYER = "同じプレイヤーを\n選択しています"
 let TITLE_FIXED_PAIR_COLLECTLY = "ペアを固定しました"
 
 let ALERT_MESSAGE_PLAYER_ON_PAIRING = "固定ペアをリセットしました"

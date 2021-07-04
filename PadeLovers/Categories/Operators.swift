@@ -6,7 +6,6 @@
 //  Copyright © 2021 Yoshitaka. All rights reserved.
 //
 
-
 import RxCocoa
 import RxSwift
 #if os(iOS)
@@ -16,6 +15,7 @@ import RxSwift
 #endif
 
 // Two way binding operator between control property and relay, that's all it takes.
+// swiftlint:disable static_operator
 infix operator <->: DefaultPrecedence
 
 #if os(iOS)
@@ -51,7 +51,7 @@ infix operator <->: DefaultPrecedence
 
                 let nonMarkedTextValue = nonMarkedText(base)
 
-                /**
+                /*
                  In some cases `textInput.textRangeFromPosition(start, toPosition: end)` will return nil even though the underlying
                  value is not nil. This appears to be an Apple bug. If it's not, and we are doing something wrong, please let us know.
                  The can be reproed easily if replace bottom code with
@@ -92,3 +92,4 @@ func <-> <T>(property: ControlProperty<T>, relay: BehaviorRelay<T>) -> Disposabl
 
     return Disposables.create(bindToUIDisposable, bindToRelay)
 }
+// swiftlint:enable static_operator

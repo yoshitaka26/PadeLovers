@@ -11,7 +11,8 @@ import RxCocoa
 enum MenuTransition {
     case setting
     case gameStart
-    case gameRestart
+    case generateNumbers
+    case padelData
 }
 
 class MenuViewModel: BaseViewModel {
@@ -21,23 +22,28 @@ class MenuViewModel: BaseViewModel {
     }
     let settingButtonSelect = PublishSubject<Void>()
     let gameButtonSelect = PublishSubject<Void>()
-    let restartButtonSelect = PublishSubject<Void>()
+    let randomNumbersButtonSelect = PublishSubject<Void>()
+    let padelDataButtonSelect = PublishSubject<Void>()
     let behaviorTransition: BehaviorRelay<MenuTransition?> = BehaviorRelay(value: nil)
     var transition: Observable<MenuTransition?> {
         return behaviorTransition.asObservable()
     }
     func mutate() {
-        settingButtonSelect.asObservable().subscribe(onNext: { [weak self] _ in
+        settingButtonSelect.subscribe(onNext: { [weak self] _ in
             guard let self = self else { return }
             self.behaviorTransition.accept(.setting)
         }).disposed(by: disposeBag)
-        gameButtonSelect.asObservable().subscribe(onNext: { [weak self] _ in
+        gameButtonSelect.subscribe(onNext: { [weak self] _ in
             guard let self = self else { return }
             self.behaviorTransition.accept(.gameStart)
         }).disposed(by: disposeBag)
-        restartButtonSelect.asObservable().subscribe(onNext: { [weak self] _ in
+        randomNumbersButtonSelect.subscribe(onNext: { [weak self] _ in
             guard let self = self else { return }
-            self.behaviorTransition.accept(.gameRestart)
+            self.behaviorTransition.accept(.generateNumbers)
+        }).disposed(by: disposeBag)
+        padelDataButtonSelect.subscribe(onNext: { [weak self] _ in
+            guard let self = self else { return }
+            self.behaviorTransition.accept(.padelData)
         }).disposed(by: disposeBag)
     }
 }

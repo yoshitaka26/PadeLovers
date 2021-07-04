@@ -7,64 +7,72 @@
 //
 
 import UIKit
-import Gifu
 
 class MenuViewController: BaseViewController {
     
-    @IBOutlet weak var mainImage: UIImageView!
     @IBOutlet weak var settingButton: UIButton!
     @IBOutlet weak var playButton: UIButton!
-    @IBOutlet weak var restartButton: UIButton!
-    private var viewModel: MenuViewModel = MenuViewModel()
+    @IBOutlet weak var randomNumberButton: UIButton!
+    @IBOutlet weak var padelDataButton: UIButton!
+    private var viewModel = MenuViewModel()
     override func bind() {
-        _ = settingButton.rx.tap.bind(to: viewModel.settingButtonSelect)
-        _ = playButton.rx.tap.bind(to: viewModel.gameButtonSelect)
-        _ = restartButton.rx.tap.bind(to: viewModel.restartButtonSelect)
+        disposeBag.insert(
+            settingButton.rx.tap.bind(to: viewModel.settingButtonSelect),
+            playButton.rx.tap.bind(to: viewModel.gameButtonSelect),
+            randomNumberButton.rx.tap.bind(to: viewModel.randomNumbersButtonSelect),
+            padelDataButton.rx.tap.bind(to: viewModel.padelDataButtonSelect)
+        )
         rxViewDidLoad.subscribe(onNext: { [weak self] _ in
             guard let self = self else { return }
-            let imageView = GIFImageView(frame: CGRect(x: 0, y: 0, width: 300, height: 300))
-            imageView.animate(withGIFNamed: "welcome")
-            self.mainImage.addSubview(imageView)
             self.settingButton.layer.cornerRadius = self.settingButton.frame.size.height / 4
             self.playButton.layer.cornerRadius = self.playButton.frame.size.height / 4
-            self.restartButton.layer.cornerRadius = self.restartButton.frame.size.height / 4
-            UITabBar.appearance().tintColor = UIColor(red: 255 / 255, green: 63 / 255, blue: 101 / 255, alpha: 1.0)
-            UITabBar.appearance().unselectedItemTintColor = UIColor(red: 255 / 255, green: 121 / 255, blue: 63 / 255, alpha: 1.0)
+            UITabBar.appearance().tintColor = .appRed
+            UITabBar.appearance().unselectedItemTintColor = .darkGray
             self.navigationController?.setNavigationBarHidden(true, animated: true)
         }).disposed(by: disposeBag)
-        
+        rxViewWillAppear.subscribe(onNext: { [weak self] _ in
+            guard let self = self else { return }
+            self.navigationController?.navigationBar.isHidden = true
+        }).disposed(by: disposeBag)
         viewModel.transition.subscribe(onNext: { [weak self] transition in
             guard let self = self else { return }
             switch transition {
             case .setting:
-                let storyboard = UIStoryboard(name: "Setting", bundle: nil)
-                let vc = storyboard.instantiateViewController(identifier: "Setting")
-                self.navigationController?.pushViewController(vc, animated: true)
+                let storyboard = UIStoryboard(name: "CommonData", bundle: nil)
+                let vc = storyboard.instantiateViewController(identifier: "CommonData")
+                self.present(vc, animated: true)
             case .gameStart:
-                self.confirmationAlertView(withTitle: TITLE_PLYA_GAME, message: MESSAGE_PLAY_GAME, cancelString: DIALOG_CANCEL, confirmString: DIALOG_OK) {
-                    let storyboard = UIStoryboard(name: "Game", bundle: nil)
-                    let next = storyboard.instantiateViewController(identifier: "Game")
-                    guard let tabBarCon = next as? UITabBarController else { return }
-                    guard let navBarCon = tabBarCon.viewControllers?[0] as? UINavigationController else { return }
-                    guard let destinationVC = navBarCon.topViewController as? GamePlayerViewController else { return }
-                    self.navigationController?.pushViewController(tabBarCon, animated: true)
-                }
-            case .gameRestart:
-                let dataBrain = PadelDataRecordBrain()
-                if let data = dataBrain.loadPlayers() {
-                    if data != [] {
-                        self.confirmationAlertView(withTitle: TITLE_RESTART_GAME, message: MESSAGE_RESTART_GAME, cancelString: DIALOG_CANCEL, confirmString: DIALOG_OK) {
-                            let storyboard = UIStoryboard(name: "Game", bundle: nil)
-                            let vc = storyboard.instantiateViewController(identifier: "Game")
-                            self.navigationController?.pushViewController(vc, animated: true)
-                        }
-                    } else {
-                        self.warningAlertView(withTitle: ALERT_MESSAGE_RESTART)
-                    }
-                }
+                let storyboard = UIStoryboard(name: "StartGame", bundle: nil)
+                let vc = storyboard.instantiateViewController(identifier: "StartGame")
+                guard let modalVC = vc as? StartGameTableViewController else { return }
+                modalVC.delegate = self
+                self.present(modalVC, animated: true)
+            case .generateNumbers:
+                let storyboard = UIStoryboard(name: "RandomNumberTable", bundle: nil)
+                let vc = storyboard.instantiateViewController(identifier: "RandomNumber")
+                self.navigationController?.pushViewController(vc, animated: true)
+                self.navigationController?.setNavigationBarHidden(false, animated: true)
+            case .padelData:
+                let storyboard = UIStoryboard(name: "PadelData", bundle: nil)
+                let vc = storyboard.instantiateViewController(identifier: "PadelData")
+                self.navigationController?.pushViewController(vc, animated: true)
+                self.navigationController?.setNavigationBarHidden(false, animated: true)
             case .none:
                 break
             }
         }).disposed(by: disposeBag)
+    }
+}
+
+extension MenuViewController: StartGameTableViewControllerDelegate {
+    func callBackFromStartGameModalVC(type: TableType, padelID: UUID?) {
+        let storyboard = UIStoryboard(name: "Game", bundle: nil)
+        let next = storyboard.instantiateViewController(identifier: "Game")
+        guard let tabBarCon = next as? UITabBarController else { return }
+        guard let navBarCon = tabBarCon.viewControllers?[0] as? UINavigationController else { return }
+        guard let destinationVC = navBarCon.topViewController as? GamePlayerViewController else { return }
+        destinationVC.startGameType = type
+        destinationVC.padelID = padelID
+        self.navigationController?.pushViewController(tabBarCon, animated: true)
     }
 }

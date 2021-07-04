@@ -7,9 +7,7 @@ target 'PadeLovers' do
 
   # Pods for PadeLovers
   pod 'SwiftLint'
-  pod 'Gifu'
   pod 'RxSwift', '~> 5'
   pod 'RxCocoa', '~> 5'
-  pod 'CocoaLumberjack/Swift'
   pod 'R.swift'
 end

@@ -10,6 +10,6 @@ import UIKit
 
 extension NSAttributedString {
     static func setNameOnLabel(name: String, gender: Bool = true) -> NSAttributedString {
-        NSAttributedString(string: name, attributes:  [.foregroundColor : gender ? UIColor.black : UIColor.red])
+        NSAttributedString(string: name, attributes: [.foregroundColor: gender ? UIColor.label : UIColor.red])
     }
 }

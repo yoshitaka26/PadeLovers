@@ -10,28 +10,34 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-enum ErrorAlert {
-    case lessPlayers
-    case unexpectedError
+enum MessageAlert {
+    case lessPlayersError
     case noCourtError
+    case gameEnd
 }
 
 class GameDataTableViewModel: BaseViewModel {
 
     let coreDataManager = CoreDataManager.shared
-    let gameCreateManager = GameCreateManager.shared
-    var padelID: String = UserDefaults.standard.value(forKey: "PadelID") as! String
+    let gameCreateManager = GameOrganizeManager.shared
+    var padelID: BehaviorRelay<String> = BehaviorRelay(value: "")
+    let setPadelID = PublishSubject<Void>()
     
     var playingPlayers: BehaviorRelay<[Player]> = BehaviorRelay(value: [])
+    var onCourts: BehaviorRelay<[Court]> = BehaviorRelay(value: [])
     var onGames: BehaviorRelay<[Game]> = BehaviorRelay(value: [])
-    let errorAlert = PublishSubject<ErrorAlert>()
+    let messageAlert = PublishSubject<MessageAlert>()
     
     let loadGameData = PublishSubject<Void>()
     let reloadTableView = PublishSubject<Void>()
     let organizeGame = PublishSubject<Void>()
-    let gameEnd = PublishSubject<Int>()
+    let actionButtonPressed = PublishSubject<Int>()
     let deleteGame = PublishSubject<Int>()
     let reOrganaizeGame = PublishSubject<Int>()
+    
+    let pageScrolled = PublishSubject<Void>()
+    let askToOrganizeNewGames = PublishSubject<Void>()
+    let showResultModalView = PublishSubject<Game>()
     
     override init() {
         super.init()
@@ -41,24 +47,36 @@ class GameDataTableViewModel: BaseViewModel {
 
 extension GameDataTableViewModel {
     func mutate() {
-        loadGameData.subscribe(onNext: { [weak self] playerID in
+        setPadelID.subscribe(onNext: { [weak self] _ in
             guard let self = self else { return }
-            self.onGames.accept(self.coreDataManager.loadOnGames(uuidString: self.padelID))
+            let padelID = UserDefaults.standard.value(forKey: "PadelID") as! String
+            self.padelID.accept(padelID)
+        }).disposed(by: disposeBag)
+        loadGameData.subscribe(onNext: { [weak self] _ in
+            guard let self = self else { return }
+            self.onGames.accept(self.coreDataManager.loadOnGames(uuidString: self.padelID.value))
+            self.onCourts.accept(self.coreDataManager.loadCourtsIsOn(uuidString: self.padelID.value))
             self.reloadTableView.onNext(())
         }).disposed(by: disposeBag)
-        organizeGame.subscribe(onNext: { [weak self] playerID in
+        pageScrolled.subscribe(onNext: { [weak self] _ in
             guard let self = self else { return }
-            guard let padel = self.coreDataManager.loadPadel(uuidString: self.padelID) else {
-                self.errorAlert.onNext(.unexpectedError)
-                return
+            guard let padel = self.coreDataManager.loadPadel(uuidString: self.padelID.value) else { return }
+            guard padel.isReady else { return }
+            let emptyCourtNum = self.coreDataManager.returnEmptyCourtNum(uuidString: self.padelID.value)
+            if emptyCourtNum > 1 {
+                self.askToOrganizeNewGames.onNext(())
             }
+        }).disposed(by: disposeBag)
+        organizeGame.subscribe(onNext: { [weak self] _ in
+            guard let self = self else { return }
+            guard let padel = self.coreDataManager.loadPadel(uuidString: self.padelID.value) else { return }
             guard padel.isReady else {
-                self.errorAlert.onNext(.lessPlayers)
+                self.messageAlert.onNext(.lessPlayersError)
                 return
             }
-            let emptyCourtNum = self.coreDataManager.returnEmptyCourtNum(uuidString: self.padelID)
+            let emptyCourtNum = self.coreDataManager.returnEmptyCourtNum(uuidString: self.padelID.value)
             guard emptyCourtNum != 0 else {
-                self.errorAlert.onNext(.noCourtError)
+                self.messageAlert.onNext(.noCourtError)
                 return
             }
             for _ in 0...emptyCourtNum - 1 {
@@ -66,10 +84,28 @@ extension GameDataTableViewModel {
             }
             self.loadGameData.onNext(())
         }).disposed(by: disposeBag)
-        gameEnd.subscribe(onNext: { [weak self] courtID in
+        actionButtonPressed.subscribe(onNext: { [weak self] courtID in
             guard let self = self else { return }
-            self.gameCreateManager.gameEnd(courtID: courtID)
-            self.loadGameData.onNext(())
+            guard let padel = self.coreDataManager.loadPadel(uuidString: self.padelID.value) else { return }
+            guard let court = self.coreDataManager.loadCourt(uuidString: self.padelID.value, courtID: Int16(courtID)) else { return }
+            if court.onGame != nil {
+                if padel.showResult {
+                    guard let game = self.coreDataManager.loadGameByCourtId(uuidString: self.padelID.value, courtID: Int16(courtID)) else { return }
+                    self.showResultModalView.onNext((game))
+                    self.gameCreateManager.gameEnd(courtID: courtID)
+                } else {
+                    self.gameCreateManager.gameEnd(courtID: courtID)
+                    self.messageAlert.onNext(.gameEnd)
+                }
+                self.loadGameData.onNext(())
+            } else {
+                guard padel.isReady else {
+                    self.messageAlert.onNext(.lessPlayersError)
+                    return
+                }
+                self.gameCreateManager.organaizeMatch(courtID: courtID)
+                self.loadGameData.onNext(())
+            }
         }).disposed(by: disposeBag)
         deleteGame.subscribe(onNext: { [weak self] courtID in
             guard let self = self else { return }
