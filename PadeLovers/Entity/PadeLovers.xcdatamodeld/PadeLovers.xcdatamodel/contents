@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20F71" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Court" representedClassName="Court" syncable="YES">
+        <attribute name="courtID" attributeType="Integer 16" minValueString="0" maxValueString="2" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="isOn" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="padelID" attributeType="UUID" usesScalarValueType="NO"/>
+        <relationship name="onGame" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Game" inverseName="court" inverseEntity="Game"/>
+        <relationship name="padel" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Padel" inverseName="courts" inverseEntity="Padel"/>
+    </entity>
+    <entity name="Game" representedClassName="Game" syncable="YES">
+        <attribute name="backA" optional="YES" attributeType="Integer 16" usesScalarValueType="YES"/>
+        <attribute name="backB" optional="YES" attributeType="Integer 16" usesScalarValueType="YES"/>
+        <attribute name="driveA" optional="YES" attributeType="Integer 16" usesScalarValueType="YES"/>
+        <attribute name="driveB" optional="YES" attributeType="Integer 16" usesScalarValueType="YES"/>
+        <attribute name="gameID" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="isEnd" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="padelID" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="startAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="court" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Court" inverseName="onGame" inverseEntity="Court"/>
+        <relationship name="padel" optional="YES" maxCount="1" deletionRule="Nullify" ordered="YES" destinationEntity="Padel" inverseName="games" inverseEntity="Padel"/>
+        <relationship name="players" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Player" inverseName="onGame" inverseEntity="Player"/>
+        <relationship name="score" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Score" inverseName="game" inverseEntity="Score"/>
+    </entity>
+    <entity name="Padel" representedClassName="Padel" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="gameCounts" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="gameIDNumber" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="isReady" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="padelID" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="playMode" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
+        <attribute name="showResult" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <relationship name="courts" optional="YES" toMany="YES" maxCount="3" deletionRule="Nullify" ordered="YES" destinationEntity="Court" inverseName="padel" inverseEntity="Court"/>
+        <relationship name="games" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Game" inverseName="padel" inverseEntity="Game"/>
+        <relationship name="pairingA" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PairingA" inverseName="padel" inverseEntity="PairingA"/>
+        <relationship name="pairingB" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PairingB" inverseName="padel" inverseEntity="PairingB"/>
+        <relationship name="players" optional="YES" toMany="YES" maxCount="21" deletionRule="Nullify" ordered="YES" destinationEntity="Player" inverseName="padel" inverseEntity="Player"/>
+    </entity>
+    <entity name="PairingA" representedClassName="PairingA" syncable="YES">
+        <attribute name="isOn" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="padelID" attributeType="UUID" usesScalarValueType="NO"/>
+        <relationship name="padel" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Padel" inverseName="pairingA" inverseEntity="Padel"/>
+        <relationship name="pairing" optional="YES" toMany="YES" maxCount="2" deletionRule="Nullify" destinationEntity="Player" inverseName="pairingA" inverseEntity="Player"/>
+    </entity>
+    <entity name="PairingB" representedClassName="PairingB" syncable="YES">
+        <attribute name="isOn" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="padelID" attributeType="UUID" usesScalarValueType="NO"/>
+        <relationship name="padel" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Padel" inverseName="pairingB" inverseEntity="Padel"/>
+        <relationship name="pairing" optional="YES" toMany="YES" maxCount="2" deletionRule="Nullify" destinationEntity="Player" inverseName="pairingB" inverseEntity="Player"/>
+    </entity>
+    <entity name="Player" representedClassName="Player" syncable="YES">
+        <attribute name="counts" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="gender" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
+        <attribute name="isPlaying" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="padelID" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="pair1" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName"/>
+        <attribute name="pair2" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName"/>
+        <attribute name="playerID" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="onGame" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Game" inverseName="players" inverseEntity="Game"/>
+        <relationship name="padel" optional="YES" maxCount="1" deletionRule="Nullify" ordered="YES" destinationEntity="Padel" inverseName="players" inverseEntity="Padel"/>
+        <relationship name="pairingA" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PairingA" inverseName="pairing" inverseEntity="PairingA"/>
+        <relationship name="pairingB" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PairingB" inverseName="pairing" inverseEntity="PairingB"/>
+    </entity>
+    <entity name="Score" representedClassName="Score" syncable="YES">
+        <attribute name="padelID" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="playTime" optional="YES" attributeType="String"/>
+        <attribute name="score1A" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="score1B" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="score2A" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="score2B" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="score3A" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="score3B" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="totalA" optional="YES" attributeType="Integer 16" maxValueString="3" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="totalB" optional="YES" attributeType="Integer 16" maxValueString="3" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="game" maxCount="1" deletionRule="Nullify" destinationEntity="Game" inverseName="score" inverseEntity="Game"/>
+    </entity>
+    <elements>
+        <element name="Court" positionX="-234" positionY="-45" width="128" height="119"/>
+        <element name="Game" positionX="-395.9187622070312" positionY="-31.359130859375" width="128" height="209"/>
+        <element name="Padel" positionX="-249.4500122070312" positionY="-208.9654541015625" width="128" height="209"/>
+        <element name="PairingA" positionX="-234" positionY="-45" width="128" height="89"/>
+        <element name="PairingB" positionX="-225" positionY="-36" width="128" height="89"/>
+        <element name="Player" positionX="-67.89739990234375" positionY="107.3436889648438" width="128" height="209"/>
+        <element name="Score" positionX="-234" positionY="-45" width="128" height="194"/>
+    </elements>
+</model>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0ty-i2-BN0">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--乱数表-->
+        <scene sceneID="W6s-5b-GtS">
+            <objects>
+                <viewController storyboardIdentifier="RandomNumber" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0ty-i2-BN0" customClass="RandomNumberTableViewController" customModule="PadeLovers" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pbb-VS-aTt">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="139-Yj-hc7">
+                                <rect key="frame" x="0.0" y="44" width="414" height="758"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WAQ-s7-qhd">
+                                <rect key="frame" x="0.0" y="802" width="414" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="uDm-C8-01Q"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="8cW-BZ-Nrh"/>
+                                    <barButtonItem id="blZ-v2-571">
+                                        <imageReference key="image" image="btn_back_table" symbolScale="large"/>
+                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="spP-Sf-WtO"/>
+                                    <barButtonItem image="btn_next_table" id="1Ab-Q1-ORP">
+                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="ZC2-S1-8tj"/>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="xrE-GN-KmI"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="xrE-GN-KmI" firstAttribute="trailing" secondItem="139-Yj-hc7" secondAttribute="trailing" id="6Rs-ch-Tfg"/>
+                            <constraint firstItem="WAQ-s7-qhd" firstAttribute="trailing" secondItem="xrE-GN-KmI" secondAttribute="trailing" id="AbV-yw-hFq"/>
+                            <constraint firstItem="WAQ-s7-qhd" firstAttribute="top" secondItem="139-Yj-hc7" secondAttribute="bottom" id="F9a-i8-s8L"/>
+                            <constraint firstItem="xrE-GN-KmI" firstAttribute="bottom" secondItem="WAQ-s7-qhd" secondAttribute="bottom" id="FoO-Oh-VLh"/>
+                            <constraint firstItem="139-Yj-hc7" firstAttribute="top" secondItem="xrE-GN-KmI" secondAttribute="top" id="TJB-iY-fTt"/>
+                            <constraint firstItem="139-Yj-hc7" firstAttribute="leading" secondItem="xrE-GN-KmI" secondAttribute="leading" id="YTY-d6-SP0"/>
+                            <constraint firstItem="WAQ-s7-qhd" firstAttribute="leading" secondItem="xrE-GN-KmI" secondAttribute="leading" id="xzz-52-D9V"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="乱数表" id="FBR-n7-mKX"/>
+                    <connections>
+                        <outlet property="backButton" destination="blZ-v2-571" id="cl3-hh-NbL"/>
+                        <outlet property="nextButton" destination="1Ab-Q1-ORP" id="vvN-a2-BTv"/>
+                        <outlet property="tableView" destination="139-Yj-hc7" id="yWs-Iz-9ys"/>
+                        <outlet property="toolbar" destination="WAQ-s7-qhd" id="UwO-yx-u3M"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jl5-tS-F5z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="984.05797101449286" y="166.74107142857142"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="btn_back_table" width="100" height="60"/>
+        <image name="btn_next_table" width="100" height="60"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
