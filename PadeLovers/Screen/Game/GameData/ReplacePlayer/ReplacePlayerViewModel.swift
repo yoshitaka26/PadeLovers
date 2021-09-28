@@ -12,6 +12,8 @@ import RxCocoa
 
 enum MessageType {
     case samePlayersSelected
+    case noReplacePlayer
+    case replacedPlayerByRandom(Player)
     case replacedPlayerFromWaiting
     case replacedPlayerOnSameGame
     case replacePlayerFromAnotherGame
@@ -60,18 +62,36 @@ extension ReplacePlayerViewModel {
         okAction.subscribe(onNext: { [weak self] in
             guard let self = self else { return }
             let row1 = self.picker1SelectedRow.value
-            let row2 = self.picker2SelectedRow.value
+            let row2 = self.picker2SelectedRow.value - 1
             let playersOnGame = self.playersOnGame.value
             let playersForeReplace = self.playersForReplace.value
             let player1 = playersOnGame[row1]
-            let player2 = playersForeReplace[row2]
+
+            var _player2: Player?
+            if row2 > -1 {
+                _player2 = playersForeReplace[row2]
+            }
+
+            guard let player2 = _player2 else {
+                let players = self.coreDataManager.loadPlayersForNewGame(uuidString: self.padelID)
+                if players.isEmpty {
+                    self.pushWith.onNext(.noReplacePlayer)
+                } else {
+                    let  player = self.gameCreateManager.replacePlayersFromWaiting(player1: player1, _player2: nil)
+                    guard let replacedPlayer = player else {
+                        return
+                    }
+                    self.pushWith.onNext(.replacedPlayerByRandom(replacedPlayer))
+                }
+                return
+            }
             
             if player1.playerID == player2.playerID {
                 self.pushWith.onNext(.samePlayersSelected)
             }
 
             if player2.onGame == nil {
-                self.gameCreateManager.replacePlayersFromWaiting(player1: player1, player2: player2)
+                _ = self.gameCreateManager.replacePlayersFromWaiting(player1: player1, _player2: player2)
                 self.pushWith.onNext(.replacedPlayerFromWaiting)
             }
             
@@ -87,7 +107,7 @@ extension ReplacePlayerViewModel {
         replacePlayerFromAnotherGame.subscribe(onNext: { [weak self] _ in
             guard let self = self else { return }
             let row1 = self.picker1SelectedRow.value
-            let row2 = self.picker2SelectedRow.value
+            let row2 = self.picker2SelectedRow.value - 1
             let playersOnGame = self.playersOnGame.value
             let playersForeReplace = self.playersForReplace.value
             let player1 = playersOnGame[row1]

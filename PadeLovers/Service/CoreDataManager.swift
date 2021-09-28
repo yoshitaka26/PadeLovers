@@ -74,7 +74,7 @@ extension CoreDataManager {
             if index < courts.count {
                 if courts[index] != "" {
                     court.name = courts[index]
-                    court.isOn = true
+                    court.isOn = index < 2 ? true : false
                 } else {
                     court.name = "コート\(index + 1)"
                     court.isOn = false
@@ -94,7 +94,7 @@ extension CoreDataManager {
             if index < players.count {
                 player.name = players[index].playerName
                 player.gender = players[index].playerGender
-                player.isPlaying = true
+                player.isPlaying = index < 12 ? true : false
             } else {
                 player.name = "ゲスト\(index - players.count + 1)"
                 player.gender = true

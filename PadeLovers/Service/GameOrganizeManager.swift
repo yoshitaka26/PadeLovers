@@ -338,13 +338,22 @@ class GameOrganizeManager {
         guard !selectedGame.isEnd else { fatalError("終了済みの試合は消せない") }
         coreDataManager.deleteGame(uuidString: padelID, gameID: selectedGame.gameID)
     }
-    func replacePlayersFromWaiting(player1: Player, player2: Player) {
+    func replacePlayersFromWaiting(player1: Player, _player2: Player?) -> Player? {
         let padelID: String = UserDefaults.standard.value(forKey: "PadelID") as! String
-        guard let padel = coreDataManager.loadPadel(uuidString: padelID) else {
-            fatalError("padelデータが存在しない")
+        guard let padel = coreDataManager.loadPadel(uuidString: padelID) else { fatalError("padelデータが存在しない") }
+        var tempPlayer2 = _player2
+        if _player2 == nil {
+            let players = coreDataManager.loadPlayersForNewGame(uuidString: padelID)
+            let minCounts = getMinCountsWithPlayers(players: players)
+            let tempPlayers = players.filter { $0.counts == minCounts }
+            guard let replacePlayer = tempPlayers.randomElement() else { return nil }
+            tempPlayer2 = replacePlayer
         }
-        guard let game = player1.onGame else { return }
-        guard player2.onGame == nil else { return }
+
+        guard let player2 = tempPlayer2 else { return nil }
+
+        guard let game = player1.onGame else { return nil }
+        guard player2.onGame == nil else { return nil }
         if game.driveA == player1.playerID { game.driveA = player2.playerID }
         if game.backA == player1.playerID { game.backA = player2.playerID }
         if game.driveB == player1.playerID { game.driveB = player2.playerID }
@@ -352,6 +361,8 @@ class GameOrganizeManager {
         game.removeFromPlayers(player1)
         game.addToPlayers(player2)
         padel.save()
+
+        return player2
     }
     func replacePlayersOnSameGame(player1: Player, player2: Player) {
         let padelID: String = UserDefaults.standard.value(forKey: "PadelID") as! String
@@ -448,7 +459,7 @@ class GameOrganizeManager {
             padel.save()
             return
         }
-        replacePlayersFromWaiting(player1: player1, player2: player2)
+        _ = replacePlayersFromWaiting(player1: player1, _player2: player2)
         padel.save()
     }
 }

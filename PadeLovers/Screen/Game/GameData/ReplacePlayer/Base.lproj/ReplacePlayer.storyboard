@@ -89,8 +89,11 @@
                                         <rect key="frame" x="0.0" y="654.5" width="414" height="163.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EE8-W2-7P4">
-                                                <rect key="frame" x="40" y="30" width="334" height="103.5"/>
+                                                <rect key="frame" x="132" y="30" width="150" height="103.5"/>
                                                 <color key="backgroundColor" red="0.89411764709999997" green="0.50980392159999999" blue="0.49803921569999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="bsS-RD-whf"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="決定"/>
@@ -100,9 +103,10 @@
                                         <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="EE8-W2-7P4" firstAttribute="top" secondItem="ViD-tZ-S05" secondAttribute="top" constant="30" id="FWG-5e-xK7"/>
-                                            <constraint firstItem="EE8-W2-7P4" firstAttribute="leading" secondItem="ViD-tZ-S05" secondAttribute="leading" constant="40" id="ZDm-YJ-hwW"/>
+                                            <constraint firstItem="EE8-W2-7P4" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ViD-tZ-S05" secondAttribute="leading" constant="40" id="ZDm-YJ-hwW"/>
                                             <constraint firstAttribute="bottom" secondItem="EE8-W2-7P4" secondAttribute="bottom" constant="30" id="h0r-Fq-4CH"/>
-                                            <constraint firstAttribute="trailing" secondItem="EE8-W2-7P4" secondAttribute="trailing" constant="40" id="m0X-qh-et9"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="EE8-W2-7P4" secondAttribute="trailing" constant="40" id="m0X-qh-et9"/>
+                                            <constraint firstItem="EE8-W2-7P4" firstAttribute="centerX" secondItem="ViD-tZ-S05" secondAttribute="centerX" id="qlW-1g-D0n"/>
                                         </constraints>
                                     </view>
                                 </subviews>

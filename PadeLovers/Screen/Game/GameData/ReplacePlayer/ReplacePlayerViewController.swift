@@ -45,6 +45,14 @@ class ReplacePlayerViewController: BaseViewController {
             switch type {
             case .samePlayersSelected:
                 self.infoAlertViewWithTitle(title: "同じプレイヤーを選択してます")
+            case .noReplacePlayer:
+                self.infoAlertViewWithTitle(title: "試合待ちプレイヤーがいません")
+            case let .replacedPlayerByRandom(replacedPlayer):
+                guard let name = replacedPlayer.name else { return }
+                self.infoAlertViewWithTitle(title: "\(name)とチェンジしました") {
+                    self.delegate?.returnFromReplacePlayerViewController()
+                    self.dismiss(animated: true, completion: nil)
+                }
             case .replacedPlayerFromWaiting:
                 self.warningAlertView(withTitle: "プレイヤーをチェンジしました", action: {
                     self.delegate?.returnFromReplacePlayerViewController()
@@ -56,7 +64,7 @@ class ReplacePlayerViewController: BaseViewController {
                     self.dismiss(animated: true, completion: nil)
                 })
             case .replacePlayerFromAnotherGame:
-                let row2 = self.viewModel.picker2SelectedRow.value
+                let row2 = self.viewModel.picker2SelectedRow.value - 1
                 let playersForeReplace = self.viewModel.playersForReplace.value
                 guard let player2 = playersForeReplace[row2].name else { return }
                 self.confirmationAlertView(withTitle: "\(player2)は試合中です", message: "他の試合と入れ替えますか？", cancelString: "キャンセル", confirmString: "OK") {
@@ -76,13 +84,39 @@ extension ReplacePlayerViewController: UIPickerViewDelegate, UIPickerViewDataSou
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         guard let source = self.viewModel.playersForPickerView.value else { return 0 }
-        guard let players = source[pickerView.tag] else { return 0 }
-        return players.count
+        switch pickerView.tag {
+        case 0:
+            guard let players = source[pickerView.tag] else { return 0 }
+            return players.count
+        default:
+            guard let players = source[pickerView.tag] else { return 0 }
+            return players.count + 1
+        }
+
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        guard let source = self.viewModel.playersForPickerView.value else { return "" }
-        guard let players = source[pickerView.tag] else { return "" }
-        return players[row].name
+        if row == 0 {
+            switch pickerView.tag {
+            case 0:
+                guard let source = self.viewModel.playersForPickerView.value else { return "" }
+                guard let players = source[pickerView.tag] else { return "" }
+                return players[row].name
+            default:
+                return "ランダム"
+            }
+        } else {
+            switch pickerView.tag {
+            case 0:
+                guard let source = self.viewModel.playersForPickerView.value else { return "" }
+                guard let players = source[pickerView.tag] else { return "" }
+                return players[row].name
+
+            default:
+                guard let source = self.viewModel.playersForPickerView.value else { return "" }
+                guard let players = source[pickerView.tag] else { return "" }
+                return players[row - 1].name
+            }
+        }
     }
 }
