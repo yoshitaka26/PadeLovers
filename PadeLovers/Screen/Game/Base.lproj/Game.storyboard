@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="esk-DW-kkG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="esk-DW-kkG">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -42,7 +42,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cAU-0m-sjP" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="試合設定" id="xJn-5U-YBC">
-                        <imageReference key="image" image="rectangle.stack.person.crop" catalog="system" symbolScale="default"/>
+                        <imageReference key="image" image="person.crop.rectangle.stack" catalog="system" symbolScale="default"/>
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="XhM-Bj-dya">
@@ -118,8 +118,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="doc.text.magnifyingglass" catalog="system" width="113" height="128"/>
+        <image name="doc.text.magnifyingglass" catalog="system" width="107" height="128"/>
         <image name="person.3" catalog="system" width="128" height="62"/>
-        <image name="rectangle.stack.person.crop" catalog="system" width="128" height="122"/>
+        <image name="person.crop.rectangle.stack" catalog="system" width="128" height="122"/>
     </resources>
 </document>
