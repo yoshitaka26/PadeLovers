@@ -92,7 +92,11 @@ class RandomNumberTableManager {
         var results: [Match] = []
         var inGames: [String] = []
         
-        let weight = 10
+        let weightA = 15
+        let weightB = 10
+        let weightC = 10
+        
+        let flag: Bool = playerNumber > 7
         
         while true {
             guard !matches.isEmpty else { break }
@@ -100,13 +104,13 @@ class RandomNumberTableManager {
             var minPriority = Int.max
             var candidates: [Match] = []
             for match in matches {
-                let player1: Int = playerGameNum[match.pair1.player1]! * weight + match.pair1.player1
-                let player2: Int = playerGameNum[match.pair1.player2]! * weight + match.pair1.player2
-                let player3: Int = playerGameNum[match.pair2.player1]! * weight + match.pair2.player1
-                let player4: Int = playerGameNum[match.pair2.player2]! * weight + match.pair2.player2
-                let pair1: Int = pairGameNum[match.pair1.number]! * weight
-                let pair2: Int = pairGameNum[match.pair2.number]! * weight
-                let group = groupGameNum[match.group]! * weight
+                let player1: Int = playerGameNum[match.pair1.player1]! * weightA + (flag ? points[match.pair1.player1]! : (match.pair1.player1 + points[match.pair1.player1]!))
+                let player2: Int = playerGameNum[match.pair1.player2]! * weightA + (flag ? points[match.pair1.player2]! : (match.pair1.player2 + points[match.pair1.player2]!))
+                let player3: Int = playerGameNum[match.pair2.player1]! * weightA + (flag ? points[match.pair2.player1]! : (match.pair2.player1 + points[match.pair2.player1]!))
+                let player4: Int = playerGameNum[match.pair2.player2]! * weightA + (flag ? points[match.pair2.player2]! : (match.pair2.player2 + points[match.pair2.player2]!))
+                let pair1: Int = pairGameNum[match.pair1.number]! * weightB
+                let pair2: Int = pairGameNum[match.pair2.number]! * weightB
+                let group = groupGameNum[match.group]! * weightC
                 let priority = player1 + player2 + player3 + player4 + pair1 + pair2 + group
                 if minPriority >= priority {
                     if minPriority > priority {
@@ -119,10 +123,14 @@ class RandomNumberTableManager {
             
             var minMatch: Match?
             var minMatchNum = Int.max
-            for candidate in candidates where minMatchNum > candidate.number {
-                minMatchNum = candidate.number
-                minMatch = candidate
-                
+            
+            if flag {
+                minMatch = candidates.randomElement()
+            } else {
+                for candidate in candidates where minMatchNum > candidate.number {
+                    minMatchNum = candidate.number
+                    minMatch = candidate
+                }
             }
             
             guard let safeMinMatch = minMatch else { return nil }
