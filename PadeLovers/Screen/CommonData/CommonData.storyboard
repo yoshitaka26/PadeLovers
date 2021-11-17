@@ -65,7 +65,7 @@
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Wys-vU-Fa7"/>
                                     <barButtonItem style="done" id="5hL-Dd-U7K">
-                                        <imageReference key="image" image="square.3.stack.3d.top.filled" symbolScale="large"/>
+                                        <imageReference key="image" image="square.3.stack.3d.top.filled" catalog="system" symbolScale="large"/>
                                         <color key="tintColor" red="0.43921568630000002" green="0.63137254899999995" blue="0.84313725490000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="epW-Nq-9Td"/>
@@ -113,7 +113,7 @@
     <resources>
         <image name="square.3.stack.3d.bottom.filled" catalog="system" width="128" height="124"/>
         <image name="square.3.stack.3d.middle.filled" catalog="system" width="128" height="124"/>
-        <image name="square.3.stack.3d.top.filled" width="13" height="14"/>
+        <image name="square.3.stack.3d.top.filled" catalog="system" width="128" height="124"/>
         <image name="square.grid.2x2.fill" catalog="system" width="128" height="114"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
