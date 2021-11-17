@@ -1,4 +1,6 @@
 .DS_Store
+UserInterfaceState.xcuserstate
 *.generated.swift
 Pods
 Podfile.lock
+
