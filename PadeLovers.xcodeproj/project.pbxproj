@@ -324,7 +324,6 @@
 		E44672DE264562770092DEFE /* Screen */ = {
 			isa = PBXGroup;
 			children = (
-				E44672ED264565120092DEFE /* Menu */,
 				E4C434152680EE60006652A7 /* CommonData */,
 				E44673022645686B0092DEFE /* Game */,
 				E406DEAB2690090E00DF22F8 /* PadelData */,
@@ -546,6 +545,7 @@
 				E4C434162680EE85006652A7 /* CommonData.storyboard */,
 				E4C434192680EEB5006652A7 /* CommonDataViewController.swift */,
 				E4C4341C2680EEC5006652A7 /* CommonDataViewModel.swift */,
+				E44672ED264565120092DEFE /* Menu */,
 				E4C4342E2681595A006652A7 /* CourtCell */,
 				E4C4341F2680F0A7006652A7 /* PlayerCell */,
 			);
@@ -971,7 +971,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.1.2.0;
+				CURRENT_PROJECT_VERSION = 1.1.3.0;
 				DEVELOPMENT_TEAM = VKV3Y2GW5Q;
 				INFOPLIST_FILE = PadeLovers/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -979,7 +979,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.2;
+				MARKETING_VERSION = 1.1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yoshitaka.PadeLovers;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -995,7 +995,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.1.2.0;
+				CURRENT_PROJECT_VERSION = 1.1.3.0;
 				DEVELOPMENT_TEAM = VKV3Y2GW5Q;
 				INFOPLIST_FILE = PadeLovers/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1003,7 +1003,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.2;
+				MARKETING_VERSION = 1.1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yoshitaka.PadeLovers;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
