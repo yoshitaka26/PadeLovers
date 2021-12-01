@@ -164,6 +164,7 @@ class GamePlayerViewController: BaseTableViewController {
         
         rxViewDidLoad.subscribe(onNext: { [weak self] in
             guard let self = self else { return }
+            self.navigationItem.leftBarButtonItem = self.createBarButtonItem(image: UIImage.named("questionmark.circle"), select: #selector(self.back))
             // NotificationCenterの受信設定
             NotificationCenter.default.addObserver(self, selector: #selector(self.callbackByPairingModal), name: .updateDataNotificationByEditPair, object: nil)
             NotificationCenter.default.addObserver(self, selector: #selector(self.callbackByEditDataModal), name: .updateDataNotificationByEditData, object: nil)
@@ -173,6 +174,11 @@ class GamePlayerViewController: BaseTableViewController {
         rxViewWillAppear.subscribe(onNext: { [weak self] in
             guard let self = self else { return }
             self.navigationController?.isNavigationBarHidden = false
+            UIApplication.shared.isIdleTimerDisabled = true
+        }).disposed(by: disposeBag)
+        rxViewWillDisappear.subscribe(onNext: { [weak self] in
+            guard self != nil else { return }
+            UIApplication.shared.isIdleTimerDisabled = false
         }).disposed(by: disposeBag)
         viewModel.pairingAWindowShow.subscribe(onNext: { [weak self] in
             guard let self = self else { return }
@@ -205,6 +211,13 @@ class GamePlayerViewController: BaseTableViewController {
                 self.openReplaceWindow(windowNavigation: modalVC)
             }
         }).disposed(by: disposeBag)
+    }
+    @objc
+    func back() {
+        let storyboard = UIStoryboard(name: "HowToUseDetail", bundle: nil)
+        let vc = storyboard.instantiateViewController(identifier: "HowToUseDetail")
+        self.navigationController?.pushViewController(vc, animated: true)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     @objc

@@ -67,6 +67,12 @@
 		E446736D2655250A0092DEFE /* GameData.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E446736B2655250A0092DEFE /* GameData.storyboard */; };
 		E446737B26554D0C0092DEFE /* GamePlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E446737A26554D0B0092DEFE /* GamePlayerViewModel.swift */; };
 		E446737F26554FB20092DEFE /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E446737E26554FB20092DEFE /* UIColorExtension.swift */; };
+		E44783D4275799FB001E1065 /* HowToUseDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E44783D3275799FB001E1065 /* HowToUseDetail.storyboard */; };
+		E44783D627579A2D001E1065 /* HowToUseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44783D527579A2D001E1065 /* HowToUseDetailViewController.swift */; };
+		E447EF092755FE69001601A7 /* HowToUse.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E447EF082755FE69001601A7 /* HowToUse.storyboard */; };
+		E447EF0B2755FE78001601A7 /* MainSetting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E447EF0A2755FE78001601A7 /* MainSetting.storyboard */; };
+		E447EF0D2755FEFD001601A7 /* MainSettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E447EF0C2755FEFD001601A7 /* MainSettingTableViewController.swift */; };
+		E447EF112755FF2E001601A7 /* HowToUseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E447EF102755FF2E001601A7 /* HowToUseViewController.swift */; };
 		E451432F266EE5EF00BE6329 /* NSManagedObject+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E451432E266EE5EF00BE6329 /* NSManagedObject+Extensions.swift */; };
 		E4514333266F247300BE6329 /* Player+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4514332266F247300BE6329 /* Player+Additional.swift */; };
 		E4529E232682E93E003DEC63 /* ValidationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4529E222682E93E003DEC63 /* ValidationManager.swift */; };
@@ -163,6 +169,12 @@
 		E446736C2655250A0092DEFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = PadeLovers/Screen/Game/Base.lproj/GameData.storyboard; sourceTree = SOURCE_ROOT; };
 		E446737A26554D0B0092DEFE /* GamePlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePlayerViewModel.swift; sourceTree = "<group>"; };
 		E446737E26554FB20092DEFE /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		E44783D3275799FB001E1065 /* HowToUseDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HowToUseDetail.storyboard; sourceTree = "<group>"; };
+		E44783D527579A2D001E1065 /* HowToUseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToUseDetailViewController.swift; sourceTree = "<group>"; };
+		E447EF082755FE69001601A7 /* HowToUse.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HowToUse.storyboard; sourceTree = "<group>"; };
+		E447EF0A2755FE78001601A7 /* MainSetting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainSetting.storyboard; sourceTree = "<group>"; };
+		E447EF0C2755FEFD001601A7 /* MainSettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSettingTableViewController.swift; sourceTree = "<group>"; };
+		E447EF102755FF2E001601A7 /* HowToUseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToUseViewController.swift; sourceTree = "<group>"; };
 		E451432E266EE5EF00BE6329 /* NSManagedObject+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Extensions.swift"; sourceTree = "<group>"; };
 		E4514332266F247300BE6329 /* Player+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Player+Additional.swift"; sourceTree = "<group>"; };
 		E4529E222682E93E003DEC63 /* ValidationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationManager.swift; sourceTree = "<group>"; };
@@ -324,6 +336,9 @@
 		E44672DE264562770092DEFE /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				E44672ED264565120092DEFE /* Menu */,
+				E447EF072755FE4A001601A7 /* HowToUse */,
+				E447EF062755FE3C001601A7 /* MainSetting */,
 				E4C434152680EE60006652A7 /* CommonData */,
 				E44673022645686B0092DEFE /* Game */,
 				E406DEAB2690090E00DF22F8 /* PadelData */,
@@ -434,6 +449,7 @@
 				E446737A26554D0B0092DEFE /* GamePlayerViewModel.swift */,
 				E40F93F526718DB600231511 /* EditData */,
 				E4467316264825BF0092DEFE /* FixedPair */,
+				E44783D2275799A4001E1065 /* HowToUseDetail */,
 			);
 			path = GamePlayer;
 			sourceTree = "<group>";
@@ -460,6 +476,33 @@
 				E42FAD222678AD4900F9B7DD /* ResultCells */,
 			);
 			path = GameResult;
+			sourceTree = "<group>";
+		};
+		E44783D2275799A4001E1065 /* HowToUseDetail */ = {
+			isa = PBXGroup;
+			children = (
+				E44783D3275799FB001E1065 /* HowToUseDetail.storyboard */,
+				E44783D527579A2D001E1065 /* HowToUseDetailViewController.swift */,
+			);
+			path = HowToUseDetail;
+			sourceTree = "<group>";
+		};
+		E447EF062755FE3C001601A7 /* MainSetting */ = {
+			isa = PBXGroup;
+			children = (
+				E447EF0A2755FE78001601A7 /* MainSetting.storyboard */,
+				E447EF0C2755FEFD001601A7 /* MainSettingTableViewController.swift */,
+			);
+			path = MainSetting;
+			sourceTree = "<group>";
+		};
+		E447EF072755FE4A001601A7 /* HowToUse */ = {
+			isa = PBXGroup;
+			children = (
+				E447EF082755FE69001601A7 /* HowToUse.storyboard */,
+				E447EF102755FF2E001601A7 /* HowToUseViewController.swift */,
+			);
+			path = HowToUse;
 			sourceTree = "<group>";
 		};
 		E4514331266F244900BE6329 /* Additions */ = {
@@ -545,7 +588,6 @@
 				E4C434162680EE85006652A7 /* CommonData.storyboard */,
 				E4C434192680EEB5006652A7 /* CommonDataViewController.swift */,
 				E4C4341C2680EEC5006652A7 /* CommonDataViewModel.swift */,
-				E44672ED264565120092DEFE /* Menu */,
 				E4C4342E2681595A006652A7 /* CourtCell */,
 				E4C4341F2680F0A7006652A7 /* PlayerCell */,
 			);
@@ -633,7 +675,9 @@
 			files = (
 				E4C434172680EE85006652A7 /* CommonData.storyboard in Resources */,
 				E433EA672686231D00EFC20B /* RandomNumberTable.storyboard in Resources */,
+				E447EF092755FE69001601A7 /* HowToUse.storyboard in Resources */,
 				E40F940226718FDB00231511 /* EditData.storyboard in Resources */,
+				E44783D4275799FB001E1065 /* HowToUseDetail.storyboard in Resources */,
 				E47F20392547D56D00996B19 /* LaunchScreen.storyboard in Resources */,
 				E446736D2655250A0092DEFE /* GameData.storyboard in Resources */,
 				E44673662655229F0092DEFE /* GameResult.storyboard in Resources */,
@@ -646,6 +690,7 @@
 				E43C7079267ABB6600E28E8A /* RecordScore.storyboard in Resources */,
 				E406DEAD2690092F00DF22F8 /* PadelData.storyboard in Resources */,
 				E43C7075267A18D900E28E8A /* GameResultCollectionViewCell.xib in Resources */,
+				E447EF0B2755FE78001601A7 /* MainSetting.storyboard in Resources */,
 				E4324F302547EDAB00063A9F /* GameTableViewCell.xib in Resources */,
 				E4C4343226815979006652A7 /* CourtTableViewCell.xib in Resources */,
 				E48627DA268386A300453425 /* StartGame.storyboard in Resources */,
@@ -726,6 +771,7 @@
 				E4316C862548737D00EED960 /* GamePlayerViewController.swift in Sources */,
 				E406DF472691B97600DF22F8 /* UIImageExtension.swift in Sources */,
 				E4C4343126815979006652A7 /* CourtTableViewCell.swift in Sources */,
+				E447EF112755FF2E001601A7 /* HowToUseViewController.swift in Sources */,
 				E433EA60268622DF00EFC20B /* RandomNumberTableViewController.swift in Sources */,
 				E44672E3264563D30092DEFE /* Const.swift in Sources */,
 				E433EA542684BA0D00EFC20B /* Score+CoreDataClass.swift in Sources */,
@@ -737,6 +783,7 @@
 				E43C707C267AC46800E28E8A /* RecordScoreViewController.swift in Sources */,
 				E433EA532684BA0D00EFC20B /* PairingA+CoreDataProperties.swift in Sources */,
 				E4313D98254830F30045447F /* GameDataTableViewController.swift in Sources */,
+				E447EF0D2755FEFD001601A7 /* MainSettingTableViewController.swift in Sources */,
 				E43DCAF52686FF980078C4AF /* SettingViewController.swift in Sources */,
 				E433EA592684BA0D00EFC20B /* Court+CoreDataProperties.swift in Sources */,
 				E433EA512684BA0D00EFC20B /* PairingB+CoreDataProperties.swift in Sources */,
@@ -761,6 +808,7 @@
 				E446737F26554FB20092DEFE /* UIColorExtension.swift in Sources */,
 				E47F202D2547D56B00996B19 /* AppDelegate.swift in Sources */,
 				E452C6F0266A4B68009A6EC3 /* PlayersDefine.swift in Sources */,
+				E44783D627579A2D001E1065 /* HowToUseDetailViewController.swift in Sources */,
 				E43C7074267A18D800E28E8A /* GameResultCollectionViewCell.swift in Sources */,
 				E44672E72645641E0092DEFE /* UIViewController+Common.swift in Sources */,
 				E42C89332672022200961EB1 /* GameDataTableViewModel.swift in Sources */,
@@ -971,7 +1019,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.1.3.0;
+				CURRENT_PROJECT_VERSION = 1.2.0.0;
 				DEVELOPMENT_TEAM = VKV3Y2GW5Q;
 				INFOPLIST_FILE = PadeLovers/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -979,7 +1027,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.3;
+				MARKETING_VERSION = 1.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yoshitaka.PadeLovers;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -995,7 +1043,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.1.3.0;
+				CURRENT_PROJECT_VERSION = 1.2.0.0;
 				DEVELOPMENT_TEAM = VKV3Y2GW5Q;
 				INFOPLIST_FILE = PadeLovers/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1003,7 +1051,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.3;
+				MARKETING_VERSION = 1.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yoshitaka.PadeLovers;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

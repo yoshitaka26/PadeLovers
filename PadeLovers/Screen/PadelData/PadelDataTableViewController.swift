@@ -20,7 +20,7 @@ class PadelDataTableViewController: BaseTableViewController {
             self.padelData.append(contentsOf: self.coreDataManager.loadAllPadelOld())
             self.navigationController?.navigationBar.isHidden = false
             self.navigationController?.navigationBar.tintColor = .darkGray
-            self.navigationItem.leftBarButtonItem = self.createBarButtonItem(image: UIImage.named("arrowshape.turn.up.backward"), select: #selector(self.back))
+            self.navigationItem.leftBarButtonItem = self.createBarButtonItem(image: UIImage.named("chevron.backward.circle"), select: #selector(self.back))
             self.navigationItem.rightBarButtonItem = self.editButtonItem
             self.tableView.tableFooterView = UIView()
         }).disposed(by: disposeBag)

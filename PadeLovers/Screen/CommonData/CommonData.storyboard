@@ -58,6 +58,10 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KIK-IZ-uQH">
                                 <rect key="frame" x="0.0" y="44" width="414" height="60"/>
                                 <items>
+                                    <barButtonItem style="done" id="Qf8-qN-lHe">
+                                        <imageReference key="image" image="chevron.backward.circle" catalog="system" symbolScale="large"/>
+                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="AxX-40-mhx"/>
                                     <barButtonItem style="done" id="mxp-Mb-gMA">
                                         <imageReference key="image" image="square.grid.2x2.fill" catalog="system" symbolScale="large"/>
@@ -97,6 +101,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="tpq-nU-fbY"/>
                     <connections>
+                        <outlet property="backButton" destination="Qf8-qN-lHe" id="AUJ-dr-OeK"/>
                         <outlet property="courtButton" destination="mxp-Mb-gMA" id="Jyj-g9-6MS"/>
                         <outlet property="customToolbar" destination="KIK-IZ-uQH" id="rYc-ed-arT"/>
                         <outlet property="group1Button" destination="5hL-Dd-U7K" id="VPG-79-fVo"/>
@@ -111,6 +116,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="chevron.backward.circle" catalog="system" width="128" height="121"/>
         <image name="square.3.stack.3d.bottom.filled" catalog="system" width="128" height="124"/>
         <image name="square.3.stack.3d.middle.filled" catalog="system" width="128" height="124"/>
         <image name="square.3.stack.3d.top.filled" catalog="system" width="128" height="124"/>
