@@ -17,6 +17,7 @@ class CommonDataViewController: BaseViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var customToolbar: UIToolbar!
+    @IBOutlet weak var backButton: UIBarButtonItem!
     @IBOutlet weak var courtButton: UIBarButtonItem!
     @IBOutlet weak var group1Button: UIBarButtonItem!
     @IBOutlet weak var group2Button: UIBarButtonItem!
@@ -43,6 +44,10 @@ class CommonDataViewController: BaseViewController {
         viewModel.reloadTableView.subscribe(onNext: { [weak self] _ in
             guard let self = self else { return }
             self.tableView.reloadData()
+        }).disposed(by: disposeBag)
+        _ = backButton.rx.tap.subscribe(onNext: { [weak self] _ in
+            guard let self = self else { return }
+            self.dismiss(animated: true)
         }).disposed(by: disposeBag)
         _ = courtButton.rx.tap.subscribe(onNext: { [weak self] _ in
             guard let self = self else { return }
@@ -158,6 +163,7 @@ extension CommonDataViewController: UITableViewDelegate, UITableViewDataSource {
                     cell.nameTextField.rx.textInput <-> viewModel.playersList.value[indexPath.row - 1],
                     cell.genderSegment.rx.selectedSegmentIndex <-> viewModel.playersGenderList.value[indexPath.row - 1]
                 )
+                cell.awakeFromNib()
                 cell.nameTextField.rx.controlEvent(.editingDidEnd).asDriver()
                     .drive(onNext: { [weak self] _ in
                         guard let self = self else { return }

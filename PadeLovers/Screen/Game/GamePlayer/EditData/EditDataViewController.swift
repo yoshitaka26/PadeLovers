@@ -42,6 +42,10 @@ class EditDataViewController: BaseViewController {
             guard let self = self else { return }
             self.dismiss(animated: true, completion: nil)
         }).disposed(by: disposeBag)
+        viewModel.playerGender.subscribe(onNext: { [weak self] value in
+            guard let self = self else { return }
+            self.genderSegment.selectedSegmentTintColor = value != 0 ? .appRed : .appBlue
+        }).disposed(by: disposeBag)
         viewModel.dataSaved.subscribe(onNext: { [weak self] _ in
             guard let self = self else { return }
             NotificationCenter.default.post(name: .updateDataNotificationByEditData, object: nil)

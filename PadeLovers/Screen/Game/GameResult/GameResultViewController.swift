@@ -37,6 +37,11 @@ class GameResultViewController: BaseViewController {
             self.customCollectionView.reloadData()
             self.viewModel.playerButtonColor.accept(.appRed)
             self.viewModel.gameButtonColor.accept(.appBlue)
+            UIApplication.shared.isIdleTimerDisabled = true
+        }).disposed(by: disposeBag)
+        rxViewWillDisappear.subscribe(onNext: { [weak self] in
+            guard self != nil else { return }
+            UIApplication.shared.isIdleTimerDisabled = false
         }).disposed(by: disposeBag)
         viewModel.reloadTableView.subscribe(onNext: { [weak self] in
             guard let self = self else { return }
