@@ -199,6 +199,7 @@ excluded:
 - Generated
 - PadeLovers/R.generated.swift
 - PadeLovers/Entity/ManagedObject
+- PadeLoversTests/
 
 
 # 1行あたりの文字数制限を300に変更

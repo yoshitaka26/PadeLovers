@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4117F7E9D897F4E05FCF2983 /* Pods_PadeLoversTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E8E00D46858BDE1A8D64873 /* Pods_PadeLoversTests.framework */; };
 		B7C49D69804C4EA3B9AA5C13 /* Pods_PadeLovers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBB530121C8F675D2684E078 /* Pods_PadeLovers.framework */; };
 		E406DEAD2690092F00DF22F8 /* PadelData.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E406DEAC2690092E00DF22F8 /* PadelData.storyboard */; };
 		E406DEB02690094C00DF22F8 /* PadelDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406DEAF2690094C00DF22F8 /* PadelDataTableViewController.swift */; };
@@ -14,6 +15,8 @@
 		E40F93FA26718E1600231511 /* EditDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40F93F926718E1600231511 /* EditDataViewController.swift */; };
 		E40F93FD26718E2700231511 /* EditDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40F93FC26718E2700231511 /* EditDataViewModel.swift */; };
 		E40F940226718FDB00231511 /* EditData.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E40F940126718FDB00231511 /* EditData.storyboard */; };
+		E4103C8927912AEF00E12348 /* PadeLoversTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4103C8827912AEF00E12348 /* PadeLoversTests.swift */; };
+		E4103C902794007100E12348 /* GamePlayerViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4103C8F2794007100E12348 /* GamePlayerViewModelTest.swift */; };
 		E42C89332672022200961EB1 /* GameDataTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42C89322672022200961EB1 /* GameDataTableViewModel.swift */; };
 		E42C8937267205D700961EB1 /* GameOrganizeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42C8936267205D700961EB1 /* GameOrganizeManager.swift */; };
 		E42FAD2F2678AFDB00F9B7DD /* PlayerResultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42FAD2D2678AFDB00F9B7DD /* PlayerResultCollectionViewCell.swift */; };
@@ -107,8 +110,21 @@
 		E4E3DA252673AA8F0009D809 /* ReplacePlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E3DA242673AA8F0009D809 /* ReplacePlayerViewModel.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		E4103C8A27912AEF00E12348 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E47F20212547D56B00996B19 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E47F20282547D56B00996B19;
+			remoteInfo = PadeLovers;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		1E8E00D46858BDE1A8D64873 /* Pods_PadeLoversTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PadeLoversTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CB78E83C5CDDC6E62D6CAC4 /* Pods-PadeLoversTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PadeLoversTests.debug.xcconfig"; path = "Target Support Files/Pods-PadeLoversTests/Pods-PadeLoversTests.debug.xcconfig"; sourceTree = "<group>"; };
 		621A020FB01D3566D822BC7F /* Pods-PadeLovers.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PadeLovers.debug.xcconfig"; path = "Target Support Files/Pods-PadeLovers/Pods-PadeLovers.debug.xcconfig"; sourceTree = "<group>"; };
+		97C643B51F4A71C4E639DEDD /* Pods-PadeLoversTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PadeLoversTests.release.xcconfig"; path = "Target Support Files/Pods-PadeLoversTests/Pods-PadeLoversTests.release.xcconfig"; sourceTree = "<group>"; };
 		BBB530121C8F675D2684E078 /* Pods_PadeLovers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PadeLovers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E406DEAC2690092E00DF22F8 /* PadelData.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PadelData.storyboard; sourceTree = "<group>"; };
 		E406DEAF2690094C00DF22F8 /* PadelDataTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PadelDataTableViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +132,9 @@
 		E40F93F926718E1600231511 /* EditDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDataViewController.swift; sourceTree = "<group>"; };
 		E40F93FC26718E2700231511 /* EditDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDataViewModel.swift; sourceTree = "<group>"; };
 		E40F940126718FDB00231511 /* EditData.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditData.storyboard; sourceTree = "<group>"; };
+		E4103C8627912AEF00E12348 /* PadeLoversTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PadeLoversTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4103C8827912AEF00E12348 /* PadeLoversTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PadeLoversTests.swift; sourceTree = "<group>"; };
+		E4103C8F2794007100E12348 /* GamePlayerViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePlayerViewModelTest.swift; sourceTree = "<group>"; };
 		E42C89322672022200961EB1 /* GameDataTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDataTableViewModel.swift; sourceTree = "<group>"; };
 		E42C8936267205D700961EB1 /* GameOrganizeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOrganizeManager.swift; sourceTree = "<group>"; };
 		E42FAD2D2678AFDB00F9B7DD /* PlayerResultCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerResultCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -213,6 +232,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		E4103C8327912AEF00E12348 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4117F7E9D897F4E05FCF2983 /* Pods_PadeLoversTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E47F20262547D56B00996B19 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -229,6 +256,8 @@
 			children = (
 				621A020FB01D3566D822BC7F /* Pods-PadeLovers.debug.xcconfig */,
 				E8911760E1ABF8DB5F2D01DD /* Pods-PadeLovers.release.xcconfig */,
+				5CB78E83C5CDDC6E62D6CAC4 /* Pods-PadeLoversTests.debug.xcconfig */,
+				97C643B51F4A71C4E639DEDD /* Pods-PadeLoversTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -237,6 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				BBB530121C8F675D2684E078 /* Pods_PadeLovers.framework */,
+				1E8E00D46858BDE1A8D64873 /* Pods_PadeLoversTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -279,6 +309,15 @@
 				E40F93FC26718E2700231511 /* EditDataViewModel.swift */,
 			);
 			path = EditData;
+			sourceTree = "<group>";
+		};
+		E4103C8727912AEF00E12348 /* PadeLoversTests */ = {
+			isa = PBXGroup;
+			children = (
+				E4103C8827912AEF00E12348 /* PadeLoversTests.swift */,
+				E4103C8F2794007100E12348 /* GamePlayerViewModelTest.swift */,
+			);
+			path = PadeLoversTests;
 			sourceTree = "<group>";
 		};
 		E42FAD222678AD4900F9B7DD /* ResultCells */ = {
@@ -540,6 +579,7 @@
 			isa = PBXGroup;
 			children = (
 				E47F202B2547D56B00996B19 /* PadeLovers */,
+				E4103C8727912AEF00E12348 /* PadeLoversTests */,
 				E47F202A2547D56B00996B19 /* Products */,
 				074D8F64121C7F069BC67DF0 /* Pods */,
 				09DADB0EF7A374FA46EAE935 /* Frameworks */,
@@ -550,6 +590,7 @@
 			isa = PBXGroup;
 			children = (
 				E47F20292547D56B00996B19 /* PadeLovers.app */,
+				E4103C8627912AEF00E12348 /* PadeLoversTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -615,6 +656,25 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		E4103C8527912AEF00E12348 /* PadeLoversTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E4103C8E27912AEF00E12348 /* Build configuration list for PBXNativeTarget "PadeLoversTests" */;
+			buildPhases = (
+				08E5BFFDC94998A3F61A008C /* [CP] Check Pods Manifest.lock */,
+				E4103C8227912AEF00E12348 /* Sources */,
+				E4103C8327912AEF00E12348 /* Frameworks */,
+				E4103C8427912AEF00E12348 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E4103C8B27912AEF00E12348 /* PBXTargetDependency */,
+			);
+			name = PadeLoversTests;
+			productName = PadeLoversTests;
+			productReference = E4103C8627912AEF00E12348 /* PadeLoversTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		E47F20282547D56B00996B19 /* PadeLovers */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E47F203D2547D56D00996B19 /* Build configuration list for PBXNativeTarget "PadeLovers" */;
@@ -641,10 +701,14 @@
 		E47F20212547D56B00996B19 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1160;
+				LastSwiftUpdateCheck = 1320;
 				LastUpgradeCheck = 1220;
 				ORGANIZATIONNAME = Yoshitaka;
 				TargetAttributes = {
+					E4103C8527912AEF00E12348 = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = E47F20282547D56B00996B19;
+					};
 					E47F20282547D56B00996B19 = {
 						CreatedOnToolsVersion = 11.6;
 					};
@@ -664,11 +728,19 @@
 			projectRoot = "";
 			targets = (
 				E47F20282547D56B00996B19 /* PadeLovers */,
+				E4103C8527912AEF00E12348 /* PadeLoversTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		E4103C8427912AEF00E12348 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E47F20272547D56B00996B19 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -704,6 +776,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		08E5BFFDC94998A3F61A008C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PadeLoversTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		B70A5C5A315480C27E1CF6B7 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -763,6 +857,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		E4103C8227912AEF00E12348 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E4103C8927912AEF00E12348 /* PadeLoversTests.swift in Sources */,
+				E4103C902794007100E12348 /* GamePlayerViewModelTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E47F20252547D56B00996B19 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -844,6 +947,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		E4103C8B27912AEF00E12348 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E47F20282547D56B00996B19 /* PadeLovers */;
+			targetProxy = E4103C8A27912AEF00E12348 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		E4467318264826230092DEFE /* FixedPair.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -896,6 +1007,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		E4103C8C27912AEF00E12348 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5CB78E83C5CDDC6E62D6CAC4 /* Pods-PadeLoversTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VKV3Y2GW5Q;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.PadeLoversTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PadeLovers.app/PadeLovers";
+			};
+			name = Debug;
+		};
+		E4103C8D27912AEF00E12348 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 97C643B51F4A71C4E639DEDD /* Pods-PadeLoversTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VKV3Y2GW5Q;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.PadeLoversTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PadeLovers.app/PadeLovers";
+			};
+			name = Release;
+		};
 		E47F203B2547D56D00996B19 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1063,6 +1216,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		E4103C8E27912AEF00E12348 /* Build configuration list for PBXNativeTarget "PadeLoversTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E4103C8C27912AEF00E12348 /* Debug */,
+				E4103C8D27912AEF00E12348 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		E47F20242547D56B00996B19 /* Build configuration list for PBXProject "PadeLovers" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
