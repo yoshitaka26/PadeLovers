@@ -18,7 +18,7 @@
 * Swift 5.5.2
 
 ## 🌲ブランチ説明
-* main : AppStore公開中のブランチ
+* master : AppStore公開中のブランチ
 * release : 次にリリースするブランチ
 * develop : 開発中のブランチ
 * feature-* : 新機能開発ブランチ
