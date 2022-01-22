@@ -8,17 +8,17 @@
 
 import UIKit
 
-class GameTableViewCell: UITableViewCell {
+final class GameTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var playerChangeButton: UIButton!
-    @IBOutlet weak var gameFinishButton: UIButton!
+    @IBOutlet weak var playerChangeButton: UIButton! // swiftlint:disable:this private_outlet
+    @IBOutlet weak var gameFinishButton: UIButton! // swiftlint:disable:this private_outlet
 
-    @IBOutlet weak var courtLabel: UILabel!
-    @IBOutlet weak var driveALabel: UILabel!
-    @IBOutlet weak var backALabel: UILabel!
-    @IBOutlet weak var driveBLabel: UILabel!
-    @IBOutlet weak var backBLabel: UILabel!
-    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet private weak var courtLabel: UILabel!
+    @IBOutlet private weak var driveALabel: UILabel!
+    @IBOutlet private weak var backALabel: UILabel!
+    @IBOutlet private weak var driveBLabel: UILabel!
+    @IBOutlet private weak var backBLabel: UILabel!
+    @IBOutlet private weak var timeLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

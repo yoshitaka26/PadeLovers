@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CommonPlayerDataModel: Codable {
+final class CommonPlayerDataModel: Codable {
     
     var playerName: String
     var playerGender: Bool

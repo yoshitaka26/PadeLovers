@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FixedPairViewController: BaseViewController {
+final class FixedPairViewController: BaseViewController {
     
     @IBOutlet private weak var pair1Picker: UIPickerView!
     @IBOutlet private weak var pair2Picker: UIPickerView!

@@ -8,15 +8,16 @@
 
 import UIKit
 
-class MenuViewController: BaseViewController {
+final class MenuViewController: BaseViewController {
     
-    @IBOutlet weak var settingButton: UIButton!
-    @IBOutlet weak var playButton: UIButton!
-    @IBOutlet weak var randomNumberButton: UIButton!
-    @IBOutlet weak var padelDataButton: UIButton!
-    @IBOutlet weak var mainSettingButton: UIButton!
-    @IBOutlet weak var usesButton: UIButton!
+    @IBOutlet private weak var settingButton: UIButton!
+    @IBOutlet private weak var playButton: UIButton!
+    @IBOutlet private weak var randomNumberButton: UIButton!
+    @IBOutlet private weak var padelDataButton: UIButton!
+    @IBOutlet private weak var mainSettingButton: UIButton!
+    @IBOutlet private weak var usesButton: UIButton!
     private var viewModel = MenuViewModel()
+    
     override func bind() {
         disposeBag.insert(
             settingButton.rx.tap.bind(to: viewModel.settingButtonSelect),

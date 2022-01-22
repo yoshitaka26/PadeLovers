@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HowToUseDetailViewController: BaseViewController {
+final class HowToUseDetailViewController: BaseViewController {
     
     override func bind() {
         rxViewDidLoad.subscribe(onNext: { [weak self] in

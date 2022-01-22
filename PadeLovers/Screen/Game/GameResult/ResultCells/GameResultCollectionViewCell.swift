@@ -40,22 +40,22 @@ enum ScoreView: Int16 {
     }
 }
 
-class GameResultCollectionViewCell: UICollectionViewCell {
+final class GameResultCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet weak var gameLabel: UILabel!
-    @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var driveAname: UILabel!
-    @IBOutlet weak var backAname: UILabel!
-    @IBOutlet weak var driveBname: UILabel!
-    @IBOutlet weak var backBname: UILabel!
-    @IBOutlet weak var A1score: UIImageView!
-    @IBOutlet weak var B1score: UIImageView!
-    @IBOutlet weak var A2score: UIImageView!
-    @IBOutlet weak var B2score: UIImageView!
-    @IBOutlet weak var A3score: UIImageView!
-    @IBOutlet weak var B3score: UIImageView!
-    @IBOutlet weak var Afinalscore: UIImageView!
-    @IBOutlet weak var Bfinalscore: UIImageView!
+    @IBOutlet private weak var gameLabel: UILabel!
+    @IBOutlet private weak var timeLabel: UILabel!
+    @IBOutlet private weak var driveAname: UILabel!
+    @IBOutlet private weak var backAname: UILabel!
+    @IBOutlet private weak var driveBname: UILabel!
+    @IBOutlet private weak var backBname: UILabel!
+    @IBOutlet private weak var A1score: UIImageView!
+    @IBOutlet private weak var B1score: UIImageView!
+    @IBOutlet private weak var A2score: UIImageView!
+    @IBOutlet private weak var B2score: UIImageView!
+    @IBOutlet private weak var A3score: UIImageView!
+    @IBOutlet private weak var B3score: UIImageView!
+    @IBOutlet private weak var Afinalscore: UIImageView!
+    @IBOutlet private weak var Bfinalscore: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

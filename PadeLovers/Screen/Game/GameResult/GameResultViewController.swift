@@ -10,14 +10,14 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class GameResultViewController: BaseViewController {
+final class GameResultViewController: BaseViewController {
     
     private var viewModel = GameResultViewModel()
     
-    @IBOutlet weak var customCollectionView: UICollectionView!
-    @IBOutlet weak var customToolbar: UIToolbar!
-    @IBOutlet weak var playerButton: UIBarButtonItem!
-    @IBOutlet weak var gameButton: UIBarButtonItem!
+    @IBOutlet private weak var customCollectionView: UICollectionView!
+    @IBOutlet private weak var customToolbar: UIToolbar!
+    @IBOutlet private weak var playerButton: UIBarButtonItem!
+    @IBOutlet private weak var gameButton: UIBarButtonItem!
     
     override func bind() {
         rxViewDidLoad.subscribe(onNext: { [weak self] in

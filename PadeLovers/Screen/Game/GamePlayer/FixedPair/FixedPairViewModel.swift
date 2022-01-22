@@ -16,7 +16,7 @@ enum MoveWithType {
     case resetPairing
 }
 
-class FixedPairViewModel: BaseViewModel {
+final class FixedPairViewModel: BaseViewModel {
     override init() {
         super.init()
         self.mutate()

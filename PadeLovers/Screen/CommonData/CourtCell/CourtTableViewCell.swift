@@ -9,26 +9,17 @@
 import UIKit
 import RxSwift
 
-class CourtTableViewCell: UITableViewCell {
+final class CourtTableViewCell: UITableViewCell {
 
     var disposeBag = DisposeBag()
-
+    
+    // swiftlint:disable private_outlet
     @IBOutlet weak var numberLabel: UILabel!
     @IBOutlet weak var courtName: UITextField!
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+    // swiftlint:enable private_outlet
     
     override func prepareForReuse() {
         super.prepareForReuse()
         self.disposeBag = DisposeBag()
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
 }

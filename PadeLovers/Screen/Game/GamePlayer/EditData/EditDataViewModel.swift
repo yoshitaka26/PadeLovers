@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class EditDataViewModel: BaseViewModel {
+final class EditDataViewModel: BaseViewModel {
     override init() {
         super.init()
         self.mutate()

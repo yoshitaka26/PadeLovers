@@ -17,7 +17,7 @@ enum TableType {
     case group3
 }
 
-class CommonDataViewModel: BaseViewModel {
+final class CommonDataViewModel: BaseViewModel {
     
     override init() {
         super.init()

@@ -10,13 +10,13 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class RandomNumberTableViewController: BaseViewController {
+final class RandomNumberTableViewController: BaseViewController {
     private let viewModel = RandomNumberTableViewModel()
     
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var toolbar: UIToolbar!
-    @IBOutlet weak var backButton: UIBarButtonItem!
-    @IBOutlet weak var nextButton: UIBarButtonItem!
+    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var toolbar: UIToolbar!
+    @IBOutlet private weak var backButton: UIBarButtonItem!
+    @IBOutlet private weak var nextButton: UIBarButtonItem!
     
     override func bind() {
         rxViewDidLoad.subscribe(onNext: { [weak self] in
