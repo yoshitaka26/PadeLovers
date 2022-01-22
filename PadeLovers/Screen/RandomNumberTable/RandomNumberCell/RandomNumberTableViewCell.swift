@@ -40,16 +40,16 @@ enum RandomNumberView: Int {
     }
 }
 
-class RandomNumberTableViewCell: UITableViewCell {
+final class RandomNumberTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var pair1Player1: UIImageView!
-    @IBOutlet weak var pair1Player2: UIImageView!
-    @IBOutlet weak var pair2Player1: UIImageView!
-    @IBOutlet weak var pair2Player2: UIImageView!
-    @IBOutlet weak var waiting1: UIImageView!
-    @IBOutlet weak var waiting2: UIImageView!
-    @IBOutlet weak var waiting3: UIImageView!
-    @IBOutlet weak var waiting4: UIImageView!
+    @IBOutlet private weak var pair1Player1: UIImageView!
+    @IBOutlet private weak var pair1Player2: UIImageView!
+    @IBOutlet private weak var pair2Player1: UIImageView!
+    @IBOutlet private weak var pair2Player2: UIImageView!
+    @IBOutlet private weak var waiting1: UIImageView!
+    @IBOutlet private weak var waiting2: UIImageView!
+    @IBOutlet private weak var waiting3: UIImageView!
+    @IBOutlet private weak var waiting4: UIImageView!
         
     func setUI(match: Match, playersNumber: Int, onMatchNum: Int) {
         var allPlayers: [Int] = []
@@ -100,16 +100,5 @@ class RandomNumberTableViewCell: UITableViewCell {
                 waiting4.image = RandomNumberView(rawValue: waiting - 1)?.view
             }
         }
-    }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 }

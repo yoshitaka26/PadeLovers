@@ -14,7 +14,7 @@ protocol StartGameTableViewControllerDelegate: AnyObject {
     func callBackFromStartGameModalVC(type: TableType, padelID: UUID?)
 }
 
-class StartGameTableViewController: BaseTableViewController {
+final class StartGameTableViewController: BaseTableViewController {
     weak var delegate: StartGameTableViewControllerDelegate?
     
     private let coreDataManager = CoreDataManager.shared

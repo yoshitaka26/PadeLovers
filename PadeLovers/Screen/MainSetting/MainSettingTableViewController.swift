@@ -8,9 +8,9 @@
 
 import UIKit
 
-class MainSettingTableViewController: BaseTableViewController {
+final class MainSettingTableViewController: BaseTableViewController {
 
-    @IBOutlet weak var versionLabel: UILabel!
+    @IBOutlet private weak var versionLabel: UILabel!
     
     override func bind() {
         rxViewDidLoad.subscribe(onNext: { [weak self] in

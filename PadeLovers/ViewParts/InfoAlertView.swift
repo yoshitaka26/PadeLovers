@@ -8,7 +8,7 @@
 
 import UIKit
 
-class InfoAlertView: UIAlertController {
+final class InfoAlertView: UIAlertController {
     var afterDismiss: (() -> Void)?
     
     func timerStart() {

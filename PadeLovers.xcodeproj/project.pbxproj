@@ -15,7 +15,6 @@
 		E40F93FA26718E1600231511 /* EditDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40F93F926718E1600231511 /* EditDataViewController.swift */; };
 		E40F93FD26718E2700231511 /* EditDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40F93FC26718E2700231511 /* EditDataViewModel.swift */; };
 		E40F940226718FDB00231511 /* EditData.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E40F940126718FDB00231511 /* EditData.storyboard */; };
-		E4103C8927912AEF00E12348 /* PadeLoversTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4103C8827912AEF00E12348 /* PadeLoversTests.swift */; };
 		E4103C902794007100E12348 /* GamePlayerViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4103C8F2794007100E12348 /* GamePlayerViewModelTest.swift */; };
 		E42C89332672022200961EB1 /* GameDataTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42C89322672022200961EB1 /* GameDataTableViewModel.swift */; };
 		E42C8937267205D700961EB1 /* GameOrganizeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42C8936267205D700961EB1 /* GameOrganizeManager.swift */; };
@@ -56,7 +55,6 @@
 		E44672B4264560000092DEFE /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44672B3264560000092DEFE /* BaseViewModel.swift */; };
 		E44672E3264563D30092DEFE /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44672E2264563D30092DEFE /* Const.swift */; };
 		E44672E72645641E0092DEFE /* UIViewController+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44672E62645641E0092DEFE /* UIViewController+Common.swift */; };
-		E44672EA2645648D0092DEFE /* UINavigationController+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44672E92645648D0092DEFE /* UINavigationController+Common.swift */; };
 		E44672F42645658D0092DEFE /* Menu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E44672F32645658D0092DEFE /* Menu.storyboard */; };
 		E44672FE2645672B0092DEFE /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44672FD2645672B0092DEFE /* BaseTableViewController.swift */; };
 		E4467307264574190092DEFE /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4467306264574190092DEFE /* MenuViewModel.swift */; };
@@ -133,7 +131,6 @@
 		E40F93FC26718E2700231511 /* EditDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDataViewModel.swift; sourceTree = "<group>"; };
 		E40F940126718FDB00231511 /* EditData.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditData.storyboard; sourceTree = "<group>"; };
 		E4103C8627912AEF00E12348 /* PadeLoversTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PadeLoversTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E4103C8827912AEF00E12348 /* PadeLoversTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PadeLoversTests.swift; sourceTree = "<group>"; };
 		E4103C8F2794007100E12348 /* GamePlayerViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePlayerViewModelTest.swift; sourceTree = "<group>"; };
 		E42C89322672022200961EB1 /* GameDataTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDataTableViewModel.swift; sourceTree = "<group>"; };
 		E42C8936267205D700961EB1 /* GameOrganizeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOrganizeManager.swift; sourceTree = "<group>"; };
@@ -174,7 +171,6 @@
 		E44672B3264560000092DEFE /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		E44672E2264563D30092DEFE /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		E44672E62645641E0092DEFE /* UIViewController+Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Common.swift"; sourceTree = "<group>"; };
-		E44672E92645648D0092DEFE /* UINavigationController+Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Common.swift"; sourceTree = "<group>"; };
 		E44672F32645658D0092DEFE /* Menu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Menu.storyboard; sourceTree = "<group>"; };
 		E44672FD2645672B0092DEFE /* BaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
 		E4467306264574190092DEFE /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
@@ -314,7 +310,6 @@
 		E4103C8727912AEF00E12348 /* PadeLoversTests */ = {
 			isa = PBXGroup;
 			children = (
-				E4103C8827912AEF00E12348 /* PadeLoversTests.swift */,
 				E4103C8F2794007100E12348 /* GamePlayerViewModelTest.swift */,
 			);
 			path = PadeLoversTests;
@@ -404,11 +399,10 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
-		E44672E12645629D0092DEFE /* Categories */ = {
+		E44672E12645629D0092DEFE /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				E44672E62645641E0092DEFE /* UIViewController+Common.swift */,
-				E44672E92645648D0092DEFE /* UINavigationController+Common.swift */,
 				E446732C264928C90092DEFE /* UIAleartControllerExtension.swift */,
 				E446737E26554FB20092DEFE /* UIColorExtension.swift */,
 				E457509D26569EBB0036194F /* NSPresistentContainerExtension.swift */,
@@ -418,7 +412,7 @@
 				E451432E266EE5EF00BE6329 /* NSManagedObject+Extensions.swift */,
 				E406DF462691B97600DF22F8 /* UIImageExtension.swift */,
 			);
-			path = Categories;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		E44672ED264565120092DEFE /* Menu */ = {
@@ -600,13 +594,13 @@
 			children = (
 				E47F202C2547D56B00996B19 /* AppDelegate.swift */,
 				E47F202E2547D56B00996B19 /* SceneDelegate.swift */,
+				E44672B026455D9C0092DEFE /* RxBase */,
 				E44672DE264562770092DEFE /* Screen */,
 				E446733026492A9F0092DEFE /* ViewParts */,
 				E44672DF264562810092DEFE /* Entity */,
 				E457509B26569A8B0036194F /* Service */,
 				E44672E0264562970092DEFE /* Common */,
-				E44672E12645629D0092DEFE /* Categories */,
-				E44672B026455D9C0092DEFE /* RxBase */,
+				E44672E12645629D0092DEFE /* Extensions */,
 				E47F20352547D56D00996B19 /* Assets.xcassets */,
 				E47F20372547D56D00996B19 /* LaunchScreen.storyboard */,
 				E47F203A2547D56D00996B19 /* Info.plist */,
@@ -861,7 +855,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4103C8927912AEF00E12348 /* PadeLoversTests.swift in Sources */,
 				E4103C902794007100E12348 /* GamePlayerViewModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -879,7 +872,6 @@
 				E44672E3264563D30092DEFE /* Const.swift in Sources */,
 				E433EA542684BA0D00EFC20B /* Score+CoreDataClass.swift in Sources */,
 				E4C4343B26822672006652A7 /* CommonDataBrain.swift in Sources */,
-				E44672EA2645648D0092DEFE /* UINavigationController+Common.swift in Sources */,
 				E436135B254B7BAB00A2DB3E /* ReplacePlayerViewController.swift in Sources */,
 				E433EA582684BA0D00EFC20B /* Court+CoreDataClass.swift in Sources */,
 				E4E3DA252673AA8F0009D809 /* ReplacePlayerViewModel.swift in Sources */,

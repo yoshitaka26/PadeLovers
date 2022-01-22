@@ -8,16 +8,11 @@
 
 import UIKit
 
-class PlayerResultCollectionViewCell: UICollectionViewCell {
+final class PlayerResultCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var playerLabel: UILabel!
-    @IBOutlet weak var playingStatusLabel: UILabel!
-    @IBOutlet weak var gameCountsLabel: UILabel!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+    @IBOutlet private weak var playerLabel: UILabel!
+    @IBOutlet private weak var playingStatusLabel: UILabel!
+    @IBOutlet private weak var gameCountsLabel: UILabel!
     
     func setUI(player: Player, minCount: Int16) {
         playerLabel.attributedText = NSAttributedString.setNameOnLabel(name: player.name ?? "", gender: player.gender)

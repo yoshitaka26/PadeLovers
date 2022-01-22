@@ -15,7 +15,7 @@ enum ScoreType {
     case game
 }
 
-class GameResultViewModel: BaseViewModel {
+final class GameResultViewModel: BaseViewModel {
 
     let coreDataManager = CoreDataManager.shared
     let gameCreateManager = GameOrganizeManager.shared

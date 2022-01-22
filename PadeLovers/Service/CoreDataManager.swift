@@ -19,7 +19,7 @@ enum CoreDataObjectType: String {
     case score = "Score"
 }
 
-class CoreDataManager {
+final class CoreDataManager {
     // swiftlint:disable force_unwrapping
     static let shared = CoreDataManager()
     

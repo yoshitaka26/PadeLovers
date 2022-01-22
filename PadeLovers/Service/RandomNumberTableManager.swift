@@ -41,7 +41,7 @@ struct Match {
     }
 }
 
-class RandomNumberTableManager {
+final class RandomNumberTableManager {
     // swiftlint:disable force_unwrapping
     static let shared = RandomNumberTableManager()
         

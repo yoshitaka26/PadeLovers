@@ -8,9 +8,9 @@
 
 import UIKit
 
-class HowToUseViewController: BaseViewController {
+final class HowToUseViewController: BaseViewController {
     
-    @IBOutlet weak var detailButton: UIButton!
+    @IBOutlet private weak var detailButton: UIButton!
     override func bind() {
         rxViewDidLoad.subscribe(onNext: { [weak self] in
             guard let self = self else { return }

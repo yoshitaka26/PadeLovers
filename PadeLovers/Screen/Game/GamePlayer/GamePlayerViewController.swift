@@ -16,7 +16,7 @@ extension Notification.Name {
     static let updateDataNotificationByEditData = Notification.Name("updateByEditData")
 }
 
-class GamePlayerViewController: BaseTableViewController {
+final class GamePlayerViewController: BaseTableViewController {
     private var viewModel = GamePlayerViewModel()
     @IBOutlet private weak var playModeSwitchA: UISwitch!
     @IBOutlet private weak var playModeSwitchB: UISwitch!

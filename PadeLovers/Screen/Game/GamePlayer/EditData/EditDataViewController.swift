@@ -8,16 +8,16 @@
 
 import UIKit
 
-class EditDataViewController: BaseViewController {
+final class EditDataViewController: BaseViewController {
     
     private var viewModel = EditDataViewModel()
     
-    @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var genderSegment: UISegmentedControl!
-    @IBOutlet weak var gameCounts: UILabel!
-    @IBOutlet weak var gameCountStepper: UIStepper!
-    @IBOutlet weak var doneButton: UIButton!
-    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet private weak var nameTextField: UITextField!
+    @IBOutlet private weak var genderSegment: UISegmentedControl!
+    @IBOutlet private weak var gameCounts: UILabel!
+    @IBOutlet private weak var gameCountStepper: UIStepper!
+    @IBOutlet private weak var doneButton: UIButton!
+    @IBOutlet private weak var cancelButton: UIButton!
     
     var playerID: Int?
     
