@@ -20,7 +20,7 @@ enum PairingType {
     case pairingB
 }
 
-class GameOrganizeManager {
+final class GameOrganizeManager {
     static let shared = GameOrganizeManager()
     let coreDataManager = CoreDataManager.shared
     

@@ -19,7 +19,7 @@ enum MessageType {
     case replacePlayerFromAnotherGame
 }
 
-class ReplacePlayerViewModel: BaseViewModel {
+final class ReplacePlayerViewModel: BaseViewModel {
     override init() {
         super.init()
         self.mutate()

@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class PadelDataTableViewController: BaseTableViewController {
+final class PadelDataTableViewController: BaseTableViewController {
     private let coreDataManager = CoreDataManager.shared
     private var padelData: [Padel] = []
     

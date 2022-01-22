@@ -10,18 +10,18 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class CommonDataViewController: BaseViewController {
+final class CommonDataViewController: BaseViewController {
     
     private let viewModel = CommonDataViewModel()
     private let validationManager = ValidationManager.shared
     
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var customToolbar: UIToolbar!
-    @IBOutlet weak var backButton: UIBarButtonItem!
-    @IBOutlet weak var courtButton: UIBarButtonItem!
-    @IBOutlet weak var group1Button: UIBarButtonItem!
-    @IBOutlet weak var group2Button: UIBarButtonItem!
-    @IBOutlet weak var group3Button: UIBarButtonItem!
+    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var customToolbar: UIToolbar!
+    @IBOutlet private weak var backButton: UIBarButtonItem!
+    @IBOutlet private weak var courtButton: UIBarButtonItem!
+    @IBOutlet private weak var group1Button: UIBarButtonItem!
+    @IBOutlet private weak var group2Button: UIBarButtonItem!
+    @IBOutlet private weak var group3Button: UIBarButtonItem!
     
     override func bind() {
         rxViewDidLoad.subscribe(onNext: { [weak self] in

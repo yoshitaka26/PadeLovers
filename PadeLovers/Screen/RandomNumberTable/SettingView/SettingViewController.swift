@@ -14,13 +14,13 @@ protocol SettingViewControllerDelegate: AnyObject {
     func closedSettingViewController(playerCount: Int)
 }
 
-class SettingViewController: BaseViewController {
+final class SettingViewController: BaseViewController {
     weak var delegate: SettingViewControllerDelegate?
     
-    @IBOutlet weak var playerNumberPicker: UIPickerView!
+    @IBOutlet private weak var playerNumberPicker: UIPickerView!
     
-    @IBOutlet weak var setButton: UIButton!
-    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet private weak var setButton: UIButton!
+    @IBOutlet private weak var backButton: UIButton!
     
     override func bind() {
         rxViewDidLoad.subscribe(onNext: { [weak self] in

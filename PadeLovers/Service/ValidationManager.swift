@@ -80,7 +80,7 @@ struct CharacterValidatior: Validator {
     }
 }
 
-class ValidationManager: CompositeValidator {
+final class ValidationManager: CompositeValidator {
     static let shared = ValidationManager()
     
     var validators: [Validator] = [

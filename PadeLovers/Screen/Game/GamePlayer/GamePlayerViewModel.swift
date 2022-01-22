@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class GamePlayerViewModel: BaseViewModel {
+final class GamePlayerViewModel: BaseViewModel {
     var padelID: String = UUID().uuidString
     
     var playModeA: BehaviorRelay<Bool> = BehaviorRelay(value: true)

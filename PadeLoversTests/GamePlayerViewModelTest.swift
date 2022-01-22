@@ -18,10 +18,9 @@ class GamePlayerViewModelTest: XCTestCase {
     var commonDataBrain = CommonDataBrain.shared
     let coreDataManager = CoreDataManager.shared
     let viewModel = GamePlayerViewModel()
+    var disposeBag = DisposeBag()
     
     override func setUpWithError() throws {
-//        expect = expectation(description: "")
-        
         if commonDataBrain.loadPlayers(group: TableType.group1) != nil {
             viewModel.dataBind.onNext((TableType.group1, UUID()))
         } else {
@@ -32,33 +31,70 @@ class GamePlayerViewModelTest: XCTestCase {
             }
             commonDataBrain.savePlayers(group: TableType.group1, players: playerData)
             }
-        
-        // Put setup code here. This method is called before the invocation of each test method in the class.
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
+    override func tearDownWithError() throws { }
 
-    func testExample() throws {
+    func test_試合モードが正常に変更されるか() throws {
         viewModel.playModeAisChanged.onNext(true)
-        
-        XCTAssertEqual(viewModel.playModeA.value, true)
         XCTAssertEqual(viewModel.playModeB.value, false)
         
-//        waitForExpectations(timeout: 0.1, handler: nil)
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+        viewModel.playModeAisChanged.onNext(false)
+        XCTAssertEqual(viewModel.playModeB.value, true)
+        
+        viewModel.playModeBisChanged.onNext(true)
+        XCTAssertEqual(viewModel.playModeA.value, false)
+        
+        viewModel.playModeBisChanged.onNext(false)
+        XCTAssertEqual(viewModel.playModeA.value, true)
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func test_最小プレイヤ人数計算の整合性チェック() throws {
+        var testValue = 0
+        viewModel.courtBisON.accept(false)
+        viewModel.courtCisON.accept(false)
+        viewModel.pairingAisOn.accept(false)
+        viewModel.pairingBisOn.accept(false)
+        
+        viewModel.minPlayerCounts.subscribe(onNext: { value in
+            testValue = value
+        }).disposed(by: disposeBag)
+        
+        viewModel.courtAisON.accept(true)
+        XCTAssertEqual(testValue, 4)
+        viewModel.courtBisON.accept(true)
+        XCTAssertEqual(testValue, 8)
+        viewModel.courtCisON.accept(true)
+        XCTAssertEqual(testValue, 12)
+        viewModel.pairingAisOn.accept(true)
+        XCTAssertEqual(testValue, 14)
+        viewModel.pairingBisOn.accept(true)
+        XCTAssertEqual(testValue, 16)
     }
-
+    
+    func test_どれか一つのコートは必ずONになる() throws {
+        viewModel.courtAisON.accept(true)
+        viewModel.courtBisON.accept(false)
+        viewModel.courtCisON.accept(false)
+        
+        viewModel.courtAisON.accept(false)
+        viewModel.courtAisChanged.onNext(false)
+        XCTAssertEqual(viewModel.courtAisON.value, true)
+        
+        viewModel.courtAisON.accept(false)
+        viewModel.courtBisON.accept(true)
+        viewModel.courtCisON.accept(false)
+        
+        viewModel.courtBisON.accept(false)
+        viewModel.courtBisChanged.onNext(false)
+        XCTAssertEqual(viewModel.courtAisON.value, true)
+        
+        viewModel.courtAisON.accept(false)
+        viewModel.courtBisON.accept(false)
+        viewModel.courtCisON.accept(true)
+        
+        viewModel.courtCisON.accept(false)
+        viewModel.courtCisChanged.onNext(false)
+        XCTAssertEqual(viewModel.courtAisON.value, true)
+    }
 }

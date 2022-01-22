@@ -16,7 +16,7 @@ enum MessageAlert {
     case gameEnd
 }
 
-class GameDataTableViewModel: BaseViewModel {
+final class GameDataTableViewModel: BaseViewModel {
 
     let coreDataManager = CoreDataManager.shared
     let gameCreateManager = GameOrganizeManager.shared

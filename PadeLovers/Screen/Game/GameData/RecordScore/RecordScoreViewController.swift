@@ -14,43 +14,44 @@ protocol RecordScoreViewControllerDelegate: AnyObject {
     func returnFromRecordScoreViewController()
 }
 
-class RecordScoreViewController: BaseViewController {
+final class RecordScoreViewController: BaseViewController {
     weak var delegate: RecordScoreViewControllerDelegate?
     var gameData: Game?
     
-    @IBOutlet weak var driveAname: UILabel!
-    @IBOutlet weak var backAname: UILabel!
-    @IBOutlet weak var driveBname: UILabel!
-    @IBOutlet weak var backBname: UILabel!
+    @IBOutlet private weak var driveAname: UILabel!
+    @IBOutlet private weak var backAname: UILabel!
+    @IBOutlet private weak var driveBname: UILabel!
+    @IBOutlet private weak var backBname: UILabel!
     
-    @IBOutlet weak var A1MinusButton: UIButton!
-    @IBOutlet weak var A1PlusButton: UIButton!
-    @IBOutlet weak var A1Score: UILabel!
-    @IBOutlet weak var B1MinusButton: UIButton!
-    @IBOutlet weak var B1PlusButton: UIButton!
-    @IBOutlet weak var B1Score: UILabel!
-    @IBOutlet weak var A2MinusButton: UIButton!
-    @IBOutlet weak var A2PlusButton: UIButton!
-    @IBOutlet weak var A2Score: UILabel!
-    @IBOutlet weak var B2MinusButton: UIButton!
+    @IBOutlet private weak var A1MinusButton: UIButton!
+    @IBOutlet private weak var A1PlusButton: UIButton!
+    @IBOutlet private weak var A1Score: UILabel!
+    @IBOutlet private weak var B1MinusButton: UIButton!
+    @IBOutlet private weak var B1PlusButton: UIButton!
+    @IBOutlet private weak var B1Score: UILabel!
+    @IBOutlet private weak var A2MinusButton: UIButton!
+    @IBOutlet private weak var A2PlusButton: UIButton!
+    @IBOutlet private weak var A2Score: UILabel!
+    @IBOutlet private weak var B2MinusButton: UIButton!
     
-    @IBOutlet weak var B2PlusButton: UIButton!
-    @IBOutlet weak var B2Score: UILabel!
-    @IBOutlet weak var A3MinusButton: UIButton!
+    @IBOutlet private weak var B2PlusButton: UIButton!
+    @IBOutlet private weak var B2Score: UILabel!
+    @IBOutlet private weak var A3MinusButton: UIButton!
     
-    @IBOutlet weak var A3PlusButton: UIButton!
-    @IBOutlet weak var A3Score: UILabel!
-    @IBOutlet weak var B3MinusButton: UIButton!
+    @IBOutlet private weak var A3PlusButton: UIButton!
+    @IBOutlet private weak var A3Score: UILabel!
+    @IBOutlet private weak var B3MinusButton: UIButton!
     
-    @IBOutlet weak var B3PlusButton: UIButton!
-    @IBOutlet weak var B3Score: UILabel!
-    @IBOutlet weak var ATotalScore: UILabel!
-    @IBOutlet weak var BTotalScore: UILabel!
+    @IBOutlet private weak var B3PlusButton: UIButton!
+    @IBOutlet private weak var B3Score: UILabel!
+    @IBOutlet private weak var ATotalScore: UILabel!
+    @IBOutlet private weak var BTotalScore: UILabel!
     
-    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet private weak var timeLabel: UILabel!
     private let viewModel = RecordScoreViewModel()
     
-    @IBOutlet weak var doneButton: UIButton!
+    @IBOutlet private weak var doneButton: UIButton!
+    
     override func bind() {
         disposeBag.insert(
             viewModel.driveAname.bind(to: driveAname.rx.attributedText),

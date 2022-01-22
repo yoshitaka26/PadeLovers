@@ -9,13 +9,14 @@
 import UIKit
 import RxSwift
 
-class PlayerTableViewCell: UITableViewCell {
-    
+final class PlayerTableViewCell: UITableViewCell {
     var disposeBag = DisposeBag()
 
+    // swiftlint:disable private_outlet
     @IBOutlet weak var numberLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var genderSegment: UISegmentedControl!
+    // swiftlint:enable private_outlet
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,11 +31,4 @@ class PlayerTableViewCell: UITableViewCell {
             self.genderSegment.selectedSegmentTintColor = value != 0 ? .appRed : .appBlue
         }).disposed(by: disposeBag)
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
 }

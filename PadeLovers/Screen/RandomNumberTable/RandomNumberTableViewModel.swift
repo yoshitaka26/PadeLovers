@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class RandomNumberTableViewModel: BaseViewModel {
+final class RandomNumberTableViewModel: BaseViewModel {
     let randomNumberManager = RandomNumberTableManager.shared
     
     var playerNumber: BehaviorRelay<Int> = BehaviorRelay(value: 6)

@@ -12,15 +12,15 @@ protocol ReplacePlayerViewControllerDelegate: AnyObject {
     func returnFromReplacePlayerViewController()
 }
 
-class ReplacePlayerViewController: BaseViewController {
+final class ReplacePlayerViewController: BaseViewController {
     weak var delegate: ReplacePlayerViewControllerDelegate?
     var courtID: Int = 0
     
     private var viewModel = ReplacePlayerViewModel()
 
-    @IBOutlet weak var currentPlayerPicker: UIPickerView!
-    @IBOutlet weak var waitingPlayerPicker: UIPickerView!
-    @IBOutlet weak var finishButton: UIButton!
+    @IBOutlet private weak var currentPlayerPicker: UIPickerView!
+    @IBOutlet private weak var waitingPlayerPicker: UIPickerView!
+    @IBOutlet private weak var finishButton: UIButton!
     
     override func bind() {
         rxViewDidLoad.subscribe(onNext: { [weak self] in

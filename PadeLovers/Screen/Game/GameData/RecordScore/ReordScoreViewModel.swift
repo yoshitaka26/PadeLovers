@@ -21,7 +21,8 @@ struct ScoreData {
     var totalB: Int16
     var time: String
 }
-class RecordScoreViewModel: BaseViewModel {
+
+final class RecordScoreViewModel: BaseViewModel {
     override init() {
         super.init()
         mutate()

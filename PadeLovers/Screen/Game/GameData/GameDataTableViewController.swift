@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GameDataTableViewController: BaseTableViewController {
+final class GameDataTableViewController: BaseTableViewController {
     private var viewModel = GameDataTableViewModel()
     
     var lastContentOffSet: CGFloat = 0
