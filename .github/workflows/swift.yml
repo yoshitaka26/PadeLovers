@@ -12,8 +12,29 @@ jobs:
     runs-on: macos-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v2 # ソースコードをcheckout
+    - name: Show Xcode version # libraryをインストール
+      run: xcodebuild -version
+    - uses: actions/cache@v1 # 2: キャッシュを使う
+      with:
+        path: Pods
+        key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-pods-
+    - name: CocoaPods
+      if: steps.cache-cocoapods.outputs.cache-hit != 'true'
+      run: pod install
     - name: Build
-      run: swift build -v
+      run: xcodebuild
+            -workspace PadeLovers.xcworkspace
+            -scheme PadeLovers
+            -sdk iphonesimulator
+            -configuration Debug
+            build
     - name: Run tests
-      run: swift test -v
+      run: xcodebuild
+            -workspace PadeLovers.xcworkspace
+            -scheme PadeLovers
+            -sdk iphonesimulator
+            -destination 'platform=iOS Simulator,name=iPhone 11 Pro Max'
+            clean test
