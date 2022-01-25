@@ -13,14 +13,28 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2 # ソースコードをcheckout
-    - name: Select Xcode version # Xcode 13.1(defalutなので不要かも) を使う
-      run: sudo xcode-select -s '/Applications/Xcode_13.1.app/Contents/Developer'
     - name: Show Xcode version # libraryをインストール
       run: xcodebuild -version
+    - uses: actions/cache@v1 # 2: キャッシュを使う
+      with:
+        path: Pods
+        key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-pods-
     - name: CocoaPods
+      if: steps.cache-cocoapods.outputs.cache-hit != 'true'
       run: pod install
-    - uses: actions/checkout@v2
     - name: Build
-      run: swift build -v
+      run: xcodebuild
+            -workspace PadeLovers.xcworkspace
+            -scheme PadeLovers
+            -sdk iphonesimulator
+            -configuration Debug
+            build
     - name: Run tests
-      run: swift test -v
+      run: xcodebuild
+            -workspace PadeLovers.xcworkspace
+            -scheme PadeLovers
+            -sdk iphonesimulator
+            -destination 'platform=iOS Simulator,name=iPhone 11 Pro Max'
+            clean test
