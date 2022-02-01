@@ -17,6 +17,8 @@ final class GamePlayerViewModel: BaseViewModel {
     var playModeAisChanged = PublishSubject<Bool>()
     var playModeB: BehaviorRelay<Bool> = BehaviorRelay(value: false)
     var playModeBisChanged = PublishSubject<Bool>()
+    var playModeAuto: BehaviorRelay<Bool> = BehaviorRelay(value: false)
+    var playModeAutoisSet = PublishSubject<Int>()
     var gameResult: BehaviorRelay<Bool> = BehaviorRelay(value: false)
     var courtAname: BehaviorRelay<String> = BehaviorRelay(value: LABEL_COURT_A)
     var courtAisON: BehaviorRelay<Bool> = BehaviorRelay(value: true)
@@ -220,6 +222,10 @@ final class GamePlayerViewModel: BaseViewModel {
             guard let self = self else { return }
             self.coreDataManager.updateGameMode(uuidString: self.padelID, isOn: !isOn)
             self.playModeA.accept(!isOn)
+        }).disposed(by: disposeBag)
+        playModeAutoisSet.subscribe(onNext: { [weak self] time in
+            guard let self = self else { return }
+            
         }).disposed(by: disposeBag)
         gameResult.subscribe(onNext: { [weak self] isOn in
             guard let self = self else { return }

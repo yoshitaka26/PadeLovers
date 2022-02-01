@@ -20,6 +20,7 @@ final class GamePlayerViewController: BaseTableViewController {
     private var viewModel = GamePlayerViewModel()
     @IBOutlet private weak var playModeSwitchA: UISwitch!
     @IBOutlet private weak var playModeSwitchB: UISwitch!
+    @IBOutlet private weak var playModeAutoSwitch: UISwitch!
     @IBOutlet private weak var gameResultSwitch: UISwitch!
     @IBOutlet private weak var courtAname: UILabel!
     @IBOutlet private weak var courtBname: UILabel!
@@ -180,6 +181,16 @@ final class GamePlayerViewController: BaseTableViewController {
             guard self != nil else { return }
             UIApplication.shared.isIdleTimerDisabled = false
         }).disposed(by: disposeBag)
+        playModeAutoSwitch.rx.isOn.subscribe(onNext: { [weak self] isOn in
+            guard let self = self else { return }
+            if isOn {
+                let modalVC = AutoPlayModeModalView()
+                modalVC.delegate = self
+                self.present(modalVC, animated: true)
+            } else {
+                self.viewModel.playModeAuto.accept(false)
+            }
+        }).disposed(by: disposeBag)
         viewModel.pairingAWindowShow.subscribe(onNext: { [weak self] in
             guard let self = self else { return }
             let storyboard = UIStoryboard(name: "FixedPair", bundle: nil)
@@ -248,5 +259,12 @@ extension GamePlayerViewController: UIGestureRecognizerDelegate {
         if index.section == 4 {
             viewModel.longPressedPlayer.accept(index.row)
         }
+    }
+}
+
+extension GamePlayerViewController: AutoPlayModeModaViewDelegate {
+    func autoPlayModeSelected(setTime: Int) {
+        self.viewModel.playModeAuto.accept(true)
+        self.viewModel.playModeAutoisSet.onNext(setTime)
     }
 }
