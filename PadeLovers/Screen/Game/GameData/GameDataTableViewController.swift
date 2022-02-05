@@ -48,7 +48,7 @@ final class GameDataTableViewController: BaseTableViewController {
             if let recordVC = modalVC as? RecordScoreViewController {
                 recordVC.delegate = self
                 recordVC.gameData = game
-                self.openReplaceWindow(windowNavigation: modalVC)
+                self.openReplaceWindow(windowNavigation: modalVC, modalSize: CGSize(width: 400, height: 600))
             }
         }).disposed(by: disposeBag)
         viewModel.messageAlert.subscribe(onNext: { [weak self] messageType in

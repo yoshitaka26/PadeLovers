@@ -24,8 +24,8 @@ extension UIViewController: UIPopoverPresentationControllerDelegate {
         return barButtonItem
     }
     
-    func openReplaceWindow(windowNavigation: UIViewController) {
-        let selectWindowContentSize = CGSize(width: 400, height: 600)
+    func openReplaceWindow(windowNavigation: UIViewController, modalSize: CGSize) {
+        let selectWindowContentSize = modalSize
         let windowRect = CGRect(x: view.center.x, y: 0,
                                 width: selectWindowContentSize.width,
                                 height: selectWindowContentSize.height)

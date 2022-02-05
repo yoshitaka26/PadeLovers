@@ -29,6 +29,10 @@ let TITLE_FIXED_PAIR_COLLECTLY = "ペアを固定しました"
 
 let ALERT_MESSAGE_PLAYER_ON_PAIRING = "固定ペアをリセットしました"
 
+let ALERT_AUTO_PLAY_MODE_ON = "分後に試合数重視モードへ\n自動で切り替わります"
+let ALERT_AUTO_PLAY_MODE_OFF = "自動切り替わりを\nリセットしました"
+let ALERT_AUTO_PLAY_MODE_CHANGED = "試合数重視モードに\n切り替えました"
+
 let LABEL_COURT_A = "赤コート"
 let LABEL_COURT_B = "青コート"
 let LABEL_COURT_C = "緑コート"
