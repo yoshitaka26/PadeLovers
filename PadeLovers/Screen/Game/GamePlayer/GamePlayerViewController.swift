@@ -91,6 +91,7 @@ final class GamePlayerViewController: BaseTableViewController {
             viewModel.playModeB.bind(to: playModeSwitchB.rx.isOn),
             playModeSwitchB.rx.isOn.bind(to: viewModel.playModeB),
             playModeSwitchB.rx.isOn.bind(to: viewModel.playModeBisChanged),
+            viewModel.playModeAuto.bind(to: playModeAutoSwitch.rx.isOn),
             gameResultSwitch.rx.isOn <-> viewModel.gameResult
         )
         disposeBag.insert(
@@ -184,8 +185,22 @@ final class GamePlayerViewController: BaseTableViewController {
         playModeAutoSwitch.rx.isOn.subscribe(onNext: { [weak self] isOn in
             guard let self = self else { return }
             if isOn {
-                let modalVC = AutoPlayModeModalView()
+                self.viewModel.playModeAuto.accept(false)
+                let storyboard = UIStoryboard(name: "AutoPlayMode", bundle: nil)
+                let vc = storyboard.instantiateViewController(identifier: "AutoPlayMode")
+                guard let modalVC = vc as? AutoPlayModeViewController else { return }
                 modalVC.delegate = self
+                modalVC.modalPresentationStyle = .popover
+                if let popover = modalVC.popoverPresentationController {
+                    if #available(iOS 15.0, *) {
+                        let sheet = popover.adaptiveSheetPresentationController
+                        sheet.detents = [.medium()]
+                        sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+                        sheet.largestUndimmedDetentIdentifier = nil
+                        sheet.prefersEdgeAttachedInCompactHeight = true
+                        sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true
+                    }
+                }
                 self.present(modalVC, animated: true)
             } else {
                 self.viewModel.playModeAuto.accept(false)
@@ -219,7 +234,7 @@ final class GamePlayerViewController: BaseTableViewController {
             let modalVC = storyboard.instantiateViewController(identifier: "EditData")
             if let editDataVC = modalVC as? EditDataViewController {
                 editDataVC.playerID = value
-                self.openReplaceWindow(windowNavigation: modalVC)
+                self.openReplaceWindow(windowNavigation: modalVC, modalSize: CGSize(width: 400, height: 600))
             }
         }).disposed(by: disposeBag)
     }
@@ -264,7 +279,11 @@ extension GamePlayerViewController: UIGestureRecognizerDelegate {
 
 extension GamePlayerViewController: AutoPlayModeModaViewDelegate {
     func autoPlayModeSelected(setTime: Int) {
-        self.viewModel.playModeAuto.accept(true)
-        self.viewModel.playModeAutoisSet.onNext(setTime)
+        if setTime != 0 {
+            self.viewModel.playModeAuto.accept(true)
+            self.viewModel.playModeAutoisSet.onNext(setTime)
+        } else {
+            self.viewModel.playModeAuto.accept(false)
+        }
     }
 }

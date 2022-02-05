@@ -128,6 +128,8 @@ final class GamePlayerViewModel: BaseViewModel {
             }
         }
     }
+    private var autoPlayModeTimer: Disposable?
+    
     override init() {
         // swiftlint:disable line_length
         playersSwitches = [player1isOn, player2isOn, player3isOn, player4isOn, player5isOn, player6isOn, player7isOn, player8isOn, player9isOn, player10isOn, player11isOn, player12isOn, player13isOn, player14isOn, player15isOn, player16isOn, player17isOn, player18isOn, player19isOn, player20isOn, player21isOn]
@@ -223,9 +225,43 @@ final class GamePlayerViewModel: BaseViewModel {
             self.coreDataManager.updateGameMode(uuidString: self.padelID, isOn: !isOn)
             self.playModeA.accept(!isOn)
         }).disposed(by: disposeBag)
+        playModeB.subscribe(onNext: { [weak self] isOn in
+            guard let self = self else { return }
+            if isOn, self.playModeAuto.value == true {
+                self.playModeAuto.accept(false)
+                if let timer = self.autoPlayModeTimer {
+                    timer.dispose()
+                }
+                self.showMessage.onNext(ALERT_AUTO_PLAY_MODE_OFF)
+            }
+        }).disposed(by: disposeBag)
+        playModeAuto.subscribe(onNext: { [weak self] isOn in
+            guard let self = self else { return }
+            if isOn {
+                self.playModeA.accept(true)
+                self.playModeAisChanged.onNext(true)
+            } else {
+                if let timer = self.autoPlayModeTimer {
+                    timer.dispose()
+                }
+            }
+        }).disposed(by: disposeBag)
         playModeAutoisSet.subscribe(onNext: { [weak self] time in
             guard let self = self else { return }
-            
+            if let timer = self.autoPlayModeTimer {
+                timer.dispose()
+            }
+            self.showMessage.onNext(String(time) + ALERT_AUTO_PLAY_MODE_ON)
+            self.autoPlayModeTimer = Observable<Int>
+                .interval(DispatchTimeInterval.seconds(time * 10), scheduler: MainScheduler.instance)
+                .subscribe { _ in
+                    if self.playModeAuto.value != false {
+                        self.playModeAuto.accept(false)
+                        self.playModeB.accept(true)
+                        self.playModeBisChanged.onNext(true)
+                        self.showMessage.onNext(ALERT_AUTO_PLAY_MODE_CHANGED)
+                    }
+                }
         }).disposed(by: disposeBag)
         gameResult.subscribe(onNext: { [weak self] isOn in
             guard let self = self else { return }
