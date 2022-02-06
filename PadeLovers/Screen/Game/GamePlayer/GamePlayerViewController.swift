@@ -20,6 +20,7 @@ final class GamePlayerViewController: BaseTableViewController {
     private var viewModel = GamePlayerViewModel()
     @IBOutlet private weak var playModeSwitchA: UISwitch!
     @IBOutlet private weak var playModeSwitchB: UISwitch!
+    @IBOutlet private weak var playModeAutoSwitch: UISwitch!
     @IBOutlet private weak var gameResultSwitch: UISwitch!
     @IBOutlet private weak var courtAname: UILabel!
     @IBOutlet private weak var courtBname: UILabel!
@@ -90,6 +91,7 @@ final class GamePlayerViewController: BaseTableViewController {
             viewModel.playModeB.bind(to: playModeSwitchB.rx.isOn),
             playModeSwitchB.rx.isOn.bind(to: viewModel.playModeB),
             playModeSwitchB.rx.isOn.bind(to: viewModel.playModeBisChanged),
+            viewModel.playModeAuto.bind(to: playModeAutoSwitch.rx.isOn),
             gameResultSwitch.rx.isOn <-> viewModel.gameResult
         )
         disposeBag.insert(
@@ -180,6 +182,30 @@ final class GamePlayerViewController: BaseTableViewController {
             guard self != nil else { return }
             UIApplication.shared.isIdleTimerDisabled = false
         }).disposed(by: disposeBag)
+        playModeAutoSwitch.rx.isOn.subscribe(onNext: { [weak self] isOn in
+            guard let self = self else { return }
+            if isOn {
+                self.viewModel.playModeAuto.accept(false)
+                let storyboard = UIStoryboard(name: "AutoPlayMode", bundle: nil)
+                let vc = storyboard.instantiateViewController(identifier: "AutoPlayMode")
+                guard let modalVC = vc as? AutoPlayModeViewController else { return }
+                modalVC.delegate = self
+                modalVC.modalPresentationStyle = .popover
+                if let popover = modalVC.popoverPresentationController {
+                    if #available(iOS 15.0, *) {
+                        let sheet = popover.adaptiveSheetPresentationController
+                        sheet.detents = [.medium()]
+                        sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+                        sheet.largestUndimmedDetentIdentifier = nil
+                        sheet.prefersEdgeAttachedInCompactHeight = true
+                        sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true
+                    }
+                }
+                self.present(modalVC, animated: true)
+            } else {
+                self.viewModel.playModeAuto.accept(false)
+            }
+        }).disposed(by: disposeBag)
         viewModel.pairingAWindowShow.subscribe(onNext: { [weak self] in
             guard let self = self else { return }
             let storyboard = UIStoryboard(name: "FixedPair", bundle: nil)
@@ -208,7 +234,7 @@ final class GamePlayerViewController: BaseTableViewController {
             let modalVC = storyboard.instantiateViewController(identifier: "EditData")
             if let editDataVC = modalVC as? EditDataViewController {
                 editDataVC.playerID = value
-                self.openReplaceWindow(windowNavigation: modalVC)
+                self.openReplaceWindow(windowNavigation: modalVC, modalSize: CGSize(width: 400, height: 600))
             }
         }).disposed(by: disposeBag)
     }
@@ -247,6 +273,17 @@ extension GamePlayerViewController: UIGestureRecognizerDelegate {
         guard let index = indexPath else { return }
         if index.section == 4 {
             viewModel.longPressedPlayer.accept(index.row)
+        }
+    }
+}
+
+extension GamePlayerViewController: AutoPlayModeModaViewDelegate {
+    func autoPlayModeSelected(setTime: Int) {
+        if setTime != 0 {
+            self.viewModel.playModeAuto.accept(true)
+            self.viewModel.playModeAutoisSet.onNext(setTime)
+        } else {
+            self.viewModel.playModeAuto.accept(false)
         }
     }
 }

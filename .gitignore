@@ -1,6 +1,7 @@
+## User settings
+xcuserdata/
 .DS_Store
-UserInterfaceState.xcuserstate
-*.generated.swift
-Pods
-Podfile.lock
+
+## CocoaPods
+Pods/
 

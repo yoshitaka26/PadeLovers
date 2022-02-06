@@ -35,7 +35,6 @@
 
 ## 📙使用ライブラリ
 * SwiftLint : https://cocoapods.org/pods/SwiftLint
-* R.swift : https://cocoapods.org/pods/R.swift
 * RxSwift : https://cocoapods.org/pods/RxSwift
 * RxCocoa : https://cocoapods.org/pods/RxCocoa
 

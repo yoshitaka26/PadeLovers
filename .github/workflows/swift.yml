@@ -8,11 +8,12 @@ on:
 
 jobs:
   build:
-
+    name: Build and Test default scheme using any available iPhone simulator
     runs-on: macos-latest
 
     steps:
-    - uses: actions/checkout@v2 # ソースコードをcheckout
+    - name: Checkout
+      uses: actions/checkout@v2 # ソースコードをcheckout
     - name: Show Xcode version # libraryをインストール
       run: xcodebuild -version
     - uses: actions/cache@v1 # 2: キャッシュを使う

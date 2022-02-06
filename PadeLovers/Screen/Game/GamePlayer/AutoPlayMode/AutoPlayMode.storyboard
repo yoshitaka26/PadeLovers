@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Auto Play Mode View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="AutoPlayMode" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="AutoPlayModeViewController" customModule="PadeLovers" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" countDownDuration="7200" minuteInterval="10" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9zE-ks-LsD">
+                                <rect key="frame" x="47" y="340" width="320" height="216"/>
+                            </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zDa-RH-vSy">
+                                <rect key="frame" x="217" y="566" width="100" height="50"/>
+                                <color key="backgroundColor" name="appSpecialGreen"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="HPS-8J-uaK"/>
+                                    <constraint firstAttribute="width" constant="100" id="WyM-zb-SjP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="設定"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iev-LR-KSG">
+                                <rect key="frame" x="97" y="566" width="100" height="50"/>
+                                <color key="backgroundColor" name="appSpecialGreen"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="4Vq-vJ-VLG"/>
+                                    <constraint firstAttribute="width" constant="100" id="gPQ-Fa-i2M"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="キャンセル"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P2W-Lv-vye">
+                                <rect key="frame" x="50" y="306.5" width="314.5" height="33.5"/>
+                                <string key="text">指定時間【組み合わせ重視モード】でプレイ後に
+自動で【試合数重視モード】に切り替えます💡</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="iev-LR-KSG" firstAttribute="trailing" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" constant="-10" id="1j4-Qf-6Xz"/>
+                            <constraint firstItem="9zE-ks-LsD" firstAttribute="top" secondItem="P2W-Lv-vye" secondAttribute="bottom" id="4gu-sf-E90"/>
+                            <constraint firstItem="zDa-RH-vSy" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" constant="10" id="5gj-db-xTn"/>
+                            <constraint firstItem="zDa-RH-vSy" firstAttribute="top" secondItem="9zE-ks-LsD" secondAttribute="bottom" constant="10" id="KUF-1V-vPn"/>
+                            <constraint firstItem="9zE-ks-LsD" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="b9N-SI-aTw"/>
+                            <constraint firstItem="P2W-Lv-vye" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="jih-rN-0pR"/>
+                            <constraint firstItem="9zE-ks-LsD" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="rgI-o9-jaH"/>
+                            <constraint firstItem="iev-LR-KSG" firstAttribute="top" secondItem="9zE-ks-LsD" secondAttribute="bottom" constant="10" id="ySg-4W-eOM"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="countTimePicker" destination="9zE-ks-LsD" id="kN3-yb-aQr"/>
+                        <outlet property="doneButton" destination="zDa-RH-vSy" id="piZ-1R-u18"/>
+                        <outlet property="resetButton" destination="iev-LR-KSG" id="dH6-9u-HuZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="120" y="66"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="appSpecialGreen">
+            <color red="0.63099998235702515" green="0.87099999189376831" blue="0.57599997520446777" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
