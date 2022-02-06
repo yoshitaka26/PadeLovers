@@ -23,7 +23,7 @@ final class GameResultViewController: BaseViewController {
         rxViewDidLoad.subscribe(onNext: { [weak self] in
             guard let self = self else { return }
             self.viewModel.setPadelID.onNext(())
-            
+            self.customCollectionView.bounces = false
             self.navigationItem.rightBarButtonItem = self.createBarButtonItem(image: UIImage.named("house.fill"), select: #selector(self.back))
             self.navigationController?.isNavigationBarHidden = false
             self.customCollectionView.register(UINib(nibName: "PlayerResultCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PlayerCell")
@@ -36,7 +36,7 @@ final class GameResultViewController: BaseViewController {
             self.viewModel.scoreType.accept(.player)
             self.customCollectionView.reloadData()
             self.viewModel.playerButtonColor.accept(.appRed)
-            self.viewModel.gameButtonColor.accept(.appBlue)
+            self.viewModel.gameButtonColor.accept(.darkGray)
             UIApplication.shared.isIdleTimerDisabled = true
         }).disposed(by: disposeBag)
         rxViewWillDisappear.subscribe(onNext: { [weak self] in
@@ -62,13 +62,13 @@ final class GameResultViewController: BaseViewController {
             self.viewModel.scoreType.accept(.player)
             self.customCollectionView.reloadData()
             self.viewModel.playerButtonColor.accept(.appRed)
-            self.viewModel.gameButtonColor.accept(.appBlue)
+            self.viewModel.gameButtonColor.accept(.darkGray)
         }).disposed(by: disposeBag)
         gameButton.rx.tap.subscribe(onNext: { [weak self] _ in
             guard let self = self else { return }
             self.viewModel.scoreType.accept(.game)
             self.customCollectionView.reloadData()
-            self.viewModel.playerButtonColor.accept(.appBlue)
+            self.viewModel.playerButtonColor.accept(.darkGray)
             self.viewModel.gameButtonColor.accept(.appRed)
             self.customCollectionView.scrollToItem(at: IndexPath(item: self.viewModel.allGames.value.count - 1, section: 0), at: .bottom, animated: true)
         }).disposed(by: disposeBag)
