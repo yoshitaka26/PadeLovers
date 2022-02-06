@@ -31,7 +31,8 @@ final class GameTableViewCell: UITableViewCell {
         
         gameFinishButton.layer.borderColor = UIColor.gray.cgColor
         gameFinishButton.layer.borderWidth = 1.0
-
+        
+        self.selectionStyle = .none
     }
     
     func setGameCell(court: Court) {
@@ -84,10 +85,5 @@ final class GameTableViewCell: UITableViewCell {
         timeLabel.text = dateFormatter.string(from: game.startAt ?? Date())
         
         self.selectionStyle = .none
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
     }
 }

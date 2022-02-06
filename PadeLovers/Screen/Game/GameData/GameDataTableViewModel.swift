@@ -35,7 +35,7 @@ final class GameDataTableViewModel: BaseViewModel {
     let deleteGame = PublishSubject<Int>()
     let reOrganaizeGame = PublishSubject<Int>()
     
-    let pageScrolled = PublishSubject<Void>()
+    let assistGameOrganize = PublishSubject<Void>()
     let askToOrganizeNewGames = PublishSubject<Void>()
     let showResultModalView = PublishSubject<Game>()
     
@@ -58,7 +58,7 @@ extension GameDataTableViewModel {
             self.onCourts.accept(self.coreDataManager.loadCourtsIsOn(uuidString: self.padelID.value))
             self.reloadTableView.onNext(())
         }).disposed(by: disposeBag)
-        pageScrolled.subscribe(onNext: { [weak self] _ in
+        assistGameOrganize.subscribe(onNext: { [weak self] _ in
             guard let self = self else { return }
             guard let padel = self.coreDataManager.loadPadel(uuidString: self.padelID.value) else { return }
             guard padel.isReady else { return }
