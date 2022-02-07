@@ -253,7 +253,7 @@ final class GamePlayerViewModel: BaseViewModel {
             }
             self.showMessage.onNext(String(time) + ALERT_AUTO_PLAY_MODE_ON)
             self.autoPlayModeTimer = Observable<Int>
-                .interval(DispatchTimeInterval.seconds(time * 10), scheduler: MainScheduler.instance)
+                .interval(DispatchTimeInterval.seconds(time * 60), scheduler: MainScheduler.instance)
                 .subscribe { _ in
                     if self.playModeAuto.value != false {
                         self.playModeAuto.accept(false)
