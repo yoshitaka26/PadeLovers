@@ -107,6 +107,7 @@
 		E4C4343B26822672006652A7 /* CommonDataBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C4343A26822672006652A7 /* CommonDataBrain.swift */; };
 		E4D131DA27AA387B0034B2D0 /* AutoPlayModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D131D927AA387B0034B2D0 /* AutoPlayModeViewController.swift */; };
 		E4D131DC27AB8CBC0034B2D0 /* AutoPlayMode.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4D131DB27AB8CBC0034B2D0 /* AutoPlayMode.storyboard */; };
+		E4D131E927B27F2D0034B2D0 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E4D131E827B27F2D0034B2D0 /* Settings.bundle */; };
 		E4E3DA252673AA8F0009D809 /* ReplacePlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E3DA242673AA8F0009D809 /* ReplacePlayerViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -227,6 +228,7 @@
 		E4C4343A26822672006652A7 /* CommonDataBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonDataBrain.swift; sourceTree = "<group>"; };
 		E4D131D927AA387B0034B2D0 /* AutoPlayModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoPlayModeViewController.swift; sourceTree = "<group>"; };
 		E4D131DB27AB8CBC0034B2D0 /* AutoPlayMode.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AutoPlayMode.storyboard; sourceTree = "<group>"; };
+		E4D131E827B27F2D0034B2D0 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		E4E3DA242673AA8F0009D809 /* ReplacePlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplacePlayerViewModel.swift; sourceTree = "<group>"; };
 		E8911760E1ABF8DB5F2D01DD /* Pods-PadeLovers.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PadeLovers.release.xcconfig"; path = "Target Support Files/Pods-PadeLovers/Pods-PadeLovers.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -606,8 +608,7 @@
 				E457509B26569A8B0036194F /* Service */,
 				E44672E0264562970092DEFE /* Common */,
 				E44672E12645629D0092DEFE /* Extensions */,
-				E47F20352547D56D00996B19 /* Assets.xcassets */,
-				E47F20372547D56D00996B19 /* LaunchScreen.storyboard */,
+				E4D131EB27B8C8CE0034B2D0 /* Resources */,
 				E47F203A2547D56D00996B19 /* Info.plist */,
 			);
 			path = PadeLovers;
@@ -661,6 +662,16 @@
 			path = AutoPlayMode;
 			sourceTree = "<group>";
 		};
+		E4D131EB27B8C8CE0034B2D0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E47F20352547D56D00996B19 /* Assets.xcassets */,
+				E47F20372547D56D00996B19 /* LaunchScreen.storyboard */,
+				E4D131E827B27F2D0034B2D0 /* Settings.bundle */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -693,6 +704,7 @@
 				E47F20272547D56B00996B19 /* Resources */,
 				B70A5C5A315480C27E1CF6B7 /* [CP] Embed Pods Frameworks */,
 				E481F411263ABED400D2B879 /* ShellScript */,
+				E4D131EA27B8C83E0034B2D0 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -778,6 +790,7 @@
 				E47F20362547D56D00996B19 /* Assets.xcassets in Resources */,
 				E47F20342547D56B00996B19 /* Game.storyboard in Resources */,
 				E43DCAF22686FE4E0078C4AF /* SettingView.storyboard in Resources */,
+				E4D131E927B27F2D0034B2D0 /* Settings.bundle in Resources */,
 				E42FAD302678AFDB00F9B7DD /* PlayerResultCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -840,6 +853,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if which \"${PODS_ROOT}/SwiftLint/swiftlint\" >/dev/null; then\n${PODS_ROOT}/SwiftLint/swiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		E4D131EA27B8C83E0034B2D0 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ $CONFIGURATION = \"Debug\" ]; then\n/opt/homebrew/bin/LicensePlist/license-plist --output-path $PRODUCT_NAME/Resources/Settings.bundle --github-token YOUR_GITHUB_TOKEN\nfi\n";
 		};
 		F5BC0ADF6AAA7DBB028FC5BE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
