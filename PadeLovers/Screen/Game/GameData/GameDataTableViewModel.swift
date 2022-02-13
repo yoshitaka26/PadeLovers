@@ -13,6 +13,7 @@ import RxCocoa
 enum MessageAlert {
     case lessPlayersError
     case noCourtError
+    case gameEndAlert(Int)
     case gameEnd
 }
 
@@ -32,6 +33,7 @@ final class GameDataTableViewModel: BaseViewModel {
     let reloadTableView = PublishSubject<Void>()
     let organizeGame = PublishSubject<Void>()
     let actionButtonPressed = PublishSubject<Int>()
+    let endGameAfterAlert = PublishSubject<Int>()
     let deleteGame = PublishSubject<Int>()
     let reOrganaizeGame = PublishSubject<Int>()
     
@@ -89,8 +91,12 @@ extension GameDataTableViewModel {
             guard let padel = self.coreDataManager.loadPadel(uuidString: self.padelID.value) else { return }
             guard let court = self.coreDataManager.loadCourt(uuidString: self.padelID.value, courtID: Int16(courtID)) else { return }
             if court.onGame != nil {
+                guard let game = self.coreDataManager.loadGameByCourtId(uuidString: self.padelID.value, courtID: Int16(courtID)) else { return }
+                guard let startTime = game.startAt, startTime.timeIntervalSinceNow < -180.0 else {
+                    self.messageAlert.onNext(.gameEndAlert(courtID))
+                    return
+                }
                 if padel.showResult {
-                    guard let game = self.coreDataManager.loadGameByCourtId(uuidString: self.padelID.value, courtID: Int16(courtID)) else { return }
                     self.showResultModalView.onNext((game))
                     self.gameCreateManager.gameEnd(courtID: courtID)
                 } else {
@@ -106,6 +112,19 @@ extension GameDataTableViewModel {
                 self.gameCreateManager.organaizeMatch(courtID: courtID)
                 self.loadGameData.onNext(())
             }
+        }).disposed(by: disposeBag)
+        endGameAfterAlert.subscribe(onNext: { [weak self] courtID in
+            guard let self = self else { return }
+            guard let padel = self.coreDataManager.loadPadel(uuidString: self.padelID.value) else { return }
+            guard let game = self.coreDataManager.loadGameByCourtId(uuidString: self.padelID.value, courtID: Int16(courtID)) else { return }
+            if padel.showResult {
+                self.showResultModalView.onNext((game))
+                self.gameCreateManager.gameEnd(courtID: courtID)
+            } else {
+                self.gameCreateManager.gameEnd(courtID: courtID)
+                self.messageAlert.onNext(.gameEnd)
+            }
+            self.loadGameData.onNext(())
         }).disposed(by: disposeBag)
         deleteGame.subscribe(onNext: { [weak self] courtID in
             guard let self = self else { return }

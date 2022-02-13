@@ -374,7 +374,7 @@ extension CoreDataManager {
         do {
             let players = try managerObjectContext.fetch(fetchRequest) as! [Player]
             guard let player = players.first else { return 0 }
-            let min = checkMinCountOfPlayingGame(uuidString: uuidString)
+            let min = checkMinCountForNewPlayer(uuidString: uuidString)
             player.isPlaying = isPlaying
             if isPlaying {
                 if player.counts < min {
@@ -591,6 +591,27 @@ extension CoreDataManager {
             let players = try managerObjectContext.fetch(fetchRequest) as! [Player]
             var countsArray: [Int16] = []
             players.forEach { countsArray.append($0.counts) }
+            guard let minCount = countsArray.min() else { return 0 }
+            return minCount
+        } catch {
+            fatalError("loadData error")
+        }
+    }
+    func checkMinCountForNewPlayer(uuidString: String) -> Int16 {
+        let fetchRequest = createRequest(objecteType: .player)
+        let uuid = NSUUID(uuidString: uuidString)
+        let predicate = NSPredicate(format: "%K == %@ AND %K == %@", "padelID", uuid!, "isPlaying", NSNumber(value: true))
+        fetchRequest.predicate = predicate
+        do {
+            let players = try managerObjectContext.fetch(fetchRequest) as! [Player]
+            var countsArray: [Int16] = []
+            players.forEach {
+                if let onGame = $0.onGame, !onGame.isEnd {
+                    countsArray.append($0.counts + 1)
+                } else {
+                    countsArray.append($0.counts)
+                }
+            }
             guard let minCount = countsArray.min() else { return 0 }
             return minCount
         } catch {
