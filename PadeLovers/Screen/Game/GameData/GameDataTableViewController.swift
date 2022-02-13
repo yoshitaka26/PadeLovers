@@ -62,8 +62,14 @@ final class GameDataTableViewController: BaseTableViewController {
                 self.warningAlertView(withTitle: "プレイヤが不足しています")
             case .noCourtError:
                 self.warningAlertView(withTitle: "コートが空いていません")
+            case let .gameEndAlert(courtID):
+                self.confirmationAlertView(withTitle: "本当に試合を終了しますか？", message: "試合の取消は「チェンジ」\nを選択してください💡", cancelString: "キャンセル", confirmString: "試合終了") {
+                    self.viewModel.endGameAfterAlert.onNext(courtID)
+                }
             case .gameEnd:
-                self.infoAlertViewWithTitle(title: "試合を終了しました")
+                self.infoAlertViewWithTitle(title: "試合を終了しました") {
+                    self.viewModel.assistGameOrganize.onNext(())
+                }
             }
         }).disposed(by: disposeBag)
     }
