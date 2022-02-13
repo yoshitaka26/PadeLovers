@@ -10,13 +10,13 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-protocol AutoPlayModeModaViewDelegate: AnyObject {
+protocol AutoPlayModeViewDelegate: AnyObject {
     func autoPlayModeSelected(setTime: Int)
 }
 
 class AutoPlayModeViewController: BaseViewController {
 
-    weak var delegate: AutoPlayModeModaViewDelegate?
+    weak var delegate: AutoPlayModeViewDelegate?
     
     @IBOutlet private weak var resetButton: UIButton!
     @IBOutlet private weak var doneButton: UIButton!

@@ -277,7 +277,7 @@ extension GamePlayerViewController: UIGestureRecognizerDelegate {
     }
 }
 
-extension GamePlayerViewController: AutoPlayModeModaViewDelegate {
+extension GamePlayerViewController: AutoPlayModeViewDelegate {
     func autoPlayModeSelected(setTime: Int) {
         if setTime != 0 {
             self.viewModel.playModeAuto.accept(true)
