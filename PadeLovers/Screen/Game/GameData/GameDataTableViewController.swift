@@ -67,7 +67,9 @@ final class GameDataTableViewController: BaseTableViewController {
                     self.viewModel.endGameAfterAlert.onNext(courtID)
                 }
             case .gameEnd:
-                self.infoAlertViewWithTitle(title: "試合を終了しました")
+                self.infoAlertViewWithTitle(title: "試合を終了しました") {
+                    self.viewModel.assistGameOrganize.onNext(())
+                }
             }
         }).disposed(by: disposeBag)
     }

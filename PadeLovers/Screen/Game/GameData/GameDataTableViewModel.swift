@@ -65,7 +65,8 @@ extension GameDataTableViewModel {
             guard let padel = self.coreDataManager.loadPadel(uuidString: self.padelID.value) else { return }
             guard padel.isReady else { return }
             let emptyCourtNum = self.coreDataManager.returnEmptyCourtNum(uuidString: self.padelID.value)
-            if emptyCourtNum > 1 {
+            let courts = self.coreDataManager.loadCourtsIsOn(uuidString: self.padelID.value)
+            if courts.count != 1, emptyCourtNum > courts.count - 1 {
                 self.askToOrganizeNewGames.onNext(())
             }
         }).disposed(by: disposeBag)
