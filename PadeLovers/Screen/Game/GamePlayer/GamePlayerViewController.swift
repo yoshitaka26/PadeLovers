@@ -200,6 +200,11 @@ final class GamePlayerViewController: BaseTableViewController {
                         sheet.prefersEdgeAttachedInCompactHeight = true
                         sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true
                     }
+                    if UIDevice.current.userInterfaceIdiom == .pad {
+                        popover.sourceView = self.view
+                        popover.permittedArrowDirections = []
+                        popover.sourceRect = CGRect(x: self.view.center.x, y: self.view.center.y / 2, width: 0, height: 0)
+                    }
                 }
                 self.present(modalVC, animated: true)
             } else {
