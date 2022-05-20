@@ -25,6 +25,7 @@ final class GameResultViewController: BaseViewController {
             self.viewModel.setPadelID.onNext(())
             self.customCollectionView.bounces = false
             self.navigationItem.rightBarButtonItem = self.createBarButtonItem(image: UIImage.named("house.fill"), select: #selector(self.back))
+            self.navigationItem.leftBarButtonItem = self.createBarButtonItem(image: UIImage.named("icloud.and.arrow.up"), select: #selector(self.shareGame))
             self.navigationController?.isNavigationBarHidden = false
             self.customCollectionView.register(UINib(nibName: "PlayerResultCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PlayerCell")
             self.customCollectionView.register(UINib(nibName: "GameResultCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "GameCell")
@@ -84,6 +85,16 @@ final class GameResultViewController: BaseViewController {
     
     @objc
     func back() {
+        self.confirmationAlertView(withTitle: "ホーム画面に戻ります", cancelString: "キャンセル", confirmString: "OK") {
+            guard let tabBarCon = self.navigationController?.parent as? UITabBarController else { return }
+            guard let mainNavCon = tabBarCon.parent as? UINavigationController else { return }
+            mainNavCon.popViewController(animated: true)
+        }
+    }
+    @objc
+    func shareGame() {
+        let vc = ShareGameViewController()
+        self.present(vc, animated: true)
         self.confirmationAlertView(withTitle: "ホーム画面に戻ります", cancelString: "キャンセル", confirmString: "OK") {
             guard let tabBarCon = self.navigationController?.parent as? UITabBarController else { return }
             guard let mainNavCon = tabBarCon.parent as? UINavigationController else { return }

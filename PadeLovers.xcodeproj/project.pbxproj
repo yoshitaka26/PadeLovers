@@ -109,6 +109,7 @@
 		E4D131DC27AB8CBC0034B2D0 /* AutoPlayMode.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4D131DB27AB8CBC0034B2D0 /* AutoPlayMode.storyboard */; };
 		E4D131E927B27F2D0034B2D0 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E4D131E827B27F2D0034B2D0 /* Settings.bundle */; };
 		E4E3DA252673AA8F0009D809 /* ReplacePlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E3DA242673AA8F0009D809 /* ReplacePlayerViewModel.swift */; };
+		E4F9D38128373C5E00759465 /* ShareGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F9D38028373C5E00759465 /* ShareGameViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -230,6 +231,8 @@
 		E4D131DB27AB8CBC0034B2D0 /* AutoPlayMode.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AutoPlayMode.storyboard; sourceTree = "<group>"; };
 		E4D131E827B27F2D0034B2D0 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		E4E3DA242673AA8F0009D809 /* ReplacePlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplacePlayerViewModel.swift; sourceTree = "<group>"; };
+		E4F9D37E283735AA00759465 /* PadeLovers.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PadeLovers.entitlements; sourceTree = "<group>"; };
+		E4F9D38028373C5E00759465 /* ShareGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareGameViewController.swift; sourceTree = "<group>"; };
 		E8911760E1ABF8DB5F2D01DD /* Pods-PadeLovers.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PadeLovers.release.xcconfig"; path = "Target Support Files/Pods-PadeLovers/Pods-PadeLovers.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -510,6 +513,7 @@
 		E44673692655243C0092DEFE /* GameResult */ = {
 			isa = PBXGroup;
 			children = (
+				E4F9D37F28373C1200759465 /* ShareGame */,
 				E44673652655229F0092DEFE /* GameResult.storyboard */,
 				E436135C254BC6EE00A2DB3E /* GameResultViewController.swift */,
 				E48EE3CC267753E40001E54D /* GameResultViewModel.swift */,
@@ -599,6 +603,7 @@
 		E47F202B2547D56B00996B19 /* PadeLovers */ = {
 			isa = PBXGroup;
 			children = (
+				E4F9D37E283735AA00759465 /* PadeLovers.entitlements */,
 				E47F202C2547D56B00996B19 /* AppDelegate.swift */,
 				E47F202E2547D56B00996B19 /* SceneDelegate.swift */,
 				E44672B026455D9C0092DEFE /* RxBase */,
@@ -670,6 +675,14 @@
 				E4D131E827B27F2D0034B2D0 /* Settings.bundle */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		E4F9D37F28373C1200759465 /* ShareGame */ = {
+			isa = PBXGroup;
+			children = (
+				E4F9D38028373C5E00759465 /* ShareGameViewController.swift */,
+			);
+			path = ShareGame;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -921,6 +934,7 @@
 				E433EA582684BA0D00EFC20B /* Court+CoreDataClass.swift in Sources */,
 				E4E3DA252673AA8F0009D809 /* ReplacePlayerViewModel.swift in Sources */,
 				E43C707C267AC46800E28E8A /* RecordScoreViewController.swift in Sources */,
+				E4F9D38128373C5E00759465 /* ShareGameViewController.swift in Sources */,
 				E433EA532684BA0D00EFC20B /* PairingA+CoreDataProperties.swift in Sources */,
 				E4313D98254830F30045447F /* GameDataTableViewController.swift in Sources */,
 				E447EF0D2755FEFD001601A7 /* MainSettingTableViewController.swift in Sources */,
@@ -1208,6 +1222,7 @@
 			baseConfigurationReference = 621A020FB01D3566D822BC7F /* Pods-PadeLovers.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PadeLovers/PadeLovers.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.2.4.0;
@@ -1232,6 +1247,7 @@
 			baseConfigurationReference = E8911760E1ABF8DB5F2D01DD /* Pods-PadeLovers.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PadeLovers/PadeLovers.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.2.4.0;
