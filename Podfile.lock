@@ -7,6 +7,9 @@ PODS:
   - FBSDKCoreKit_Basics (13.2.0)
   - FBSDKLoginKit (13.2.0):
     - FBSDKCoreKit (= 13.2.0)
+  - LineSDKSwift (5.8.1):
+    - LineSDKSwift/Core (= 5.8.1)
+  - LineSDKSwift/Core (5.8.1)
   - RxCocoa (6.2.0):
     - RxRelay (= 6.2.0)
     - RxSwift (= 6.2.0)
@@ -17,6 +20,7 @@ PODS:
 
 DEPENDENCIES:
   - FBSDKLoginKit (~> 13.2.0)
+  - LineSDKSwift (~> 5.8.1)
   - RxCocoa (~> 6.2.0)
   - RxSwift (~> 6.2.0)
   - SwiftLint
@@ -27,6 +31,7 @@ SPEC REPOS:
     - FBSDKCoreKit
     - FBSDKCoreKit_Basics
     - FBSDKLoginKit
+    - LineSDKSwift
     - RxCocoa
     - RxRelay
     - RxSwift
@@ -37,11 +42,12 @@ SPEC CHECKSUMS:
   FBSDKCoreKit: 58139803d861e72c7661dc875611a759352a55ac
   FBSDKCoreKit_Basics: 1ffc68326a5ece051d85574f02a0adcf27c2a5f2
   FBSDKLoginKit: 19e2a878556c2ee4f20486dc406e582783cd7578
+  LineSDKSwift: 55ea1486ad3b2802b7e00f80aeb5844e3ed3faa3
   RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
   RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
   RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
   SwiftLint: 6bc52a21f0fd44cab9aa2dc8e534fb9f5e3ec507
 
-PODFILE CHECKSUM: a6cfc8171e76b0e82c8a41a4fcaa00fd3f69ab82
+PODFILE CHECKSUM: ebcfa69d505e4e1b87f68c383fa2222531597635
 
 COCOAPODS: 1.11.3

@@ -8,6 +8,7 @@
 
 import UIKit
 import FBSDKCoreKit
+import LineSDK
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
@@ -64,5 +65,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             sourceApplication: nil,
             annotation: [UIApplication.OpenURLOptionsKey.annotation]
         )
+        _ = LoginManager.shared.application(.shared, open: URLContexts.first?.url)
     }
 }

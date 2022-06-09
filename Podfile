@@ -10,6 +10,7 @@ target 'PadeLovers' do
   pod 'RxSwift', '~> 6.2.0'
   pod 'RxCocoa', '~> 6.2.0'
   pod 'FBSDKLoginKit', '~> 13.2.0'
+  pod 'LineSDKSwift', '~> 5.8.1'
   
   target 'PadeLoversTests' do
     inherit! :search_paths
