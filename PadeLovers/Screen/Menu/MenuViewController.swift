@@ -83,9 +83,8 @@ extension MenuViewController: StartGameTableViewControllerDelegate {
         let next = storyboard.instantiateViewController(identifier: "Game")
         guard let tabBarCon = next as? UITabBarController else { return }
         guard let navBarCon = tabBarCon.viewControllers?[0] as? UINavigationController else { return }
-        guard let destinationVC = navBarCon.topViewController as? GamePlayerViewController else { return }
-        destinationVC.startGameType = type
-        destinationVC.padelID = padelID
+        let gameViewSettingViewController = GameViewSettingViewController.make(type: type, padelId: padelID?.uuidString)
+        navBarCon.setViewControllers([gameViewSettingViewController], animated: false)
         self.navigationController?.pushViewController(tabBarCon, animated: true)
     }
 }

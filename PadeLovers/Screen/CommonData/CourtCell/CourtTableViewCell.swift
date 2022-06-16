@@ -10,7 +10,6 @@ import UIKit
 import RxSwift
 
 final class CourtTableViewCell: UITableViewCell {
-
     var disposeBag = DisposeBag()
     
     // swiftlint:disable private_outlet

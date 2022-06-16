@@ -197,6 +197,7 @@ excluded:
 - DIKit
 - SourcePackages
 - Generated
+- R.generated.swift
 - PadeLovers/R.generated.swift
 - PadeLovers/Entity/ManagedObject
 - PadeLoversTests/
