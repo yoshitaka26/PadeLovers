@@ -690,11 +690,11 @@
 		E47F202B2547D56B00996B19 /* PadeLovers */ = {
 			isa = PBXGroup;
 			children = (
-				E42F21792852FAF10029970D /* Enum */,
 				E47F202C2547D56B00996B19 /* AppDelegate.swift */,
 				E47F202E2547D56B00996B19 /* SceneDelegate.swift */,
 				E42F21752852C9D50029970D /* R.generated.swift */,
 				E44672B026455D9C0092DEFE /* RxBase */,
+				E42F21792852FAF10029970D /* Enum */,
 				E44672DE264562770092DEFE /* Screen */,
 				E446733026492A9F0092DEFE /* ViewParts */,
 				E44672DF264562810092DEFE /* Entity */,

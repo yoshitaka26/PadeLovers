@@ -12,6 +12,7 @@ import RxCocoa
 
 final class GameViewSettingViewModel {
     private(set) var viewWillAppear = PublishRelay<Void>()
+    private(set) var viewDidDisappear = PublishRelay<Void>()
 
     private(set) var padelPlayMode = BehaviorRelay<Bool>(value: false)
     private(set) var autoPlayMode = BehaviorRelay<Bool>(value: false)
@@ -20,6 +21,8 @@ final class GameViewSettingViewModel {
     private(set) var pairingList = BehaviorRelay<[Pairing]>(value: [])
     private(set) var minPlayerCounts = BehaviorRelay<Int>(value: 0)
     private(set) var playerList = BehaviorRelay<[Player]>(value: [])
+
+    private var autoPlayModeTimer: Disposable?
 
     private(set) var reloadTableSubject = PublishSubject<Void>()
     var reloadTable: Driver<Void> {
@@ -56,8 +59,17 @@ final class GameViewSettingViewModel {
         viewWillAppear
             .subscribe(onNext: { [unowned self] _ in
                 self.loadPadelData()
+                UIApplication.shared.isIdleTimerDisabled = true
             })
             .disposed(by: disposeBag)
+        
+        viewDidDisappear
+            .subscribe(onNext: { [unowned self] _ in
+                self.loadPadelData()
+                UIApplication.shared.isIdleTimerDisabled = false
+            })
+            .disposed(by: disposeBag)
+
         padelPlayMode
             .subscribe(onNext: { [unowned self] _ in
                 self.reloadTableSubject.onNext(())
@@ -114,6 +126,7 @@ final class GameViewSettingViewModel {
             padelPlayMode.accept(padel.playMode)
             gameResult.accept(padel.showResult)
             courtList.accept(coreDataManager.loadCourts(uuidString: padelID))
+            pairingList.accept(coreDataManager.loadPairing(uuidString: padelID))
             playerList.accept(coreDataManager.loadAllPlayers(uuidString: padelID))
         } else {
             presentScreenSubject.accept(.errorAlert(message: ""))
@@ -143,7 +156,13 @@ extension GameViewSettingViewModel {
             coreDataManager.updateGameMode(uuidString: padelID, isOn: !isOn)
             padelPlayMode.accept(!isOn)
         case .auto:
-            autoPlayMode.accept(isOn)
+            if isOn {
+                presentScreenSubject.accept(.autoPlayMode)
+            } else {
+                resetAutoModeTimer()
+                autoPlayMode.accept(false)
+                presentScreenSubject.accept(.infoAlert(message: R.string.localizable.autoPlayModeReset()))
+            }
         }
     }
 
@@ -153,15 +172,19 @@ extension GameViewSettingViewModel {
     }
 
     func handlePairingSwitchChanged(pairing: Pairing, isOn: Bool) {
-        switch pairing {
-        case is PairingA:
-            coreDataManager.updatePairing(uuidString: padelID, pairingType: .pairingA, isOn: isOn)
-        case is PairingB:
-            coreDataManager.updatePairing(uuidString: padelID, pairingType: .pairingB, isOn: isOn)
-        default:
-            break
+        if isOn {
+            presentScreenSubject.accept(.pairing(pairing: pairing))
+        } else {
+            switch pairing {
+            case is PairingA:
+                coreDataManager.updatePairing(uuidString: padelID, pairingType: .pairingA, isOn: isOn)
+            case is PairingB:
+                coreDataManager.updatePairing(uuidString: padelID, pairingType: .pairingB, isOn: isOn)
+            default:
+                break
+            }
+            pairingList.accept(coreDataManager.loadPairing(uuidString: padelID))
         }
-        pairingList.accept(coreDataManager.loadPairing(uuidString: padelID))
     }
 
     func handleCourtSwitchChanged(courtId: Int16, isOn: Bool) {
@@ -187,5 +210,38 @@ extension GameViewSettingViewModel {
             presentScreenSubject.accept(.infoAlert(message: message))
         }
         playerList.accept(coreDataManager.loadAllPlayers(uuidString: padelID))
+    }
+}
+
+extension GameViewSettingViewModel {
+    func handleLongPressedPlayerCell(index: Int) {
+        presentScreenSubject.accept(.playerDataEdit(playerId: Int(playerList.value[index - 1].playerID)))
+    }
+    func handelPairingSetNotification() {
+        pairingList.accept(coreDataManager.loadPairing(uuidString: padelID))
+    }
+    func handlePlayerDataEditNotification() {
+        pairingList.accept(coreDataManager.loadPairing(uuidString: padelID))
+        playerList.accept(coreDataManager.loadAllPlayers(uuidString: padelID))
+    }
+    func handleAutoPlayModeDelegate(setTime: Int) {
+        resetAutoModeTimer()
+        if setTime != 0 {
+            autoPlayMode.accept(true)
+            presentScreenSubject.accept(.infoAlert(message: "\(setTime)" + R.string.localizable.autoPlayModeSet()))
+            autoPlayModeTimer = Observable<Int>
+                .interval(DispatchTimeInterval.seconds(setTime * 60), scheduler: MainScheduler.instance)
+                .subscribe { [weak self] _ in
+                    guard let self = self else { return }
+                    self.padelPlayMode.accept(false)
+                    self.presentScreenSubject.accept(.infoAlert(message: R.string.localizable.autoPlayModeFired()))
+                }
+        } else {
+            autoPlayMode.accept(false)
+        }
+    }
+
+    private func resetAutoModeTimer() {
+        autoPlayModeTimer?.dispose()
     }
 }

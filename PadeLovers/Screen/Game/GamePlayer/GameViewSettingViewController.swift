@@ -22,10 +22,6 @@ final class GameViewSettingViewController: UIViewController {
             tableView.register(R.nib.gameViewPlayerTableViewCell)
 
             tableView.rx
-                .setDelegate(self)
-                .disposed(by: disposeBag)
-
-            tableView.rx
                 .setDataSource(self)
                 .disposed(by: disposeBag)
 
@@ -35,6 +31,11 @@ final class GameViewSettingViewController: UIViewController {
                     self.tableView.reloadData()
                 })
                 .disposed(by: disposeBag)
+
+            let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(cellLongPressed))
+            longPressRecognizer.delegate = self
+            longPressRecognizer.minimumPressDuration = 1.5
+            tableView.addGestureRecognizer(longPressRecognizer)
         }
     }
 
@@ -44,7 +45,7 @@ final class GameViewSettingViewController: UIViewController {
     static func make(type: TableType, padelId: String?) -> GameViewSettingViewController {
         let viewController = R.storyboard
             .gameViewSetting
-            .instantiateInitialViewController()!
+            .instantiateInitialViewController()! // swiftlint:disable:this force_unwrapping
         viewController.viewModel = GameViewSettingViewModel(padelId: padelId, startType: type, coreDataManager: CoreDataManager.shared)
         return viewController
     }
@@ -52,15 +53,59 @@ final class GameViewSettingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bind()
+        NotificationCenter.default.addObserver(self, selector: #selector(callbackByEditDataModal), name: .updateDataNotificationByEditData, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(callbackByEditDataModal), name: .updateDataNotificationByEditPair, object: nil)
     }
 
     private func bind() {
         rx.viewWillAppear
             .bind(to: viewModel.viewWillAppear)
             .disposed(by: disposeBag)
+        rx.viewDidDisappear
+            .bind(to: viewModel.viewDidDisappear)
+            .disposed(by: disposeBag)
         viewModel.presentScreen
             .drive(onNext: { [unowned self] screen in
-                self.presentScreen(screen)
+                switch screen {
+                case .autoPlayMode:
+                    let storyboard = UIStoryboard(name: "AutoPlayMode", bundle: nil)
+                    let vc = storyboard.instantiateViewController(identifier: "AutoPlayMode")
+                    guard let modalVC = vc as? AutoPlayModeViewController else { return }
+                    modalVC.delegate = self
+                    modalVC.modalPresentationStyle = .popover
+                    if let popover = modalVC.popoverPresentationController {
+                        if #available(iOS 15.0, *) {
+                            let sheet = popover.adaptiveSheetPresentationController
+                            sheet.detents = [.medium()]
+                            sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+                            sheet.largestUndimmedDetentIdentifier = nil
+                            sheet.prefersEdgeAttachedInCompactHeight = true
+                            sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true
+                        }
+                        if UIDevice.current.userInterfaceIdiom == .pad {
+                            popover.sourceView = self.view
+                            popover.permittedArrowDirections = []
+                            popover.sourceRect = CGRect(x: self.view.center.x, y: self.view.center.y / 2, width: 0, height: 0)
+                        }
+                    }
+                    self.present(modalVC, animated: true)
+                case .playerDataEdit(let playerId):
+                    let storyboard = UIStoryboard(name: "EditData", bundle: nil)
+                    let modalVC = storyboard.instantiateViewController(identifier: "EditData")
+                    if let editDataVC = modalVC as? EditDataViewController {
+                        editDataVC.playerID = playerId
+                        self.openReplaceWindow(windowNavigation: modalVC, modalSize: CGSize(width: 400, height: 600))
+                    }
+                case .pairing(let pairing):
+                    let storyboard = UIStoryboard(name: "FixedPair", bundle: nil)
+                    let modalVC = storyboard.instantiateViewController(identifier: "FixedPair")
+                    if let pairingVC = modalVC as? FixedPairViewController {
+                        pairingVC.pairing = pairing.checkPairingType()
+                        self.present(modalVC, animated: true)
+                    }
+                default:
+                    self.presentScreen(screen)
+                }
             })
             .disposed(by: disposeBag)
         viewModel.pushScreen
@@ -71,8 +116,16 @@ final class GameViewSettingViewController: UIViewController {
     }
 }
 
-extension GameViewSettingViewController: UITableViewDelegate {
+extension GameViewSettingViewController {
+    @objc
+    func callbackByPairingModal() {
+        viewModel.handelPairingSetNotification()
+    }
 
+    @objc
+    func callbackByEditDataModal() {
+        viewModel.handlePlayerDataEditNotification()
+    }
 }
 
 extension GameViewSettingViewController: UITableViewDataSource {
@@ -167,5 +220,21 @@ extension GameViewSettingViewController: GameViewPlayerTableDelegate {
 
     func playerSwitchChanged(playerId: Int16, isPlaying: Bool) {
         viewModel.handlePlayerSwitchChanged(playerId: playerId, isPlaying: isPlaying)
+    }
+}
+
+extension GameViewSettingViewController: AutoPlayModeViewDelegate {
+    func autoPlayModeSelected(setTime: Int) {
+        viewModel.handleAutoPlayModeDelegate(setTime: setTime)
+    }
+}
+
+extension GameViewSettingViewController: UIGestureRecognizerDelegate {
+    @objc
+    func cellLongPressed(recognizer: UILongPressGestureRecognizer) {
+        let point = recognizer.location(in: tableView)
+        let indexPath = tableView.indexPathForRow(at: point)
+        guard let index = indexPath, index.section == 4, index.row != 0 else { return }
+        viewModel.handleLongPressedPlayerCell(index: index.row)
     }
 }

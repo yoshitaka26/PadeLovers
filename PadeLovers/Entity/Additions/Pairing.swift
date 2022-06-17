@@ -8,6 +8,16 @@
 
 import Foundation
 
-protocol Pairing { }
-extension PairingA: Pairing { }
-extension PairingB: Pairing { }
+protocol Pairing {
+    func checkPairingType() -> PairingType
+}
+extension PairingA: Pairing {
+    func checkPairingType() -> PairingType {
+        return .pairingA
+    }
+}
+extension PairingB: Pairing {
+    func checkPairingType() -> PairingType {
+        return .pairingB
+    }
+}

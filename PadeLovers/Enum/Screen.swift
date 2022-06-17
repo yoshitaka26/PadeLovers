@@ -11,11 +11,15 @@ import Foundation
 enum Screen {
     case main
     case setting
+    case autoPlayMode
+    case pairing(pairing: Pairing)
+    case playerDataEdit(playerId: Int)
     case infoAlert(message: String)
     case errorAlert(message: String)
     case other
 }
 
+// swiftlint:disable static_operator
 func ==(a: Screen, b: Screen) -> Bool {
     switch (a, b) {
     case (.main, .main),
