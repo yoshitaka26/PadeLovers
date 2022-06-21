@@ -35,7 +35,7 @@ final class MenuViewController: BaseViewController {
         }).disposed(by: disposeBag)
         rxViewWillAppear.subscribe(onNext: { [weak self] _ in
             guard let self = self else { return }
-            self.navigationController?.navigationBar.isHidden = true
+            self.navigationController?.setNavigationBarHidden(true, animated: true)
         }).disposed(by: disposeBag)
         viewModel.transition.subscribe(onNext: { [weak self] transition in
             guard let self = self else { return }
@@ -78,14 +78,15 @@ final class MenuViewController: BaseViewController {
 }
 
 extension MenuViewController: StartGameTableViewControllerDelegate {
+    // swiftlint:disable force_unwrapping
     func callBackFromStartGameModalVC(type: TableType, padelID: UUID?) {
-        let storyboard = UIStoryboard(name: "Game", bundle: nil)
-        let next = storyboard.instantiateViewController(identifier: "Game")
-        guard let tabBarCon = next as? UITabBarController else { return }
-        guard let navBarCon = tabBarCon.viewControllers?[0] as? UINavigationController else { return }
-        guard let destinationVC = navBarCon.topViewController as? GamePlayerViewController else { return }
-        destinationVC.startGameType = type
-        destinationVC.padelID = padelID
+        let tabBarCon = UITabBarController()
+        let gameViewSettingViewController = GameViewSettingViewController.make(type: type, padelId: padelID?.uuidString)
+        let gameData = R.storyboard.gameData.instantiateInitialViewController()!
+        let gameResult = R.storyboard.gameResult.instantiateInitialViewController()!
+        tabBarCon.setViewControllers([gameViewSettingViewController, gameData, gameResult], animated: true)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.navigationController?.pushViewController(tabBarCon, animated: true)
     }
+    // swiftlint:enable force_unwrapping
 }

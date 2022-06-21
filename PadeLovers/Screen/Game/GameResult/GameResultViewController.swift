@@ -18,14 +18,25 @@ final class GameResultViewController: BaseViewController {
     @IBOutlet private weak var customToolbar: UIToolbar!
     @IBOutlet private weak var playerButton: UIBarButtonItem!
     @IBOutlet private weak var gameButton: UIBarButtonItem!
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setup()
+    }
+
+    private func setup() {
+        tabBarController?.navigationItem.title = R.string.localizable.gameViewResult()
+        tabBarController?.navigationItem.hidesBackButton = true
+        tabBarController?.navigationItem.leftBarButtonItem = nil
+        tabBarController?.navigationItem.rightBarButtonItem = self.createBarButtonItem(image: UIImage.named("house.fill"), select: #selector(self.back))
+        tabBarItem.title = R.string.localizable.gameViewResult()
+    }
     
     override func bind() {
         rxViewDidLoad.subscribe(onNext: { [weak self] in
             guard let self = self else { return }
             self.viewModel.setPadelID.onNext(())
             self.customCollectionView.bounces = false
-            self.navigationItem.rightBarButtonItem = self.createBarButtonItem(image: UIImage.named("house.fill"), select: #selector(self.back))
-            self.navigationController?.isNavigationBarHidden = false
             self.customCollectionView.register(UINib(nibName: "PlayerResultCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PlayerCell")
             self.customCollectionView.register(UINib(nibName: "GameResultCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "GameCell")
             self.viewModel.loadGameData.onNext(())
@@ -85,9 +96,8 @@ final class GameResultViewController: BaseViewController {
     @objc
     func back() {
         self.confirmationAlertView(withTitle: "ホーム画面に戻ります", cancelString: "キャンセル", confirmString: "OK") {
-            guard let tabBarCon = self.navigationController?.parent as? UITabBarController else { return }
-            guard let mainNavCon = tabBarCon.parent as? UINavigationController else { return }
-            mainNavCon.popViewController(animated: true)
+            let navigationController = self.tabBarController?.parent as? UINavigationController
+            navigationController?.popToRootViewController(animated: true)
         }
     }
 }

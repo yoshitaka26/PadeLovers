@@ -62,7 +62,7 @@ final class CoreDataManager {
     }()
 }
 
-extension CoreDataManager {
+extension CoreDataManager: CoreDataManagerable {
     func initPadel(players: [CommonPlayerDataModel], courts: [String]) -> String {
         let main = createNewObject(objecteType: .padel) as! Padel
         let ID = UUID()
@@ -170,82 +170,6 @@ extension CoreDataManager {
             fatalError("loadData error")
         }
     }
-    func loadAllPlayers(uuidString: String) -> [Player] {
-        let fetchRequest = createRequest(objecteType: .player)
-        let uuid = NSUUID(uuidString: uuidString)
-        let predicate = NSPredicate(format: "%K == %@", "padelID", uuid!)
-        fetchRequest.predicate = predicate
-        let sortDescripter = NSSortDescriptor(key: "playerID", ascending: true)
-        fetchRequest.sortDescriptors = [sortDescripter]
-        do {
-            let players = try managerObjectContext.fetch(fetchRequest) as! [Player]
-            return players
-        } catch {
-            fatalError("loadData error")
-        }
-    }
-    func loadPlayingPlayers(uuidString: String) -> [Player] {
-        let fetchRequest = createRequest(objecteType: .player)
-        let uuid = NSUUID(uuidString: uuidString)
-        let predicate = NSPredicate(format: "%K == %@ AND %K == %@", "padelID", uuid!, "isPlaying", NSNumber(value: true))
-        fetchRequest.predicate = predicate
-        let sortDescripter = NSSortDescriptor(key: "playerID", ascending: true)
-        fetchRequest.sortDescriptors = [sortDescripter]
-        do {
-            let players = try managerObjectContext.fetch(fetchRequest) as! [Player]
-            return players
-        } catch {
-            fatalError("countPlayers error")
-        }
-    }
-    func loadPlayersForResultData(uuidString: String) -> [Player] {
-        let fetchRequest = createRequest(objecteType: .player)
-        let uuid = NSUUID(uuidString: uuidString)
-        let predicate = NSPredicate(format: "%K == %@", "padelID", uuid!)
-        fetchRequest.predicate = predicate
-        let sortDescripter = NSSortDescriptor(key: "playerID", ascending: true)
-        let sortDescripterAdditional = NSSortDescriptor(key: "isPlaying", ascending: false)
-        fetchRequest.sortDescriptors = [sortDescripterAdditional, sortDescripter]
-        do {
-            var players = try managerObjectContext.fetch(fetchRequest) as! [Player]
-            players = players.filter { $0.isPlaying || $0.counts > 0 }
-            return players
-        } catch {
-            fatalError("loadData error")
-        }
-    }
-    func loadPlayersForNewGame(uuidString: String) -> [Player] {
-        let fetchRequest = createRequest(objecteType: .player)
-        let uuid = NSUUID(uuidString: uuidString)
-        let predicate = NSPredicate(format: "%K == %@ AND %K == %@", "padelID", uuid!, "isPlaying", NSNumber(value: true))
-        fetchRequest.predicate = predicate
-        let sortDescripter = NSSortDescriptor(key: "playerID", ascending: true)
-        fetchRequest.sortDescriptors = [sortDescripter]
-        do {
-            var players = try managerObjectContext.fetch(fetchRequest) as! [Player]
-            players = players.filter {
-                guard let onGame = $0.onGame else { return true }
-                if onGame.isEnd { return true }
-                return false
-            }
-            return players
-        } catch {
-            fatalError("loadData error")
-        }
-    }
-    func loadPlayersOnGame(uuidString: String, gameID: Int16) -> [Player] {
-        let fetchRequest = createRequest(objecteType: .game)
-        let uuid = NSUUID(uuidString: uuidString)
-        let predicate = NSPredicate(format: "%K == %@ AND %K = %d", "padelID", uuid!, "gameID", gameID)
-        fetchRequest.predicate = predicate
-        do {
-            let games = try managerObjectContext.fetch(fetchRequest) as! [Game]
-            guard let game = games.first, let players = game.players else { return [] }
-            return players.allObjects as! [Player]
-        } catch {
-            fatalError("loadData error")
-        }
-    }
     func loadOnGames(uuidString: String) -> [Game] {
         let fetchRequest = createRequest(objecteType: .game)
         let uuid = NSUUID(uuidString: uuidString)
@@ -341,6 +265,83 @@ extension CoreDataManager {
             fatalError("loadData error")
         }
     }
+    // MARK: Player
+    func loadAllPlayers(uuidString: String) -> [Player] {
+        let fetchRequest = createRequest(objecteType: .player)
+        let uuid = NSUUID(uuidString: uuidString)
+        let predicate = NSPredicate(format: "%K == %@", "padelID", uuid!)
+        fetchRequest.predicate = predicate
+        let sortDescripter = NSSortDescriptor(key: "playerID", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescripter]
+        do {
+            let players = try managerObjectContext.fetch(fetchRequest) as! [Player]
+            return players
+        } catch {
+            fatalError("loadData error")
+        }
+    }
+    func loadPlayingPlayers(uuidString: String) -> [Player] {
+        let fetchRequest = createRequest(objecteType: .player)
+        let uuid = NSUUID(uuidString: uuidString)
+        let predicate = NSPredicate(format: "%K == %@ AND %K == %@", "padelID", uuid!, "isPlaying", NSNumber(value: true))
+        fetchRequest.predicate = predicate
+        let sortDescripter = NSSortDescriptor(key: "playerID", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescripter]
+        do {
+            let players = try managerObjectContext.fetch(fetchRequest) as! [Player]
+            return players
+        } catch {
+            fatalError("countPlayers error")
+        }
+    }
+    func loadPlayersForResultData(uuidString: String) -> [Player] {
+        let fetchRequest = createRequest(objecteType: .player)
+        let uuid = NSUUID(uuidString: uuidString)
+        let predicate = NSPredicate(format: "%K == %@", "padelID", uuid!)
+        fetchRequest.predicate = predicate
+        let sortDescripter = NSSortDescriptor(key: "playerID", ascending: true)
+        let sortDescripterAdditional = NSSortDescriptor(key: "isPlaying", ascending: false)
+        fetchRequest.sortDescriptors = [sortDescripterAdditional, sortDescripter]
+        do {
+            var players = try managerObjectContext.fetch(fetchRequest) as! [Player]
+            players = players.filter { $0.isPlaying || $0.counts > 0 }
+            return players
+        } catch {
+            fatalError("loadData error")
+        }
+    }
+    func loadPlayersForNewGame(uuidString: String) -> [Player] {
+        let fetchRequest = createRequest(objecteType: .player)
+        let uuid = NSUUID(uuidString: uuidString)
+        let predicate = NSPredicate(format: "%K == %@ AND %K == %@", "padelID", uuid!, "isPlaying", NSNumber(value: true))
+        fetchRequest.predicate = predicate
+        let sortDescripter = NSSortDescriptor(key: "playerID", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescripter]
+        do {
+            var players = try managerObjectContext.fetch(fetchRequest) as! [Player]
+            players = players.filter {
+                guard let onGame = $0.onGame else { return true }
+                if onGame.isEnd { return true }
+                return false
+            }
+            return players
+        } catch {
+            fatalError("loadData error")
+        }
+    }
+    func loadPlayersOnGame(uuidString: String, gameID: Int16) -> [Player] {
+        let fetchRequest = createRequest(objecteType: .game)
+        let uuid = NSUUID(uuidString: uuidString)
+        let predicate = NSPredicate(format: "%K == %@ AND %K = %d", "padelID", uuid!, "gameID", gameID)
+        fetchRequest.predicate = predicate
+        do {
+            let games = try managerObjectContext.fetch(fetchRequest) as! [Game]
+            guard let game = games.first, let players = game.players else { return [] }
+            return players.allObjects as! [Player]
+        } catch {
+            fatalError("loadData error")
+        }
+    }
     func countPlayers(uuidString: String) -> Int {
         let fetchRequest = createRequest(objecteType: .player)
         let uuid = NSUUID(uuidString: uuidString)
@@ -352,6 +353,20 @@ extension CoreDataManager {
         } catch {
             fatalError("countPlayers error")
         }
+    }
+    func minPlayersCount(uuidString: String) -> Int {
+        var count = loadCourtsIsOn(uuidString: uuidString).count * 4
+        loadPairing(uuidString: uuidString).forEach { pairing in
+            switch pairing {
+            case let pairingA as PairingA:
+                count += pairingA.isOn ? 2 : 0
+            case let pairingB as PairingB:
+                count += pairingB.isOn ? 2 : 0
+            default:
+                break
+            }
+        }
+        return count
     }
     func loadPlayerForEditingData(uuidString: String, playerID: Int) -> Player? {
         let fetchRequest = createRequest(objecteType: .player)
@@ -402,6 +417,7 @@ extension CoreDataManager {
             fatalError("countPlayers error")
         }
     }
+    // MARK: GameMode
     func updateGameMode(uuidString: String, isOn: Bool) {
         let fetchRequest = createRequest(objecteType: .padel)
         let uuid = NSUUID(uuidString: uuidString)
@@ -416,6 +432,7 @@ extension CoreDataManager {
             fatalError("loadData error")
         }
     }
+    // MARK: GameResult
     func updateShowResult(uuidString: String, isOn: Bool) {
         let fetchRequest = createRequest(objecteType: .padel)
         let uuid = NSUUID(uuidString: uuidString)
@@ -430,6 +447,7 @@ extension CoreDataManager {
             fatalError("loadData error")
         }
     }
+    // MARK: Court
     func loadCourts(uuidString: String) -> [Court] {
         let fetchRequest = createRequest(objecteType: .court)
         let uuid = NSUUID(uuidString: uuidString)
@@ -503,6 +521,20 @@ extension CoreDataManager {
                 if court.isOn && court.onGame == nil { num += 1 }
             }
             return num
+        } catch {
+            fatalError("loadData error")
+        }
+    }
+    // MARK: Pairing
+    func loadPairing(uuidString: String) -> [Pairing] {
+        let fetchRequest = createRequest(objecteType: .padel)
+        let uuid = NSUUID(uuidString: uuidString)
+        let predicate = NSPredicate(format: "%K == %@", "padelID", uuid!)
+        fetchRequest.predicate = predicate
+        do {
+            let padels = try managerObjectContext.fetch(fetchRequest) as! [Padel]
+            guard let padel = padels.first, let pairingA = padel.pairingA, let pairingB = padel.pairingB else { return [] }
+            return [pairingA, pairingB]
         } catch {
             fatalError("loadData error")
         }
