@@ -13,13 +13,11 @@ extension UIViewController: UIPopoverPresentationControllerDelegate {
         return .none
     }
     
-    func createBarButtonItem(image: UIImage, select: Selector?) -> UIBarButtonItem {
+    func createBarButtonItem(image: UIImage, select: Selector) -> UIBarButtonItem {
         let button = UIButton(type: .custom)
         button.setImage(image, for: .normal)
         button.tintColor = .appNavBarButtonColor
-        if let safeSelect = select {
-            button.addTarget(self, action: safeSelect, for: .touchUpInside)
-        }
+        button.addTarget(self, action: select, for: .touchUpInside)
         let barButtonItem = UIBarButtonItem(customView: button)
         return barButtonItem
     }
