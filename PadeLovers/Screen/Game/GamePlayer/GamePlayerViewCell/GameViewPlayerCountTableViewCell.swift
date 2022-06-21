@@ -14,17 +14,17 @@ class GameViewPlayerCountTableViewCell: UITableViewCell {
 
     @IBOutlet private weak var playingPlayerTitleLabel: UILabel! {
         didSet {
-            minPlayerCountLabel.text = R.string.localizable.playingPlayer()
+            playerCountLabel.text = R.string.localizable.playingPlayer()
         }
     }
 
-    @IBOutlet private weak var minPlayerCountLabel: UILabel! {
+    @IBOutlet private weak var playerCountLabel: UILabel! {
         didSet {
-            minPlayerCount
+            playingPlayerCount
                 .subscribe(onNext: { [weak self] count in
                     guard let self = self else { return }
-                    self.minPlayerCountLabel.text = count > 0 ?  "\(count)人" : "\(abs(count))不足しています"
-                    self.minPlayerCountLabel.textColor = count > 0 ? .label : .red
+                    self.playerCountLabel.text = count > 0 ?  ("\(count)" + R.string.localizable.playerCount()) : ("\(abs(count))" + R.string.localizable.needMorePlayers())
+                    self.playerCountLabel.textColor = count > 0 ? .label : .red
 
                 })
                 .disposed(by: disposeBag)
@@ -32,9 +32,9 @@ class GameViewPlayerCountTableViewCell: UITableViewCell {
     }
 
     private let disposeBag = DisposeBag()
-    private var minPlayerCount = PublishRelay<Int>()
+    private var playingPlayerCount = PublishRelay<Int>()
 
     func render(minPlayerCount: Int) {
-        self.minPlayerCount.accept(minPlayerCount)
+        self.playingPlayerCount.accept(minPlayerCount)
     }
 }

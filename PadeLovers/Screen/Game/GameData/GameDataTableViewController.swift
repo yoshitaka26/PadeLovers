@@ -10,6 +10,17 @@ import UIKit
 
 final class GameDataTableViewController: BaseTableViewController {
     private var viewModel = GameDataTableViewModel()
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setup()
+    }
+
+    private func setup() {
+        tabBarController?.navigationItem.title = R.string.localizable.gameViewMatch()
+        tabBarController?.navigationItem.hidesBackButton = true
+        tabBarItem.title = R.string.localizable.gameViewMatch()
+    }
     
     override func bind() {
         rxViewDidLoad.subscribe(onNext: { [weak self] in

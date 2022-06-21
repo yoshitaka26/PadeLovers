@@ -78,13 +78,15 @@ final class MenuViewController: BaseViewController {
 }
 
 extension MenuViewController: StartGameTableViewControllerDelegate {
+    // swiftlint:disable force_unwrapping
     func callBackFromStartGameModalVC(type: TableType, padelID: UUID?) {
-        let storyboard = UIStoryboard(name: "Game", bundle: nil)
-        let next = storyboard.instantiateViewController(identifier: "Game")
-        guard let tabBarCon = next as? UITabBarController else { return }
-        guard let navBarCon = tabBarCon.viewControllers?[0] as? UINavigationController else { return }
+        let tabBarCon = UITabBarController()
         let gameViewSettingViewController = GameViewSettingViewController.make(type: type, padelId: padelID?.uuidString)
-        navBarCon.setViewControllers([gameViewSettingViewController], animated: false)
+        let gameData = R.storyboard.gameData.instantiateInitialViewController()!
+        let gameResult = R.storyboard.gameResult.instantiateInitialViewController()!
+        tabBarCon.setViewControllers([gameViewSettingViewController, gameData, gameResult], animated: true)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.navigationController?.pushViewController(tabBarCon, animated: true)
     }
+    // swiftlint:enable force_unwrapping
 }

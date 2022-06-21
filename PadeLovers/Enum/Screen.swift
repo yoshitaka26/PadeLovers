@@ -11,6 +11,7 @@ import Foundation
 enum Screen {
     case main
     case setting
+    case gameViewQuestion
     case autoPlayMode
     case pairing(pairing: Pairing)
     case playerDataEdit(playerId: Int)
@@ -19,6 +20,7 @@ enum Screen {
     case other
 }
 
+// swiftlint:disable operator_whitespace
 // swiftlint:disable static_operator
 func ==(a: Screen, b: Screen) -> Bool {
     switch (a, b) {

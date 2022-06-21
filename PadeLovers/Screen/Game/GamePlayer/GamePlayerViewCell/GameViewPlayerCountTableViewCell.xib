@@ -43,7 +43,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="minPlayerCountLabel" destination="Yz6-WG-GDl" id="Att-5g-ODN"/>
+                <outlet property="playerCountLabel" destination="Yz6-WG-GDl" id="Att-5g-ODN"/>
                 <outlet property="playingPlayerTitleLabel" destination="0zc-dY-YBr" id="atu-1C-MUy"/>
             </connections>
             <point key="canvasLocation" x="132" y="100"/>

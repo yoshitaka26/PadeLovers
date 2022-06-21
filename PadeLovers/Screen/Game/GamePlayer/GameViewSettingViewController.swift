@@ -38,7 +38,7 @@ final class GameViewSettingViewController: UIViewController {
             tableView.addGestureRecognizer(longPressRecognizer)
         }
     }
-
+    
     private let disposeBag = DisposeBag()
     private var viewModel: GameViewSettingViewModel!
 
@@ -56,21 +56,30 @@ final class GameViewSettingViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(callbackByEditDataModal), name: .updateDataNotificationByEditData, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(callbackByEditDataModal), name: .updateDataNotificationByEditPair, object: nil)
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setup()
+    }
+
+    private func setup() {
+        tabBarController?.navigationItem.title = R.string.localizable.gameViewSetting()
+        tabBarController?.navigationItem.leftBarButtonItem = self.createBarButtonItem(image: UIImage.named("questionmark.circle"), select: #selector(self.questionBarButtonItem))
+        tabBarController?.tabBarItem.title = R.string.localizable.gameViewSetting()
+    }
 
     private func bind() {
+        // swiftlint:disable force_unwrapping
         rx.viewWillAppear
             .bind(to: viewModel.viewWillAppear)
             .disposed(by: disposeBag)
-        rx.viewDidDisappear
-            .bind(to: viewModel.viewDidDisappear)
+        rx.viewWillDisappear
+            .bind(to: viewModel.viewWillDisappear)
             .disposed(by: disposeBag)
         viewModel.presentScreen
             .drive(onNext: { [unowned self] screen in
                 switch screen {
                 case .autoPlayMode:
-                    let storyboard = UIStoryboard(name: "AutoPlayMode", bundle: nil)
-                    let vc = storyboard.instantiateViewController(identifier: "AutoPlayMode")
-                    guard let modalVC = vc as? AutoPlayModeViewController else { return }
+                    let modalVC = R.storyboard.autoPlayMode.instantiateInitialViewController()!
                     modalVC.delegate = self
                     modalVC.modalPresentationStyle = .popover
                     if let popover = modalVC.popoverPresentationController {
@@ -90,19 +99,13 @@ final class GameViewSettingViewController: UIViewController {
                     }
                     self.present(modalVC, animated: true)
                 case .playerDataEdit(let playerId):
-                    let storyboard = UIStoryboard(name: "EditData", bundle: nil)
-                    let modalVC = storyboard.instantiateViewController(identifier: "EditData")
-                    if let editDataVC = modalVC as? EditDataViewController {
-                        editDataVC.playerID = playerId
-                        self.openReplaceWindow(windowNavigation: modalVC, modalSize: CGSize(width: 400, height: 600))
-                    }
+                    let modalVC = R.storyboard.editData.instantiateInitialViewController()!
+                    modalVC.playerID = playerId
+                    self.openReplaceWindow(windowNavigation: modalVC, modalSize: CGSize(width: 400, height: 600))
                 case .pairing(let pairing):
-                    let storyboard = UIStoryboard(name: "FixedPair", bundle: nil)
-                    let modalVC = storyboard.instantiateViewController(identifier: "FixedPair")
-                    if let pairingVC = modalVC as? FixedPairViewController {
-                        pairingVC.pairing = pairing.checkPairingType()
-                        self.present(modalVC, animated: true)
-                    }
+                    let modalVC = R.storyboard.fixedPair.instantiateInitialViewController()!
+                    modalVC.pairing = pairing.checkPairingType()
+                    self.present(modalVC, animated: true)
                 default:
                     self.presentScreen(screen)
                 }
@@ -110,13 +113,19 @@ final class GameViewSettingViewController: UIViewController {
             .disposed(by: disposeBag)
         viewModel.pushScreen
             .drive(onNext: { [unowned self] screen in
-                self.navigationController?.pushScreen(screen)
+                let navigationController = self.tabBarController?.parent as? UINavigationController
+                navigationController?.pushScreen(screen)
             })
             .disposed(by: disposeBag)
+        // swiftlint:enable force_unwrapping
     }
 }
 
 extension GameViewSettingViewController {
+    @objc
+    func questionBarButtonItem() {
+        viewModel.handleQuestionBarButtonItem()
+    }
     @objc
     func callbackByPairingModal() {
         viewModel.handelPairingSetNotification()
@@ -186,7 +195,7 @@ extension GameViewSettingViewController: UITableViewDataSource {
         case 4:
             if indexPath.row == 0 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: R.nib.gameViewPlayerCountTableViewCell, for: indexPath)!
-                cell.render(minPlayerCount: viewModel.minPlayerCounts.value)
+                cell.render(minPlayerCount: viewModel.playingPlayerCounts.value)
                 return cell
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: R.nib.gameViewPlayerTableViewCell, for: indexPath)!

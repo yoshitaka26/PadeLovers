@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
-        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,95 +17,46 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </tabBar>
                     <connections>
-                        <segue destination="cAU-0m-sjP" kind="relationship" relationship="viewControllers" id="U3M-2F-YmJ"/>
-                        <segue destination="vux-7N-iHE" kind="relationship" relationship="viewControllers" id="kFh-s0-hOQ"/>
-                        <segue destination="VdD-oM-7IM" kind="relationship" relationship="viewControllers" id="k8N-al-GEG"/>
+                        <segue destination="cfa-Ua-SX6" kind="relationship" relationship="viewControllers" id="YnI-IT-eAh"/>
+                        <segue destination="mwq-Y8-uFC" kind="relationship" relationship="viewControllers" id="zmS-6t-EMY"/>
+                        <segue destination="FGr-px-etC" kind="relationship" relationship="viewControllers" id="G4c-eE-Y03"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qh7-gR-xEc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1051" y="-86"/>
         </scene>
-        <!--試合設定-->
-        <scene sceneID="vI8-dU-DoS">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cAU-0m-sjP" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="試合設定" id="xJn-5U-YBC">
-                        <imageReference key="image" image="person.crop.rectangle.stack" catalog="system" symbolScale="default"/>
-                    </tabBarItem>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XhM-Bj-dya">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qHb-8T-RA1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="6" y="642"/>
-        </scene>
         <!--GameResult-->
         <scene sceneID="P7L-0Q-rzh">
             <objects>
                 <viewControllerPlaceholder storyboardName="GameResult" referencedIdentifier="GameResult" id="FGr-px-etC" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="RkB-Kb-pOe"/>
                     <navigationItem key="navigationItem" id="dMv-ib-t5i"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Q8-js-Ya7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2650" y="642"/>
+            <point key="canvasLocation" x="1622" y="421"/>
+        </scene>
+        <!--GamePlayer-->
+        <scene sceneID="hqf-AM-QVi">
+            <objects>
+                <viewControllerPlaceholder storyboardName="GamePlayer" id="cfa-Ua-SX6" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="jbo-Gs-xXo"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0ya-ed-5Nh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="467" y="421"/>
         </scene>
         <!--GameData-->
         <scene sceneID="30G-4F-8gx">
             <objects>
                 <viewControllerPlaceholder storyboardName="GameData" referencedIdentifier="GameData" id="mwq-Y8-uFC" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="LZU-bZ-14A"/>
                     <navigationItem key="navigationItem" id="gdf-QY-QiV"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n1g-5Y-PP6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1601" y="642"/>
-        </scene>
-        <!--試合組合せ-->
-        <scene sceneID="PZj-NN-Giw">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vux-7N-iHE" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="試合組合せ" image="person.3" catalog="system" id="uqj-Uv-ZU9"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zWf-QE-caM">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="mwq-Y8-uFC" kind="relationship" relationship="rootViewController" id="WAz-iZ-nfC"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7KA-wZ-BtQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1051" y="642"/>
-        </scene>
-        <!--試合結果-->
-        <scene sceneID="vyu-2U-h2A">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VdD-oM-7IM" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="試合結果" image="doc.text.magnifyingglass" catalog="system" id="htt-Wp-yJo"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="O6I-dl-g52">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="FGr-px-etC" kind="relationship" relationship="rootViewController" id="cPe-XO-1Wy"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hMu-g1-MuI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2068" y="642"/>
+            <point key="canvasLocation" x="1051" y="421"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="doc.text.magnifyingglass" catalog="system" width="107" height="128"/>
-        <image name="person.3" catalog="system" width="128" height="62"/>
-        <image name="person.crop.rectangle.stack" catalog="system" width="128" height="122"/>
-    </resources>
 </document>

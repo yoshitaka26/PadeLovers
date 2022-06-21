@@ -10,6 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+// swiftlint:disable missing_docs
 public extension Reactive where Base: UIViewController {
     private func controlEvent(for selector: Selector) -> ControlEvent<Void> {
         return ControlEvent(events: sentMessage(selector).map { _ in })

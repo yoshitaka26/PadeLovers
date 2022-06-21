@@ -31,23 +31,35 @@ class GameViewPairingTableViewCell: UITableViewCell {
 
         self.pairingFirstLabel.text = ""
         self.pairingSecondLabel.text = ""
+
+        var sortedPairs = [Player]()
         switch pairing {
         case let pairing as PairingA:
             pairingSwitch.setOn(pairing.isOn, animated: false)
             guard let pairs = pairing.pairing?.allObjects as? [Player],
                   let pairFirst = pairs.first,
                   let pairLast = pairs.last else { return }
-            self.pairingFirstLabel.text = pairFirst.name
-            self.pairingSecondLabel.text = pairLast.name
+            if pairFirst.playerID < pairLast.playerID {
+                sortedPairs.append(contentsOf: [pairFirst, pairLast])
+            } else {
+                sortedPairs.append(contentsOf: [pairLast, pairFirst])
+            }
         case let pairing as PairingB:
             pairingSwitch.setOn(pairing.isOn, animated: false)
             guard let pairs = pairing.pairing?.allObjects as? [Player],
                   let pairFirst = pairs.first,
                   let pairLast = pairs.last else { return }
-            self.pairingFirstLabel.text = pairFirst.name
-            self.pairingSecondLabel.text = pairLast.name
+            if pairFirst.playerID < pairLast.playerID {
+                sortedPairs.append(contentsOf: [pairFirst, pairLast])
+            } else {
+                sortedPairs.append(contentsOf: [pairLast, pairFirst])
+            }
         default:
             break
         }
+        self.pairingFirstLabel.text = sortedPairs[0].name
+        self.pairingFirstLabel.textColor = sortedPairs[0].gender ? .label : .red
+        self.pairingSecondLabel.text = sortedPairs[1].name
+        self.pairingSecondLabel.textColor = sortedPairs[1].gender ? .label : .red
     }
 }

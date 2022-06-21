@@ -6,6 +6,11 @@
   Copyright © 2022 Yoshitaka. All rights reserved.
 */
 
+// 画面タイトル
+"Game view setting" = "試合設定";
+"Game view match" = "試合組合せ";
+"Game view result" = "試合結果";
+
 // 試合画面　プレイヤー管理
 "Mode" = "試合組み";
 "Combination oriented mode" = "組み合わせ重視モード";
@@ -21,6 +26,8 @@
 
 "Player" = "プレイヤー";
 "Playing Player" = "参加人数";
+"Player count" = "人";
+"Need more players" = "不足しています";
 
 // メッセージ
 "Match count" = "試合数";

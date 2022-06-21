@@ -12,14 +12,14 @@ import RxCocoa
 
 final class GameViewSettingViewModel {
     private(set) var viewWillAppear = PublishRelay<Void>()
-    private(set) var viewDidDisappear = PublishRelay<Void>()
+    private(set) var viewWillDisappear = PublishRelay<Void>()
 
     private(set) var padelPlayMode = BehaviorRelay<Bool>(value: false)
     private(set) var autoPlayMode = BehaviorRelay<Bool>(value: false)
     private(set) var gameResult = BehaviorRelay<Bool>(value: false)
     private(set) var courtList = BehaviorRelay<[Court]>(value: [])
     private(set) var pairingList = BehaviorRelay<[Pairing]>(value: [])
-    private(set) var minPlayerCounts = BehaviorRelay<Int>(value: 0)
+    private(set) var playingPlayerCounts = BehaviorRelay<Int>(value: 0)
     private(set) var playerList = BehaviorRelay<[Player]>(value: [])
 
     private var autoPlayModeTimer: Disposable?
@@ -43,6 +43,8 @@ final class GameViewSettingViewModel {
     private let coreDataManager: CoreDataManagerable
     private let userDefaultsManager = UserDefaultsManager.shared
     private var padelID: String
+    // テストの為privateにはしない
+    let minuteSeconds = 60
 
     convenience init() {
         self.init(padelId: UUID().uuidString, startType: .group1, coreDataManager: CoreDataManager.shared)
@@ -63,7 +65,7 @@ final class GameViewSettingViewModel {
             })
             .disposed(by: disposeBag)
         
-        viewDidDisappear
+        viewWillDisappear
             .subscribe(onNext: { [unowned self] _ in
                 self.loadPadelData()
                 UIApplication.shared.isIdleTimerDisabled = false
@@ -92,7 +94,7 @@ final class GameViewSettingViewModel {
                 self.reloadTableSubject.onNext(())
             })
             .disposed(by: disposeBag)
-        minPlayerCounts
+        playingPlayerCounts
             .subscribe(onNext: { [unowned self] _ in
                 self.reloadTableSubject.onNext(())
             })
@@ -138,10 +140,10 @@ final class GameViewSettingViewModel {
         let balancing = playingPlayersCount - minCount
         if balancing >= 0 {
             coreDataManager.setReadyStatusOnPadel(uuidString: padelID, isReady: true)
-            minPlayerCounts.accept(minCount)
+            playingPlayerCounts.accept(playingPlayersCount)
         } else {
             coreDataManager.setReadyStatusOnPadel(uuidString: padelID, isReady: false)
-            minPlayerCounts.accept(balancing)
+            playingPlayerCounts.accept(balancing)
         }
     }
 }
@@ -214,6 +216,9 @@ extension GameViewSettingViewModel {
 }
 
 extension GameViewSettingViewModel {
+    func handleQuestionBarButtonItem() {
+        pushScreenSubject.accept(.gameViewQuestion)
+    }
     func handleLongPressedPlayerCell(index: Int) {
         presentScreenSubject.accept(.playerDataEdit(playerId: Int(playerList.value[index - 1].playerID)))
     }
@@ -228,13 +233,18 @@ extension GameViewSettingViewModel {
         resetAutoModeTimer()
         if setTime != 0 {
             autoPlayMode.accept(true)
+            handleGameModeSwitchChanged(gameMode: .combination, isOn: true)
             presentScreenSubject.accept(.infoAlert(message: "\(setTime)" + R.string.localizable.autoPlayModeSet()))
             autoPlayModeTimer = Observable<Int>
-                .interval(DispatchTimeInterval.seconds(setTime * 60), scheduler: MainScheduler.instance)
+                .interval(DispatchTimeInterval.seconds(setTime * minuteSeconds), scheduler: MainScheduler.instance)
                 .subscribe { [weak self] _ in
                     guard let self = self else { return }
-                    self.padelPlayMode.accept(false)
-                    self.presentScreenSubject.accept(.infoAlert(message: R.string.localizable.autoPlayModeFired()))
+                    if self.padelPlayMode.value {
+                        self.presentScreenSubject.accept(.infoAlert(message: R.string.localizable.autoPlayModeFired()))
+                    }
+                    self.autoPlayMode.accept(false)
+                    self.handleGameModeSwitchChanged(gameMode: .matchCount, isOn: true)
+                    self.resetAutoModeTimer()
                 }
         } else {
             autoPlayMode.accept(false)

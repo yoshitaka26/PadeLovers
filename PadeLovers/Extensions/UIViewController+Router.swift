@@ -15,7 +15,8 @@ extension UIViewController {
             infoAlertViewWithTitle(title: message)
         case .errorAlert(let message):
             warningAlertView(withTitle: message)
-        default: break
+        default:
+            break
         }
     }
 }
