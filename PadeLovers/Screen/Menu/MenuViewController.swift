@@ -35,7 +35,7 @@ final class MenuViewController: BaseViewController {
         }).disposed(by: disposeBag)
         rxViewWillAppear.subscribe(onNext: { [weak self] _ in
             guard let self = self else { return }
-            self.navigationController?.navigationBar.isHidden = true
+            self.navigationController?.setNavigationBarHidden(true, animated: true)
         }).disposed(by: disposeBag)
         viewModel.transition.subscribe(onNext: { [weak self] transition in
             guard let self = self else { return }
