@@ -7,8 +7,9 @@ target 'PadeLovers' do
 
   # Pods for PadeLovers
   pod 'SwiftLint'
-  pod 'RxSwift', '~> 6.2.0'
-  pod 'RxCocoa', '~> 6.2.0'
+  pod 'RxSwift', '~> 6.5.0'
+  pod 'RxCocoa', '~> 6.5.0'
+  pod 'R.swift', '~> 6.1.0'
   
   target 'PadeLoversTests' do
     inherit! :search_paths

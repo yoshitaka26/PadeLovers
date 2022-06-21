@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,6 +18,32 @@
 		E4103C902794007100E12348 /* GamePlayerViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4103C8F2794007100E12348 /* GamePlayerViewModelTest.swift */; };
 		E42C89332672022200961EB1 /* GameDataTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42C89322672022200961EB1 /* GameDataTableViewModel.swift */; };
 		E42C8937267205D700961EB1 /* GameOrganizeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42C8936267205D700961EB1 /* GameOrganizeManager.swift */; };
+		E42F215B285205660029970D /* GameViewPlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42F2159285205660029970D /* GameViewPlayerTableViewCell.swift */; };
+		E42F215C285205660029970D /* GameViewPlayerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E42F215A285205660029970D /* GameViewPlayerTableViewCell.xib */; };
+		E42F215F2852C24B0029970D /* GameViewCourtTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42F215D2852C24B0029970D /* GameViewCourtTableViewCell.swift */; };
+		E42F21602852C24B0029970D /* GameViewCourtTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E42F215E2852C24B0029970D /* GameViewCourtTableViewCell.xib */; };
+		E42F21632852C2730029970D /* GameViewPairingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42F21612852C2730029970D /* GameViewPairingTableViewCell.swift */; };
+		E42F21642852C2730029970D /* GameViewPairingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E42F21622852C2730029970D /* GameViewPairingTableViewCell.xib */; };
+		E42F216B2852C2BC0029970D /* GameViewPlayerCountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42F21692852C2BC0029970D /* GameViewPlayerCountTableViewCell.swift */; };
+		E42F216C2852C2BC0029970D /* GameViewPlayerCountTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E42F216A2852C2BC0029970D /* GameViewPlayerCountTableViewCell.xib */; };
+		E42F216F2852C2D90029970D /* GameViewGameModeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42F216D2852C2D90029970D /* GameViewGameModeTableViewCell.swift */; };
+		E42F21702852C2D90029970D /* GameViewGameModeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E42F216E2852C2D90029970D /* GameViewGameModeTableViewCell.xib */; };
+		E42F21732852C2EA0029970D /* GameViewGameResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42F21712852C2EA0029970D /* GameViewGameResultTableViewCell.swift */; };
+		E42F21742852C2EA0029970D /* GameViewGameResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E42F21722852C2EA0029970D /* GameViewGameResultTableViewCell.xib */; };
+		E42F21762852C9D50029970D /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42F21752852C9D50029970D /* R.generated.swift */; };
+		E42F21782852CE150029970D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E42F21772852CE150029970D /* Localizable.strings */; };
+		E42F217B2852FB330029970D /* GameModeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42F217A2852FB330029970D /* GameModeType.swift */; };
+		E42F217D285300A20029970D /* GameViewPlayerTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42F217C285300A20029970D /* GameViewPlayerTableDelegate.swift */; };
+		E42F217F28535F510029970D /* GameViewSetting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E42F217E28535F510029970D /* GameViewSetting.storyboard */; };
+		E42F218128535F690029970D /* GameViewSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42F218028535F690029970D /* GameViewSettingViewController.swift */; };
+		E42F218328535F7D0029970D /* GameViewSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42F218228535F7D0029970D /* GameViewSettingViewModel.swift */; };
+		E42F2185285363F70029970D /* UIViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42F2184285363F70029970D /* UIViewController+Rx.swift */; };
+		E42F218728538DCC0029970D /* CoreDataManagerable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42F218628538DCC0029970D /* CoreDataManagerable.swift */; };
+		E42F2189285401750029970D /* Pairing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42F2188285401750029970D /* Pairing.swift */; };
+		E42F218B285423930029970D /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42F218A285423930029970D /* UserDefaultsManager.swift */; };
+		E42F218F28542C770029970D /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42F218E28542C770029970D /* Screen.swift */; };
+		E42F219128542CE90029970D /* UIViewController+Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42F219028542CE90029970D /* UIViewController+Router.swift */; };
+		E42F219328542DF80029970D /* UINavigationController+Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42F219228542DF80029970D /* UINavigationController+Router.swift */; };
 		E42FAD2F2678AFDB00F9B7DD /* PlayerResultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42FAD2D2678AFDB00F9B7DD /* PlayerResultCollectionViewCell.swift */; };
 		E42FAD302678AFDB00F9B7DD /* PlayerResultCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E42FAD2E2678AFDB00F9B7DD /* PlayerResultCollectionViewCell.xib */; };
 		E4313D98254830F30045447F /* GameDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4313D97254830F30045447F /* GameDataTableViewController.swift */; };
@@ -148,6 +174,32 @@
 		E4103C8F2794007100E12348 /* GamePlayerViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePlayerViewModelTest.swift; sourceTree = "<group>"; };
 		E42C89322672022200961EB1 /* GameDataTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDataTableViewModel.swift; sourceTree = "<group>"; };
 		E42C8936267205D700961EB1 /* GameOrganizeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOrganizeManager.swift; sourceTree = "<group>"; };
+		E42F2159285205660029970D /* GameViewPlayerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewPlayerTableViewCell.swift; sourceTree = "<group>"; };
+		E42F215A285205660029970D /* GameViewPlayerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameViewPlayerTableViewCell.xib; sourceTree = "<group>"; };
+		E42F215D2852C24B0029970D /* GameViewCourtTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewCourtTableViewCell.swift; sourceTree = "<group>"; };
+		E42F215E2852C24B0029970D /* GameViewCourtTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameViewCourtTableViewCell.xib; sourceTree = "<group>"; };
+		E42F21612852C2730029970D /* GameViewPairingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewPairingTableViewCell.swift; sourceTree = "<group>"; };
+		E42F21622852C2730029970D /* GameViewPairingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameViewPairingTableViewCell.xib; sourceTree = "<group>"; };
+		E42F21692852C2BC0029970D /* GameViewPlayerCountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewPlayerCountTableViewCell.swift; sourceTree = "<group>"; };
+		E42F216A2852C2BC0029970D /* GameViewPlayerCountTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameViewPlayerCountTableViewCell.xib; sourceTree = "<group>"; };
+		E42F216D2852C2D90029970D /* GameViewGameModeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewGameModeTableViewCell.swift; sourceTree = "<group>"; };
+		E42F216E2852C2D90029970D /* GameViewGameModeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameViewGameModeTableViewCell.xib; sourceTree = "<group>"; };
+		E42F21712852C2EA0029970D /* GameViewGameResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewGameResultTableViewCell.swift; sourceTree = "<group>"; };
+		E42F21722852C2EA0029970D /* GameViewGameResultTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameViewGameResultTableViewCell.xib; sourceTree = "<group>"; };
+		E42F21752852C9D50029970D /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		E42F21772852CE150029970D /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		E42F217A2852FB330029970D /* GameModeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModeType.swift; sourceTree = "<group>"; };
+		E42F217C285300A20029970D /* GameViewPlayerTableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewPlayerTableDelegate.swift; sourceTree = "<group>"; };
+		E42F217E28535F510029970D /* GameViewSetting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GameViewSetting.storyboard; sourceTree = "<group>"; };
+		E42F218028535F690029970D /* GameViewSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewSettingViewController.swift; sourceTree = "<group>"; };
+		E42F218228535F7D0029970D /* GameViewSettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewSettingViewModel.swift; sourceTree = "<group>"; };
+		E42F2184285363F70029970D /* UIViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Rx.swift"; sourceTree = "<group>"; };
+		E42F218628538DCC0029970D /* CoreDataManagerable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManagerable.swift; sourceTree = "<group>"; };
+		E42F2188285401750029970D /* Pairing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pairing.swift; sourceTree = "<group>"; };
+		E42F218A285423930029970D /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		E42F218E28542C770029970D /* Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
+		E42F219028542CE90029970D /* UIViewController+Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Router.swift"; sourceTree = "<group>"; };
+		E42F219228542DF80029970D /* UINavigationController+Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Router.swift"; sourceTree = "<group>"; };
 		E42FAD2D2678AFDB00F9B7DD /* PlayerResultCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerResultCollectionViewCell.swift; sourceTree = "<group>"; };
 		E42FAD2E2678AFDB00F9B7DD /* PlayerResultCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerResultCollectionViewCell.xib; sourceTree = "<group>"; };
 		E4313D97254830F30045447F /* GameDataTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDataTableViewController.swift; sourceTree = "<group>"; };
@@ -343,6 +395,35 @@
 			path = PadeLoversTests;
 			sourceTree = "<group>";
 		};
+		E42F21582852051D0029970D /* GamePlayerViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E42F216D2852C2D90029970D /* GameViewGameModeTableViewCell.swift */,
+				E42F216E2852C2D90029970D /* GameViewGameModeTableViewCell.xib */,
+				E42F21712852C2EA0029970D /* GameViewGameResultTableViewCell.swift */,
+				E42F21722852C2EA0029970D /* GameViewGameResultTableViewCell.xib */,
+				E42F215D2852C24B0029970D /* GameViewCourtTableViewCell.swift */,
+				E42F215E2852C24B0029970D /* GameViewCourtTableViewCell.xib */,
+				E42F21612852C2730029970D /* GameViewPairingTableViewCell.swift */,
+				E42F21622852C2730029970D /* GameViewPairingTableViewCell.xib */,
+				E42F21692852C2BC0029970D /* GameViewPlayerCountTableViewCell.swift */,
+				E42F216A2852C2BC0029970D /* GameViewPlayerCountTableViewCell.xib */,
+				E42F2159285205660029970D /* GameViewPlayerTableViewCell.swift */,
+				E42F215A285205660029970D /* GameViewPlayerTableViewCell.xib */,
+				E42F217C285300A20029970D /* GameViewPlayerTableDelegate.swift */,
+			);
+			path = GamePlayerViewCell;
+			sourceTree = "<group>";
+		};
+		E42F21792852FAF10029970D /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				E42F217A2852FB330029970D /* GameModeType.swift */,
+				E42F218E28542C770029970D /* Screen.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
 		E42FAD222678AD4900F9B7DD /* ResultCells */ = {
 			isa = PBXGroup;
 			children = (
@@ -440,6 +521,9 @@
 				E451432E266EE5EF00BE6329 /* NSManagedObject+Extensions.swift */,
 				E406DF462691B97600DF22F8 /* UIImageExtension.swift */,
 				E483164F27ED80F10091B0DF /* StringExtension.swift */,
+				E42F2184285363F70029970D /* UIViewController+Rx.swift */,
+				E42F219028542CE90029970D /* UIViewController+Router.swift */,
+				E42F219228542DF80029970D /* UINavigationController+Router.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -513,6 +597,10 @@
 				E40F93F526718DB600231511 /* EditData */,
 				E4467316264825BF0092DEFE /* FixedPair */,
 				E44783D2275799A4001E1065 /* HowToUseDetail */,
+				E42F21582852051D0029970D /* GamePlayerViewCell */,
+				E42F217E28535F510029970D /* GameViewSetting.storyboard */,
+				E42F218028535F690029970D /* GameViewSettingViewController.swift */,
+				E42F218228535F7D0029970D /* GameViewSettingViewModel.swift */,
 			);
 			path = GamePlayer;
 			sourceTree = "<group>";
@@ -573,6 +661,7 @@
 			children = (
 				E4514332266F247300BE6329 /* Player+Additional.swift */,
 				E498854B267368AE004ECB01 /* Game+Additional.swift */,
+				E42F2188285401750029970D /* Pairing.swift */,
 			);
 			path = Additions;
 			sourceTree = "<group>";
@@ -580,12 +669,14 @@
 		E457509B26569A8B0036194F /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				E42F218628538DCC0029970D /* CoreDataManagerable.swift */,
 				E4575098265698C50036194F /* CoreDataManager.swift */,
 				E42C8936267205D700961EB1 /* GameOrganizeManager.swift */,
 				E4C4343626822601006652A7 /* CommonPlayerDataModel.swift */,
 				E4C4343A26822672006652A7 /* CommonDataBrain.swift */,
 				E4529E222682E93E003DEC63 /* ValidationManager.swift */,
 				E46739A82686908200C7F745 /* RandomNumberTableManager.swift */,
+				E42F218A285423930029970D /* UserDefaultsManager.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -624,7 +715,9 @@
 			children = (
 				E47F202C2547D56B00996B19 /* AppDelegate.swift */,
 				E47F202E2547D56B00996B19 /* SceneDelegate.swift */,
+				E42F21752852C9D50029970D /* R.generated.swift */,
 				E44672B026455D9C0092DEFE /* RxBase */,
+				E42F21792852FAF10029970D /* Enum */,
 				E44672DE264562770092DEFE /* Screen */,
 				E446733026492A9F0092DEFE /* ViewParts */,
 				E44672DF264562810092DEFE /* Entity */,
@@ -733,6 +826,7 @@
 				E47F20352547D56D00996B19 /* Assets.xcassets */,
 				E47F20372547D56D00996B19 /* LaunchScreen.storyboard */,
 				E4D131E827B27F2D0034B2D0 /* Settings.bundle */,
+				E42F21772852CE150029970D /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -764,12 +858,13 @@
 			buildConfigurationList = E47F203D2547D56D00996B19 /* Build configuration list for PBXNativeTarget "PadeLovers" */;
 			buildPhases = (
 				F5BC0ADF6AAA7DBB028FC5BE /* [CP] Check Pods Manifest.lock */,
+				E42F2157285203B50029970D /* Run Script-R.Swift */,
 				E47F20252547D56B00996B19 /* Sources */,
 				E47F20262547D56B00996B19 /* Frameworks */,
 				E47F20272547D56B00996B19 /* Resources */,
 				B70A5C5A315480C27E1CF6B7 /* [CP] Embed Pods Frameworks */,
-				E481F411263ABED400D2B879 /* ShellScript */,
-				E4D131EA27B8C83E0034B2D0 /* ShellScript */,
+				E481F411263ABED400D2B879 /* Run Script-SwiftLint */,
+				E4D131EA27B8C83E0034B2D0 /* Run Script-license-plist */,
 			);
 			buildRules = (
 			);
@@ -830,19 +925,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E42F21642852C2730029970D /* GameViewPairingTableViewCell.xib in Resources */,
 				E4D131DC27AB8CBC0034B2D0 /* AutoPlayMode.storyboard in Resources */,
 				E4C434172680EE85006652A7 /* CommonData.storyboard in Resources */,
 				E433EA672686231D00EFC20B /* RandomNumberTable.storyboard in Resources */,
 				E447EF092755FE69001601A7 /* HowToUse.storyboard in Resources */,
 				E40F940226718FDB00231511 /* EditData.storyboard in Resources */,
+				E42F21602852C24B0029970D /* GameViewCourtTableViewCell.xib in Resources */,
 				E44783D4275799FB001E1065 /* HowToUseDetail.storyboard in Resources */,
 				E47F20392547D56D00996B19 /* LaunchScreen.storyboard in Resources */,
 				E446736D2655250A0092DEFE /* GameData.storyboard in Resources */,
 				E44673662655229F0092DEFE /* GameResult.storyboard in Resources */,
 				E446731A264826230092DEFE /* FixedPair.storyboard in Resources */,
+				E42F21702852C2D90029970D /* GameViewGameModeTableViewCell.xib in Resources */,
+				E42F217F28535F510029970D /* GameViewSetting.storyboard in Resources */,
 				E46739B6268696C000C7F745 /* RandomNumberTableViewCell.xib in Resources */,
 				E44672F42645658D0092DEFE /* Menu.storyboard in Resources */,
+				E42F215C285205660029970D /* GameViewPlayerTableViewCell.xib in Resources */,
 				E44673592653C6720092DEFE /* GamePlayer.storyboard in Resources */,
+				E42F21782852CE150029970D /* Localizable.strings in Resources */,
 				E4C4342B2680F10E006652A7 /* PlayerTableViewCell.xib in Resources */,
 				E4467337264974650092DEFE /* ReplacePlayer.storyboard in Resources */,
 				E43C7079267ABB6600E28E8A /* RecordScore.storyboard in Resources */,
@@ -850,6 +951,7 @@
 				E43C7075267A18D900E28E8A /* GameResultCollectionViewCell.xib in Resources */,
 				E447EF0B2755FE78001601A7 /* MainSetting.storyboard in Resources */,
 				E4324F302547EDAB00063A9F /* GameTableViewCell.xib in Resources */,
+				E42F21742852C2EA0029970D /* GameViewGameResultTableViewCell.xib in Resources */,
 				E4C4343226815979006652A7 /* CourtTableViewCell.xib in Resources */,
 				E48627DA268386A300453425 /* StartGame.storyboard in Resources */,
 				E47F20362547D56D00996B19 /* Assets.xcassets in Resources */,
@@ -857,6 +959,7 @@
 				E43DCAF22686FE4E0078C4AF /* SettingView.storyboard in Resources */,
 				E4D131E927B27F2D0034B2D0 /* Settings.bundle in Resources */,
 				E42FAD302678AFDB00F9B7DD /* PlayerResultCollectionViewCell.xib in Resources */,
+				E42F216C2852C2BC0029970D /* GameViewPlayerCountTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -902,7 +1005,26 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PadeLovers/Pods-PadeLovers-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E481F411263ABED400D2B879 /* ShellScript */ = {
+		E42F2157285203B50029970D /* Run Script-R.Swift */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script-R.Swift";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/R.generated.swift\"\n";
+		};
+		E481F411263ABED400D2B879 /* Run Script-SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -911,6 +1033,7 @@
 			);
 			inputPaths = (
 			);
+			name = "Run Script-SwiftLint";
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -919,7 +1042,7 @@
 			shellPath = /bin/sh;
 			shellScript = "if which \"${PODS_ROOT}/SwiftLint/swiftlint\" >/dev/null; then\n${PODS_ROOT}/SwiftLint/swiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
-		E4D131EA27B8C83E0034B2D0 /* ShellScript */ = {
+		E4D131EA27B8C83E0034B2D0 /* Run Script-license-plist */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -928,6 +1051,7 @@
 			);
 			inputPaths = (
 			);
+			name = "Run Script-license-plist";
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -974,22 +1098,33 @@
 			buildActionMask = 2147483647;
 			files = (
 				E433EA552684BA0D00EFC20B /* Score+CoreDataProperties.swift in Sources */,
+				E42F215F2852C24B0029970D /* GameViewCourtTableViewCell.swift in Sources */,
+				E42F219328542DF80029970D /* UINavigationController+Router.swift in Sources */,
+				E42F21732852C2EA0029970D /* GameViewGameResultTableViewCell.swift in Sources */,
 				E4316C862548737D00EED960 /* GamePlayerViewController.swift in Sources */,
+				E42F217D285300A20029970D /* GameViewPlayerTableDelegate.swift in Sources */,
 				E406DF472691B97600DF22F8 /* UIImageExtension.swift in Sources */,
+				E42F218328535F7D0029970D /* GameViewSettingViewModel.swift in Sources */,
 				E4C4343126815979006652A7 /* CourtTableViewCell.swift in Sources */,
 				E483165827EEEE1E0091B0DF /* WetherRequest.swift in Sources */,
+				E42F21762852C9D50029970D /* R.generated.swift in Sources */,
 				E447EF112755FF2E001601A7 /* HowToUseViewController.swift in Sources */,
 				E433EA60268622DF00EFC20B /* RandomNumberTableViewController.swift in Sources */,
 				E44672E3264563D30092DEFE /* Const.swift in Sources */,
 				E433EA542684BA0D00EFC20B /* Score+CoreDataClass.swift in Sources */,
 				E4C4343B26822672006652A7 /* CommonDataBrain.swift in Sources */,
 				E436135B254B7BAB00A2DB3E /* ReplacePlayerViewController.swift in Sources */,
+				E42F218F28542C770029970D /* Screen.swift in Sources */,
 				E433EA582684BA0D00EFC20B /* Court+CoreDataClass.swift in Sources */,
 				E4E3DA252673AA8F0009D809 /* ReplacePlayerViewModel.swift in Sources */,
 				E43C707C267AC46800E28E8A /* RecordScoreViewController.swift in Sources */,
 				E433EA532684BA0D00EFC20B /* PairingA+CoreDataProperties.swift in Sources */,
+				E42F2189285401750029970D /* Pairing.swift in Sources */,
 				E4313D98254830F30045447F /* GameDataTableViewController.swift in Sources */,
 				E483164827ED606D0091B0DF /* ResponseError.swift in Sources */,
+				E42F216B2852C2BC0029970D /* GameViewPlayerCountTableViewCell.swift in Sources */,
+				E42F218128535F690029970D /* GameViewSettingViewController.swift in Sources */,
+				E42F218B285423930029970D /* UserDefaultsManager.swift in Sources */,
 				E447EF0D2755FEFD001601A7 /* MainSettingTableViewController.swift in Sources */,
 				E43DCAF52686FF980078C4AF /* SettingViewController.swift in Sources */,
 				E433EA592684BA0D00EFC20B /* Court+CoreDataProperties.swift in Sources */,
@@ -999,9 +1134,13 @@
 				E436135D254BC6EE00A2DB3E /* GameResultViewController.swift in Sources */,
 				E498854C267368AE004ECB01 /* Game+Additional.swift in Sources */,
 				E48EE3CD267753E40001E54D /* GameResultViewModel.swift in Sources */,
+				E42F21632852C2730029970D /* GameViewPairingTableViewCell.swift in Sources */,
 				E446733226492AC40092DEFE /* InfoAlertView.swift in Sources */,
 				E46739A92686908200C7F745 /* RandomNumberTableManager.swift in Sources */,
+				E42F217B2852FB330029970D /* GameModeType.swift in Sources */,
+				E42F2185285363F70029970D /* UIViewController+Rx.swift in Sources */,
 				E40F93FD26718E2700231511 /* EditDataViewModel.swift in Sources */,
+				E42F218728538DCC0029970D /* CoreDataManagerable.swift in Sources */,
 				E446732D264928C90092DEFE /* UIAleartControllerExtension.swift in Sources */,
 				E44672AE26455D930092DEFE /* BaseViewController.swift in Sources */,
 				E483164427ED55180091B0DF /* URLSessionDelegateHandler.swift in Sources */,
@@ -1013,6 +1152,7 @@
 				E483164C27ED7FD90091B0DF /* RequestBody.swift in Sources */,
 				E40F93FA26718E1600231511 /* EditDataViewController.swift in Sources */,
 				E4467307264574190092DEFE /* MenuViewModel.swift in Sources */,
+				E42F216F2852C2D90029970D /* GameViewGameModeTableViewCell.swift in Sources */,
 				E4C4342A2680F10E006652A7 /* PlayerTableViewCell.swift in Sources */,
 				E44672FE2645672B0092DEFE /* BaseTableViewController.swift in Sources */,
 				E446737F26554FB20092DEFE /* UIColorExtension.swift in Sources */,
@@ -1045,6 +1185,8 @@
 				E4C4341D2680EEC5006652A7 /* CommonDataViewModel.swift in Sources */,
 				E446731F264828D40092DEFE /* FixedPairViewModel.swift in Sources */,
 				E4316C882548828F00EED960 /* FixedPairViewController.swift in Sources */,
+				E42F215B285205660029970D /* GameViewPlayerTableViewCell.swift in Sources */,
+				E42F219128542CE90029970D /* UIViewController+Router.swift in Sources */,
 				E46739B5268696C000C7F745 /* RandomNumberTableViewCell.swift in Sources */,
 				E457509E26569EBB0036194F /* NSPresistentContainerExtension.swift in Sources */,
 				E406DEB02690094C00DF22F8 /* PadelDataTableViewController.swift in Sources */,
@@ -1286,7 +1428,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.2.3.0;
+				CURRENT_PROJECT_VERSION = 1.2.4.0;
 				DEVELOPMENT_TEAM = VKV3Y2GW5Q;
 				INFOPLIST_FILE = PadeLovers/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1294,7 +1436,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.3;
+				MARKETING_VERSION = 1.2.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yoshitaka.PadeLovers;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1310,7 +1452,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.2.3.0;
+				CURRENT_PROJECT_VERSION = 1.2.4.0;
 				DEVELOPMENT_TEAM = VKV3Y2GW5Q;
 				INFOPLIST_FILE = PadeLovers/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1318,7 +1460,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.3;
+				MARKETING_VERSION = 1.2.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yoshitaka.PadeLovers;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
