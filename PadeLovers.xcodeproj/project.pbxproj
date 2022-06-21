@@ -118,6 +118,17 @@
 		E47F20342547D56B00996B19 /* Game.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E47F20322547D56B00996B19 /* Game.storyboard */; };
 		E47F20362547D56D00996B19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E47F20352547D56D00996B19 /* Assets.xcassets */; };
 		E47F20392547D56D00996B19 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E47F20372547D56D00996B19 /* LaunchScreen.storyboard */; };
+		E483164227ED53FC0091B0DF /* APIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E483164127ED53FC0091B0DF /* APIProvider.swift */; };
+		E483164427ED55180091B0DF /* URLSessionDelegateHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E483164327ED55180091B0DF /* URLSessionDelegateHandler.swift */; };
+		E483164627ED55B60091B0DF /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E483164527ED55B60091B0DF /* RequestProtocol.swift */; };
+		E483164827ED606D0091B0DF /* ResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E483164727ED606D0091B0DF /* ResponseError.swift */; };
+		E483164A27ED7F740091B0DF /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = E483164927ED7F740091B0DF /* HTTPMethod.swift */; };
+		E483164C27ED7FD90091B0DF /* RequestBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = E483164B27ED7FD90091B0DF /* RequestBody.swift */; };
+		E483164E27ED80280091B0DF /* RequestContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E483164D27ED80280091B0DF /* RequestContentType.swift */; };
+		E483165027ED80F10091B0DF /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E483164F27ED80F10091B0DF /* StringExtension.swift */; };
+		E483165427EEE0E80091B0DF /* WetherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E483165327EEE0E80091B0DF /* WetherResponse.swift */; };
+		E483165827EEEE1E0091B0DF /* WetherRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E483165727EEEE1E0091B0DF /* WetherRequest.swift */; };
+		E483165A27EEF22B0091B0DF /* APIDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E483165927EEF22B0091B0DF /* APIDataManager.swift */; };
 		E48627DA268386A300453425 /* StartGame.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E48627D9268386A300453425 /* StartGame.storyboard */; };
 		E48627DD268386F500453425 /* StartGameTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48627DC268386F500453425 /* StartGameTableViewController.swift */; };
 		E48EE3CD267753E40001E54D /* GameResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48EE3CC267753E40001E54D /* GameResultViewModel.swift */; };
@@ -266,6 +277,17 @@
 		E47F20352547D56D00996B19 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E47F20382547D56D00996B19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E47F203A2547D56D00996B19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E483164127ED53FC0091B0DF /* APIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProvider.swift; sourceTree = "<group>"; };
+		E483164327ED55180091B0DF /* URLSessionDelegateHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionDelegateHandler.swift; sourceTree = "<group>"; };
+		E483164527ED55B60091B0DF /* RequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProtocol.swift; sourceTree = "<group>"; };
+		E483164727ED606D0091B0DF /* ResponseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseError.swift; sourceTree = "<group>"; };
+		E483164927ED7F740091B0DF /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		E483164B27ED7FD90091B0DF /* RequestBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBody.swift; sourceTree = "<group>"; };
+		E483164D27ED80280091B0DF /* RequestContentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestContentType.swift; sourceTree = "<group>"; };
+		E483164F27ED80F10091B0DF /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		E483165327EEE0E80091B0DF /* WetherResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WetherResponse.swift; sourceTree = "<group>"; };
+		E483165727EEEE1E0091B0DF /* WetherRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WetherRequest.swift; sourceTree = "<group>"; };
+		E483165927EEF22B0091B0DF /* APIDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIDataManager.swift; sourceTree = "<group>"; };
 		E48627D9268386A300453425 /* StartGame.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StartGame.storyboard; sourceTree = "<group>"; };
 		E48627DC268386F500453425 /* StartGameTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartGameTableViewController.swift; sourceTree = "<group>"; };
 		E48EE3CC267753E40001E54D /* GameResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResultViewModel.swift; sourceTree = "<group>"; };
@@ -501,6 +523,7 @@
 				E452C6FD266B46EC009A6EC3 /* NSAttributedStringExtension.swift */,
 				E451432E266EE5EF00BE6329 /* NSManagedObject+Extensions.swift */,
 				E406DF462691B97600DF22F8 /* UIImageExtension.swift */,
+				E483164F27ED80F10091B0DF /* StringExtension.swift */,
 				E42F2184285363F70029970D /* UIViewController+Rx.swift */,
 				E42F219028542CE90029970D /* UIViewController+Router.swift */,
 				E42F219228542DF80029970D /* UINavigationController+Router.swift */,
@@ -703,6 +726,7 @@
 				E44672DE264562770092DEFE /* Screen */,
 				E446733026492A9F0092DEFE /* ViewParts */,
 				E44672DF264562810092DEFE /* Entity */,
+				E483164027ED53C10091B0DF /* API */,
 				E457509B26569A8B0036194F /* Service */,
 				E44672E0264562970092DEFE /* Common */,
 				E44672E12645629D0092DEFE /* Extensions */,
@@ -710,6 +734,47 @@
 				E47F203A2547D56D00996B19 /* Info.plist */,
 			);
 			path = PadeLovers;
+			sourceTree = "<group>";
+		};
+		E483164027ED53C10091B0DF /* API */ = {
+			isa = PBXGroup;
+			children = (
+				E483165B27EEFF350091B0DF /* Base */,
+				E483165227EEE0B90091B0DF /* Request */,
+				E483165127EEE0AB0091B0DF /* Response */,
+				E483165927EEF22B0091B0DF /* APIDataManager.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		E483165127EEE0AB0091B0DF /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				E483165327EEE0E80091B0DF /* WetherResponse.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		E483165227EEE0B90091B0DF /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				E483165727EEEE1E0091B0DF /* WetherRequest.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		E483165B27EEFF350091B0DF /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				E483164127ED53FC0091B0DF /* APIProvider.swift */,
+				E483164327ED55180091B0DF /* URLSessionDelegateHandler.swift */,
+				E483164527ED55B60091B0DF /* RequestProtocol.swift */,
+				E483164727ED606D0091B0DF /* ResponseError.swift */,
+				E483164927ED7F740091B0DF /* HTTPMethod.swift */,
+				E483164B27ED7FD90091B0DF /* RequestBody.swift */,
+				E483164D27ED80280091B0DF /* RequestContentType.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 		E48627D82683866800453425 /* StartGame */ = {
@@ -1054,6 +1119,7 @@
 				E406DF472691B97600DF22F8 /* UIImageExtension.swift in Sources */,
 				E42F218328535F7D0029970D /* GameViewSettingViewModel.swift in Sources */,
 				E4C4343126815979006652A7 /* CourtTableViewCell.swift in Sources */,
+				E483165827EEEE1E0091B0DF /* WetherRequest.swift in Sources */,
 				E42F21762852C9D50029970D /* R.generated.swift in Sources */,
 				E447EF112755FF2E001601A7 /* HowToUseViewController.swift in Sources */,
 				E433EA60268622DF00EFC20B /* RandomNumberTableViewController.swift in Sources */,
@@ -1069,6 +1135,7 @@
 				E433EA532684BA0D00EFC20B /* PairingA+CoreDataProperties.swift in Sources */,
 				E42F2189285401750029970D /* Pairing.swift in Sources */,
 				E4313D98254830F30045447F /* GameDataTableViewController.swift in Sources */,
+				E483164827ED606D0091B0DF /* ResponseError.swift in Sources */,
 				E42F216B2852C2BC0029970D /* GameViewPlayerCountTableViewCell.swift in Sources */,
 				E42F218128535F690029970D /* GameViewSettingViewController.swift in Sources */,
 				E42F218B285423930029970D /* UserDefaultsManager.swift in Sources */,
@@ -1076,6 +1143,7 @@
 				E43DCAF52686FF980078C4AF /* SettingViewController.swift in Sources */,
 				E433EA592684BA0D00EFC20B /* Court+CoreDataProperties.swift in Sources */,
 				E433EA512684BA0D00EFC20B /* PairingB+CoreDataProperties.swift in Sources */,
+				E483165A27EEF22B0091B0DF /* APIDataManager.swift in Sources */,
 				E42C8937267205D700961EB1 /* GameOrganizeManager.swift in Sources */,
 				E436135D254BC6EE00A2DB3E /* GameResultViewController.swift in Sources */,
 				E498854C267368AE004ECB01 /* Game+Additional.swift in Sources */,
@@ -1089,11 +1157,13 @@
 				E42F218728538DCC0029970D /* CoreDataManagerable.swift in Sources */,
 				E446732D264928C90092DEFE /* UIAleartControllerExtension.swift in Sources */,
 				E44672AE26455D930092DEFE /* BaseViewController.swift in Sources */,
+				E483164427ED55180091B0DF /* URLSessionDelegateHandler.swift in Sources */,
 				E43C707F267AC4CC00E28E8A /* ReordScoreViewModel.swift in Sources */,
 				E4C4341A2680EEB5006652A7 /* CommonDataViewController.swift in Sources */,
 				E4514333266F247300BE6329 /* Player+Additional.swift in Sources */,
 				E47F20312547D56B00996B19 /* MenuViewController.swift in Sources */,
 				E4324F2F2547EDAB00063A9F /* GameTableViewCell.swift in Sources */,
+				E483164C27ED7FD90091B0DF /* RequestBody.swift in Sources */,
 				E40F93FA26718E1600231511 /* EditDataViewController.swift in Sources */,
 				E4467307264574190092DEFE /* MenuViewModel.swift in Sources */,
 				E42F216F2852C2D90029970D /* GameViewGameModeTableViewCell.swift in Sources */,
@@ -1111,11 +1181,17 @@
 				E452C6ED266A4038009A6EC3 /* Operators.swift in Sources */,
 				E48627DD268386F500453425 /* StartGameTableViewController.swift in Sources */,
 				E4575096265695590036194F /* PadeLovers.xcdatamodeld in Sources */,
+				E483165027ED80F10091B0DF /* StringExtension.swift in Sources */,
 				E433EA502684BA0D00EFC20B /* PairingB+CoreDataClass.swift in Sources */,
+				E483165427EEE0E80091B0DF /* WetherResponse.swift in Sources */,
 				E44672B4264560000092DEFE /* BaseViewModel.swift in Sources */,
 				E452C6FE266B46EC009A6EC3 /* NSAttributedStringExtension.swift in Sources */,
 				E4C4343726822601006652A7 /* CommonPlayerDataModel.swift in Sources */,
+				E483164627ED55B60091B0DF /* RequestProtocol.swift in Sources */,
 				E433EA572684BA0D00EFC20B /* Padel+CoreDataProperties.swift in Sources */,
+				E483164227ED53FC0091B0DF /* APIProvider.swift in Sources */,
+				E483164A27ED7F740091B0DF /* HTTPMethod.swift in Sources */,
+				E483164E27ED80280091B0DF /* RequestContentType.swift in Sources */,
 				E42FAD2F2678AFDB00F9B7DD /* PlayerResultCollectionViewCell.swift in Sources */,
 				E433EA64268622F900EFC20B /* RandomNumberTableViewModel.swift in Sources */,
 				E433EA562684BA0D00EFC20B /* Padel+CoreDataClass.swift in Sources */,
