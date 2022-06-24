@@ -27,7 +27,7 @@ final class GameResultViewController: BaseViewController {
     private func setup() {
         tabBarController?.navigationItem.title = R.string.localizable.gameViewResult()
         tabBarController?.navigationItem.hidesBackButton = true
-        tabBarController?.navigationItem.leftBarButtonItem = nil
+//        tabBarController?.navigationItem.leftBarButtonItem = self.createBarButtonItem(image: UIImage.named("icloud.and.arrow.up"), select: #selector(self.shareGame))
         tabBarController?.navigationItem.rightBarButtonItem = self.createBarButtonItem(image: UIImage.named("house.fill"), select: #selector(self.back))
         tabBarItem.title = R.string.localizable.gameViewResult()
     }
@@ -37,9 +37,6 @@ final class GameResultViewController: BaseViewController {
             guard let self = self else { return }
             self.viewModel.setPadelID.onNext(())
             self.customCollectionView.bounces = false
-            self.navigationItem.rightBarButtonItem = self.createBarButtonItem(image: UIImage.named("house.fill"), select: #selector(self.back))
-            self.navigationItem.leftBarButtonItem = self.createBarButtonItem(image: UIImage.named("icloud.and.arrow.up"), select: #selector(self.shareGame))
-            self.navigationController?.isNavigationBarHidden = false
             self.customCollectionView.register(UINib(nibName: "PlayerResultCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PlayerCell")
             self.customCollectionView.register(UINib(nibName: "GameResultCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "GameCell")
             self.viewModel.loadGameData.onNext(())

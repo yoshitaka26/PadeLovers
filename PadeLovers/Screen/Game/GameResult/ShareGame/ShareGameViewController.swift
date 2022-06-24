@@ -21,25 +21,23 @@ class ShareGameViewController: UIViewController {
         }
 
         view.backgroundColor = .white
+
+        // Create Facebook Login Button.
         let loginFBButton = FBLoginButton()
         loginFBButton.permissions = ["public_profile", "email"]
         loginFBButton.delegate = self
         loginFBButton.center = view.center
         view.addSubview(loginFBButton)
         
-//        // Create Login Button.
-//        let loginButton = LoginButton()
-//        loginButton.delegate = self
-//
-//        // Configuration for permissions and presenting.
-//        loginButton.permissions = [.profile]
-//        loginButton.presentingViewController = self
-//
-//        // Add button to view and layout it.
-//        view.addSubview(loginButton)
-//        loginButton.translatesAutoresizingMaskIntoConstraints = false
-//        loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-//        loginButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        // Create LINE Login Button.
+        let loginLINEButton = LoginButton()
+        loginLINEButton.delegate = self
+        loginLINEButton.permissions = [.profile]
+        loginLINEButton.presentingViewController = self
+        view.addSubview(loginLINEButton)
+        loginLINEButton.translatesAutoresizingMaskIntoConstraints = false
+        loginLINEButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        loginLINEButton.topAnchor.constraint(equalTo: view.centerYAnchor, constant: -100).isActive = true
     }
 }
 
@@ -98,5 +96,3 @@ extension ShareGameViewController: LineSDK.LoginButtonDelegate {
         print("Login Started.")
     }
 }
-
-
