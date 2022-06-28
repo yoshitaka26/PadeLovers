@@ -143,32 +143,19 @@ extension GameViewSettingViewController: UITableViewDataSource {
         return 5
     }
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        switch section {
-        case 0:
-            return R.string.localizable.mode()
-        case 1:
-            return R.string.localizable.gameResult()
-        case 2:
-            return R.string.localizable.court()
-        case 3:
-            return R.string.localizable.pairing()
-        case 4:
-            return R.string.localizable.player()
-        default:
-            return nil
-        }
+        return GameViewSettingSection(rawValue: section)?.headerTitle
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 0:
+        switch GameViewSettingSection(rawValue: section) {
+        case .gameModeSection:
             return 3
-        case 1:
+        case .gameResultSection:
             return 1
-        case 2:
+        case .courtSection:
             return viewModel.courtList.value.count
-        case 3:
+        case .pairingSection:
             return viewModel.pairingList.value.count
-        case 4:
+        case .playerSection:
             return viewModel.playerList.value.count + 1
         default:
             return 0
@@ -176,24 +163,24 @@ extension GameViewSettingViewController: UITableViewDataSource {
     }
     // swiftlint:disable force_unwrapping
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch indexPath.section {
-        case 0:
+        switch GameViewSettingSection(rawValue: indexPath.section) {
+        case .gameModeSection:
             let cell = tableView.dequeueReusableCell(withIdentifier: R.nib.gameViewGameModeTableViewCell, for: indexPath)!
             cell.render(delegate: self, modeType: GameModeType(rawValue: indexPath.row) ?? .combination, playMode: viewModel.padelPlayMode.value, isAuto: viewModel.autoPlayMode.value)
             return cell
-        case 1:
+        case .gameResultSection:
             let cell = tableView.dequeueReusableCell(withIdentifier: R.nib.gameViewGameResultTableViewCell, for: indexPath)!
             cell.render(delegate: self, gameResult: viewModel.gameResult.value)
             return cell
-        case 2:
+        case .courtSection:
             let cell = tableView.dequeueReusableCell(withIdentifier: R.nib.gameViewCourtTableViewCell, for: indexPath)!
             cell.render(delegate: self, court: viewModel.courtList.value[indexPath.row])
             return cell
-        case 3:
+        case .pairingSection:
             let cell = tableView.dequeueReusableCell(withIdentifier: R.nib.gameViewPairingTableViewCell, for: indexPath)!
             cell.render(delegate: self, pairing: viewModel.pairingList.value[indexPath.row])
             return cell
-        case 4:
+        case .playerSection:
             if indexPath.row == 0 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: R.nib.gameViewPlayerCountTableViewCell, for: indexPath)!
                 cell.render(minPlayerCount: viewModel.playingPlayerCounts.value)

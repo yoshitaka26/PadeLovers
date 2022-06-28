@@ -109,6 +109,7 @@
 		E4575096265695590036194F /* PadeLovers.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E4575094265695590036194F /* PadeLovers.xcdatamodeld */; };
 		E4575099265698C50036194F /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4575098265698C50036194F /* CoreDataManager.swift */; };
 		E457509E26569EBB0036194F /* NSPresistentContainerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E457509D26569EBB0036194F /* NSPresistentContainerExtension.swift */; };
+		E45BB7CB286B465A00E722D6 /* GameViewSettingSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45BB7CA286B465A00E722D6 /* GameViewSettingSection.swift */; };
 		E46739A92686908200C7F745 /* RandomNumberTableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46739A82686908200C7F745 /* RandomNumberTableManager.swift */; };
 		E46739B5268696C000C7F745 /* RandomNumberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46739B3268696C000C7F745 /* RandomNumberTableViewCell.swift */; };
 		E46739B6268696C000C7F745 /* RandomNumberTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E46739B4268696C000C7F745 /* RandomNumberTableViewCell.xib */; };
@@ -266,6 +267,7 @@
 		E4575095265695590036194F /* PadeLovers.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PadeLovers.xcdatamodel; sourceTree = "<group>"; };
 		E4575098265698C50036194F /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		E457509D26569EBB0036194F /* NSPresistentContainerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSPresistentContainerExtension.swift; sourceTree = "<group>"; };
+		E45BB7CA286B465A00E722D6 /* GameViewSettingSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewSettingSection.swift; sourceTree = "<group>"; };
 		E46739A82686908200C7F745 /* RandomNumberTableManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomNumberTableManager.swift; sourceTree = "<group>"; };
 		E46739B3268696C000C7F745 /* RandomNumberTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomNumberTableViewCell.swift; sourceTree = "<group>"; };
 		E46739B4268696C000C7F745 /* RandomNumberTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RandomNumberTableViewCell.xib; sourceTree = "<group>"; };
@@ -423,6 +425,7 @@
 			children = (
 				E42F217A2852FB330029970D /* GameModeType.swift */,
 				E42F218E28542C770029970D /* Screen.swift */,
+				E45BB7CA286B465A00E722D6 /* GameViewSettingSection.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -1146,6 +1149,7 @@
 				E483165A27EEF22B0091B0DF /* APIDataManager.swift in Sources */,
 				E42C8937267205D700961EB1 /* GameOrganizeManager.swift in Sources */,
 				E436135D254BC6EE00A2DB3E /* GameResultViewController.swift in Sources */,
+				E45BB7CB286B465A00E722D6 /* GameViewSettingSection.swift in Sources */,
 				E498854C267368AE004ECB01 /* Game+Additional.swift in Sources */,
 				E48EE3CD267753E40001E54D /* GameResultViewModel.swift in Sources */,
 				E42F21632852C2730029970D /* GameViewPairingTableViewCell.swift in Sources */,
