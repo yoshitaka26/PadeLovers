@@ -67,11 +67,9 @@ final class GameDataTableViewController: BaseTableViewController {
             guard let self = self else { return }
             switch messageType {
             case .lessPlayersError:
-                guard let tabBarCon = self.navigationController?.parent as? UITabBarController else { return }
-                guard let navBarCon = tabBarCon.viewControllers?[0] as? UINavigationController else { return }
-                guard let gamePlayerVC = navBarCon.viewControllers[0] as? GamePlayerViewController else { return }
-                gamePlayerVC.tableView.scrollToRow(at: IndexPath(row: 0, section: 4), at: .top, animated: true)
-                self.tabBarController?.selectedViewController = navBarCon
+                guard let vc = self.tabBarController?.viewControllers?[0] as? GameViewSettingViewController else { return }
+                vc.scrollToPlayersCount()
+                self.tabBarController?.selectedViewController = vc
                 self.warningAlertView(withTitle: "プレイヤが不足しています")
             case .noCourtError:
                 self.warningAlertView(withTitle: "コートが空いていません")

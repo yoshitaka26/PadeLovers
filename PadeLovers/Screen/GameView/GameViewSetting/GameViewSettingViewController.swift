@@ -53,8 +53,6 @@ final class GameViewSettingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bind()
-        NotificationCenter.default.addObserver(self, selector: #selector(callbackByEditDataModal), name: .updateDataNotificationByEditData, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(callbackByEditDataModal), name: .updateDataNotificationByEditPair, object: nil)
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -118,6 +116,18 @@ final class GameViewSettingViewController: UIViewController {
                 navigationController?.pushScreen(screen)
             })
             .disposed(by: disposeBag)
+        NotificationCenter.default.rx.notification(.updateDataNotificationByEditPair, object: nil)
+            .subscribe(onNext: { [weak self] notification in
+                guard let self = self else { return }
+                self.viewModel.handelPairingSetNotification()
+            })
+            .disposed(by: disposeBag)
+        NotificationCenter.default.rx.notification(.updateDataNotificationByEditData, object: nil)
+            .subscribe(onNext: { [weak self] notification in
+                guard let self = self else { return }
+                self.viewModel.handlePlayerDataEditNotification()
+            })
+            .disposed(by: disposeBag)
         // swiftlint:enable force_unwrapping
     }
 }
@@ -127,14 +137,8 @@ extension GameViewSettingViewController {
     func questionBarButtonItem() {
         viewModel.handleQuestionBarButtonItem()
     }
-    @objc
-    func callbackByPairingModal() {
-        viewModel.handelPairingSetNotification()
-    }
-
-    @objc
-    func callbackByEditDataModal() {
-        viewModel.handlePlayerDataEditNotification()
+    func scrollToPlayersCount() {
+        tableView.scrollToRow(at: IndexPath(row: 0, section: 4), at: .top, animated: false)
     }
 }
 

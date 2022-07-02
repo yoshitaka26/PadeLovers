@@ -83,13 +83,11 @@
 		E44672F42645658D0092DEFE /* Menu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E44672F32645658D0092DEFE /* Menu.storyboard */; };
 		E44672FE2645672B0092DEFE /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44672FD2645672B0092DEFE /* BaseTableViewController.swift */; };
 		E4467307264574190092DEFE /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4467306264574190092DEFE /* MenuViewModel.swift */; };
-		E446731A264826230092DEFE /* FixedPair.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4467318264826230092DEFE /* FixedPair.storyboard */; };
 		E446731F264828D40092DEFE /* FixedPairViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E446731E264828D40092DEFE /* FixedPairViewModel.swift */; };
 		E446732D264928C90092DEFE /* UIAleartControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E446732C264928C90092DEFE /* UIAleartControllerExtension.swift */; };
 		E446733226492AC40092DEFE /* InfoAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E446733126492AC40092DEFE /* InfoAlertView.swift */; };
 		E4467337264974650092DEFE /* ReplacePlayer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4467335264974640092DEFE /* ReplacePlayer.storyboard */; };
 		E44673662655229F0092DEFE /* GameResult.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E44673652655229F0092DEFE /* GameResult.storyboard */; };
-		E446736D2655250A0092DEFE /* GameData.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E446736B2655250A0092DEFE /* GameData.storyboard */; };
 		E446737F26554FB20092DEFE /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E446737E26554FB20092DEFE /* UIColorExtension.swift */; };
 		E44783D4275799FB001E1065 /* HowToUseDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E44783D3275799FB001E1065 /* HowToUseDetail.storyboard */; };
 		E44783D627579A2D001E1065 /* HowToUseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44783D527579A2D001E1065 /* HowToUseDetailViewController.swift */; };
@@ -107,6 +105,10 @@
 		E4575099265698C50036194F /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4575098265698C50036194F /* CoreDataManager.swift */; };
 		E457509E26569EBB0036194F /* NSPresistentContainerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E457509D26569EBB0036194F /* NSPresistentContainerExtension.swift */; };
 		E45BB7CB286B465A00E722D6 /* GameViewSettingSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45BB7CA286B465A00E722D6 /* GameViewSettingSection.swift */; };
+		E45BB7CD2870225A00E722D6 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45BB7CC2870225A00E722D6 /* APIKey.swift */; };
+		E45BB7CF287050D500E722D6 /* NotificationName+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45BB7CE287050D500E722D6 /* NotificationName+Extension.swift */; };
+		E45BB7D1287052E800E722D6 /* FixedPair.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E45BB7D0287052E800E722D6 /* FixedPair.storyboard */; };
+		E45BB7D32870532D00E722D6 /* GameData.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E45BB7D22870532D00E722D6 /* GameData.storyboard */; };
 		E46739A92686908200C7F745 /* RandomNumberTableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46739A82686908200C7F745 /* RandomNumberTableManager.swift */; };
 		E46739B5268696C000C7F745 /* RandomNumberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46739B3268696C000C7F745 /* RandomNumberTableViewCell.swift */; };
 		E46739B6268696C000C7F745 /* RandomNumberTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E46739B4268696C000C7F745 /* RandomNumberTableViewCell.xib */; };
@@ -237,13 +239,11 @@
 		E44672F32645658D0092DEFE /* Menu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Menu.storyboard; sourceTree = "<group>"; };
 		E44672FD2645672B0092DEFE /* BaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
 		E4467306264574190092DEFE /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
-		E4467319264826230092DEFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = PadeLovers/Screen/Game/Base.lproj/FixedPair.storyboard; sourceTree = SOURCE_ROOT; };
 		E446731E264828D40092DEFE /* FixedPairViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixedPairViewModel.swift; sourceTree = "<group>"; };
 		E446732C264928C90092DEFE /* UIAleartControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAleartControllerExtension.swift; sourceTree = "<group>"; };
 		E446733126492AC40092DEFE /* InfoAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoAlertView.swift; sourceTree = "<group>"; };
 		E4467336264974650092DEFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ReplacePlayer.storyboard; sourceTree = "<group>"; };
 		E44673652655229F0092DEFE /* GameResult.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GameResult.storyboard; sourceTree = "<group>"; };
-		E446736C2655250A0092DEFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = PadeLovers/Screen/Game/Base.lproj/GameData.storyboard; sourceTree = SOURCE_ROOT; };
 		E446737E26554FB20092DEFE /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		E44783D3275799FB001E1065 /* HowToUseDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HowToUseDetail.storyboard; sourceTree = "<group>"; };
 		E44783D527579A2D001E1065 /* HowToUseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToUseDetailViewController.swift; sourceTree = "<group>"; };
@@ -261,6 +261,10 @@
 		E4575098265698C50036194F /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		E457509D26569EBB0036194F /* NSPresistentContainerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSPresistentContainerExtension.swift; sourceTree = "<group>"; };
 		E45BB7CA286B465A00E722D6 /* GameViewSettingSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewSettingSection.swift; sourceTree = "<group>"; };
+		E45BB7CC2870225A00E722D6 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		E45BB7CE287050D500E722D6 /* NotificationName+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationName+Extension.swift"; sourceTree = "<group>"; };
+		E45BB7D0287052E800E722D6 /* FixedPair.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FixedPair.storyboard; sourceTree = "<group>"; };
+		E45BB7D22870532D00E722D6 /* GameData.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GameData.storyboard; sourceTree = "<group>"; };
 		E46739A82686908200C7F745 /* RandomNumberTableManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomNumberTableManager.swift; sourceTree = "<group>"; };
 		E46739B3268696C000C7F745 /* RandomNumberTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomNumberTableViewCell.swift; sourceTree = "<group>"; };
 		E46739B4268696C000C7F745 /* RandomNumberTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RandomNumberTableViewCell.xib; sourceTree = "<group>"; };
@@ -502,6 +506,7 @@
 			isa = PBXGroup;
 			children = (
 				E44672E2264563D30092DEFE /* Const.swift */,
+				E45BB7CC2870225A00E722D6 /* APIKey.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -522,6 +527,7 @@
 				E42F2184285363F70029970D /* UIViewController+Rx.swift */,
 				E42F219028542CE90029970D /* UIViewController+Router.swift */,
 				E42F219228542DF80029970D /* UINavigationController+Router.swift */,
+				E45BB7CE287050D500E722D6 /* NotificationName+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -550,7 +556,7 @@
 		E4467316264825BF0092DEFE /* FixedPair */ = {
 			isa = PBXGroup;
 			children = (
-				E4467318264826230092DEFE /* FixedPair.storyboard */,
+				E45BB7D0287052E800E722D6 /* FixedPair.storyboard */,
 				E4316C872548828F00EED960 /* FixedPairViewController.swift */,
 				E446731E264828D40092DEFE /* FixedPairViewModel.swift */,
 			);
@@ -602,7 +608,7 @@
 		E4467363265521BC0092DEFE /* GameData */ = {
 			isa = PBXGroup;
 			children = (
-				E446736B2655250A0092DEFE /* GameData.storyboard */,
+				E45BB7D22870532D00E722D6 /* GameData.storyboard */,
 				E4313D97254830F30045447F /* GameDataTableViewController.swift */,
 				E42C89322672022200961EB1 /* GameDataTableViewModel.swift */,
 				E446733C2650B48A0092DEFE /* GameCell */,
@@ -931,6 +937,7 @@
 			files = (
 				E42F21642852C2730029970D /* GameViewPairingTableViewCell.xib in Resources */,
 				E4D131DC27AB8CBC0034B2D0 /* AutoPlayMode.storyboard in Resources */,
+				E45BB7D1287052E800E722D6 /* FixedPair.storyboard in Resources */,
 				E4C434172680EE85006652A7 /* CommonData.storyboard in Resources */,
 				E433EA672686231D00EFC20B /* RandomNumberTable.storyboard in Resources */,
 				E447EF092755FE69001601A7 /* HowToUse.storyboard in Resources */,
@@ -938,9 +945,7 @@
 				E42F21602852C24B0029970D /* GameViewCourtTableViewCell.xib in Resources */,
 				E44783D4275799FB001E1065 /* HowToUseDetail.storyboard in Resources */,
 				E47F20392547D56D00996B19 /* LaunchScreen.storyboard in Resources */,
-				E446736D2655250A0092DEFE /* GameData.storyboard in Resources */,
 				E44673662655229F0092DEFE /* GameResult.storyboard in Resources */,
-				E446731A264826230092DEFE /* FixedPair.storyboard in Resources */,
 				E42F21702852C2D90029970D /* GameViewGameModeTableViewCell.xib in Resources */,
 				E42F217F28535F510029970D /* GameViewSetting.storyboard in Resources */,
 				E46739B6268696C000C7F745 /* RandomNumberTableViewCell.xib in Resources */,
@@ -958,6 +963,7 @@
 				E4C4343226815979006652A7 /* CourtTableViewCell.xib in Resources */,
 				E48627DA268386A300453425 /* StartGame.storyboard in Resources */,
 				E47F20362547D56D00996B19 /* Assets.xcassets in Resources */,
+				E45BB7D32870532D00E722D6 /* GameData.storyboard in Resources */,
 				E43DCAF22686FE4E0078C4AF /* SettingView.storyboard in Resources */,
 				E4D131E927B27F2D0034B2D0 /* Settings.bundle in Resources */,
 				E42FAD302678AFDB00F9B7DD /* PlayerResultCollectionViewCell.xib in Resources */,
@@ -1115,6 +1121,7 @@
 				E433EA542684BA0D00EFC20B /* Score+CoreDataClass.swift in Sources */,
 				E4C4343B26822672006652A7 /* CommonDataBrain.swift in Sources */,
 				E436135B254B7BAB00A2DB3E /* ReplacePlayerViewController.swift in Sources */,
+				E45BB7CD2870225A00E722D6 /* APIKey.swift in Sources */,
 				E42F218F28542C770029970D /* Screen.swift in Sources */,
 				E433EA582684BA0D00EFC20B /* Court+CoreDataClass.swift in Sources */,
 				E4E3DA252673AA8F0009D809 /* ReplacePlayerViewModel.swift in Sources */,
@@ -1155,6 +1162,7 @@
 				E483164C27ED7FD90091B0DF /* RequestBody.swift in Sources */,
 				E40F93FA26718E1600231511 /* EditDataViewController.swift in Sources */,
 				E4467307264574190092DEFE /* MenuViewModel.swift in Sources */,
+				E45BB7CF287050D500E722D6 /* NotificationName+Extension.swift in Sources */,
 				E42F216F2852C2D90029970D /* GameViewGameModeTableViewCell.swift in Sources */,
 				E4C4342A2680F10E006652A7 /* PlayerTableViewCell.swift in Sources */,
 				E44672FE2645672B0092DEFE /* BaseTableViewController.swift in Sources */,
@@ -1214,28 +1222,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		E4467318264826230092DEFE /* FixedPair.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E4467319264826230092DEFE /* Base */,
-			);
-			name = FixedPair.storyboard;
-			sourceTree = "<group>";
-		};
 		E4467335264974640092DEFE /* ReplacePlayer.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				E4467336264974650092DEFE /* Base */,
 			);
 			name = ReplacePlayer.storyboard;
-			sourceTree = "<group>";
-		};
-		E446736B2655250A0092DEFE /* GameData.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E446736C2655250A0092DEFE /* Base */,
-			);
-			name = GameData.storyboard;
 			sourceTree = "<group>";
 		};
 		E47F20372547D56D00996B19 /* LaunchScreen.storyboard */ = {

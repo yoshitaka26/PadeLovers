@@ -61,31 +61,24 @@
 	<key>FacebookAppID</key>
 	<string>375519307868393</string>
 	<key>FacebookClientToken</key>
-	<string>54aa446983f0599e54a87bf2e04cfd2e</string>
+	<string></string>
 	<key>FacebookDisplayName</key>
 	<string>PadeLovers</string>
 	<key>LSApplicationQueriesSchemes</key>
-    <array>
-        <string>fbapi</string>
-        <string>fb-messenger-share-api</string>
-    </array>
-    <key>CFBundleURLTypes</key>
-    <array>
-        <dict>
-            <key>CFBundleTypeRole</key>
-            <string>Editor</string>
-            <key>CFBundleURLSchemes</key>
-            <array>
-                <string>fb375519307868393</string>
-                <!-- LINEからアプリに戻る際に利用するURLスキーマを追加 -->
-                <string>line3rdp.$(PRODUCT_BUNDLE_IDENTIFIER)</string>
-            </array>
-        </dict>
-    </array>
-    <key>LSApplicationQueriesSchemes</key>
-    <array>
-        <!-- アプリからLINEを起動する際に利用するURLスキーマを追加 -->
-        <string>lineauth2</string>
-    </array>
+	<array>
+		<string>lineauth2</string>
+	</array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb375519307868393</string>
+				<string>line3rdp.$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+			</array>
+		</dict>
+	</array>
 </dict>
 </plist>
