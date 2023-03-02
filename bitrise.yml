@@ -1,0 +1,28 @@
+format_version: "11"
+default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
+project_type: ios
+workflows:
+  add_device:
+    meta:
+      bitrise.io:
+        stack: osx-xcode-14.2.x-ventura
+    steps:
+    - fastlane@3:
+        title: fastlane_add_device
+        inputs:
+        - lane: ios add_device
+        description: fastlane_add_device
+meta:
+  bitrise.io:
+    stack: osx-xcode-14.2.x-ventura
+app:
+  envs:
+  - opts:
+      is_expand: false
+    BITRISE_PROJECT_PATH: PadeLovers.xcworkspace
+  - opts:
+      is_expand: false
+    BITRISE_SCHEME: PadeLovers
+  - opts:
+      is_expand: false
+    BITRISE_DISTRIBUTION_METHOD: app-store
