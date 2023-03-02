@@ -8,23 +8,36 @@ on:
   workflow_dispatch:
     # Inputs the workflow accepts.
     inputs:
-      name:
-        # Friendly description to be shown in the UI instead of 'name'
-        description: 'Person to greet'
-        # Default value if no value is explicitly provided
-        default: 'World'
-        # Input has to be provided for the workflow to run
+      device_name:
+        description: input device name
         required: true
+        type: string
+      device_uuid:
+        description: input device uuid
+        required: true
+        type: string
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "greet"
-  greet:
-    # The type of runner that the job will run on
+  add_device:
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Runs a single command using the runners shell
-    - name: Send greeting
-      run: echo "Hello ${{ github.event.inputs.name }}"
+    - name: Trigger bitrise workflow
+      env:
+        bitrise_api_key: ${{ secrets.BITRISE_API_KEY }}
+      run:
+        curl -H "Authorization: $bitrise_api_key"
+        "https://api.bitrise.io/v0.1/apps//e2ce411a700fac93/builds" -d \
+        '{
+          "build_params":{
+            "environments:[
+              {"mapped_to":"DEVICE_NAME","value":${{ inputs.device_name }}, "is_expand":false},
+              {"mapped_to":"DEVICE_UUID","value":${{ inputs.device_uuid }}, "is_expand":false},
+            ],
+            "workflow_id":"add_device"
+          },
+          "hook_info":{
+            "type":"bitrise"
+          }
+        }'
+                
