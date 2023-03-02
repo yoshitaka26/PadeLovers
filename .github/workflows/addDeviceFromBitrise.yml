@@ -26,7 +26,7 @@ jobs:
       env:
         bitrise_api_key: ${{ secrets.BITRISE_API_KEY }}
       run: |
-        curl --fail -o -H "Authorization: $bitrise_api_key" "https://api.bitrise.io/v0.1/app/e2ce411a700fac93/build/start.json" -d \
+        curl --fail -o -H "Authorization: $bitrise_api_key" "https://api.bitrise.io/v0.1/apps/e2ce411a700fac93/builds/" -d \
         '{
           "build_params":{
             "environments":[
