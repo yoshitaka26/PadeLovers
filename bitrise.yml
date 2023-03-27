@@ -2,16 +2,155 @@ format_version: "11"
 default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
 project_type: ios
 workflows:
+  test_debug:
+    meta:
+      bitrise.io:
+        stack: osx-xcode-14.2.x-ventura
+    steps:
+    - activate-ssh-key@4:
+        run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
+    - git-clone@6: {}
+    - cache-pull@2: {}
+    - script@1:
+        title: Install Ruby
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            set -ex
+            rubyVersionBinaryPath="$(rbenv root)""/versions/""$(< .ruby-version)""/bin/ruby"
+            if [ -e "$rubyVersionBinaryPath" ]; then
+              :
+            else
+              brew update && brew upgrade ruby-build || true # すでにインストール済みだったとしても異常終了にしない
+              rbenv install "$(< .ruby-version)"
+            fi
+    - script@1:
+        title: Install gem by bundler
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            set -ex
+            gem install bundler -v 2.0.2 -N
+            bundler --version
+            bundle install --path vendor/bundle
+    - script@1:
+        title: Install library by CocoaPods
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            set -ex
+            bundle exec pod install --repo-update
+    - script@1:
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            set -ex
+            envman add --key RBENV_RUBY_VERSION_HOME --value "$(rbenv root)""/versions/""$(< .ruby-version)"
+        title: Set Environment Variable for Cache
+    - fastlane@2:
+        inputs:
+        - lane: ios test_debug
+        title: fastlane test_debug
+    - slack@3:
+        title: Slack Notification
+        is_always_run: true
+        inputs:
+        - webhook_url: $SLACK_WEBHOOK_URL
+    - cache-push@2:
+        inputs:
+        - cache_paths: |-
+            $BITRISE_CACHE_DIR
+            $RBENV_RUBY_VERSION_HOME
+            ./vendor/bundle -> ./Gemfile.lock
+            ./Pods -> ./Podfile.lock
+    description: fastlane test_debug の実行
+
+  build_release:
+    meta:
+      bitrise.io:
+        stack: osx-xcode-14.2.x-ventura
+    steps:
+    - activate-ssh-key@4:
+        run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
+    - git-clone@6: {}
+    - cache-pull@2: {}
+    - script@1:
+        title: Install Ruby
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            set -ex
+            rubyVersionBinaryPath="$(rbenv root)""/versions/""$(< .ruby-version)""/bin/ruby"
+            if [ -e "$rubyVersionBinaryPath" ]; then
+              :
+            else
+              brew update && brew upgrade ruby-build || true # すでにインストール済みだったとしても異常終了にしない
+              rbenv install "$(< .ruby-version)"
+            fi
+    - script@1:
+        title: Install gem by bundler
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            set -ex
+            gem install bundler -v 2.0.2 -N
+            bundler --version
+            bundle install --path vendor/bundle
+    - script@1:
+        title: Install library by CocoaPods
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            set -ex
+            bundle exec pod install --repo-update
+    - script@1:
+        title: Set Environment Variable for Cache
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            set -ex
+            # write your script here
+            envman add --key RBENV_RUBY_VERSION_HOME --value "$(rbenv root)""/versions/""$(< .ruby-version)"
+    - fastlane@2:
+        title: fastlane build_release
+        inputs:
+        - lane: ios build_release
+    - slack@3:
+        title: Slack Notification
+        is_always_run: true
+        inputs:
+        - webhook_url: $SLACK_WEBHOOK_URL
+    - cache-push@2:
+        inputs:
+        - cache_paths: |-
+            $BITRISE_CACHE_DIR
+            $RBENV_RUBY_VERSION_HOME
+            ./vendor/bundle -> ./Gemfile.lock
+            ./Pods -> ./Podfile.lock
+    description: fastlane build_releaseを実行するワークフロー
+
   add_device:
     meta:
       bitrise.io:
         stack: osx-xcode-14.2.x-ventura
     steps:
+    - activate-ssh-key@4:
+        run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
+    - git-clone@6: {}
+    - cache-pull@2: {}
     - fastlane@3:
         title: fastlane_add_device
         inputs:
         - lane: ios add_device
         description: fastlane_add_device
+    - slack@3:
+        title: Slack Notification
+        is_always_run: true
+        inputs:
+        - webhook_url: $SLACK_WEBHOOK_URL
+        - title: "Add Device"
+        - message: "デバイスを追加しました" # 失敗時に送信するメッセージ
+        - message_on_error: "デバイス追加に失敗しました" # 失敗時に送信するメッセージ
 meta:
   bitrise.io:
     stack: osx-xcode-14.2.x-ventura

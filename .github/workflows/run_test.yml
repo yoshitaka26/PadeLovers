@@ -1,4 +1,4 @@
-name: Swift
+name: run_test
 
 on:
   push:
