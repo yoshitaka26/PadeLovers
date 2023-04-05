@@ -16,6 +16,45 @@
 default_platform :ios
 
 platform :ios do
+  before_all do
+    ENV['KEYCHAIN_NAME'] = "TempKeychain.keychain"
+  end
+
+  desc "Import Certificates"
+  lane :import_certificates do
+    return unless Helper.is_ci?
+
+    app_store_connect_api_key(
+      key_id: ENV["ASC_KEY_ID"],
+      issuer_id: ENV["ASC_ISSUER_ID"],
+      key_content: ENV["ASC_KEY_CONTENT"],
+      in_house: false
+    )
+
+    create_keychain(
+      name: ENV["KEYCHAIN_NAME"],
+      default_keychain: true,
+      unlock: true,
+      timeout: 3600,
+      add_to_search_list: true,
+      password: ENV["KEYCHAIN_PASS"]
+    )
+
+    match(
+      type: "development",
+      keychain_name: ENV["KEYCHAIN_NAME"],
+      keychain_password: ENV["KEYCHAIN_PASS"],
+      readonly: true
+    )
+
+    match(
+      type: "appstore",
+      keychain_name: ENV["KEYCHAIN_NAME"],
+      keychain_password: ENV["KEYCHAIN_PASS"],
+      readonly: true
+    )
+  end
+
   desc "add_device"
   lane :add_device do
     app_store_connect_api_key(
@@ -25,5 +64,44 @@ platform :ios do
       in_house: false
     )
     register_devices(devices: {ENV["DEVICE_NAME"] => ENV["DEVICE_UUID"]})
+
+    match(type: "development", force_for_new_devices: true)
+  end
+
+  desc "Test Debug App"
+  lane :test_debug do
+    scan(
+      workspace: "PadeLovers.xcworkspace",
+      scheme: "PadeLovers",
+      devices: ["iPhone 11 (15.2)"],
+      configuration: "Debug",
+    )
+  end
+
+  desc "Build for Release"
+  lane :build_release do
+    app_store_connect_api_key(
+      key_id: ENV["ASC_KEY_ID"],
+      issuer_id: ENV["ASC_ISSUER_ID"],
+      key_content: ENV["ASC_KEY_CONTENT"],
+      in_house: false
+    )
+    sigh(
+      app_identifier: "com.yoshitaka.PadeLovers",
+      adhoc: false,
+    )
+    gym(
+      clean: true,
+      workspace: "PadeLovers.xcworkspace",
+      scheme: "PadeLovers",
+      include_bitcode: false,
+      export_method: "app-store"
+    )
+    deliver(
+      force: true,
+      skip_screenshots: true,
+      skip_metadata: true,
+      precheck_include_in_app_purchases: false
+    )
   end
 end
