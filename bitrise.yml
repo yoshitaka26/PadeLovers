@@ -112,6 +112,10 @@ workflows:
             # write your script here
             envman add --key RBENV_RUBY_VERSION_HOME --value "$(rbenv root)""/versions/""$(< .ruby-version)"
     - fastlane@2:
+        title: fastlane import_certificates
+        inputs:
+        - lane: import_certificates
+    - fastlane@2:
         title: fastlane build_release
         inputs:
         - lane: ios build_release
