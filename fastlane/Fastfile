@@ -44,8 +44,8 @@ platform :ios do
       type: "development",
       keychain_name: ENV["KEYCHAIN_NAME"],
       keychain_password: ENV["KEYCHAIN_PASS"],
-      username: ENV["MATCH_USERNAME"],
-      password: ENV["MATCH_PASSWORD"],
+      git_user_email: ENV["MATCH_USERNAME"],
+      git_private_key: ENV["MATCH_PASSWORD"],
       readonly: true
     )
 
@@ -53,8 +53,8 @@ platform :ios do
       type: "appstore",
       keychain_name: ENV["KEYCHAIN_NAME"],
       keychain_password: ENV["KEYCHAIN_PASS"],
-      username: ENV["MATCH_USERNAME"],
-      password: ENV["MATCH_PASSWORD"],
+      git_user_email: ENV["MATCH_USERNAME"],
+      git_private_key: ENV["MATCH_PASSWORD"],
       readonly: true
     )
   end
