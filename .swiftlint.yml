@@ -202,6 +202,7 @@ excluded:
 - PadeLovers/Entity/ManagedObject
 - PadeLoversTests/
 
+- vendor/
 
 # 1行あたりの文字数制限を300に変更
 line_length:
