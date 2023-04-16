@@ -185,7 +185,7 @@
 		E42F216E2852C2D90029970D /* GameViewGameModeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameViewGameModeTableViewCell.xib; sourceTree = "<group>"; };
 		E42F21712852C2EA0029970D /* GameViewGameResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewGameResultTableViewCell.swift; sourceTree = "<group>"; };
 		E42F21722852C2EA0029970D /* GameViewGameResultTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameViewGameResultTableViewCell.xib; sourceTree = "<group>"; };
-		E42F21752852C9D50029970D /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		E42F21752852C9D50029970D /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = R.generated.swift; path = PadeLovers/R.generated.swift; sourceTree = SOURCE_ROOT; };
 		E42F21772852CE150029970D /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		E42F217A2852FB330029970D /* GameModeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModeType.swift; sourceTree = "<group>"; };
 		E42F217C285300A20029970D /* GameViewPlayerTableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewPlayerTableDelegate.swift; sourceTree = "<group>"; };
@@ -1019,15 +1019,17 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
+				"$TEMP_DIR/rswift-lastrun",
 			);
 			name = "Run Script-R.Swift";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				$SRCROOT/generated/R.generated.swift,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/R.generated.swift\"\n";
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/$PROJECT_NAME/R.generated.swift\"\n";
 		};
 		E481F411263ABED400D2B879 /* Run Script-SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
