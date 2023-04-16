@@ -9,13 +9,13 @@
 import Foundation
 import RxSwift
 
-protocol APIDataManagerProtocol {
-    static func fetchWetherData(lon: Double, lat: Double) -> Observable<Result<WeatherResponse, Error>>
-}
-
-class APIDataManager: APIDataManagerProtocol {
-    static func fetchWetherData(lon: Double, lat: Double) -> Observable<Result<WeatherResponse, Error>> {
-        let request = WetherRequest(appid: openWetherMapAPIKey, lon: lon.description, lat: lat.description)
-        return APIProvider.shared.rxSend(request: request)
-    }
-}
+//protocol APIDataManagerProtocol {
+//    static func fetchWetherData(lon: Double, lat: Double) -> Observable<Result<WeatherResponse, Error>>
+//}
+//
+//class APIDataManager: APIDataManagerProtocol {
+//    static func fetchWetherData(lon: Double, lat: Double) -> Observable<Result<WeatherResponse, Error>> {
+//        let request = WetherRequest(appid: openWetherMapAPIKey, lon: lon.description, lat: lat.description)
+//        return APIProvider.shared.rxSend(request: request)
+//    }
+//}

@@ -105,7 +105,6 @@
 		E4575099265698C50036194F /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4575098265698C50036194F /* CoreDataManager.swift */; };
 		E457509E26569EBB0036194F /* NSPresistentContainerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E457509D26569EBB0036194F /* NSPresistentContainerExtension.swift */; };
 		E45BB7CB286B465A00E722D6 /* GameViewSettingSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45BB7CA286B465A00E722D6 /* GameViewSettingSection.swift */; };
-		E45BB7CD2870225A00E722D6 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45BB7CC2870225A00E722D6 /* APIKey.swift */; };
 		E45BB7CF287050D500E722D6 /* NotificationName+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45BB7CE287050D500E722D6 /* NotificationName+Extension.swift */; };
 		E45BB7D1287052E800E722D6 /* FixedPair.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E45BB7D0287052E800E722D6 /* FixedPair.storyboard */; };
 		E45BB7D32870532D00E722D6 /* GameData.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E45BB7D22870532D00E722D6 /* GameData.storyboard */; };
@@ -261,7 +260,6 @@
 		E4575098265698C50036194F /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		E457509D26569EBB0036194F /* NSPresistentContainerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSPresistentContainerExtension.swift; sourceTree = "<group>"; };
 		E45BB7CA286B465A00E722D6 /* GameViewSettingSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewSettingSection.swift; sourceTree = "<group>"; };
-		E45BB7CC2870225A00E722D6 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		E45BB7CE287050D500E722D6 /* NotificationName+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationName+Extension.swift"; sourceTree = "<group>"; };
 		E45BB7D0287052E800E722D6 /* FixedPair.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FixedPair.storyboard; sourceTree = "<group>"; };
 		E45BB7D22870532D00E722D6 /* GameData.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GameData.storyboard; sourceTree = "<group>"; };
@@ -506,7 +504,6 @@
 			isa = PBXGroup;
 			children = (
 				E44672E2264563D30092DEFE /* Const.swift */,
-				E45BB7CC2870225A00E722D6 /* APIKey.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1121,7 +1118,6 @@
 				E433EA542684BA0D00EFC20B /* Score+CoreDataClass.swift in Sources */,
 				E4C4343B26822672006652A7 /* CommonDataBrain.swift in Sources */,
 				E436135B254B7BAB00A2DB3E /* ReplacePlayerViewController.swift in Sources */,
-				E45BB7CD2870225A00E722D6 /* APIKey.swift in Sources */,
 				E42F218F28542C770029970D /* Screen.swift in Sources */,
 				E433EA582684BA0D00EFC20B /* Court+CoreDataClass.swift in Sources */,
 				E4E3DA252673AA8F0009D809 /* ReplacePlayerViewModel.swift in Sources */,
