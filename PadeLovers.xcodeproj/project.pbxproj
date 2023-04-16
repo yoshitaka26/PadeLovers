@@ -1025,7 +1025,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				$SRCROOT/generated/R.generated.swift,
+				$SRCROOT/PadeLovers/R.generated.swift,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
