@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 import FBSDKCoreKit
 import LineSDK
+import FirebaseCore
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -25,6 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         )
 
         LoginManager.shared.setup(channelID: "1657150279", universalLinkURL: nil)
+
+        FirebaseApp.configure()
         
         return true
     }

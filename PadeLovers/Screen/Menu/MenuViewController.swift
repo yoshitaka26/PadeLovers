@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAnalytics
 
 final class MenuViewController: BaseViewController {
     
@@ -80,6 +81,10 @@ final class MenuViewController: BaseViewController {
 extension MenuViewController: StartGameTableViewControllerDelegate {
     // swiftlint:disable force_unwrapping
     func callBackFromStartGameModalVC(type: TableType, padelID: UUID?) {
+
+        Analytics.setUserProperty(padelID?.uuidString ?? "", forName: "padel_id")
+        Analytics.logEvent("show_menu_view", parameters: [:])
+
         let tabBarCon = UITabBarController()
         let gameViewSettingViewController = GameViewSettingViewController.make(type: type, padelId: padelID?.uuidString)
         let gameData = R.storyboard.gameData.instantiateInitialViewController()!

@@ -16,6 +16,8 @@
 		E40F93FD26718E2700231511 /* EditDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40F93FC26718E2700231511 /* EditDataViewModel.swift */; };
 		E40F940226718FDB00231511 /* EditData.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E40F940126718FDB00231511 /* EditData.storyboard */; };
 		E4103C902794007100E12348 /* GamePlayerViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4103C8F2794007100E12348 /* GamePlayerViewModelTest.swift */; };
+		E426C91529FB8E2600F7A52D /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = E426C91429FB8E2600F7A52D /* FirebaseAnalyticsWithoutAdIdSupport */; };
+		E426C91729FB9AF700F7A52D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E426C91629FB9AF700F7A52D /* GoogleService-Info.plist */; };
 		E42C89332672022200961EB1 /* GameDataTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42C89322672022200961EB1 /* GameDataTableViewModel.swift */; };
 		E42C8937267205D700961EB1 /* GameOrganizeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42C8936267205D700961EB1 /* GameOrganizeManager.swift */; };
 		E42F215B285205660029970D /* GameViewPlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42F2159285205660029970D /* GameViewPlayerTableViewCell.swift */; };
@@ -171,6 +173,7 @@
 		E40F940126718FDB00231511 /* EditData.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditData.storyboard; sourceTree = "<group>"; };
 		E4103C8627912AEF00E12348 /* PadeLoversTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PadeLoversTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4103C8F2794007100E12348 /* GamePlayerViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePlayerViewModelTest.swift; sourceTree = "<group>"; };
+		E426C91629FB9AF700F7A52D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E42C89322672022200961EB1 /* GameDataTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDataTableViewModel.swift; sourceTree = "<group>"; };
 		E42C8936267205D700961EB1 /* GameOrganizeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOrganizeManager.swift; sourceTree = "<group>"; };
 		E42F2159285205660029970D /* GameViewPlayerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewPlayerTableViewCell.swift; sourceTree = "<group>"; };
@@ -320,6 +323,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7C49D69804C4EA3B9AA5C13 /* Pods_PadeLovers.framework in Frameworks */,
+				E426C91529FB8E2600F7A52D /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -711,6 +715,7 @@
 		E47F202B2547D56B00996B19 /* PadeLovers */ = {
 			isa = PBXGroup;
 			children = (
+				E426C91629FB9AF700F7A52D /* GoogleService-Info.plist */,
 				E4F9D37E283735AA00759465 /* PadeLovers.entitlements */,
 				E47F202C2547D56B00996B19 /* AppDelegate.swift */,
 				E47F202E2547D56B00996B19 /* SceneDelegate.swift */,
@@ -878,6 +883,9 @@
 			dependencies = (
 			);
 			name = PadeLovers;
+			packageProductDependencies = (
+				E426C91429FB8E2600F7A52D /* FirebaseAnalyticsWithoutAdIdSupport */,
+			);
 			productName = PadeLovers;
 			productReference = E47F20292547D56B00996B19 /* PadeLovers.app */;
 			productType = "com.apple.product-type.application";
@@ -910,6 +918,9 @@
 				Base,
 			);
 			mainGroup = E47F20202547D56B00996B19;
+			packageReferences = (
+				E426C91329FB8E2600F7A52D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = E47F202A2547D56B00996B19 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -961,6 +972,7 @@
 				E48627DA268386A300453425 /* StartGame.storyboard in Resources */,
 				E47F20362547D56D00996B19 /* Assets.xcassets in Resources */,
 				E45BB7D32870532D00E722D6 /* GameData.storyboard in Resources */,
+				E426C91729FB9AF700F7A52D /* GoogleService-Info.plist in Resources */,
 				E43DCAF22686FE4E0078C4AF /* SettingView.storyboard in Resources */,
 				E4D131E927B27F2D0034B2D0 /* Settings.bundle in Resources */,
 				E42FAD302678AFDB00F9B7DD /* PlayerResultCollectionViewCell.xib in Resources */,
@@ -1484,6 +1496,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E426C91329FB8E2600F7A52D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E426C91429FB8E2600F7A52D /* FirebaseAnalyticsWithoutAdIdSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E426C91329FB8E2600F7A52D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsWithoutAdIdSupport;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		E4575094265695590036194F /* PadeLovers.xcdatamodeld */ = {
