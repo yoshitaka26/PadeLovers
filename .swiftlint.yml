@@ -202,6 +202,8 @@ excluded:
 - PadeLovers/Entity/ManagedObject
 - PadeLoversTests/
 
+- .build # Where Swift Package Manager checks out dependency sources
+
 - vendor/
 
 # 1行あたりの文字数制限を300に変更

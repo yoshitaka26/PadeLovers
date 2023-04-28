@@ -876,7 +876,6 @@
 				E47F20272547D56B00996B19 /* Resources */,
 				B70A5C5A315480C27E1CF6B7 /* [CP] Embed Pods Frameworks */,
 				E481F411263ABED400D2B879 /* Run Script-SwiftLint */,
-				E4D131EA27B8C83E0034B2D0 /* Run Script-license-plist */,
 			);
 			buildRules = (
 			);
@@ -1060,24 +1059,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if which \"${PODS_ROOT}/SwiftLint/swiftlint\" >/dev/null; then\n${PODS_ROOT}/SwiftLint/swiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
-		E4D131EA27B8C83E0034B2D0 /* Run Script-license-plist */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Run Script-license-plist";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if [ $CONFIGURATION = \"Debug\" ]; then\n/opt/homebrew/bin/LicensePlist/license-plist --output-path $PRODUCT_NAME/Resources/Settings.bundle --github-token YOUR_GITHUB_TOKEN\nfi\n";
 		};
 		F5BC0ADF6AAA7DBB028FC5BE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
