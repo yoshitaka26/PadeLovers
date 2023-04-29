@@ -40,6 +40,10 @@ workflows:
             #!/usr/bin/env bash
             set -ex
             bundle exec pod install --repo-update
+    - file-downloader@1:
+        inputs:
+        - destination: $BITRISE_SOURCE_DIR/PadeLovers/GoogleService-Info.plist
+        - source: $BITRISEIO_GoogleService_Info_PadeLovers_URL
     - script@1:
         inputs:
         - content: |-
@@ -103,6 +107,10 @@ workflows:
             #!/usr/bin/env bash
             set -ex
             bundle exec pod install --repo-update
+    - file-downloader@1:
+        inputs:
+        - destination: $BITRISE_SOURCE_DIR/PadeLovers/GoogleService-Info.plist
+        - source: $BITRISEIO_GoogleService_Info_PadeLovers_URL
     - script@1:
         title: Set Environment Variable for Cache
         inputs:
