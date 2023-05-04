@@ -42,7 +42,7 @@
 		E42F2185285363F70029970D /* UIViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42F2184285363F70029970D /* UIViewController+Rx.swift */; };
 		E42F218728538DCC0029970D /* CoreDataManagerable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42F218628538DCC0029970D /* CoreDataManagerable.swift */; };
 		E42F2189285401750029970D /* Pairing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42F2188285401750029970D /* Pairing.swift */; };
-		E42F218B285423930029970D /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42F218A285423930029970D /* UserDefaultsManager.swift */; };
+		E42F218B285423930029970D /* UserDefaultsUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42F218A285423930029970D /* UserDefaultsUtil.swift */; };
 		E42F218F28542C770029970D /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42F218E28542C770029970D /* Screen.swift */; };
 		E42F219128542CE90029970D /* UIViewController+Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42F219028542CE90029970D /* UIViewController+Router.swift */; };
 		E42F219328542DF80029970D /* UINavigationController+Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42F219228542DF80029970D /* UINavigationController+Router.swift */; };
@@ -198,7 +198,7 @@
 		E42F2184285363F70029970D /* UIViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Rx.swift"; sourceTree = "<group>"; };
 		E42F218628538DCC0029970D /* CoreDataManagerable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManagerable.swift; sourceTree = "<group>"; };
 		E42F2188285401750029970D /* Pairing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pairing.swift; sourceTree = "<group>"; };
-		E42F218A285423930029970D /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		E42F218A285423930029970D /* UserDefaultsUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsUtil.swift; sourceTree = "<group>"; };
 		E42F218E28542C770029970D /* Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
 		E42F219028542CE90029970D /* UIViewController+Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Router.swift"; sourceTree = "<group>"; };
 		E42F219228542DF80029970D /* UINavigationController+Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Router.swift"; sourceTree = "<group>"; };
@@ -678,7 +678,7 @@
 				E4C4343A26822672006652A7 /* CommonDataBrain.swift */,
 				E4529E222682E93E003DEC63 /* ValidationManager.swift */,
 				E46739A82686908200C7F745 /* RandomNumberTableManager.swift */,
-				E42F218A285423930029970D /* UserDefaultsManager.swift */,
+				E42F218A285423930029970D /* UserDefaultsUtil.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -1124,7 +1124,7 @@
 				E483164827ED606D0091B0DF /* ResponseError.swift in Sources */,
 				E42F216B2852C2BC0029970D /* GameViewPlayerCountTableViewCell.swift in Sources */,
 				E42F218128535F690029970D /* GameViewSettingViewController.swift in Sources */,
-				E42F218B285423930029970D /* UserDefaultsManager.swift in Sources */,
+				E42F218B285423930029970D /* UserDefaultsUtil.swift in Sources */,
 				E447EF0D2755FEFD001601A7 /* MainSettingTableViewController.swift in Sources */,
 				E43DCAF52686FF980078C4AF /* SettingViewController.swift in Sources */,
 				E433EA592684BA0D00EFC20B /* Court+CoreDataProperties.swift in Sources */,

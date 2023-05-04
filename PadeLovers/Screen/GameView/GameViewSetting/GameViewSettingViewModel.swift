@@ -41,7 +41,7 @@ final class GameViewSettingViewModel {
 
     private let disposeBag = DisposeBag()
     private let coreDataManager: CoreDataManagerable
-    private let userDefaultsManager = UserDefaultsManager.shared
+    private let userDefaultsManager = UserDefaultsUtil.shared
     private var padelID: String
     // テストの為privateにはしない
     let minuteSeconds = 60
