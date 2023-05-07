@@ -761,7 +761,7 @@ extension CoreDataManager: CoreDataManagerable {
         }
     }
 
-    func updateMasterPlayers(groupID: String, players: [MasterPlayer]) -> Bool {
+    func updateMasterPlayerGroup(groupID: String, groupName: String, players: [MasterPlayer]) -> Bool {
         guard players.count > 3 else { return false }
         let fetchRequest = createRequest(objectType: .masterPlayerGroup)
         let uuid = NSUUID(uuidString: groupID)
@@ -771,6 +771,7 @@ extension CoreDataManager: CoreDataManagerable {
         do {
             let masterPlayerGroups = try managerObjectContext.fetch(fetchRequest) as! [MasterPlayerGroup]
             guard let group = masterPlayerGroups.first else { return false }
+            group.name = groupName
             group.player = NSSet(array: players)
             saveContext()
 

@@ -150,6 +150,7 @@
 		E4F29F642A076DE9006BC063 /* MasterPlayerGroup+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F29F602A076DE9006BC063 /* MasterPlayerGroup+CoreDataProperties.swift */; };
 		E4F29F652A076DE9006BC063 /* MasterPlayer+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F29F612A076DE9006BC063 /* MasterPlayer+CoreDataClass.swift */; };
 		E4F29F662A076DE9006BC063 /* MasterPlayer+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F29F622A076DE9006BC063 /* MasterPlayer+CoreDataProperties.swift */; };
+		E4F29F682A077811006BC063 /* MasterPlayerGroup+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F29F672A077811006BC063 /* MasterPlayerGroup+Additional.swift */; };
 		E4F9D38128373C5E00759465 /* ShareGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F9D38028373C5E00759465 /* ShareGameViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -313,6 +314,7 @@
 		E4F29F602A076DE9006BC063 /* MasterPlayerGroup+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MasterPlayerGroup+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E4F29F612A076DE9006BC063 /* MasterPlayer+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MasterPlayer+CoreDataClass.swift"; sourceTree = "<group>"; };
 		E4F29F622A076DE9006BC063 /* MasterPlayer+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MasterPlayer+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E4F29F672A077811006BC063 /* MasterPlayerGroup+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MasterPlayerGroup+Additional.swift"; sourceTree = "<group>"; };
 		E4F9D37E283735AA00759465 /* PadeLovers.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PadeLovers.entitlements; sourceTree = "<group>"; };
 		E4F9D38028373C5E00759465 /* ShareGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareGameViewController.swift; sourceTree = "<group>"; };
 		E8911760E1ABF8DB5F2D01DD /* Pods-PadeLovers.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PadeLovers.release.xcconfig"; path = "Target Support Files/Pods-PadeLovers/Pods-PadeLovers.release.xcconfig"; sourceTree = "<group>"; };
@@ -677,6 +679,7 @@
 				E4514332266F247300BE6329 /* Player+Additional.swift */,
 				E498854B267368AE004ECB01 /* Game+Additional.swift */,
 				E42F2188285401750029970D /* Pairing.swift */,
+				E4F29F672A077811006BC063 /* MasterPlayerGroup+Additional.swift */,
 			);
 			path = Additions;
 			sourceTree = "<group>";
@@ -1111,6 +1114,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E433EA552684BA0D00EFC20B /* Score+CoreDataProperties.swift in Sources */,
+				E4F29F682A077811006BC063 /* MasterPlayerGroup+Additional.swift in Sources */,
 				E42F215F2852C24B0029970D /* GameViewCourtTableViewCell.swift in Sources */,
 				E42F219328542DF80029970D /* UINavigationController+Router.swift in Sources */,
 				E42F21732852C2EA0029970D /* GameViewGameResultTableViewCell.swift in Sources */,

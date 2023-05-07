@@ -86,7 +86,11 @@ struct CommonDataBrain {
                 players[i].gender = playerData1[i].playerGender
             }
 
-            guard coreDataManager.updateMasterPlayers(groupID: group.id!.uuidString , players: players) else { return }
+            guard coreDataManager.updateMasterPlayerGroup(
+                groupID: group.id!.uuidString,
+                groupName: group.name ?? "グループA",
+                players: players
+            ) else { return }
         }
 
         if let playerData2 = CommonDataBrain.shared.loadPlayers(group: .group2),
@@ -105,7 +109,11 @@ struct CommonDataBrain {
                 players[i].gender = playerData2[i].playerGender
             }
 
-            guard coreDataManager.updateMasterPlayers(groupID: group.id!.uuidString , players: players) else { return }
+            guard coreDataManager.updateMasterPlayerGroup(
+                groupID: group.id!.uuidString,
+                groupName: group.name ?? "グループB",
+                players: players
+            ) else { return }
         }
 
         if let playerData3 = CommonDataBrain.shared.loadPlayers(group: .group3),
@@ -124,7 +132,11 @@ struct CommonDataBrain {
                 players[i].gender = playerData3[i].playerGender
             }
 
-            guard coreDataManager.updateMasterPlayers(groupID: group.id!.uuidString , players: players) else { return }
+            guard coreDataManager.updateMasterPlayerGroup(
+                groupID: group.id!.uuidString,
+                groupName: group.name ?? "グループC",
+                players: players
+            ) else { return }
         }
 
         UserDefaultsUtil.shared.playerDataMigratedToCoreData = true

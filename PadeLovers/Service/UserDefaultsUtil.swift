@@ -20,6 +20,14 @@ final class UserDefaultsUtil {
         case appLastLaunchDate
         case appLaunchCount
         case playerDataMigratedToCoreData
+
+        case court
+        // 過去に使用
+        case player
+        case gender
+        case group1
+        case group2
+        case group3
     }
 }
 
