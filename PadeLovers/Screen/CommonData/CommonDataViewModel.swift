@@ -112,10 +112,10 @@ extension CommonDataViewModel {
         tabButtonSelected
             .subscribe(onNext: { [weak self] type in
                 guard let self else { return }
-//                guard self.masterPlayerGroupList.count < tableType.value.rawValue else {
-//                    assertionFailure()
-//                    return
-//                }
+                guard self.masterPlayerGroupList.count == 3 else {
+                    assertionFailure()
+                    return
+                }
 
                 switch self.tableType.value {
                 case .court:
@@ -138,7 +138,7 @@ extension CommonDataViewModel {
         loadData
             .subscribe(onNext: { [weak self] _ in
                 guard let self else { return }
-                guard self.masterPlayerGroupList.count > self.tableType.value.rawValue else {
+                guard self.masterPlayerGroupList.count == 3 else {
                     assertionFailure()
                     return
                 }

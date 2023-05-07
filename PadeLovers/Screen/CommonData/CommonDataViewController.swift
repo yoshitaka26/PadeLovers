@@ -160,16 +160,14 @@ extension CommonDataViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.prepareForReuse()
                 cell.numberLabel.text = String(indexPath.row)
 
-                _ = viewModel.masterPlayerList.value.map {
-                    $0.subscribe(onNext: { [weak self] player in
-                        guard let self else { return }
+                cell.awakeFromNib()
+                viewModel.masterPlayerList.value[indexPath.row - 1]
+                    .subscribe(onNext: { player in
                         cell.nameTextField.text = player.name
                         cell.genderSegment.selectedSegmentIndex = player.gender ? 0 : 1
                     })
                     .disposed(by: disposeBag)
-                }
 
-                cell.awakeFromNib()
                 cell.nameTextField.rx.controlEvent(.editingDidEnd).asDriver()
                     .drive(onNext: { [weak self] _ in
                         guard let self else { return }
@@ -178,13 +176,13 @@ extension CommonDataViewController: UITableViewDelegate, UITableViewDataSource {
                         case .valid:
                             self.viewModel.playerCellTextFieldTextInput.accept((
                                 text: cell.nameTextField.text ?? "",
-                                index: indexPath.row
+                                index: indexPath.row - 1
                             ))
                         case .invalid:
                             self.warningAlertView(withTitle: "名前が登録できません")
                             self.viewModel.playerCellTextFieldTextInput.accept((
                                 text: "",
-                                index: indexPath.row
+                                index: indexPath.row - 1
                             ))
                         }
                 }).disposed(by: cell.disposeBag)
@@ -194,7 +192,7 @@ extension CommonDataViewController: UITableViewDelegate, UITableViewDataSource {
                         guard let self else { return }
                         self.viewModel.playerCellGenderSegment.accept((
                             gender: gender == 0,
-                            index: indexPath.row
+                            index: indexPath.row - 1
                         ))
                     })
                     .disposed(by: disposeBag)
