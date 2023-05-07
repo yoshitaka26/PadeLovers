@@ -19,6 +19,7 @@ final class UserDefaultsUtil {
         case newCourt
         case appLastLaunchDate
         case appLaunchCount
+        case playerDataMigratedToCoreData
     }
 }
 
@@ -32,6 +33,7 @@ extension UserDefaultsUtil {
             UserDefaults.standard.set(newValue, forKey: StringKey.padelId.rawValue)
         }
     }
+
     var courtNames: [String]? {
         get {
             return UserDefaults.standard.value(forKey: StringKey.newCourt.rawValue) as? [String]
@@ -59,6 +61,15 @@ extension UserDefaultsUtil {
         }
         set {
             userDefaults.set(newValue, forKey: StringKey.appLastLaunchDate.rawValue)
+        }
+    }
+
+    var playerDataMigratedToCoreData: Bool {
+        get {
+            return UserDefaults.standard.bool(forKey: StringKey.playerDataMigratedToCoreData.rawValue)
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: StringKey.playerDataMigratedToCoreData.rawValue)
         }
     }
 }

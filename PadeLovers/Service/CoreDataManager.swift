@@ -17,6 +17,8 @@ enum CoreDataObjectType: String {
     case pairingB = "PairingB"
     case court = "Court"
     case score = "Score"
+    case masterPlayer = "MasterPlayer"
+    case masterPlayerGroup = "MasterPlayerGroup"
 }
 
 final class CoreDataManager {
@@ -64,12 +66,12 @@ final class CoreDataManager {
 
 extension CoreDataManager: CoreDataManagerable {
     func initPadel(players: [CommonPlayerDataModel], courts: [String]) -> String {
-        let main = createNewObject(objecteType: .padel) as! Padel
+        let main = createNewObject(objectType: .padel) as! Padel
         let ID = UUID()
         main.padelID = ID
         main.date = Date()
         for index in 0...2 {
-            let court = createNewObject(objecteType: .court) as! Court
+            let court = createNewObject(objectType: .court) as! Court
             court.courtID = Int16(index)
             if index < courts.count {
                 if courts[index] != "" {
@@ -88,7 +90,7 @@ extension CoreDataManager: CoreDataManagerable {
             main.insertIntoCourts(court, at: index)
         }
         for index in 0...20 {
-            let player = createNewObject(objecteType: .player) as! Player
+            let player = createNewObject(objectType: .player) as! Player
             player.padelID = ID
             player.playerID = Int16(index)
             if index < players.count {
@@ -104,17 +106,17 @@ extension CoreDataManager: CoreDataManagerable {
             player.pair2 = [Int16(index)]
             main.insertIntoPlayers(player, at: index)
         }
-        let pairingA = createNewObject(objecteType: .pairingA) as! PairingA
+        let pairingA = createNewObject(objectType: .pairingA) as! PairingA
         pairingA.padelID = ID
         pairingA.padel = main
-        let pairingB = createNewObject(objecteType: .pairingB) as! PairingB
+        let pairingB = createNewObject(objectType: .pairingB) as! PairingB
         pairingB.padelID = ID
         pairingB.padel = main
         saveContext()
         return ID.uuidString
     }
     func deletePadel(uuidString: String) -> Bool {
-        let fetchRequest = createRequest(objecteType: .padel)
+        let fetchRequest = createRequest(objectType: .padel)
         let uuid = NSUUID(uuidString: uuidString)
         let predicate = NSPredicate(format: "%K == %@", "padelID", uuid!)
         fetchRequest.predicate = predicate
@@ -136,9 +138,9 @@ extension CoreDataManager: CoreDataManagerable {
         }
     }
     func loadAllPadelNew() -> [Padel] {
-        let fetchRequest = createRequest(objecteType: .padel)
-        let sortDescripter = NSSortDescriptor(key: "date", ascending: false)
-        fetchRequest.sortDescriptors = [sortDescripter]
+        let fetchRequest = createRequest(objectType: .padel)
+        let sortDescriptor = NSSortDescriptor(key: "date", ascending: false)
+        fetchRequest.sortDescriptors = [sortDescriptor]
         do {
             let padels = try managerObjectContext.fetch(fetchRequest) as! [Padel]
             return padels
@@ -147,9 +149,9 @@ extension CoreDataManager: CoreDataManagerable {
         }
     }
     func loadAllPadelOld() -> [Padel] {
-        let fetchRequest = createRequest(objecteType: .padel)
-        let sortDescripter = NSSortDescriptor(key: "date", ascending: true)
-        fetchRequest.sortDescriptors = [sortDescripter]
+        let fetchRequest = createRequest(objectType: .padel)
+        let sortDescriptor = NSSortDescriptor(key: "date", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
         do {
             let padels = try managerObjectContext.fetch(fetchRequest) as! [Padel]
             return padels
@@ -158,7 +160,7 @@ extension CoreDataManager: CoreDataManagerable {
         }
     }
     func loadPadel(uuidString: String) -> Padel? {
-        let fetchRequest = createRequest(objecteType: .padel)
+        let fetchRequest = createRequest(objectType: .padel)
         let uuid = NSUUID(uuidString: uuidString)
         let predicate = NSPredicate(format: "%K == %@", "padelID", uuid!)
         fetchRequest.predicate = predicate
@@ -171,12 +173,12 @@ extension CoreDataManager: CoreDataManagerable {
         }
     }
     func loadOnGames(uuidString: String) -> [Game] {
-        let fetchRequest = createRequest(objecteType: .game)
+        let fetchRequest = createRequest(objectType: .game)
         let uuid = NSUUID(uuidString: uuidString)
         let predicate = NSPredicate(format: "%K == %@", "padelID", uuid!)
         fetchRequest.predicate = predicate
-        let sortDescripter = NSSortDescriptor(key: "startAt", ascending: true)
-        fetchRequest.sortDescriptors = [sortDescripter]
+        let sortDescriptor = NSSortDescriptor(key: "startAt", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
         do {
             var games = try managerObjectContext.fetch(fetchRequest) as! [Game]
             games = games.filter { !$0.isEnd }
@@ -186,7 +188,7 @@ extension CoreDataManager: CoreDataManagerable {
         }
     }
     func loadGameByCourtId(uuidString: String, courtID: Int16) -> Game? {
-        let fetchRequest = createRequest(objecteType: .game)
+        let fetchRequest = createRequest(objectType: .game)
         let uuid = NSUUID(uuidString: uuidString)
         let predicate = NSPredicate(format: "%K == %@ AND %K == %@", "padelID", uuid!, "isEnd", NSNumber(value: false))
         fetchRequest.predicate = predicate
@@ -203,12 +205,12 @@ extension CoreDataManager: CoreDataManagerable {
         }
     }
     func loadGamesForResult(uuidString: String) -> [Game] {
-        let fetchRequest = createRequest(objecteType: .game)
+        let fetchRequest = createRequest(objectType: .game)
         let uuid = NSUUID(uuidString: uuidString)
         let predicate = NSPredicate(format: "%K == %@ AND %K == %@", "padelID", uuid!, "isEnd", NSNumber(value: true))
         fetchRequest.predicate = predicate
-        let sortDescripter = NSSortDescriptor(key: "gameID", ascending: true)
-        fetchRequest.sortDescriptors = [sortDescripter]
+        let sortDescriptor = NSSortDescriptor(key: "gameID", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
         do {
             let games = try managerObjectContext.fetch(fetchRequest) as! [Game]
             return games
@@ -217,7 +219,7 @@ extension CoreDataManager: CoreDataManagerable {
         }
     }
     func loadPlayersOfGameByCourtID(uuidString: String, courtID: Int) -> [Player] {
-        let fetchRequest = createRequest(objecteType: .court)
+        let fetchRequest = createRequest(objectType: .court)
         let uuid = NSUUID(uuidString: uuidString)
         let predicate = NSPredicate(format: "%K == %@ AND %K = %d", "padelID", uuid!, "courtID", courtID)
         fetchRequest.predicate = predicate
@@ -232,7 +234,7 @@ extension CoreDataManager: CoreDataManagerable {
     }
     func deleteGame(uuidString: String, gameID: Int16) {
         guard let padel = loadPadel(uuidString: uuidString) else { return }
-        let fetchRequest = createRequest(objecteType: .game)
+        let fetchRequest = createRequest(objectType: .game)
         let uuid = NSUUID(uuidString: uuidString)
         let predicate = NSPredicate(format: "%K == %@ AND %K = %d", "padelID", uuid!, "gameID", gameID)
         fetchRequest.predicate = predicate
@@ -249,7 +251,7 @@ extension CoreDataManager: CoreDataManagerable {
         }
     }
     func deleteAllGames(uuidString: String) {
-        let fetchRequest = createRequest(objecteType: .game)
+        let fetchRequest = createRequest(objectType: .game)
         let uuid = NSUUID(uuidString: uuidString)
         let predicate = NSPredicate(format: "%K == %@", "padelID", uuid!)
         fetchRequest.predicate = predicate
@@ -267,12 +269,12 @@ extension CoreDataManager: CoreDataManagerable {
     }
     // MARK: Player
     func loadAllPlayers(uuidString: String) -> [Player] {
-        let fetchRequest = createRequest(objecteType: .player)
+        let fetchRequest = createRequest(objectType: .player)
         let uuid = NSUUID(uuidString: uuidString)
         let predicate = NSPredicate(format: "%K == %@", "padelID", uuid!)
         fetchRequest.predicate = predicate
-        let sortDescripter = NSSortDescriptor(key: "playerID", ascending: true)
-        fetchRequest.sortDescriptors = [sortDescripter]
+        let sortDescriptor = NSSortDescriptor(key: "playerID", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
         do {
             let players = try managerObjectContext.fetch(fetchRequest) as! [Player]
             return players
@@ -281,12 +283,12 @@ extension CoreDataManager: CoreDataManagerable {
         }
     }
     func loadPlayingPlayers(uuidString: String) -> [Player] {
-        let fetchRequest = createRequest(objecteType: .player)
+        let fetchRequest = createRequest(objectType: .player)
         let uuid = NSUUID(uuidString: uuidString)
         let predicate = NSPredicate(format: "%K == %@ AND %K == %@", "padelID", uuid!, "isPlaying", NSNumber(value: true))
         fetchRequest.predicate = predicate
-        let sortDescripter = NSSortDescriptor(key: "playerID", ascending: true)
-        fetchRequest.sortDescriptors = [sortDescripter]
+        let sortDescriptor = NSSortDescriptor(key: "playerID", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
         do {
             let players = try managerObjectContext.fetch(fetchRequest) as! [Player]
             return players
@@ -295,13 +297,13 @@ extension CoreDataManager: CoreDataManagerable {
         }
     }
     func loadPlayersForResultData(uuidString: String) -> [Player] {
-        let fetchRequest = createRequest(objecteType: .player)
+        let fetchRequest = createRequest(objectType: .player)
         let uuid = NSUUID(uuidString: uuidString)
         let predicate = NSPredicate(format: "%K == %@", "padelID", uuid!)
         fetchRequest.predicate = predicate
-        let sortDescripter = NSSortDescriptor(key: "playerID", ascending: true)
-        let sortDescripterAdditional = NSSortDescriptor(key: "isPlaying", ascending: false)
-        fetchRequest.sortDescriptors = [sortDescripterAdditional, sortDescripter]
+        let sortDescriptor = NSSortDescriptor(key: "playerID", ascending: true)
+        let sortDescriptorAdditional = NSSortDescriptor(key: "isPlaying", ascending: false)
+        fetchRequest.sortDescriptors = [sortDescriptorAdditional, sortDescriptor]
         do {
             var players = try managerObjectContext.fetch(fetchRequest) as! [Player]
             players = players.filter { $0.isPlaying || $0.counts > 0 }
@@ -311,12 +313,12 @@ extension CoreDataManager: CoreDataManagerable {
         }
     }
     func loadPlayersForNewGame(uuidString: String) -> [Player] {
-        let fetchRequest = createRequest(objecteType: .player)
+        let fetchRequest = createRequest(objectType: .player)
         let uuid = NSUUID(uuidString: uuidString)
         let predicate = NSPredicate(format: "%K == %@ AND %K == %@", "padelID", uuid!, "isPlaying", NSNumber(value: true))
         fetchRequest.predicate = predicate
-        let sortDescripter = NSSortDescriptor(key: "playerID", ascending: true)
-        fetchRequest.sortDescriptors = [sortDescripter]
+        let sortDescriptor = NSSortDescriptor(key: "playerID", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
         do {
             var players = try managerObjectContext.fetch(fetchRequest) as! [Player]
             players = players.filter {
@@ -330,7 +332,7 @@ extension CoreDataManager: CoreDataManagerable {
         }
     }
     func loadPlayersOnGame(uuidString: String, gameID: Int16) -> [Player] {
-        let fetchRequest = createRequest(objecteType: .game)
+        let fetchRequest = createRequest(objectType: .game)
         let uuid = NSUUID(uuidString: uuidString)
         let predicate = NSPredicate(format: "%K == %@ AND %K = %d", "padelID", uuid!, "gameID", gameID)
         fetchRequest.predicate = predicate
@@ -343,7 +345,7 @@ extension CoreDataManager: CoreDataManagerable {
         }
     }
     func countPlayers(uuidString: String) -> Int {
-        let fetchRequest = createRequest(objecteType: .player)
+        let fetchRequest = createRequest(objectType: .player)
         let uuid = NSUUID(uuidString: uuidString)
         let predicate = NSPredicate(format: "%K == %@ AND %K == %@", "padelID", uuid!, "isPlaying", NSNumber(value: true))
         fetchRequest.predicate = predicate
@@ -369,7 +371,7 @@ extension CoreDataManager: CoreDataManagerable {
         return count
     }
     func loadPlayerForEditingData(uuidString: String, playerID: Int) -> Player? {
-        let fetchRequest = createRequest(objecteType: .player)
+        let fetchRequest = createRequest(objectType: .player)
         let uuid = NSUUID(uuidString: uuidString)
         let predicate = NSPredicate(format: "%K == %@ AND %K = %d", "padelID", uuid!, "playerID", playerID)
         fetchRequest.predicate = predicate
@@ -382,7 +384,7 @@ extension CoreDataManager: CoreDataManagerable {
         }
     }
     func updateIsPlaying(uuidString: String, playerID: Int, isOn isPlaying: Bool) -> Int {
-        let fetchRequest = createRequest(objecteType: .player)
+        let fetchRequest = createRequest(objectType: .player)
         let uuid = NSUUID(uuidString: uuidString)
         let predicate = NSPredicate(format: "%K == %@ AND %K = %d", "padelID", uuid!, "playerID", playerID)
         fetchRequest.predicate = predicate
@@ -419,7 +421,7 @@ extension CoreDataManager: CoreDataManagerable {
     }
     // MARK: GameMode
     func updateGameMode(uuidString: String, isOn: Bool) {
-        let fetchRequest = createRequest(objecteType: .padel)
+        let fetchRequest = createRequest(objectType: .padel)
         let uuid = NSUUID(uuidString: uuidString)
         let predicate = NSPredicate(format: "%K == %@", "padelID", uuid!)
         fetchRequest.predicate = predicate
@@ -434,7 +436,7 @@ extension CoreDataManager: CoreDataManagerable {
     }
     // MARK: GameResult
     func updateShowResult(uuidString: String, isOn: Bool) {
-        let fetchRequest = createRequest(objecteType: .padel)
+        let fetchRequest = createRequest(objectType: .padel)
         let uuid = NSUUID(uuidString: uuidString)
         let predicate = NSPredicate(format: "%K == %@", "padelID", uuid!)
         fetchRequest.predicate = predicate
@@ -449,12 +451,12 @@ extension CoreDataManager: CoreDataManagerable {
     }
     // MARK: Court
     func loadCourts(uuidString: String) -> [Court] {
-        let fetchRequest = createRequest(objecteType: .court)
+        let fetchRequest = createRequest(objectType: .court)
         let uuid = NSUUID(uuidString: uuidString)
         let predicate = NSPredicate(format: "%K == %@", "padelID", uuid!)
         fetchRequest.predicate = predicate
-        let sortDescripter = NSSortDescriptor(key: "courtID", ascending: true)
-        fetchRequest.sortDescriptors = [sortDescripter]
+        let sortDescriptor = NSSortDescriptor(key: "courtID", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
         do {
             let courts = try managerObjectContext.fetch(fetchRequest) as! [Court]
             return courts
@@ -463,7 +465,7 @@ extension CoreDataManager: CoreDataManagerable {
         }
     }
     func loadCourt(uuidString: String, courtID: Int16) -> Court? {
-        let fetchRequest = createRequest(objecteType: .court)
+        let fetchRequest = createRequest(objectType: .court)
         let uuid = NSUUID(uuidString: uuidString)
         let predicate = NSPredicate(format: "%K == %@ AND %K = %d", "padelID", uuid!, "courtID", courtID)
         fetchRequest.predicate = predicate
@@ -476,12 +478,12 @@ extension CoreDataManager: CoreDataManagerable {
         }
     }
     func loadCourtsIsOn(uuidString: String) -> [Court] {
-        let fetchRequest = createRequest(objecteType: .court)
+        let fetchRequest = createRequest(objectType: .court)
         let uuid = NSUUID(uuidString: uuidString)
         let predicate = NSPredicate(format: "%K == %@ AND %K == %@", "padelID", uuid!, "isOn", NSNumber(value: true))
         fetchRequest.predicate = predicate
-        let sortDescripter = NSSortDescriptor(key: "courtID", ascending: true)
-        fetchRequest.sortDescriptors = [sortDescripter]
+        let sortDescriptor = NSSortDescriptor(key: "courtID", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
         do {
             let courts = try managerObjectContext.fetch(fetchRequest) as! [Court]
             return courts
@@ -490,7 +492,7 @@ extension CoreDataManager: CoreDataManagerable {
         }
     }
     func updateCourtIsOn(uuidString: String, courtID: Int, isOn: Bool) -> Bool {
-        let fetchRequest = createRequest(objecteType: .court)
+        let fetchRequest = createRequest(objectType: .court)
         let uuid = NSUUID(uuidString: uuidString)
         let predicate = NSPredicate(format: "%K == %@ AND %K = %d", "padelID", uuid!, "courtID", courtID)
         fetchRequest.predicate = predicate
@@ -508,12 +510,12 @@ extension CoreDataManager: CoreDataManagerable {
         }
     }
     func returnEmptyCourtNum(uuidString: String) -> Int {
-        let fetchRequest = createRequest(objecteType: .court)
+        let fetchRequest = createRequest(objectType: .court)
         let uuid = NSUUID(uuidString: uuidString)
         let predicate = NSPredicate(format: "%K == %@", "padelID", uuid!)
         fetchRequest.predicate = predicate
-        let sortDescripter = NSSortDescriptor(key: "courtID", ascending: true)
-        fetchRequest.sortDescriptors = [sortDescripter]
+        let sortDescriptor = NSSortDescriptor(key: "courtID", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
         do {
             let courts = try managerObjectContext.fetch(fetchRequest) as! [Court]
             var num = 0
@@ -527,7 +529,7 @@ extension CoreDataManager: CoreDataManagerable {
     }
     // MARK: Pairing
     func loadPairing(uuidString: String) -> [Pairing] {
-        let fetchRequest = createRequest(objecteType: .padel)
+        let fetchRequest = createRequest(objectType: .padel)
         let uuid = NSUUID(uuidString: uuidString)
         let predicate = NSPredicate(format: "%K == %@", "padelID", uuid!)
         fetchRequest.predicate = predicate
@@ -541,7 +543,7 @@ extension CoreDataManager: CoreDataManagerable {
     }
     func updatePairing(uuidString: String, pairingType: PairingType, isOn: Bool) {
         let objectType = changePairingTypeToObjectType(pairingType: pairingType)
-        let fetchRequest = createRequest(objecteType: objectType)
+        let fetchRequest = createRequest(objectType: objectType)
         let uuid = NSUUID(uuidString: uuidString)
         let predicate = NSPredicate(format: "%K == %@", "padelID", uuid!)
         fetchRequest.predicate = predicate
@@ -556,7 +558,7 @@ extension CoreDataManager: CoreDataManagerable {
     }
     func deletePairing(uuidString: String, pairingType: PairingType) {
         let objectType = changePairingTypeToObjectType(pairingType: pairingType)
-        let fetchRequest = createRequest(objecteType: objectType)
+        let fetchRequest = createRequest(objectType: objectType)
         let uuid = NSUUID(uuidString: uuidString)
         let predicate = NSPredicate(format: "%K == %@", "padelID", uuid!)
         fetchRequest.predicate = predicate
@@ -584,12 +586,12 @@ extension CoreDataManager: CoreDataManagerable {
         }
     }
     func loadPlayersForPairing(uuidString: String, pairingType: PairingType) -> [Player] {
-        let fetchRequest = createRequest(objecteType: .player)
+        let fetchRequest = createRequest(objectType: .player)
         let uuid = NSUUID(uuidString: uuidString)
         let predicate = NSPredicate(format: "%K == %@ AND %K == %@", "padelID", uuid!, "isPlaying", NSNumber(value: true))
         fetchRequest.predicate = predicate
-        let sortDescripter = NSSortDescriptor(key: "playerID", ascending: true)
-        fetchRequest.sortDescriptors = [sortDescripter]
+        let sortDescriptor = NSSortDescriptor(key: "playerID", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
         do {
             var players = try managerObjectContext.fetch(fetchRequest) as! [Player]
             players = players.filter { $0.isPairingEnable(type: pairingType) }
@@ -599,12 +601,12 @@ extension CoreDataManager: CoreDataManagerable {
         }
     }
     func loadPairedPlayers(uuidString: String, pairingType: PairingType) -> [Player]? {
-        let fetchRequest = createRequest(objecteType: .player)
+        let fetchRequest = createRequest(objectType: .player)
         let uuid = NSUUID(uuidString: uuidString)
         let predicate = NSPredicate(format: "%K == %@ AND %K == %@", "padelID", uuid!, "isPlaying", NSNumber(value: true))
         fetchRequest.predicate = predicate
-        let sortDescripter = NSSortDescriptor(key: "playerID", ascending: true)
-        fetchRequest.sortDescriptors = [sortDescripter]
+        let sortDescriptor = NSSortDescriptor(key: "playerID", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
         do {
             var players = try managerObjectContext.fetch(fetchRequest) as! [Player]
             players = players.filter { $0.isPairedPlayer(type: pairingType) }
@@ -615,7 +617,7 @@ extension CoreDataManager: CoreDataManagerable {
         }
     }
     func checkMinCountOfPlayingGame(uuidString: String) -> Int16 {
-        let fetchRequest = createRequest(objecteType: .player)
+        let fetchRequest = createRequest(objectType: .player)
         let uuid = NSUUID(uuidString: uuidString)
         let predicate = NSPredicate(format: "%K == %@ AND %K == %@", "padelID", uuid!, "isPlaying", NSNumber(value: true))
         fetchRequest.predicate = predicate
@@ -630,7 +632,7 @@ extension CoreDataManager: CoreDataManagerable {
         }
     }
     func checkMinCountForNewPlayer(uuidString: String) -> Int16 {
-        let fetchRequest = createRequest(objecteType: .player)
+        let fetchRequest = createRequest(objectType: .player)
         let uuid = NSUUID(uuidString: uuidString)
         let predicate = NSPredicate(format: "%K == %@ AND %K == %@", "padelID", uuid!, "isPlaying", NSNumber(value: true))
         fetchRequest.predicate = predicate
@@ -660,7 +662,7 @@ extension CoreDataManager: CoreDataManagerable {
         return padel.isReady
     }
     func setGame(uuidString: String) -> Game? {
-        let game = createNewObject(objecteType: .game) as! Game
+        let game = createNewObject(objectType: .game) as! Game
         guard let padel = loadPadel(uuidString: uuidString) else { return nil }
         guard padel.isReady else { return nil }
         game.padelID = UUID(uuidString: uuidString)
@@ -674,7 +676,7 @@ extension CoreDataManager: CoreDataManagerable {
         return game
     }
     func recordScore(uuidString: String, game: Game, scoreData: ScoreData) {
-        let score = createNewObject(objecteType: .score) as! Score
+        let score = createNewObject(objectType: .score) as! Score
         guard let padel = loadPadel(uuidString: uuidString) else { return }
         score.padelID = padel.padelID
         score.score1A = scoreData.A1Score
@@ -710,11 +712,79 @@ extension CoreDataManager: CoreDataManagerable {
             return CoreDataObjectType.pairingB
         }
     }
-    func createRequest(objecteType: CoreDataObjectType) -> NSFetchRequest<NSFetchRequestResult> {
-        NSFetchRequest<NSFetchRequestResult>(entityName: objecteType.rawValue)
+
+    // MARK: MasterPlayer
+    func createMasterPlayerGroup(name: String) -> MasterPlayerGroup {
+        let newGroup = createNewObject(objectType: .masterPlayerGroup) as! MasterPlayerGroup
+        newGroup.id = UUID()
+        newGroup.created = Date()
+        newGroup.modified = Date()
+
+        for i in 0..<21 {
+            let masterPlayer = createNewObject(objectType: .masterPlayer) as! MasterPlayer
+            masterPlayer.name = "プレイヤー\(i+1)"
+            masterPlayer.order = Int16(i)
+            masterPlayer.gender = true
+            newGroup.addToPlayer(masterPlayer)
+        }
+        saveContext()
+
+        return newGroup
     }
-    func createNewObject(objecteType: CoreDataObjectType) -> NSManagedObject {
-        return NSEntityDescription.insertNewObject(forEntityName: objecteType.rawValue, into: managerObjectContext)
+
+    func loadMasterPlayerGroup() -> [MasterPlayerGroup] {
+        let fetchRequest = createRequest(objectType: .masterPlayerGroup)
+        let sortDescriptor = NSSortDescriptor(key: "modified", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        do {
+            let masterPlayerGroup = try managerObjectContext.fetch(fetchRequest) as! [MasterPlayerGroup]
+            return masterPlayerGroup
+        } catch {
+            fatalError("loadData error")
+        }
+    }
+
+    func loadMasterPlayers(groupID: String) -> [MasterPlayer] {
+        let fetchRequest = createRequest(objectType: .masterPlayer)
+        let uuid = NSUUID(uuidString: groupID)
+        let predicate = NSPredicate(format: "%K == %@", "groupID", uuid!)
+        fetchRequest.predicate = predicate
+
+        let sortDescriptor = NSSortDescriptor(key: "order", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        do {
+            let masterPlayers = try managerObjectContext.fetch(fetchRequest) as! [MasterPlayer]
+
+            return masterPlayers
+        } catch {
+            fatalError("loadData error")
+        }
+    }
+
+    func updateMasterPlayers(groupID: String, players: [MasterPlayer]) -> Bool {
+        guard players.count > 3 else { return false }
+        let fetchRequest = createRequest(objectType: .masterPlayerGroup)
+        let uuid = NSUUID(uuidString: groupID)
+        let predicate = NSPredicate(format: "%K == %@", "id", uuid!)
+        fetchRequest.predicate = predicate
+
+        do {
+            let masterPlayerGroups = try managerObjectContext.fetch(fetchRequest) as! [MasterPlayerGroup]
+            guard let group = masterPlayerGroups.first else { return false }
+            group.player = NSSet(array: players)
+            saveContext()
+
+            return true
+        } catch {
+            fatalError("loadData error")
+        }
+    }
+
+    func createRequest(objectType: CoreDataObjectType) -> NSFetchRequest<NSFetchRequestResult> {
+        NSFetchRequest<NSFetchRequestResult>(entityName: objectType.rawValue)
+    }
+    func createNewObject(objectType: CoreDataObjectType) -> NSManagedObject {
+        return NSEntityDescription.insertNewObject(forEntityName: objectType.rawValue, into: managerObjectContext)
     }
     func saveContext() {
         if managerObjectContext.hasChanges {

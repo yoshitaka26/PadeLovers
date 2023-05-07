@@ -32,7 +32,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // UserDefaultsセットアップ
         UserDefaultsUtil.shared.appLastLaunchDate = Date()
         UserDefaultsUtil.shared.appLaunchCount += 1
-        
+
+        // プレイヤーデータのマイグレーション
+        if !UserDefaultsUtil.shared.playerDataMigratedToCoreData {
+            CommonDataBrain.shared.migrateToCoreData()
+        }
+
         return true
     }
     
