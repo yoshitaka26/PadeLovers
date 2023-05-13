@@ -122,8 +122,8 @@ extension CommonDataViewModel {
                     let courtNames = [self.court1Label.value, self.court2Label.value, self.court3Label.value]
                     UserDefaults.standard.set(courtNames, forKey: "newCourt")
                 default:
-                    let masterPlayerList = masterPlayerList.value.map { $0.value }
-                    saveGroupData(
+                    let masterPlayerList = self.masterPlayerList.value.map { $0.value }
+                    self.saveGroupData(
                         group: self.masterPlayerGroupList[self.tableType.value.rawValue],
                         players: masterPlayerList
                     )
@@ -152,7 +152,7 @@ extension CommonDataViewModel {
                     self.reloadTableView.onNext(())
                 default:
                     self.groupName.accept(self.masterPlayerGroupList[self.tableType.value.rawValue].name ?? "")
-                    reloadPlayerData(groupID: self.masterPlayerGroupList[self.tableType.value.rawValue].id!.uuidString)
+                    self.reloadPlayerData(groupID: self.masterPlayerGroupList[self.tableType.value.rawValue].id!.uuidString)
                 }
             }).disposed(by: disposeBag)
     }
