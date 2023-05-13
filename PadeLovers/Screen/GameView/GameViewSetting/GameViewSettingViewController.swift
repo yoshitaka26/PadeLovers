@@ -42,11 +42,11 @@ final class GameViewSettingViewController: UIViewController {
     private let disposeBag = DisposeBag()
     private var viewModel: GameViewSettingViewModel!
 
-    static func make(type: TableType, padelId: String?) -> GameViewSettingViewController {
+    static func make(groupID: String?, padelId: String?) -> GameViewSettingViewController {
         let viewController = R.storyboard
             .gameViewSetting
             .instantiateInitialViewController()! // swiftlint:disable:this force_unwrapping
-        viewController.viewModel = GameViewSettingViewModel(padelId: padelId, startType: type, coreDataManager: CoreDataManager.shared)
+        viewController.viewModel = GameViewSettingViewModel(padelId: padelId, groupID: groupID, coreDataManager: CoreDataManager.shared)
         return viewController
     }
 

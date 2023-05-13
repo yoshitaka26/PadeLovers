@@ -80,13 +80,13 @@ final class MenuViewController: BaseViewController {
 
 extension MenuViewController: StartGameTableViewControllerDelegate {
     // swiftlint:disable force_unwrapping
-    func callBackFromStartGameModalVC(type: TableType, padelID: UUID?) {
+    func callBackFromStartGameModalVC(groupID: String?, padelID: UUID?) {
 
         Analytics.setUserProperty(padelID?.uuidString ?? "", forName: "padel_id")
         Analytics.logEvent("show_menu_view", parameters: [:])
 
         let tabBarCon = UITabBarController()
-        let gameViewSettingViewController = GameViewSettingViewController.make(type: type, padelId: padelID?.uuidString)
+        let gameViewSettingViewController = GameViewSettingViewController.make(groupID: groupID, padelId: padelID?.uuidString)
         let gameData = R.storyboard.gameData.instantiateInitialViewController()!
         let gameResult = R.storyboard.gameResult.instantiateInitialViewController()!
         tabBarCon.setViewControllers([gameViewSettingViewController, gameData, gameResult], animated: true)

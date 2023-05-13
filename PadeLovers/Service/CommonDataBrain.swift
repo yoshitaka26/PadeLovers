@@ -17,31 +17,8 @@ struct CommonDataBrain {
     // 現在未使用
     let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Padel.plist")
     let gameDataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("GameData.plist")
-    
-    func savePlayers(group: TableType, players: [CommonPlayerDataModel]) {
-        let encoder = PropertyListEncoder()
-        var filePath: URL?
-        switch  group {
-        case .group1:
-            filePath = dataFilePathGroup1
-        case .group2:
-            filePath = dataFilePathGroup2
-        case .group3:
-            filePath = dataFilePathGroup3
-        default:
-            break
-        }
 
-        do {
-            let data = try encoder.encode(players)
-            guard let path = filePath else { return }
-            try data.write(to: path)
-        } catch {
-            print("Error encording item, \(error)")
-        }
-    }
-
-    func loadPlayers(group: TableType) -> [CommonPlayerDataModel]? {
+    private func loadPlayers(group: TableType) -> [CommonPlayerDataModel]? {
         var players = [CommonPlayerDataModel]()
         var filePath: URL?
         switch  group {

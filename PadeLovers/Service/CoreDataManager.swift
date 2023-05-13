@@ -65,7 +65,7 @@ final class CoreDataManager {
 }
 
 extension CoreDataManager: CoreDataManagerable {
-    func initPadel(players: [CommonPlayerDataModel], courts: [String]) -> String {
+    func initPadel(players: [MasterPlayer], courts: [String]) -> String {
         let main = createNewObject(objectType: .padel) as! Padel
         let ID = UUID()
         main.padelID = ID
@@ -94,8 +94,8 @@ extension CoreDataManager: CoreDataManagerable {
             player.padelID = ID
             player.playerID = Int16(index)
             if index < players.count {
-                player.name = players[index].playerName
-                player.gender = players[index].playerGender
+                player.name = players[index].name
+                player.gender = players[index].gender
                 player.isPlaying = index < 12 ? true : false
             } else {
                 player.name = "ゲスト\(index - players.count + 1)"
