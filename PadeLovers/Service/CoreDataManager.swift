@@ -717,12 +717,14 @@ extension CoreDataManager: CoreDataManagerable {
     func createMasterPlayerGroup(name: String) -> MasterPlayerGroup {
         let newGroup = createNewObject(objectType: .masterPlayerGroup) as! MasterPlayerGroup
         newGroup.id = UUID()
+        newGroup.name = name
         newGroup.created = Date()
         newGroup.modified = Date()
 
         for i in 0..<21 {
             let masterPlayer = createNewObject(objectType: .masterPlayer) as! MasterPlayer
-            masterPlayer.name = "プレイヤー\(i+1)"
+            masterPlayer.groupID = newGroup.id
+            masterPlayer.name = "プレイヤー\(i + 1)"
             masterPlayer.order = Int16(i)
             masterPlayer.gender = true
             newGroup.addToPlayer(masterPlayer)

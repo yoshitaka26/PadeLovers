@@ -160,15 +160,13 @@ extension CommonDataViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.prepareForReuse()
                 cell.numberLabel.text = String(indexPath.row)
 
-                cell.awakeFromNib()
                 viewModel.masterPlayerList.value[indexPath.row - 1]
                     .subscribe(onNext: { player in
-                        cell.nameTextField.text = player.name
-                        cell.genderSegment.selectedSegmentIndex = player.gender ? 0 : 1
+                        cell.set(name: player.name, gender: player.gender)
                     })
-                    .disposed(by: disposeBag)
+                    .disposed(by: cell.disposeBag)
 
-                cell.nameTextField.rx.controlEvent(.editingDidEnd).asDriver()
+                cell.nameTextField.rx.controlEvent(.editingChanged).asDriver()
                     .drive(onNext: { [weak self] _ in
                         guard let self else { return }
                         let result: ValidationResult = self.validationManager.validate(cell.nameTextField.text ?? "")
@@ -181,11 +179,12 @@ extension CommonDataViewController: UITableViewDelegate, UITableViewDataSource {
                         case .invalid:
                             self.warningAlertView(withTitle: "名前が登録できません")
                             self.viewModel.playerCellTextFieldTextInput.accept((
-                                text: "",
+                                text: String((cell.nameTextField.text ?? "").dropLast()),
                                 index: indexPath.row - 1
                             ))
                         }
-                }).disposed(by: cell.disposeBag)
+                    })
+                    .disposed(by: cell.disposeBag)
 
                 cell.genderSegment.rx.selectedSegmentIndex
                     .subscribe(onNext: { [weak self] gender in
@@ -195,7 +194,7 @@ extension CommonDataViewController: UITableViewDelegate, UITableViewDataSource {
                             index: indexPath.row - 1
                         ))
                     })
-                    .disposed(by: disposeBag)
+                    .disposed(by: cell.disposeBag)
                 return cell
             }
         }

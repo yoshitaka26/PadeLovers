@@ -93,7 +93,7 @@ extension CommonDataViewModel {
             .subscribe(onNext: { [weak self] text, index in
                 guard let self else { return }
                 let masterPlayerRelay = self.masterPlayerList.value[index]
-                var player = masterPlayerRelay.value
+                let player = masterPlayerRelay.value
                 player.name = text
                 masterPlayerRelay.accept(player)
             })
@@ -103,7 +103,7 @@ extension CommonDataViewModel {
             .subscribe(onNext: { [weak self] gender, index in
                 guard let self else { return }
                 let masterPlayerRelay = self.masterPlayerList.value[index]
-                var player = masterPlayerRelay.value
+                let player = masterPlayerRelay.value
                 player.gender = gender
                 masterPlayerRelay.accept(player)
             })
@@ -150,31 +150,26 @@ extension CommonDataViewModel {
                         self.courtList.value[index].accept(court)
                     }
                     self.reloadTableView.onNext(())
-                    return
                 default:
                     self.groupName.accept(self.masterPlayerGroupList[self.tableType.value.rawValue].name ?? "")
-                    reloadPlayerData(group: self.masterPlayerGroupList[self.tableType.value.rawValue])
+                    reloadPlayerData(groupID: self.masterPlayerGroupList[self.tableType.value.rawValue].id!.uuidString)
                 }
-
-                self.reloadTableView.onNext(())
             }).disposed(by: disposeBag)
     }
 
     private func saveGroupData(group: MasterPlayerGroup, players: [MasterPlayer]) {
-        _ = self.coreDataManager.updateMasterPlayerGroup(
+        _ = coreDataManager.updateMasterPlayerGroup(
             groupID: group.id!.uuidString,
             groupName: groupName.value,
             players: players
         )
     }
 
-    private func reloadPlayerData(group: MasterPlayerGroup) {
+    private func reloadPlayerData(groupID: String) {
         masterPlayerList.accept(
-            group
-                .allPlayers
-                .map {
-                    BehaviorRelay(value: $0)
-                }
+            coreDataManager.loadMasterPlayers(groupID: groupID)
+                .map { BehaviorRelay(value: $0) }
         )
+        reloadTableView.onNext(())
     }
 }
