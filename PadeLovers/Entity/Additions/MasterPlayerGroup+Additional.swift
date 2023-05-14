@@ -14,6 +14,7 @@ extension MasterPlayerGroup {
             assertionFailure()
             return []
         }
-        return players
+
+        return players.sorted { $0.order < $1.order }
     }
 }
