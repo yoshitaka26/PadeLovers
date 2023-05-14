@@ -51,13 +51,9 @@ struct CommonDataBrain {
            !playerData1.isEmpty {
             let group1Name = UserDefaults.standard.value(forKey: "group1") as? String
             let group = coreDataManager.createMasterPlayerGroup(name: group1Name ?? "グループA")
+            let players = group.allPlayers
 
-            guard let players = group.player?.allObjects as? [MasterPlayer] else {
-                assertionFailure()
-                return
-            }
-
-            guard playerData1.count <= group.player?.count ?? 0 else { return }
+            guard playerData1.count <= players.count else { return }
             for i in 0..<playerData1.count {
                 players[i].name = playerData1[i].playerName
                 players[i].gender = playerData1[i].playerGender
@@ -74,13 +70,9 @@ struct CommonDataBrain {
            !playerData2.isEmpty {
             let group2Name = UserDefaults.standard.value(forKey: "group2") as? String
             let group = coreDataManager.createMasterPlayerGroup(name: group2Name ?? "グループB")
+            let players = group.allPlayers
 
-            guard let players = group.player?.allObjects as? [MasterPlayer] else {
-                assertionFailure()
-                return
-            }
-
-            guard playerData2.count <= group.player?.count ?? 0 else { return }
+            guard playerData2.count <= players.count else { return }
             for i in 0..<playerData2.count {
                 players[i].name = playerData2[i].playerName
                 players[i].gender = playerData2[i].playerGender
@@ -97,13 +89,9 @@ struct CommonDataBrain {
            !playerData3.isEmpty {
             let group3Name = UserDefaults.standard.value(forKey: "group3") as? String
             let group = coreDataManager.createMasterPlayerGroup(name: group3Name ?? "グループC")
+            let players = group.allPlayers
 
-            guard let players = group.player?.allObjects as? [MasterPlayer] else {
-                assertionFailure()
-                return
-            }
-
-            guard playerData3.count <= group.player?.count ?? 0 else { return }
+            guard playerData3.count <= players.count else { return }
             for i in 0..<playerData3.count {
                 players[i].name = playerData3[i].playerName
                 players[i].gender = playerData3[i].playerGender
