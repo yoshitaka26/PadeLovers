@@ -27,7 +27,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         LoginManager.shared.setup(channelID: "1657150279", universalLinkURL: nil)
 
+        #if RELEASE
         FirebaseApp.configure()
+        #endif
 
         // UserDefaultsセットアップ
         UserDefaultsUtil.shared.appLastLaunchDate = Date()

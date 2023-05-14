@@ -25,7 +25,7 @@ final class GameOrganizeManager {
     let coreDataManager = CoreDataManager.shared
     
     func organaizeMatch(courtID: Int? = nil) {
-        let padelID: String = UserDefaults.standard.value(forKey: "PadelID") as! String
+        let padelID = UserDefaultsUtil.shared.padelID ?? ""
         guard let padel = coreDataManager.loadPadel(uuidString: padelID) else {
             fatalError("padelデータが存在しない")
         }
@@ -200,7 +200,7 @@ final class GameOrganizeManager {
     }
     
     func gameEnd(courtID: Int) {
-        let padelID: String = UserDefaults.standard.value(forKey: "PadelID") as! String
+        let padelID = UserDefaultsUtil.shared.padelID ?? ""
         guard let padel = coreDataManager.loadPadel(uuidString: padelID) else {
             fatalError("padelデータが存在しない")
         }
@@ -327,7 +327,7 @@ final class GameOrganizeManager {
     }
     
     func gameDelete(courtID: Int) {
-        let padelID: String = UserDefaults.standard.value(forKey: "PadelID") as! String
+        let padelID = UserDefaultsUtil.shared.padelID ?? ""
         let games = coreDataManager.loadOnGames(uuidString: padelID)
         
         let game = games.filter {
@@ -339,7 +339,7 @@ final class GameOrganizeManager {
         coreDataManager.deleteGame(uuidString: padelID, gameID: selectedGame.gameID)
     }
     func replacePlayersFromWaiting(player1: Player, _player2: Player?) -> Player? {
-        let padelID: String = UserDefaults.standard.value(forKey: "PadelID") as! String
+        let padelID = UserDefaultsUtil.shared.padelID ?? ""
         guard let padel = coreDataManager.loadPadel(uuidString: padelID) else { fatalError("padelデータが存在しない") }
         var tempPlayer2 = _player2
         if _player2 == nil {
@@ -365,7 +365,7 @@ final class GameOrganizeManager {
         return player2
     }
     func replacePlayersOnSameGame(player1: Player, player2: Player) {
-        let padelID: String = UserDefaults.standard.value(forKey: "PadelID") as! String
+        let padelID = UserDefaultsUtil.shared.padelID ?? ""
         guard let padel = coreDataManager.loadPadel(uuidString: padelID) else {
             fatalError("padelデータが存在しない")
         }
@@ -409,7 +409,7 @@ final class GameOrganizeManager {
     }
     
     func replacePlayersFromAnotherGame(player1: Player, player2: Player) {
-        let padelID: String = UserDefaults.standard.value(forKey: "PadelID") as! String
+        let padelID = UserDefaultsUtil.shared.padelID ?? ""
         guard let padel = coreDataManager.loadPadel(uuidString: padelID) else {
             fatalError("padelデータが存在しない")
         }
@@ -434,7 +434,7 @@ final class GameOrganizeManager {
     }
     
     func reOrganizeGame(courtID: Int) {
-        let padelID: String = UserDefaults.standard.value(forKey: "PadelID") as! String
+        let padelID = UserDefaultsUtil.shared.padelID ?? ""
         guard let padel = coreDataManager.loadPadel(uuidString: padelID) else {
             fatalError("padelデータが存在しない")
         }

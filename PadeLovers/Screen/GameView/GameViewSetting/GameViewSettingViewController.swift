@@ -71,9 +71,11 @@ final class GameViewSettingViewController: UIViewController {
         rx.viewWillAppear
             .bind(to: viewModel.viewWillAppear)
             .disposed(by: disposeBag)
+        
         rx.viewWillDisappear
             .bind(to: viewModel.viewWillDisappear)
             .disposed(by: disposeBag)
+
         viewModel.presentScreen
             .drive(onNext: { [unowned self] screen in
                 switch screen {
@@ -110,20 +112,23 @@ final class GameViewSettingViewController: UIViewController {
                 }
             })
             .disposed(by: disposeBag)
+
         viewModel.pushScreen
             .drive(onNext: { [unowned self] screen in
                 let navigationController = self.tabBarController?.parent as? UINavigationController
                 navigationController?.pushScreen(screen)
             })
             .disposed(by: disposeBag)
+
         NotificationCenter.default.rx.notification(.updateDataNotificationByEditPair, object: nil)
-            .subscribe(onNext: { [weak self] notification in
+            .subscribe(onNext: { [weak self] _ in
                 guard let self = self else { return }
                 self.viewModel.handelPairingSetNotification()
             })
             .disposed(by: disposeBag)
+
         NotificationCenter.default.rx.notification(.updateDataNotificationByEditData, object: nil)
-            .subscribe(onNext: { [weak self] notification in
+            .subscribe(onNext: { [weak self] _ in
                 guard let self = self else { return }
                 self.viewModel.handlePlayerDataEditNotification()
             })

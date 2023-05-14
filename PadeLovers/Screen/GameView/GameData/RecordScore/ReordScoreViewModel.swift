@@ -28,7 +28,7 @@ final class RecordScoreViewModel: BaseViewModel {
         mutate()
     }
     let coreDataManager = CoreDataManager.shared
-    var padelID: String = UserDefaults.standard.value(forKey: "PadelID") as! String
+    var padelID = UserDefaultsUtil.shared.padelID ?? ""
     
     let bindData = PublishSubject<Game>()
     let bindDataWithScore = PublishSubject<(Game, Score)>()

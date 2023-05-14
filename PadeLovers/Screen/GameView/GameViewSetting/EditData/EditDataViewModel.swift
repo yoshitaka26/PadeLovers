@@ -17,7 +17,7 @@ final class EditDataViewModel: BaseViewModel {
     }
     let validationManager = ValidationManager.shared
     let coreDataManager = CoreDataManager.shared
-    var padelID: String = UserDefaults.standard.value(forKey: "PadelID") as! String
+    var padelID: String = UserDefaultsUtil.shared.padelID ?? ""
     
     var playerName: BehaviorRelay<String?> = BehaviorRelay(value: nil)
     var playerGender: BehaviorRelay<Int> = BehaviorRelay(value: 0)

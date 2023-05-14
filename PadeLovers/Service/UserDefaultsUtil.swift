@@ -32,7 +32,7 @@ final class UserDefaultsUtil {
 }
 
 extension UserDefaultsUtil {
-    var padelId: String? {
+    var padelID: String? {
         get {
             return UserDefaults.standard.string(forKey: StringKey.padelId.rawValue)
         }

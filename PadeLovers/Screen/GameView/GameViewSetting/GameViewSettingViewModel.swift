@@ -112,10 +112,10 @@ final class GameViewSettingViewModel {
             let players = playersData.filter { !(($0.name ?? "").isEmpty) }
             let courtNames = courtData.filter { !$0.isEmpty }
             let padelId = self.coreDataManager.initPadel(players: players, courts: courtNames)
-            userDefaultsManager.padelId = padelId
+            userDefaultsManager.padelID = padelId
             self.padelID = padelId
         } else {
-            userDefaultsManager.padelId = padelID
+            userDefaultsManager.padelID = padelID
         }
     }
 

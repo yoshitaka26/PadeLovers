@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,7 +18,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aコート" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0op-ox-JjM">
-                        <rect key="frame" x="10" y="11.5" width="240" height="21"/>
+                        <rect key="frame" x="20" y="11.5" width="230" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -33,7 +33,7 @@
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="Csf-Uj-asf" secondAttribute="trailing" constant="10" id="G1s-LL-UZX"/>
                     <constraint firstItem="Csf-Uj-asf" firstAttribute="leading" secondItem="0op-ox-JjM" secondAttribute="trailing" constant="10" id="HFC-bo-K0r"/>
-                    <constraint firstItem="0op-ox-JjM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="gVE-qQ-w9q"/>
+                    <constraint firstItem="0op-ox-JjM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="gVE-qQ-w9q"/>
                     <constraint firstItem="0op-ox-JjM" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="jBv-kS-hGY"/>
                     <constraint firstItem="Csf-Uj-asf" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="rip-vz-zSP"/>
                 </constraints>
