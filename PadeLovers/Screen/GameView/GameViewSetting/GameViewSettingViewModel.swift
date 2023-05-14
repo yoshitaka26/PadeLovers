@@ -41,19 +41,15 @@ final class GameViewSettingViewModel {
 
     private let disposeBag = DisposeBag()
     private let coreDataManager: CoreDataManagerable
-    private let userDefaultsManager = UserDefaultsManager.shared
+    private let userDefaultsManager = UserDefaultsUtil.shared
     private var padelID: String
     // テストの為privateにはしない
     let minuteSeconds = 60
 
-    convenience init() {
-        self.init(padelId: UUID().uuidString, startType: .group1, coreDataManager: CoreDataManager.shared)
-    }
-
-    init(padelId: String?, startType: TableType, coreDataManager: CoreDataManagerable) {
+    init(padelId: String?, groupID: String?, coreDataManager: CoreDataManagerable) {
         self.padelID = padelId ?? UUID().uuidString
         self.coreDataManager = coreDataManager
-        setInitialData(type: startType)
+        setInitialData(groupID: groupID)
         subscribe()
     }
 
@@ -106,23 +102,23 @@ final class GameViewSettingViewModel {
             })
             .disposed(by: disposeBag)
     }
-    private func setInitialData(type: TableType) {
-        switch type {
-        case .court:
-            userDefaultsManager.padelId = padelID
-        default:
-            let playersData = CommonDataBrain.shared.loadPlayers(group: type)
-            guard let playersData = playersData,
-                  playersData.count < 22,
+
+    private func setInitialData(groupID: String?) {
+        if let groupID = groupID {
+            let playersData = coreDataManager.loadMasterPlayers(groupID: groupID)
+            guard playersData.count < 22,
                   let courtData = userDefaultsManager.courtNames,
                   courtData.count < 4 else { return }
-            let players = playersData.filter { !$0.playerName.isEmpty }
+            let players = playersData.filter { !(($0.name ?? "").isEmpty) }
             let courtNames = courtData.filter { !$0.isEmpty }
             let padelId = self.coreDataManager.initPadel(players: players, courts: courtNames)
             userDefaultsManager.padelId = padelId
             self.padelID = padelId
+        } else {
+            userDefaultsManager.padelId = padelID
         }
     }
+
     private func loadPadelData() {
         if let padel = coreDataManager.loadPadel(uuidString: padelID) {
             padelPlayMode.accept(padel.playMode)

@@ -159,20 +159,42 @@ extension CommonDataViewController: UITableViewDelegate, UITableViewDataSource {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "PlayerCell", for: indexPath) as! PlayerTableViewCell
                 cell.prepareForReuse()
                 cell.numberLabel.text = String(indexPath.row)
-                cell.disposeBag.insert(
-                    cell.nameTextField.rx.textInput <-> viewModel.playersList.value[indexPath.row - 1],
-                    cell.genderSegment.rx.selectedSegmentIndex <-> viewModel.playersGenderList.value[indexPath.row - 1]
-                )
-                cell.awakeFromNib()
-                cell.nameTextField.rx.controlEvent(.editingDidEnd).asDriver()
+
+                viewModel.masterPlayerList.value[indexPath.row - 1]
+                    .subscribe(onNext: { player in
+                        cell.set(name: player.name, gender: player.gender)
+                    })
+                    .disposed(by: cell.disposeBag)
+
+                cell.nameTextField.rx.controlEvent(.editingChanged).asDriver()
                     .drive(onNext: { [weak self] _ in
-                        guard let self = self else { return }
+                        guard let self else { return }
                         let result: ValidationResult = self.validationManager.validate(cell.nameTextField.text ?? "")
-                        if result != .valid {
+                        switch result {
+                        case .valid:
+                            self.viewModel.playerCellTextFieldTextInput.accept((
+                                text: cell.nameTextField.text ?? "",
+                                index: indexPath.row - 1
+                            ))
+                        case .invalid:
                             self.warningAlertView(withTitle: "名前が登録できません")
-                            self.viewModel.playersList.value[indexPath.row - 1].accept("")
+                            self.viewModel.playerCellTextFieldTextInput.accept((
+                                text: String((cell.nameTextField.text ?? "").dropLast()),
+                                index: indexPath.row - 1
+                            ))
                         }
-                }).disposed(by: cell.disposeBag)
+                    })
+                    .disposed(by: cell.disposeBag)
+
+                cell.genderSegment.rx.selectedSegmentIndex
+                    .subscribe(onNext: { [weak self] gender in
+                        guard let self else { return }
+                        self.viewModel.playerCellGenderSegment.accept((
+                            gender: gender == 0,
+                            index: indexPath.row - 1
+                        ))
+                    })
+                    .disposed(by: cell.disposeBag)
                 return cell
             }
         }

@@ -27,8 +27,12 @@ protocol CoreDataManagerable {
     func updateIsPlaying(uuidString: String, playerID: Int, isOn isPlaying: Bool) -> Int
     func countPlayers(uuidString: String) -> Int
     func minPlayersCount(uuidString: String) -> Int
-
+    // MARK: MasterPlayer
+    func createMasterPlayerGroup(name: String) -> MasterPlayerGroup
+    func loadMasterPlayerGroup() -> [MasterPlayerGroup]
+    func loadMasterPlayers(groupID: String) -> [MasterPlayer]
+    func updateMasterPlayerGroup(groupID: String, groupName: String, players: [MasterPlayer]) -> Bool
     // MARK: GameStatus
-    func initPadel(players: [CommonPlayerDataModel], courts: [String]) -> String
+    func initPadel(players: [MasterPlayer], courts: [String]) -> String
     func setReadyStatusOnPadel(uuidString: String, isReady: Bool)
 }

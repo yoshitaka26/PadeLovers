@@ -28,7 +28,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         LoginManager.shared.setup(channelID: "1657150279", universalLinkURL: nil)
 
         FirebaseApp.configure()
-        
+
+        // UserDefaultsセットアップ
+        UserDefaultsUtil.shared.appLastLaunchDate = Date()
+        UserDefaultsUtil.shared.appLaunchCount += 1
+
+        // プレイヤーデータのマイグレーション
+        if !UserDefaultsUtil.shared.playerDataMigratedToCoreData {
+            CommonDataBrain.shared.migrateToCoreData()
+        }
+
         return true
     }
     

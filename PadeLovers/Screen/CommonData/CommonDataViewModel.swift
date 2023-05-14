@@ -10,11 +10,11 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-enum TableType {
+enum TableType: Int {
+    case group1 = 0
+    case group2 = 1
+    case group3 = 2
     case court
-    case group1
-    case group2
-    case group3
 }
 
 final class CommonDataViewModel: BaseViewModel {
@@ -24,66 +24,28 @@ final class CommonDataViewModel: BaseViewModel {
         self.dataBind()
         self.mutate()
     }
+
     private let commonDataBrain = CommonDataBrain.shared
+    private let coreDataManager = CoreDataManager.shared
     
     var tableType: BehaviorRelay<TableType> = BehaviorRelay(value: .court)
     
     var groupName: BehaviorRelay<String> = BehaviorRelay(value: "グループ")
     
     var courtList: BehaviorRelay<[BehaviorRelay<String>]> = BehaviorRelay(value: [])
-    var playersList: BehaviorRelay<[BehaviorRelay<String>]> = BehaviorRelay(value: [])
-    var playersGenderList: BehaviorRelay<[BehaviorRelay<Int>]> = BehaviorRelay(value: [])
-    
+
+    var masterPlayerGroupList: [MasterPlayerGroup] = []
+    var masterPlayerList: BehaviorRelay<[BehaviorRelay<MasterPlayer>]> = BehaviorRelay(value: [])
+
     var court1Label: BehaviorRelay<String> = BehaviorRelay(value: "コートA")
     var court2Label: BehaviorRelay<String> = BehaviorRelay(value: "コートB")
     var court3Label: BehaviorRelay<String> = BehaviorRelay(value: "コートC")
-    
-    var player1name: BehaviorRelay<String> = BehaviorRelay(value: "プレイヤ1")
-    var player1Gender: BehaviorRelay<Int> = BehaviorRelay(value: 0)
-    var player2name: BehaviorRelay<String> = BehaviorRelay(value: "プレイヤ2")
-    var player2Gender: BehaviorRelay<Int> = BehaviorRelay(value: 0)
-    var player3name: BehaviorRelay<String> = BehaviorRelay(value: "プレイヤ3")
-    var player3Gender: BehaviorRelay<Int> = BehaviorRelay(value: 0)
-    var player4name: BehaviorRelay<String> = BehaviorRelay(value: "プレイヤ4")
-    var player4Gender: BehaviorRelay<Int> = BehaviorRelay(value: 0)
-    var player5name: BehaviorRelay<String> = BehaviorRelay(value: "プレイヤ5")
-    var player5Gender: BehaviorRelay<Int> = BehaviorRelay(value: 0)
-    var player6name: BehaviorRelay<String> = BehaviorRelay(value: "プレイヤ6")
-    var player6Gender: BehaviorRelay<Int> = BehaviorRelay(value: 0)
-    var player7name: BehaviorRelay<String> = BehaviorRelay(value: "プレイヤ7")
-    var player7Gender: BehaviorRelay<Int> = BehaviorRelay(value: 0)
-    var player8name: BehaviorRelay<String> = BehaviorRelay(value: "プレイヤ8")
-    var player8Gender: BehaviorRelay<Int> = BehaviorRelay(value: 0)
-    var player9name: BehaviorRelay<String> = BehaviorRelay(value: "プレイヤ9")
-    var player9Gender: BehaviorRelay<Int> = BehaviorRelay(value: 0)
-    var player10name: BehaviorRelay<String> = BehaviorRelay(value: "プレイヤ10")
-    var player10Gender: BehaviorRelay<Int> = BehaviorRelay(value: 0)
-    var player11name: BehaviorRelay<String> = BehaviorRelay(value: "プレイヤ11")
-    var player11Gender: BehaviorRelay<Int> = BehaviorRelay(value: 0)
-    var player12name: BehaviorRelay<String> = BehaviorRelay(value: "プレイヤ12")
-    var player12Gender: BehaviorRelay<Int> = BehaviorRelay(value: 0)
-    var player13name: BehaviorRelay<String> = BehaviorRelay(value: "プレイヤ13")
-    var player13Gender: BehaviorRelay<Int> = BehaviorRelay(value: 0)
-    var player14name: BehaviorRelay<String> = BehaviorRelay(value: "プレイヤ14")
-    var player14Gender: BehaviorRelay<Int> = BehaviorRelay(value: 0)
-    var player15name: BehaviorRelay<String> = BehaviorRelay(value: "プレイヤ15")
-    var player15Gender: BehaviorRelay<Int> = BehaviorRelay(value: 0)
-    var player16name: BehaviorRelay<String> = BehaviorRelay(value: "プレイヤ16")
-    var player16Gender: BehaviorRelay<Int> = BehaviorRelay(value: 0)
-    var player17name: BehaviorRelay<String> = BehaviorRelay(value: "プレイヤ17")
-    var player17Gender: BehaviorRelay<Int> = BehaviorRelay(value: 0)
-    var player18name: BehaviorRelay<String> = BehaviorRelay(value: "プレイヤ18")
-    var player18Gender: BehaviorRelay<Int> = BehaviorRelay(value: 0)
-    var player19name: BehaviorRelay<String> = BehaviorRelay(value: "プレイヤ19")
-    var player19Gender: BehaviorRelay<Int> = BehaviorRelay(value: 0)
-    var player20name: BehaviorRelay<String> = BehaviorRelay(value: "プレイヤ20")
-    var player20Gender: BehaviorRelay<Int> = BehaviorRelay(value: 0)
-    var player21name: BehaviorRelay<String> = BehaviorRelay(value: "プレイヤ21")
-    var player21Gender: BehaviorRelay<Int> = BehaviorRelay(value: 0)
-    
+
     let tabButtonSelected = PublishSubject<TableType>()
-    let saveData = PublishSubject<Void>()
     let loadData = PublishSubject<Void>()
+
+    let playerCellTextFieldTextInput = PublishRelay<(text: String, index: Int)>()
+    let playerCellGenderSegment = PublishRelay<(gender: Bool, index: Int)>()
     
     let reloadTableView = PublishSubject<Void>()
     
@@ -97,24 +59,27 @@ extension CommonDataViewModel {
     func dataBind() {
         // swiftlint:disable line_length
         courtList.accept([court1Label, court2Label, court3Label])
-        playersList.accept([player1name, player2name, player3name, player4name, player5name, player6name, player7name, player8name, player9name, player10name, player11name, player12name, player13name, player14name, player15name, player16name, player17name, player18name, player19name, player20name, player21name])
-        playersGenderList.accept([player1Gender, player2Gender, player3Gender, player4Gender, player5Gender, player6Gender, player7Gender, player8Gender, player9Gender, player10Gender, player11Gender, player12Gender, player13Gender, player14Gender, player15Gender, player16Gender, player17Gender, player18Gender, player19Gender, player20Gender, player21Gender])
+
+        // [改修]CoreDataからプレイヤー情報を取得
+        var groupList = coreDataManager.loadMasterPlayerGroup()
+
+        if groupList.isEmpty {
+            // 新規作成
+            var list = [MasterPlayerGroup]()
+            list.append(coreDataManager.createMasterPlayerGroup(name: "グループA"))
+            list.append(coreDataManager.createMasterPlayerGroup(name: "グループB"))
+            list.append(coreDataManager.createMasterPlayerGroup(name: "グループC"))
+            masterPlayerGroupList = list
+        } else {
+            masterPlayerGroupList = groupList
+        }
+
         if let court = UserDefaults.standard.value(forKey: "court") as? [String], court.count == 2 {
             self.court1Label.accept(court[0])
             self.court2Label.accept(court[1])
             UserDefaults.standard.removeObject(forKey: "court")
         }
-        if let players = UserDefaults.standard.value(forKey: "player") as? [String], players.count == 21 {
-            for (index, player) in players.enumerated() {
-                self.playersList.value[index].accept(player)
-            }
-        }
-        if let genders = UserDefaults.standard.value(forKey: "gender") as? [Bool], genders.count == 21 {
-            for (index, gender) in genders.enumerated() {
-                self.playersGenderList.value[index].accept(gender ? 0 : 1)
-            }
-        }
-            
+
         guard let courtNames = UserDefaults.standard.value(forKey: "newCourt") as? [String] else { return }
         for (index, court) in courtNames.enumerated() {
             self.courtList.value[index].accept(court)
@@ -124,73 +89,87 @@ extension CommonDataViewModel {
     }
     
     func mutate() {
-        tabButtonSelected.subscribe(onNext: { [weak self] type in
-            guard let self = self else { return }
-            
-            switch self.tableType.value {
-            case .court:
-                let courtNames = [self.court1Label.value, self.court2Label.value, self.court3Label.value]
-                UserDefaults.standard.set(courtNames, forKey: "newCourt")
-            case .group1:
-                UserDefaults.standard.set(self.groupName.value, forKey: "group1")
-                self.saveData.onNext(())
-            case .group2:
-                UserDefaults.standard.set(self.groupName.value, forKey: "group2")
-                self.saveData.onNext(())
-            case .group3:
-                UserDefaults.standard.set(self.groupName.value, forKey: "group3")
-                self.saveData.onNext(())
-            }
-            guard self.tableType.value != type else { return }
-            self.tableType.accept(type)
-            self.loadData.onNext(())
-        }).disposed(by: disposeBag)
-        saveData.subscribe(onNext: { [weak self] _ in
-            guard let self = self else { return }
-            var commonPlayers: [CommonPlayerDataModel] = []
-            self.playersList.value.forEach {
-                let temp = CommonPlayerDataModel(name: $0.value, gender: true)
-                commonPlayers.append(temp)
-            }
-            for (index, temp) in  commonPlayers.enumerated() {
-                temp.playerGender = (self.playersGenderList.value[index].value == 0)
-            }
-            if self.tableType.value != .court {
-                self.commonDataBrain.savePlayers(group: self.tableType.value, players: commonPlayers)
-            }
-        }).disposed(by: disposeBag)
-        loadData.subscribe(onNext: { [weak self] _ in
-            guard let self = self else { return }
-            
-            switch self.tableType.value {
-            case .court:
-                guard let courtNames = UserDefaults.standard.value(forKey: "newCourt") as? [String] else { return }
-                for (index, court) in courtNames.enumerated() {
-                    self.courtList.value[index].accept(court)
+        playerCellTextFieldTextInput
+            .subscribe(onNext: { [weak self] text, index in
+                guard let self else { return }
+                let masterPlayerRelay = self.masterPlayerList.value[index]
+                let player = masterPlayerRelay.value
+                player.name = text
+                masterPlayerRelay.accept(player)
+            })
+            .disposed(by: disposeBag)
+
+        playerCellGenderSegment
+            .subscribe(onNext: { [weak self] gender, index in
+                guard let self else { return }
+                let masterPlayerRelay = self.masterPlayerList.value[index]
+                let player = masterPlayerRelay.value
+                player.gender = gender
+                masterPlayerRelay.accept(player)
+            })
+            .disposed(by: disposeBag)
+
+        tabButtonSelected
+            .subscribe(onNext: { [weak self] type in
+                guard let self else { return }
+                guard self.masterPlayerGroupList.count == 3 else {
+                    assertionFailure()
+                    return
                 }
-                self.reloadTableView.onNext(())
-                return
-            case .group1:
-                if let groupName = UserDefaults.standard.value(forKey: "group1") as? String {
-                    self.groupName.accept(groupName)
+
+                switch self.tableType.value {
+                case .court:
+                    let courtNames = [self.court1Label.value, self.court2Label.value, self.court3Label.value]
+                    UserDefaults.standard.set(courtNames, forKey: "newCourt")
+                default:
+                    let masterPlayerList = self.masterPlayerList.value.map { $0.value }
+                    self.saveGroupData(
+                        group: self.masterPlayerGroupList[self.tableType.value.rawValue],
+                        players: masterPlayerList
+                    )
                 }
-            case .group2:
-                if let groupName = UserDefaults.standard.value(forKey: "group2") as? String {
-                    self.groupName.accept(groupName)
+
+                guard self.tableType.value != type else { return }
+                self.tableType.accept(type)
+
+                self.loadData.onNext(())
+            }).disposed(by: disposeBag)
+
+        loadData
+            .subscribe(onNext: { [weak self] _ in
+                guard let self else { return }
+                guard self.masterPlayerGroupList.count == 3 else {
+                    assertionFailure()
+                    return
                 }
-            case .group3:
-                if let groupName = UserDefaults.standard.value(forKey: "group3") as? String {
-                    self.groupName.accept(groupName)
+
+                switch self.tableType.value {
+                case .court:
+                    guard let courtNames = UserDefaults.standard.value(forKey: "newCourt") as? [String] else { return }
+                    for (index, court) in courtNames.enumerated() {
+                        self.courtList.value[index].accept(court)
+                    }
+                    self.reloadTableView.onNext(())
+                default:
+                    self.groupName.accept(self.masterPlayerGroupList[self.tableType.value.rawValue].name ?? "")
+                    self.reloadPlayerData(groupID: self.masterPlayerGroupList[self.tableType.value.rawValue].id!.uuidString)
                 }
-            }
-            
-            let playersData = self.commonDataBrain.loadPlayers(group: self.tableType.value)
-            guard let players = playersData, players.count < 22 else { return }
-            for (index, player) in players.enumerated() {
-                self.playersList.value[index].accept(player.playerName)
-                self.playersGenderList.value[index].accept(player.playerGender ? 0 : 1)
-            }
-            self.reloadTableView.onNext(())
-        }).disposed(by: disposeBag)
+            }).disposed(by: disposeBag)
+    }
+
+    private func saveGroupData(group: MasterPlayerGroup, players: [MasterPlayer]) {
+        _ = coreDataManager.updateMasterPlayerGroup(
+            groupID: group.id!.uuidString,
+            groupName: groupName.value,
+            players: players
+        )
+    }
+
+    private func reloadPlayerData(groupID: String) {
+        masterPlayerList.accept(
+            coreDataManager.loadMasterPlayers(groupID: groupID)
+                .map { BehaviorRelay(value: $0) }
+        )
+        reloadTableView.onNext(())
     }
 }

@@ -42,7 +42,7 @@
 		E42F2185285363F70029970D /* UIViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42F2184285363F70029970D /* UIViewController+Rx.swift */; };
 		E42F218728538DCC0029970D /* CoreDataManagerable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42F218628538DCC0029970D /* CoreDataManagerable.swift */; };
 		E42F2189285401750029970D /* Pairing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42F2188285401750029970D /* Pairing.swift */; };
-		E42F218B285423930029970D /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42F218A285423930029970D /* UserDefaultsManager.swift */; };
+		E42F218B285423930029970D /* UserDefaultsUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42F218A285423930029970D /* UserDefaultsUtil.swift */; };
 		E42F218F28542C770029970D /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42F218E28542C770029970D /* Screen.swift */; };
 		E42F219128542CE90029970D /* UIViewController+Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42F219028542CE90029970D /* UIViewController+Router.swift */; };
 		E42F219328542DF80029970D /* UINavigationController+Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42F219228542DF80029970D /* UINavigationController+Router.swift */; };
@@ -146,6 +146,11 @@
 		E4D131DC27AB8CBC0034B2D0 /* AutoPlayMode.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4D131DB27AB8CBC0034B2D0 /* AutoPlayMode.storyboard */; };
 		E4D131E927B27F2D0034B2D0 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E4D131E827B27F2D0034B2D0 /* Settings.bundle */; };
 		E4E3DA252673AA8F0009D809 /* ReplacePlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E3DA242673AA8F0009D809 /* ReplacePlayerViewModel.swift */; };
+		E4F29F632A076DE9006BC063 /* MasterPlayerGroup+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F29F5F2A076DE9006BC063 /* MasterPlayerGroup+CoreDataClass.swift */; };
+		E4F29F642A076DE9006BC063 /* MasterPlayerGroup+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F29F602A076DE9006BC063 /* MasterPlayerGroup+CoreDataProperties.swift */; };
+		E4F29F652A076DE9006BC063 /* MasterPlayer+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F29F612A076DE9006BC063 /* MasterPlayer+CoreDataClass.swift */; };
+		E4F29F662A076DE9006BC063 /* MasterPlayer+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F29F622A076DE9006BC063 /* MasterPlayer+CoreDataProperties.swift */; };
+		E4F29F682A077811006BC063 /* MasterPlayerGroup+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F29F672A077811006BC063 /* MasterPlayerGroup+Additional.swift */; };
 		E4F9D38128373C5E00759465 /* ShareGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F9D38028373C5E00759465 /* ShareGameViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -198,7 +203,7 @@
 		E42F2184285363F70029970D /* UIViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Rx.swift"; sourceTree = "<group>"; };
 		E42F218628538DCC0029970D /* CoreDataManagerable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManagerable.swift; sourceTree = "<group>"; };
 		E42F2188285401750029970D /* Pairing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pairing.swift; sourceTree = "<group>"; };
-		E42F218A285423930029970D /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		E42F218A285423930029970D /* UserDefaultsUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsUtil.swift; sourceTree = "<group>"; };
 		E42F218E28542C770029970D /* Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
 		E42F219028542CE90029970D /* UIViewController+Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Router.swift"; sourceTree = "<group>"; };
 		E42F219228542DF80029970D /* UINavigationController+Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Router.swift"; sourceTree = "<group>"; };
@@ -304,6 +309,12 @@
 		E4D131DB27AB8CBC0034B2D0 /* AutoPlayMode.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AutoPlayMode.storyboard; sourceTree = "<group>"; };
 		E4D131E827B27F2D0034B2D0 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		E4E3DA242673AA8F0009D809 /* ReplacePlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplacePlayerViewModel.swift; sourceTree = "<group>"; };
+		E4F29F342A068F9E006BC063 /* PadeLovers 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "PadeLovers 2.xcdatamodel"; sourceTree = "<group>"; };
+		E4F29F5F2A076DE9006BC063 /* MasterPlayerGroup+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MasterPlayerGroup+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E4F29F602A076DE9006BC063 /* MasterPlayerGroup+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MasterPlayerGroup+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E4F29F612A076DE9006BC063 /* MasterPlayer+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MasterPlayer+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E4F29F622A076DE9006BC063 /* MasterPlayer+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MasterPlayer+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E4F29F672A077811006BC063 /* MasterPlayerGroup+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MasterPlayerGroup+Additional.swift"; sourceTree = "<group>"; };
 		E4F9D37E283735AA00759465 /* PadeLovers.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PadeLovers.entitlements; sourceTree = "<group>"; };
 		E4F9D38028373C5E00759465 /* ShareGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareGameViewController.swift; sourceTree = "<group>"; };
 		E8911760E1ABF8DB5F2D01DD /* Pods-PadeLovers.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PadeLovers.release.xcconfig"; path = "Target Support Files/Pods-PadeLovers/Pods-PadeLovers.release.xcconfig"; sourceTree = "<group>"; };
@@ -362,6 +373,10 @@
 		E406DEFA26919AA300DF22F8 /* ManagedObject */ = {
 			isa = PBXGroup;
 			children = (
+				E4F29F5F2A076DE9006BC063 /* MasterPlayerGroup+CoreDataClass.swift */,
+				E4F29F602A076DE9006BC063 /* MasterPlayerGroup+CoreDataProperties.swift */,
+				E4F29F612A076DE9006BC063 /* MasterPlayer+CoreDataClass.swift */,
+				E4F29F622A076DE9006BC063 /* MasterPlayer+CoreDataProperties.swift */,
 				E433EA402684BA0D00EFC20B /* Player+CoreDataClass.swift */,
 				E433EA412684BA0D00EFC20B /* Player+CoreDataProperties.swift */,
 				E433EA422684BA0D00EFC20B /* PairingB+CoreDataClass.swift */,
@@ -664,6 +679,7 @@
 				E4514332266F247300BE6329 /* Player+Additional.swift */,
 				E498854B267368AE004ECB01 /* Game+Additional.swift */,
 				E42F2188285401750029970D /* Pairing.swift */,
+				E4F29F672A077811006BC063 /* MasterPlayerGroup+Additional.swift */,
 			);
 			path = Additions;
 			sourceTree = "<group>";
@@ -678,7 +694,7 @@
 				E4C4343A26822672006652A7 /* CommonDataBrain.swift */,
 				E4529E222682E93E003DEC63 /* ValidationManager.swift */,
 				E46739A82686908200C7F745 /* RandomNumberTableManager.swift */,
-				E42F218A285423930029970D /* UserDefaultsManager.swift */,
+				E42F218A285423930029970D /* UserDefaultsUtil.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -1098,6 +1114,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E433EA552684BA0D00EFC20B /* Score+CoreDataProperties.swift in Sources */,
+				E4F29F682A077811006BC063 /* MasterPlayerGroup+Additional.swift in Sources */,
 				E42F215F2852C24B0029970D /* GameViewCourtTableViewCell.swift in Sources */,
 				E42F219328542DF80029970D /* UINavigationController+Router.swift in Sources */,
 				E42F21732852C2EA0029970D /* GameViewGameResultTableViewCell.swift in Sources */,
@@ -1124,8 +1141,10 @@
 				E483164827ED606D0091B0DF /* ResponseError.swift in Sources */,
 				E42F216B2852C2BC0029970D /* GameViewPlayerCountTableViewCell.swift in Sources */,
 				E42F218128535F690029970D /* GameViewSettingViewController.swift in Sources */,
-				E42F218B285423930029970D /* UserDefaultsManager.swift in Sources */,
+				E42F218B285423930029970D /* UserDefaultsUtil.swift in Sources */,
+				E4F29F632A076DE9006BC063 /* MasterPlayerGroup+CoreDataClass.swift in Sources */,
 				E447EF0D2755FEFD001601A7 /* MainSettingTableViewController.swift in Sources */,
+				E4F29F662A076DE9006BC063 /* MasterPlayer+CoreDataProperties.swift in Sources */,
 				E43DCAF52686FF980078C4AF /* SettingViewController.swift in Sources */,
 				E433EA592684BA0D00EFC20B /* Court+CoreDataProperties.swift in Sources */,
 				E433EA512684BA0D00EFC20B /* PairingB+CoreDataProperties.swift in Sources */,
@@ -1139,6 +1158,7 @@
 				E446733226492AC40092DEFE /* InfoAlertView.swift in Sources */,
 				E46739A92686908200C7F745 /* RandomNumberTableManager.swift in Sources */,
 				E42F217B2852FB330029970D /* GameModeType.swift in Sources */,
+				E4F29F652A076DE9006BC063 /* MasterPlayer+CoreDataClass.swift in Sources */,
 				E42F2185285363F70029970D /* UIViewController+Rx.swift in Sources */,
 				E40F93FD26718E2700231511 /* EditDataViewModel.swift in Sources */,
 				E42F218728538DCC0029970D /* CoreDataManagerable.swift in Sources */,
@@ -1198,6 +1218,7 @@
 				E47F202F2547D56B00996B19 /* SceneDelegate.swift in Sources */,
 				E433EA5B2684BA0D00EFC20B /* Game+CoreDataProperties.swift in Sources */,
 				E4529E232682E93E003DEC63 /* ValidationManager.swift in Sources */,
+				E4F29F642A076DE9006BC063 /* MasterPlayerGroup+CoreDataProperties.swift in Sources */,
 				E451432F266EE5EF00BE6329 /* NSManagedObject+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1399,7 +1420,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = VKV3Y2GW5Q;
 				INFOPLIST_FILE = PadeLovers/Info.plist;
@@ -1408,7 +1429,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.1.0;
+				MARKETING_VERSION = 2.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yoshitaka.PadeLovers;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1427,7 +1448,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = VKV3Y2GW5Q;
 				INFOPLIST_FILE = PadeLovers/Info.plist;
@@ -1436,7 +1457,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.1.0;
+				MARKETING_VERSION = 2.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yoshitaka.PadeLovers;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1501,9 +1522,10 @@
 		E4575094265695590036194F /* PadeLovers.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				E4F29F342A068F9E006BC063 /* PadeLovers 2.xcdatamodel */,
 				E4575095265695590036194F /* PadeLovers.xcdatamodel */,
 			);
-			currentVersion = E4575095265695590036194F /* PadeLovers.xcdatamodel */;
+			currentVersion = E4F29F342A068F9E006BC063 /* PadeLovers 2.xcdatamodel */;
 			path = PadeLovers.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

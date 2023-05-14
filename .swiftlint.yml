@@ -71,6 +71,7 @@ disabled_rules:
 #- weak_computed_property
 #- weak_delegate
 #- xctfail_message
+- inclusive_language
 
 
 # ビルドが失敗するルールを無効にする
