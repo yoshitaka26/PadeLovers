@@ -21,8 +21,8 @@ final class UserDefaultsUtil {
         case appLaunchCount
         case playerDataMigratedToCoreData
 
-        case court
         // 過去に使用
+        case court
         case player
         case gender
         case group1
@@ -42,12 +42,11 @@ extension UserDefaultsUtil {
         }
     }
 
-    var courtNames: [String]? {
+    var courtNames: [String] {
         get {
-            return UserDefaults.standard.value(forKey: StringKey.newCourt.rawValue) as? [String]
+            return UserDefaults.standard.value(forKey: StringKey.newCourt.rawValue) as? [String] ?? []
         }
         set {
-            guard let newValue = newValue else { return }
             UserDefaults.standard.set(newValue, forKey: StringKey.newCourt.rawValue)
         }
     }

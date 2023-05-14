@@ -106,8 +106,8 @@ final class GameViewSettingViewModel {
     private func setInitialData(groupID: String?) {
         if let groupID = groupID {
             let playersData = coreDataManager.loadMasterPlayers(groupID: groupID)
+            let courtData = userDefaultsManager.courtNames
             guard playersData.count < 22,
-                  let courtData = userDefaultsManager.courtNames,
                   courtData.count < 4 else { return }
             let players = playersData.filter { !(($0.name ?? "").isEmpty) }
             let courtNames = courtData.filter { !$0.isEmpty }
