@@ -34,20 +34,20 @@ final class UserDefaultsUtil {
 extension UserDefaultsUtil {
     var padelID: String? {
         get {
-            return UserDefaults.standard.string(forKey: StringKey.padelId.rawValue)
+            return userDefaults.string(forKey: StringKey.padelId.rawValue)
         }
         set {
             guard let newValue = newValue else { return }
-            UserDefaults.standard.set(newValue, forKey: StringKey.padelId.rawValue)
+            userDefaults.set(newValue, forKey: StringKey.padelId.rawValue)
         }
     }
 
     var courtNames: [String] {
         get {
-            return UserDefaults.standard.value(forKey: StringKey.newCourt.rawValue) as? [String] ?? []
+            return userDefaults.value(forKey: StringKey.newCourt.rawValue) as? [String] ?? []
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: StringKey.newCourt.rawValue)
+            userDefaults.set(newValue, forKey: StringKey.newCourt.rawValue)
         }
     }
 
@@ -73,10 +73,10 @@ extension UserDefaultsUtil {
 
     var playerDataMigratedToCoreData: Bool {
         get {
-            return UserDefaults.standard.bool(forKey: StringKey.playerDataMigratedToCoreData.rawValue)
+            return userDefaults.bool(forKey: StringKey.playerDataMigratedToCoreData.rawValue)
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: StringKey.playerDataMigratedToCoreData.rawValue)
+            userDefaults.set(newValue, forKey: StringKey.playerDataMigratedToCoreData.rawValue)
         }
     }
 }
