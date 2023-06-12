@@ -165,7 +165,8 @@ workflows:
         - message_on_error: "デバイス追加に失敗しました" # 失敗時に送信するメッセージ
 meta:
   bitrise.io:
-    stack: osx-xcode-14.2.x-ventura
+    stack: osx-xcode-14.3.x-ventura
+    machine_type_id: g2-m1.4core
 app:
   envs:
   - opts:
