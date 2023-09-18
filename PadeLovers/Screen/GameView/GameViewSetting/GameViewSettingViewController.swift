@@ -14,12 +14,12 @@ final class GameViewSettingViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView! {
         didSet {
-            tableView.register(R.nib.gameViewGameModeTableViewCell)
-            tableView.register(R.nib.gameViewCourtTableViewCell)
-            tableView.register(R.nib.gameViewGameResultTableViewCell)
-            tableView.register(R.nib.gameViewPairingTableViewCell)
-            tableView.register(R.nib.gameViewPlayerCountTableViewCell)
-            tableView.register(R.nib.gameViewPlayerTableViewCell)
+            tableView.register(GameViewGameModeTableViewCell)
+            tableView.register(GameViewCourtTableViewCell)
+            tableView.register(GameViewGameResultTableViewCell)
+            tableView.register(GameViewPairingTableViewCell)
+            tableView.register(GameViewPlayerCountTableViewCell)
+            tableView.register(GameViewPlayerTableViewCell)
 
             tableView.rx
                 .setDataSource(self)
@@ -178,24 +178,24 @@ extension GameViewSettingViewController: UITableViewDataSource {
             cell.render(delegate: self, modeType: GameModeType(rawValue: indexPath.row) ?? .combination, playMode: viewModel.padelPlayMode.value, isAuto: viewModel.autoPlayMode.value)
             return cell
         case .gameResultSection:
-            let cell = tableView.dequeueReusableCell(withIdentifier: R.nib.gameViewGameResultTableViewCell, for: indexPath)!
+            let cell = tableView.dequeueReusableCell(withIdentifier: GameViewGameResultTableViewCell, for: indexPath)!
             cell.render(delegate: self, gameResult: viewModel.gameResult.value)
             return cell
         case .courtSection:
-            let cell = tableView.dequeueReusableCell(withIdentifier: R.nib.gameViewCourtTableViewCell, for: indexPath)!
+            let cell = tableView.dequeueReusableCell(withIdentifier: GameViewCourtTableViewCell, for: indexPath)!
             cell.render(delegate: self, court: viewModel.courtList.value[indexPath.row])
             return cell
         case .pairingSection:
-            let cell = tableView.dequeueReusableCell(withIdentifier: R.nib.gameViewPairingTableViewCell, for: indexPath)!
+            let cell = tableView.dequeueReusableCell(withIdentifier: GameViewPairingTableViewCell, for: indexPath)!
             cell.render(delegate: self, pairing: viewModel.pairingList.value[indexPath.row])
             return cell
         case .playerSection:
             if indexPath.row == 0 {
-                let cell = tableView.dequeueReusableCell(withIdentifier: R.nib.gameViewPlayerCountTableViewCell, for: indexPath)!
+                let cell = tableView.dequeueReusableCell(withIdentifier: GameViewPlayerCountTableViewCell, for: indexPath)!
                 cell.render(minPlayerCount: viewModel.playingPlayerCounts.value)
                 return cell
             } else {
-                let cell = tableView.dequeueReusableCell(withIdentifier: R.nib.gameViewPlayerTableViewCell, for: indexPath)!
+                let cell = tableView.dequeueReusableCell(withIdentifier: GameViewPlayerTableViewCell, for: indexPath)!
                 cell.render(delegate: self, player: viewModel.playerList.value[indexPath.row - 1])
                 return cell
             }
