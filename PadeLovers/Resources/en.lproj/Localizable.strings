@@ -1,0 +1,40 @@
+/* 
+  Localizable.strings
+  PadeLovers
+
+  Created by Yoshitaka Tanaka on 2022/06/10.
+  Copyright © 2022 Yoshitaka. All rights reserved.
+*/
+
+// 画面タイトル
+"Game view setting" = "Game view setting";
+"Game view match" = "Game view match";
+"Game view result" = "Game view result";
+
+// 試合画面　プレイヤー管理
+"Mode" = "Mode";
+"Combination oriented mode" = "Combination oriented mode";
+"Match count oriented mode" = "Match count oriented mode";
+"Auto Switching Mode" = "Auto Switching Mode";
+
+"Game Result" = "Game Result";
+"Save Game Result" = "Save Game Result";
+
+"Court" = "Court";
+
+"Pairing" = "Pairing";
+
+"Player" = "Player";
+"Playing Player" = "Playing Player";
+"Player count" = "Player count";
+"Need more players" = "Need more players";
+
+// メッセージ
+"Match count" = "Match count";
+"Participate in the match" = "Participate in the match";
+"Reset pairing" = "Reset pairing";
+"Get out of the match" = "Get out of the match";
+
+"Auto play mode set" = "Auto play mode set";
+"Auto play mode reset" = "Auto play mode reset";
+"Auto play mode fired" = "Auto play mode fired";

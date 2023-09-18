@@ -32,7 +32,6 @@
 		E42F21702852C2D90029970D /* GameViewGameModeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E42F216E2852C2D90029970D /* GameViewGameModeTableViewCell.xib */; };
 		E42F21732852C2EA0029970D /* GameViewGameResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42F21712852C2EA0029970D /* GameViewGameResultTableViewCell.swift */; };
 		E42F21742852C2EA0029970D /* GameViewGameResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E42F21722852C2EA0029970D /* GameViewGameResultTableViewCell.xib */; };
-		E42F21782852CE150029970D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E42F21772852CE150029970D /* Localizable.strings */; };
 		E42F217B2852FB330029970D /* GameModeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42F217A2852FB330029970D /* GameModeType.swift */; };
 		E42F217D285300A20029970D /* GameViewPlayerTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42F217C285300A20029970D /* GameViewPlayerTableDelegate.swift */; };
 		E42F217F28535F510029970D /* GameViewSetting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E42F217E28535F510029970D /* GameViewSetting.storyboard */; };
@@ -49,6 +48,7 @@
 		E42FAD302678AFDB00F9B7DD /* PlayerResultCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E42FAD2E2678AFDB00F9B7DD /* PlayerResultCollectionViewCell.xib */; };
 		E4313D98254830F30045447F /* GameDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4313D97254830F30045447F /* GameDataTableViewController.swift */; };
 		E4316C882548828F00EED960 /* FixedPairViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4316C872548828F00EED960 /* FixedPairViewController.swift */; };
+		E431C40D2AB8388A00734523 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E431C40F2AB8388A00734523 /* Localizable.strings */; };
 		E4324F2F2547EDAB00063A9F /* GameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4324F2D2547EDAB00063A9F /* GameTableViewCell.swift */; };
 		E4324F302547EDAB00063A9F /* GameTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4324F2E2547EDAB00063A9F /* GameTableViewCell.xib */; };
 		E433EA4E2684BA0D00EFC20B /* Player+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E433EA402684BA0D00EFC20B /* Player+CoreDataClass.swift */; };
@@ -192,7 +192,6 @@
 		E42F216E2852C2D90029970D /* GameViewGameModeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameViewGameModeTableViewCell.xib; sourceTree = "<group>"; };
 		E42F21712852C2EA0029970D /* GameViewGameResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewGameResultTableViewCell.swift; sourceTree = "<group>"; };
 		E42F21722852C2EA0029970D /* GameViewGameResultTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameViewGameResultTableViewCell.xib; sourceTree = "<group>"; };
-		E42F21772852CE150029970D /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		E42F217A2852FB330029970D /* GameModeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModeType.swift; sourceTree = "<group>"; };
 		E42F217C285300A20029970D /* GameViewPlayerTableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewPlayerTableDelegate.swift; sourceTree = "<group>"; };
 		E42F217E28535F510029970D /* GameViewSetting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GameViewSetting.storyboard; sourceTree = "<group>"; };
@@ -209,6 +208,8 @@
 		E42FAD2E2678AFDB00F9B7DD /* PlayerResultCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerResultCollectionViewCell.xib; sourceTree = "<group>"; };
 		E4313D97254830F30045447F /* GameDataTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDataTableViewController.swift; sourceTree = "<group>"; };
 		E4316C872548828F00EED960 /* FixedPairViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixedPairViewController.swift; sourceTree = "<group>"; };
+		E431C40E2AB8388A00734523 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E431C4102AB838EA00734523 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E4324F2D2547EDAB00063A9F /* GameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTableViewCell.swift; sourceTree = "<group>"; };
 		E4324F2E2547EDAB00063A9F /* GameTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameTableViewCell.xib; sourceTree = "<group>"; };
 		E433EA402684BA0D00EFC20B /* Player+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Player+CoreDataClass.swift"; path = "PadeLovers/Entity/ManagedObject/Player+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
@@ -843,7 +844,7 @@
 				E47F20352547D56D00996B19 /* Assets.xcassets */,
 				E47F20372547D56D00996B19 /* LaunchScreen.storyboard */,
 				E4D131E827B27F2D0034B2D0 /* Settings.bundle */,
-				E42F21772852CE150029970D /* Localizable.strings */,
+				E431C40F2AB8388A00734523 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -928,6 +929,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = E47F20202547D56B00996B19;
 			packageReferences = (
@@ -971,7 +973,7 @@
 				E46739B6268696C000C7F745 /* RandomNumberTableViewCell.xib in Resources */,
 				E44672F42645658D0092DEFE /* Menu.storyboard in Resources */,
 				E42F215C285205660029970D /* GameViewPlayerTableViewCell.xib in Resources */,
-				E42F21782852CE150029970D /* Localizable.strings in Resources */,
+				E431C40D2AB8388A00734523 /* Localizable.strings in Resources */,
 				E4C4342B2680F10E006652A7 /* PlayerTableViewCell.xib in Resources */,
 				E4467337264974650092DEFE /* ReplacePlayer.storyboard in Resources */,
 				E43C7079267ABB6600E28E8A /* RecordScore.storyboard in Resources */,
@@ -1230,6 +1232,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		E431C40F2AB8388A00734523 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E431C40E2AB8388A00734523 /* en */,
+				E431C4102AB838EA00734523 /* ja */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		E4467335264974640092DEFE /* ReplacePlayer.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1295,6 +1306,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1356,6 +1368,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
