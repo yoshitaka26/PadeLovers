@@ -17,11 +17,11 @@ final class GameDataTableViewController: BaseTableViewController {
     }
 
     private func setup() {
-        tabBarController?.navigationItem.title = R.string.localizable.gameViewMatch()
+        tabBarController?.navigationItem.title = String(localized: "Game view match")
         tabBarController?.navigationItem.hidesBackButton = true
         tabBarController?.navigationItem.leftBarButtonItem = nil
         tabBarController?.navigationItem.rightBarButtonItem = nil
-        tabBarItem.title = R.string.localizable.gameViewMatch()
+        tabBarItem.title = String(localized: "Game view match")
     }
     
     override func bind() {

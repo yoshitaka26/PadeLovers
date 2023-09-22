@@ -60,10 +60,10 @@ final class GameViewSettingViewController: UIViewController {
     }
 
     private func setup() {
-        tabBarController?.navigationItem.title = R.string.localizable.gameViewSetting()
+        tabBarController?.navigationItem.title = String(localized: "Game view setting")
         tabBarController?.navigationItem.leftBarButtonItem = self.createBarButtonItem(image: UIImage.named("questionmark.circle"), select: #selector(self.questionBarButtonItem))
         tabBarController?.navigationItem.rightBarButtonItem = nil
-        tabBarController?.tabBarItem.title = R.string.localizable.gameViewSetting()
+        tabBarController?.tabBarItem.title = String(localized: "Game view setting")
     }
 
     private func bind() {

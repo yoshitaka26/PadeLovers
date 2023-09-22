@@ -18,15 +18,15 @@ enum GameViewSettingSection: Int {
     var headerTitle: String {
         switch self {
         case .gameModeSection:
-            return R.string.localizable.mode()
+            return String(localized: "Mode")
         case .gameResultSection:
-            return R.string.localizable.gameResult()
+            return String(localized: "Game Result")
         case .courtSection:
-            return R.string.localizable.court()
+            return String(localized: "Court")
         case .pairingSection:
-            return R.string.localizable.pairing()
+            return String(localized: "Pairing")
         case .playerSection:
-            return R.string.localizable.player()
+            return String(localized: "Player")
         }
     }
 }

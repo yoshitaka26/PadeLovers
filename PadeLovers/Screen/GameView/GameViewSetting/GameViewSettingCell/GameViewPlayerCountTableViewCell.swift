@@ -14,7 +14,7 @@ class GameViewPlayerCountTableViewCell: UITableViewCell {
 
     @IBOutlet private weak var playingPlayerTitleLabel: UILabel! {
         didSet {
-            playerCountLabel.text = R.string.localizable.playingPlayer()
+            playerCountLabel.text = String(localized: "Playing Player")
         }
     }
 
@@ -23,7 +23,7 @@ class GameViewPlayerCountTableViewCell: UITableViewCell {
             playingPlayerCount
                 .subscribe(onNext: { [weak self] count in
                     guard let self = self else { return }
-                    self.playerCountLabel.text = count > 0 ?  ("\(count)" + R.string.localizable.playerCount()) : ("\(abs(count))" + R.string.localizable.needMorePlayers())
+                    self.playerCountLabel.text = count > 0 ?  ("\(count)" + String(localized: "Player count")) : ("\(abs(count))" + String(localized: "Need more players"))
                     self.playerCountLabel.textColor = count > 0 ? .label : .red
 
                 })

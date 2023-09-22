@@ -25,13 +25,13 @@ class GameViewGameModeTableViewCell: UITableViewCell {
     func render(delegate: GameViewPlayerTableDelegate, modeType: GameModeType, playMode: Bool, isAuto: Bool) {
         switch modeType {
         case .combination:
-            gameModeLabel.text = R.string.localizable.combinationOrientedMode()
+            gameModeLabel.text = String(localized: "Combination oriented mode")
             gameModeSwitch.setOn(playMode, animated: false)
         case .matchCount:
-            gameModeLabel.text = R.string.localizable.matchCountOrientedMode()
+            gameModeLabel.text = String(localized: "Match count oriented mode")
             gameModeSwitch.setOn(!playMode, animated: false)
         case .auto:
-            gameModeLabel.text = R.string.localizable.autoSwitchingMode()
+            gameModeLabel.text = String(localized: "Auto Switching Mode")
             gameModeSwitch.setOn(isAuto, animated: false)
         }
         gameModeSwitch.rx.controlEvent(.valueChanged)

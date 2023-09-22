@@ -48,9 +48,9 @@
 		E42FAD302678AFDB00F9B7DD /* PlayerResultCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E42FAD2E2678AFDB00F9B7DD /* PlayerResultCollectionViewCell.xib */; };
 		E4313D98254830F30045447F /* GameDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4313D97254830F30045447F /* GameDataTableViewController.swift */; };
 		E4316C882548828F00EED960 /* FixedPairViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4316C872548828F00EED960 /* FixedPairViewController.swift */; };
-		E431C40D2AB8388A00734523 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E431C40F2AB8388A00734523 /* Localizable.strings */; };
 		E431C4112AB83AC500734523 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E431C4122AB83AC500734523 /* LaunchScreen.storyboard */; };
 		E431C4132AB83B0F00734523 /* ReplacePlayer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E431C4142AB83B0F00734523 /* ReplacePlayer.storyboard */; };
+		E431C4162AB83C4B00734523 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = E431C4152AB83C4B00734523 /* Localizable.xcstrings */; };
 		E4324F2F2547EDAB00063A9F /* GameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4324F2D2547EDAB00063A9F /* GameTableViewCell.swift */; };
 		E4324F302547EDAB00063A9F /* GameTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4324F2E2547EDAB00063A9F /* GameTableViewCell.xib */; };
 		E433EA4E2684BA0D00EFC20B /* Player+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E433EA402684BA0D00EFC20B /* Player+CoreDataClass.swift */; };
@@ -208,10 +208,9 @@
 		E42FAD2E2678AFDB00F9B7DD /* PlayerResultCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerResultCollectionViewCell.xib; sourceTree = "<group>"; };
 		E4313D97254830F30045447F /* GameDataTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDataTableViewController.swift; sourceTree = "<group>"; };
 		E4316C872548828F00EED960 /* FixedPairViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixedPairViewController.swift; sourceTree = "<group>"; };
-		E431C40E2AB8388A00734523 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		E431C4102AB838EA00734523 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E431C4122AB83AC500734523 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E431C4142AB83B0F00734523 /* ReplacePlayer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ReplacePlayer.storyboard; sourceTree = "<group>"; };
+		E431C4152AB83C4B00734523 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		E4324F2D2547EDAB00063A9F /* GameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTableViewCell.swift; sourceTree = "<group>"; };
 		E4324F2E2547EDAB00063A9F /* GameTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameTableViewCell.xib; sourceTree = "<group>"; };
 		E433EA402684BA0D00EFC20B /* Player+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Player+CoreDataClass.swift"; path = "PadeLovers/Entity/ManagedObject/Player+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
@@ -844,7 +843,7 @@
 				E47F20352547D56D00996B19 /* Assets.xcassets */,
 				E431C4122AB83AC500734523 /* LaunchScreen.storyboard */,
 				E4D131E827B27F2D0034B2D0 /* Settings.bundle */,
-				E431C40F2AB8388A00734523 /* Localizable.strings */,
+				E431C4152AB83C4B00734523 /* Localizable.xcstrings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -928,7 +927,6 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
 				ja,
 			);
 			mainGroup = E47F20202547D56B00996B19;
@@ -973,7 +971,6 @@
 				E46739B6268696C000C7F745 /* RandomNumberTableViewCell.xib in Resources */,
 				E44672F42645658D0092DEFE /* Menu.storyboard in Resources */,
 				E42F215C285205660029970D /* GameViewPlayerTableViewCell.xib in Resources */,
-				E431C40D2AB8388A00734523 /* Localizable.strings in Resources */,
 				E4C4342B2680F10E006652A7 /* PlayerTableViewCell.xib in Resources */,
 				E431C4132AB83B0F00734523 /* ReplacePlayer.storyboard in Resources */,
 				E43C7079267ABB6600E28E8A /* RecordScore.storyboard in Resources */,
@@ -983,6 +980,7 @@
 				E4324F302547EDAB00063A9F /* GameTableViewCell.xib in Resources */,
 				E42F21742852C2EA0029970D /* GameViewGameResultTableViewCell.xib in Resources */,
 				E4C4343226815979006652A7 /* CourtTableViewCell.xib in Resources */,
+				E431C4162AB83C4B00734523 /* Localizable.xcstrings in Resources */,
 				E48627DA268386A300453425 /* StartGame.storyboard in Resources */,
 				E47F20362547D56D00996B19 /* Assets.xcassets in Resources */,
 				E45BB7D32870532D00E722D6 /* GameData.storyboard in Resources */,
@@ -1231,18 +1229,6 @@
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		E431C40F2AB8388A00734523 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E431C40E2AB8388A00734523 /* en */,
-				E431C4102AB838EA00734523 /* ja */,
-			);
-			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
 		E4103C8C27912AEF00E12348 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -1338,7 +1324,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1394,7 +1381,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1417,7 +1405,7 @@
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = VKV3Y2GW5Q;
 				INFOPLIST_FILE = PadeLovers/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1427,6 +1415,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match Development com.yoshitaka.PadeLovers";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1445,7 +1434,7 @@
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = VKV3Y2GW5Q;
 				INFOPLIST_FILE = PadeLovers/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1455,6 +1444,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AppStore com.yoshitaka.PadeLovers";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

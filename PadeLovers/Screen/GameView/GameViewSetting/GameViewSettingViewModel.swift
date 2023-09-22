@@ -159,7 +159,7 @@ extension GameViewSettingViewModel {
             } else {
                 resetAutoModeTimer()
                 autoPlayMode.accept(false)
-                presentScreenSubject.accept(.infoAlert(message: R.string.localizable.autoPlayModeReset()))
+                presentScreenSubject.accept(.infoAlert(message: String(localized: "Auto play mode reset")))
             }
         }
     }
@@ -200,11 +200,11 @@ extension GameViewSettingViewModel {
         case 0:
             break
         case -1:
-            presentScreenSubject.accept(.infoAlert(message: R.string.localizable.resetPairing()))
+            presentScreenSubject.accept(.infoAlert(message: String(localized: "Reset pairing")))
         case -2:
-            presentScreenSubject.accept(.infoAlert(message: R.string.localizable.getOutOfTheMatch()))
+            presentScreenSubject.accept(.infoAlert(message: String(localized: "Get out of the match")))
         default:
-            let message = R.string.localizable.matchCount() + "\(result)" + "\n" + R.string.localizable.participateInTheMatch()
+            let message = String(localized: "Match count") + "\(result)" + "\n" + String(localized: "Participate in the match")
             presentScreenSubject.accept(.infoAlert(message: message))
         }
         playerList.accept(coreDataManager.loadAllPlayers(uuidString: padelID))
@@ -230,13 +230,13 @@ extension GameViewSettingViewModel {
         if setTime != 0 {
             autoPlayMode.accept(true)
             handleGameModeSwitchChanged(gameMode: .combination, isOn: true)
-            presentScreenSubject.accept(.infoAlert(message: "\(setTime)" + R.string.localizable.autoPlayModeSet()))
+            presentScreenSubject.accept(.infoAlert(message: "\(setTime)" + String(localized: "Auto play mode set")))
             autoPlayModeTimer = Observable<Int>
                 .interval(DispatchTimeInterval.seconds(setTime * minuteSeconds), scheduler: MainScheduler.instance)
                 .subscribe { [weak self] _ in
                     guard let self = self else { return }
                     if self.padelPlayMode.value {
-                        self.presentScreenSubject.accept(.infoAlert(message: R.string.localizable.autoPlayModeFired()))
+                        self.presentScreenSubject.accept(.infoAlert(message: String(localized: "Auto play mode fired")))
                     }
                     self.autoPlayMode.accept(false)
                     self.handleGameModeSwitchChanged(gameMode: .matchCount, isOn: true)

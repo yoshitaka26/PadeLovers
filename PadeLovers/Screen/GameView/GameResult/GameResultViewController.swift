@@ -25,11 +25,11 @@ final class GameResultViewController: BaseViewController {
     }
 
     private func setup() {
-        tabBarController?.navigationItem.title = R.string.localizable.gameViewResult()
+        tabBarController?.navigationItem.title = String(localized: "Game view result")
         tabBarController?.navigationItem.hidesBackButton = true
 //        tabBarController?.navigationItem.leftBarButtonItem = self.createBarButtonItem(image: UIImage.named("icloud.and.arrow.up"), select: #selector(self.shareGame))
         tabBarController?.navigationItem.rightBarButtonItem = self.createBarButtonItem(image: UIImage.named("house.fill"), select: #selector(self.back))
-        tabBarItem.title = R.string.localizable.gameViewResult()
+        tabBarItem.title = String(localized: "Game view result")
     }
     
     override func bind() {

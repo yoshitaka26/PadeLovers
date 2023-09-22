@@ -14,7 +14,7 @@ class GameViewGameResultTableViewCell: UITableViewCell {
 
     @IBOutlet private weak var gameResultLabel: UILabel! {
         didSet {
-            gameResultLabel.text = R.string.localizable.gameResult()
+            gameResultLabel.text = String(localized: "Game Result")
         }
     }
     @IBOutlet private weak var gameResultSwitch: UISwitch!
