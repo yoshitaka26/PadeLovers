@@ -883,7 +883,6 @@
 			buildConfigurationList = E47F203D2547D56D00996B19 /* Build configuration list for PBXNativeTarget "PadeLovers" */;
 			buildPhases = (
 				F5BC0ADF6AAA7DBB028FC5BE /* [CP] Check Pods Manifest.lock */,
-				E42F2157285203B50029970D /* Run Script-R.Swift */,
 				E47F20252547D56B00996B19 /* Sources */,
 				E47F20262547D56B00996B19 /* Frameworks */,
 				E47F20272547D56B00996B19 /* Resources */,
@@ -1033,27 +1032,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PadeLovers/Pods-PadeLovers-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
-		};
-		E42F2157285203B50029970D /* Run Script-R.Swift */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$TEMP_DIR/rswift-lastrun",
-			);
-			name = "Run Script-R.Swift";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				$SRCROOT/PadeLovers/R.generated.swift,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/$PROJECT_NAME/R.generated.swift\"\n";
 		};
 		E481F411263ABED400D2B879 /* Run Script-SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;

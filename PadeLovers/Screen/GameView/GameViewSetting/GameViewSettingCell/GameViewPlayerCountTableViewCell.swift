@@ -34,6 +34,11 @@ class GameViewPlayerCountTableViewCell: UITableViewCell {
     private let disposeBag = DisposeBag()
     private var playingPlayerCount = PublishRelay<Int>()
 
+    static let identifier = "GameViewPlayerCountTableViewCell"
+    static func nib() -> UINib {
+        return UINib(nibName: "GameViewPlayerCountTableViewCell", bundle: nil)
+    }
+
     func render(minPlayerCount: Int) {
         self.playingPlayerCount.accept(minPlayerCount)
     }

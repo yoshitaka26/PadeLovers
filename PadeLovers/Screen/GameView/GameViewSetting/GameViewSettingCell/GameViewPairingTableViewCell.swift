@@ -17,6 +17,11 @@ class GameViewPairingTableViewCell: UITableViewCell {
 
     private var disposeBag = DisposeBag()
 
+    static let identifier = "GameViewPairingTableViewCell"
+    static func nib() -> UINib {
+        return UINib(nibName: "GameViewPairingTableViewCell", bundle: nil)
+    }
+
     override func prepareForReuse() {
         super.prepareForReuse()
         disposeBag = DisposeBag()

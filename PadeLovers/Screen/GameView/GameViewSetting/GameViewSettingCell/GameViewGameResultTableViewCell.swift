@@ -21,6 +21,11 @@ class GameViewGameResultTableViewCell: UITableViewCell {
 
     private var disposeBag = DisposeBag()
 
+    static let identifier = "GameViewGameResultTableViewCell"
+    static func nib() -> UINib {
+        return UINib(nibName: "GameViewGameResultTableViewCell", bundle: nil)
+    }
+
     override func prepareForReuse() {
         super.prepareForReuse()
         disposeBag = DisposeBag()
