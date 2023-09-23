@@ -161,7 +161,7 @@ struct GameView: View {
                 VStack {
                     if court.isSet {
                         Button("取消", role: .cancel) {
-                            viewModel.endGame(court: court)
+                            viewModel.resetGame(court: court)
                         }
                         .buttonStyle(.bordered)
                         Button("終了", role: .destructive) {

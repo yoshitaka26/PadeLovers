@@ -29,7 +29,9 @@ final class MixGameViewModel: ObservableObject {
         let playersData = CoreDataManager.shared.loadMasterPlayers(groupID: groupID)
         let courtData = UserDefaultsUtil.shared.courtNames
 
-        self.players = playersData.map {
+        self.players = playersData
+            .sorted { $0.order < $1.order }
+            .map {
             return MixGamePlayer(id: Int($0.order), name: $0.name ?? "ゲスト", isMale: $0.gender)
         }
         self.courts = courtData.map {
@@ -72,7 +74,7 @@ final class MixGameViewModel: ObservableObject {
     }
 
     func resetGame(court: MixGameCourt) {
-        court.endGame()
+        court.resetGame()
         matchGame.removeAll(where: { $0.id == court.gameId })
     }
 
