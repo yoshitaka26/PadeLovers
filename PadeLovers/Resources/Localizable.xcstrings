@@ -32,7 +32,6 @@
       }
     },
     "Auto Switching Mode" : {
-      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -43,7 +42,6 @@
       }
     },
     "Combination oriented mode" : {
-      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -126,7 +124,6 @@
       }
     },
     "Match count oriented mode" : {
-      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
