@@ -144,6 +144,10 @@
 		E4D131DA27AA387B0034B2D0 /* AutoPlayModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D131D927AA387B0034B2D0 /* AutoPlayModeViewController.swift */; };
 		E4D131DC27AB8CBC0034B2D0 /* AutoPlayMode.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4D131DB27AB8CBC0034B2D0 /* AutoPlayMode.storyboard */; };
 		E4D131E927B27F2D0034B2D0 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E4D131E827B27F2D0034B2D0 /* Settings.bundle */; };
+		E4E0A6C92ABECBDC00666523 /* MixGameTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E0A6C82ABECBDC00666523 /* MixGameTabView.swift */; };
+		E4E0A6CB2ABECBF800666523 /* MixGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E0A6CA2ABECBF800666523 /* MixGameViewModel.swift */; };
+		E4E0A6CD2ABED08500666523 /* MixGamePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E0A6CC2ABED08500666523 /* MixGamePlayer.swift */; };
+		E4E0A6CF2ABED0A700666523 /* MixGameMatchGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E0A6CE2ABED0A700666523 /* MixGameMatchGame.swift */; };
 		E4E3DA252673AA8F0009D809 /* ReplacePlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E3DA242673AA8F0009D809 /* ReplacePlayerViewModel.swift */; };
 		E4F29F632A076DE9006BC063 /* MasterPlayerGroup+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F29F5F2A076DE9006BC063 /* MasterPlayerGroup+CoreDataClass.swift */; };
 		E4F29F642A076DE9006BC063 /* MasterPlayerGroup+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F29F602A076DE9006BC063 /* MasterPlayerGroup+CoreDataProperties.swift */; };
@@ -306,6 +310,10 @@
 		E4D131D927AA387B0034B2D0 /* AutoPlayModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoPlayModeViewController.swift; sourceTree = "<group>"; };
 		E4D131DB27AB8CBC0034B2D0 /* AutoPlayMode.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AutoPlayMode.storyboard; sourceTree = "<group>"; };
 		E4D131E827B27F2D0034B2D0 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		E4E0A6C82ABECBDC00666523 /* MixGameTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixGameTabView.swift; sourceTree = "<group>"; };
+		E4E0A6CA2ABECBF800666523 /* MixGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixGameViewModel.swift; sourceTree = "<group>"; };
+		E4E0A6CC2ABED08500666523 /* MixGamePlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixGamePlayer.swift; sourceTree = "<group>"; };
+		E4E0A6CE2ABED0A700666523 /* MixGameMatchGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixGameMatchGame.swift; sourceTree = "<group>"; };
 		E4E3DA242673AA8F0009D809 /* ReplacePlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplacePlayerViewModel.swift; sourceTree = "<group>"; };
 		E4F29F342A068F9E006BC063 /* PadeLovers 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "PadeLovers 2.xcdatamodel"; sourceTree = "<group>"; };
 		E4F29F5F2A076DE9006BC063 /* MasterPlayerGroup+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MasterPlayerGroup+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -496,6 +504,7 @@
 		E44672DE264562770092DEFE /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				E4E0A6C72ABECB7000666523 /* MixGameView */,
 				E44672ED264565120092DEFE /* Menu */,
 				E447EF072755FE4A001601A7 /* HowToUse */,
 				E447EF062755FE3C001601A7 /* MainSetting */,
@@ -848,6 +857,17 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		E4E0A6C72ABECB7000666523 /* MixGameView */ = {
+			isa = PBXGroup;
+			children = (
+				E4E0A6C82ABECBDC00666523 /* MixGameTabView.swift */,
+				E4E0A6CA2ABECBF800666523 /* MixGameViewModel.swift */,
+				E4E0A6CC2ABED08500666523 /* MixGamePlayer.swift */,
+				E4E0A6CE2ABED0A700666523 /* MixGameMatchGame.swift */,
+			);
+			path = MixGameView;
+			sourceTree = "<group>";
+		};
 		E4F9D37F28373C1200759465 /* ShareGame */ = {
 			isa = PBXGroup;
 			children = (
@@ -1133,6 +1153,7 @@
 				E46739A92686908200C7F745 /* RandomNumberTableManager.swift in Sources */,
 				E42F217B2852FB330029970D /* GameModeType.swift in Sources */,
 				E4F29F652A076DE9006BC063 /* MasterPlayer+CoreDataClass.swift in Sources */,
+				E4E0A6CD2ABED08500666523 /* MixGamePlayer.swift in Sources */,
 				E42F2185285363F70029970D /* UIViewController+Rx.swift in Sources */,
 				E40F93FD26718E2700231511 /* EditDataViewModel.swift in Sources */,
 				E42F218728538DCC0029970D /* CoreDataManagerable.swift in Sources */,
@@ -1152,6 +1173,7 @@
 				E4C4342A2680F10E006652A7 /* PlayerTableViewCell.swift in Sources */,
 				E44672FE2645672B0092DEFE /* BaseTableViewController.swift in Sources */,
 				E446737F26554FB20092DEFE /* UIColorExtension.swift in Sources */,
+				E4E0A6C92ABECBDC00666523 /* MixGameTabView.swift in Sources */,
 				E47F202D2547D56B00996B19 /* AppDelegate.swift in Sources */,
 				E452C6F0266A4B68009A6EC3 /* PlayersDefine.swift in Sources */,
 				E44783D627579A2D001E1065 /* HowToUseDetailViewController.swift in Sources */,
@@ -1172,9 +1194,11 @@
 				E433EA572684BA0D00EFC20B /* Padel+CoreDataProperties.swift in Sources */,
 				E483164227ED53FC0091B0DF /* APIProvider.swift in Sources */,
 				E483164A27ED7F740091B0DF /* HTTPMethod.swift in Sources */,
+				E4E0A6CB2ABECBF800666523 /* MixGameViewModel.swift in Sources */,
 				E483164E27ED80280091B0DF /* RequestContentType.swift in Sources */,
 				E42FAD2F2678AFDB00F9B7DD /* PlayerResultCollectionViewCell.swift in Sources */,
 				E433EA64268622F900EFC20B /* RandomNumberTableViewModel.swift in Sources */,
+				E4E0A6CF2ABED0A700666523 /* MixGameMatchGame.swift in Sources */,
 				E433EA562684BA0D00EFC20B /* Padel+CoreDataClass.swift in Sources */,
 				E433EA4E2684BA0D00EFC20B /* Player+CoreDataClass.swift in Sources */,
 				E4C4341D2680EEC5006652A7 /* CommonDataViewModel.swift in Sources */,

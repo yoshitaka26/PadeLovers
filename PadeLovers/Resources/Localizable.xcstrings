@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "" : {
+
+    },
     "Auto play mode fired" : {
       "localizations" : {
         "ja" : {
@@ -111,6 +114,9 @@
           }
         }
       }
+    },
+    "Hello, world!" : {
+
     },
     "Match count" : {
       "comment" : "メッセージ",
@@ -230,6 +236,12 @@
           }
         }
       }
+    },
+    "ゲーム" : {
+
+    },
+    "プレイヤー" : {
+
     }
   },
   "version" : "1.0"

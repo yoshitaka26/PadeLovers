@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAnalytics
+import SwiftUI
 
 final class MenuViewController: BaseViewController {
     
@@ -85,13 +86,17 @@ extension MenuViewController: StartGameTableViewControllerDelegate {
         Analytics.setUserProperty(padelID?.uuidString ?? "", forName: "padel_id")
         Analytics.logEvent("show_menu_view", parameters: [:])
 
-        let tabBarCon = UITabBarController()
-        let gameViewSettingViewController = GameViewSettingViewController.make(groupID: groupID, padelId: padelID?.uuidString)
-        let gameData = UIStoryboard(name: "GameData", bundle: nil).instantiateInitialViewController() as! GameDataTableViewController
-        let gameResult = UIStoryboard(name: "GameResult", bundle: nil).instantiateInitialViewController() as! GameResultViewController
-        tabBarCon.setViewControllers([gameViewSettingViewController, gameData, gameResult], animated: true)
+        let tabBarCon = UIHostingController(rootView: MixGameTabView(viewModel: MixGameViewModel(groupID: groupID!)))
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.navigationController?.pushViewController(tabBarCon, animated: true)
+
+//        let tabBarCon = UITabBarController()
+//        let gameViewSettingViewController = GameViewSettingViewController.make(groupID: groupID, padelId: padelID?.uuidString)
+//        let gameData = UIStoryboard(name: "GameData", bundle: nil).instantiateInitialViewController() as! GameDataTableViewController
+//        let gameResult = UIStoryboard(name: "GameResult", bundle: nil).instantiateInitialViewController() as! GameResultViewController
+//        tabBarCon.setViewControllers([gameViewSettingViewController, gameData, gameResult], animated: true)
+//        self.navigationController?.setNavigationBarHidden(false, animated: true)
+//        self.navigationController?.pushViewController(tabBarCon, animated: true)
     }
     // swiftlint:enable force_unwrapping
 }
