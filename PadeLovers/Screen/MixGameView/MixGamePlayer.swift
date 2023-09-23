@@ -7,8 +7,9 @@
 //
 
 import Combine
+import Foundation
 
-class MixGamePlayer: ObservableObject {
+class MixGamePlayer: Identifiable, ObservableObject {
     @Published var isPlaying: Bool = true
     @Published var isOnGame: Bool = false
     @Published var playedCount: Int = 0
@@ -25,12 +26,20 @@ class MixGamePlayer: ObservableObject {
         self.isMale = isMale
     }
 
+    var switchDisabled: Bool {
+        isPlaying && isOnGame
+    }
+
     func fixCount(newValue: Int) {
         playedCount = newValue
     }
 
-    func toggleIsPlaying() {
-        isPlaying.toggle()
+    func addPlayCount() {
+        playedCount += 1
+    }
+
+    func minusPlayCount() {
+        playedCount -= 1
     }
 
     func startGame() {
@@ -44,5 +53,8 @@ class MixGamePlayer: ObservableObject {
     func finishGame(with: [Int]) {
         playedCount += 1
         isOnGame = false
+        pairedPlayers.append(
+            contentsOf: with.compactMap { $0 != id ? $0 : nil }
+        )
     }
 }

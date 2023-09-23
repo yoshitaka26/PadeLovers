@@ -148,6 +148,7 @@
 		E4E0A6CB2ABECBF800666523 /* MixGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E0A6CA2ABECBF800666523 /* MixGameViewModel.swift */; };
 		E4E0A6CD2ABED08500666523 /* MixGamePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E0A6CC2ABED08500666523 /* MixGamePlayer.swift */; };
 		E4E0A6CF2ABED0A700666523 /* MixGameMatchGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E0A6CE2ABED0A700666523 /* MixGameMatchGame.swift */; };
+		E4E0A6D12ABEE0CB00666523 /* MixGameCourt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E0A6D02ABEE0CB00666523 /* MixGameCourt.swift */; };
 		E4E3DA252673AA8F0009D809 /* ReplacePlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E3DA242673AA8F0009D809 /* ReplacePlayerViewModel.swift */; };
 		E4F29F632A076DE9006BC063 /* MasterPlayerGroup+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F29F5F2A076DE9006BC063 /* MasterPlayerGroup+CoreDataClass.swift */; };
 		E4F29F642A076DE9006BC063 /* MasterPlayerGroup+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F29F602A076DE9006BC063 /* MasterPlayerGroup+CoreDataProperties.swift */; };
@@ -314,6 +315,7 @@
 		E4E0A6CA2ABECBF800666523 /* MixGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixGameViewModel.swift; sourceTree = "<group>"; };
 		E4E0A6CC2ABED08500666523 /* MixGamePlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixGamePlayer.swift; sourceTree = "<group>"; };
 		E4E0A6CE2ABED0A700666523 /* MixGameMatchGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixGameMatchGame.swift; sourceTree = "<group>"; };
+		E4E0A6D02ABEE0CB00666523 /* MixGameCourt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixGameCourt.swift; sourceTree = "<group>"; };
 		E4E3DA242673AA8F0009D809 /* ReplacePlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplacePlayerViewModel.swift; sourceTree = "<group>"; };
 		E4F29F342A068F9E006BC063 /* PadeLovers 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "PadeLovers 2.xcdatamodel"; sourceTree = "<group>"; };
 		E4F29F5F2A076DE9006BC063 /* MasterPlayerGroup+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MasterPlayerGroup+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -864,6 +866,7 @@
 				E4E0A6CA2ABECBF800666523 /* MixGameViewModel.swift */,
 				E4E0A6CC2ABED08500666523 /* MixGamePlayer.swift */,
 				E4E0A6CE2ABED0A700666523 /* MixGameMatchGame.swift */,
+				E4E0A6D02ABEE0CB00666523 /* MixGameCourt.swift */,
 			);
 			path = MixGameView;
 			sourceTree = "<group>";
@@ -1138,6 +1141,7 @@
 				E42F218B285423930029970D /* UserDefaultsUtil.swift in Sources */,
 				E4F29F632A076DE9006BC063 /* MasterPlayerGroup+CoreDataClass.swift in Sources */,
 				E447EF0D2755FEFD001601A7 /* MainSettingTableViewController.swift in Sources */,
+				E4E0A6D12ABEE0CB00666523 /* MixGameCourt.swift in Sources */,
 				E4F29F662A076DE9006BC063 /* MasterPlayer+CoreDataProperties.swift in Sources */,
 				E43DCAF52686FF980078C4AF /* SettingViewController.swift in Sources */,
 				E433EA592684BA0D00EFC20B /* Court+CoreDataProperties.swift in Sources */,

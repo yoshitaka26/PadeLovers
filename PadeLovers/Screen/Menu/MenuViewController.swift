@@ -82,21 +82,36 @@ final class MenuViewController: BaseViewController {
 extension MenuViewController: StartGameTableViewControllerDelegate {
     // swiftlint:disable force_unwrapping
     func callBackFromStartGameModalVC(groupID: String?, padelID: UUID?) {
+        self.dismiss(animated: true, completion: nil)
+        // UIAlertControllerを作成し、preferredStyleに.actionSheetを設定
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
 
-        Analytics.setUserProperty(padelID?.uuidString ?? "", forName: "padel_id")
-        Analytics.logEvent("show_menu_view", parameters: [:])
+        // 各アクションを作成
+        let action1 = UIAlertAction(title: "標準モード", style: .default) { _ in
+            let tabBarCon = UITabBarController()
+            let gameViewSettingViewController = GameViewSettingViewController.make(groupID: groupID, padelId: padelID?.uuidString)
+            let gameData = UIStoryboard(name: "GameData", bundle: nil).instantiateInitialViewController() as! GameDataTableViewController
+            let gameResult = UIStoryboard(name: "GameResult", bundle: nil).instantiateInitialViewController() as! GameResultViewController
+            tabBarCon.setViewControllers([gameViewSettingViewController, gameData, gameResult], animated: true)
+            self.navigationController?.setNavigationBarHidden(false, animated: true)
+            self.navigationController?.pushViewController(tabBarCon, animated: true)
+        }
 
-        let tabBarCon = UIHostingController(rootView: MixGameTabView(viewModel: MixGameViewModel(groupID: groupID!)))
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
-        self.navigationController?.pushViewController(tabBarCon, animated: true)
+        let action2 = UIAlertAction(title: "簡易モード", style: .default) { _ in
+            let tabBarCon = UIHostingController(rootView: MixGameTabView(viewModel: MixGameViewModel(groupID: groupID!)))
+            self.navigationController?.setNavigationBarHidden(false, animated: true)
+            self.navigationController?.pushViewController(tabBarCon, animated: true)
+        }
 
-//        let tabBarCon = UITabBarController()
-//        let gameViewSettingViewController = GameViewSettingViewController.make(groupID: groupID, padelId: padelID?.uuidString)
-//        let gameData = UIStoryboard(name: "GameData", bundle: nil).instantiateInitialViewController() as! GameDataTableViewController
-//        let gameResult = UIStoryboard(name: "GameResult", bundle: nil).instantiateInitialViewController() as! GameResultViewController
-//        tabBarCon.setViewControllers([gameViewSettingViewController, gameData, gameResult], animated: true)
-//        self.navigationController?.setNavigationBarHidden(false, animated: true)
-//        self.navigationController?.pushViewController(tabBarCon, animated: true)
+        let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
+
+        // アクションをアクションシートに追加
+        actionSheet.addAction(action1)
+        actionSheet.addAction(action2)
+        actionSheet.addAction(cancelAction)
+
+        // アクションシートを表示
+        self.present(actionSheet, animated: true, completion: nil)
     }
     // swiftlint:enable force_unwrapping
 }
