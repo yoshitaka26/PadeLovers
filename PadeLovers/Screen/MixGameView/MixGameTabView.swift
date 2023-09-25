@@ -103,6 +103,7 @@ struct PlayerDetail: View {
                 })
                 .buttonStyle(.bordered)
             }
+            Text("\(player.pairedPlayers.description)")
         }
     }
 }

@@ -53,9 +53,9 @@ class MixGameCourt: ObservableObject {
         self.game = nil
     }
 
-    func endGame() {
+    func finishGame(totalPlayers: [Int]) {
         guard let game else { return }
-        game.finishGame()
+        game.finishGame(totalPlayers: totalPlayers)
         self.game = nil
     }
 }

@@ -50,11 +50,13 @@ class MixGamePlayer: Identifiable, ObservableObject {
         isOnGame = false
     }
 
-    func finishGame(with: [Int]) {
+    func finishGame(afterPlayingWith players: [Int], from totalPlayers: [Int]) {
         playedCount += 1
         isOnGame = false
-        pairedPlayers.append(
-            contentsOf: with.compactMap { $0 != id ? $0 : nil }
-        )
+        pairedPlayers.append(contentsOf: players.filter { $0 != id })
+
+        if totalPlayers.allSatisfy({ $0 == id || pairedPlayers.contains($0) }) {
+            pairedPlayers.removeAll { totalPlayers.contains($0) }
+        }
     }
 }

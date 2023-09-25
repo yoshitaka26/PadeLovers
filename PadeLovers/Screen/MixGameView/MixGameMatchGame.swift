@@ -19,10 +19,13 @@ class MixGameMatchGame: ObservableObject {
         self.players = players
     }
 
-    func finishGame() {
+    func finishGame(totalPlayers: [Int]) {
         isFinished = true
         players.forEach { player in
-            player.finishGame(with: players.map { $0.id })
+            player.finishGame(
+                afterPlayingWith: players.map { $0.id },
+                from: totalPlayers
+            )
         }
     }
 
