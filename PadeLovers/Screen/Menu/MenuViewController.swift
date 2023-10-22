@@ -89,6 +89,9 @@ extension MenuViewController: StartGameTableViewControllerDelegate {
         } else {
             // ゲーム新規ならアクションシートを表示
             let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+            actionSheet.popoverPresentationController?.sourceView = self.view
+            let screenSize = UIScreen.main.bounds
+            actionSheet.popoverPresentationController?.sourceRect = CGRect(x: screenSize.size.width / 4, y: screenSize.size.height / 2, width: 0, height: 0)
             let action1 = UIAlertAction(title: "標準モード", style: .default) { _ in
                 self.showDefaultGameView(groupID: groupID, padelID: nil)
             }

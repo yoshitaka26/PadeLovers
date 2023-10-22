@@ -945,10 +945,9 @@
 			};
 			buildConfigurationList = E47F20242547D56B00996B19 /* Build configuration list for PBXProject "PadeLovers" */;
 			compatibilityVersion = "Xcode 9.3";
-			developmentRegion = en;
+			developmentRegion = ja;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				ja,
 			);
 			mainGroup = E47F20202547D56B00996B19;

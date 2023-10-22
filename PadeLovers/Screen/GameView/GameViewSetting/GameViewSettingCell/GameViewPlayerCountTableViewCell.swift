@@ -14,7 +14,7 @@ class GameViewPlayerCountTableViewCell: UITableViewCell {
 
     @IBOutlet private weak var playingPlayerTitleLabel: UILabel! {
         didSet {
-            playerCountLabel.text = String(localized: "Playing Player")
+            playingPlayerTitleLabel.text = String(localized: "Playing Player")
         }
     }
 
