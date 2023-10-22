@@ -5,7 +5,7 @@ workflows:
   test_debug:
     meta:
       bitrise.io:
-        stack: osx-xcode-14.2.x-ventura
+        stack: osx-xcode-15.0.x
     steps:
     - activate-ssh-key@4:
         run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
@@ -72,7 +72,7 @@ workflows:
   build_release:
     meta:
       bitrise.io:
-        stack: osx-xcode-14.2.x-ventura
+        stack: osx-xcode-15.0.x
     steps:
     - activate-ssh-key@4:
         run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
@@ -144,7 +144,7 @@ workflows:
   add_device:
     meta:
       bitrise.io:
-        stack: osx-xcode-14.2.x-ventura
+        stack: osx-xcode-15.0.x
     steps:
     - activate-ssh-key@4:
         run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
