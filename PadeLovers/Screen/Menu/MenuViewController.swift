@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAnalytics
+import SwiftUI
 
 final class MenuViewController: BaseViewController {
     
@@ -81,14 +82,41 @@ final class MenuViewController: BaseViewController {
 extension MenuViewController: StartGameTableViewControllerDelegate {
     // swiftlint:disable force_unwrapping
     func callBackFromStartGameModalVC(groupID: String?, padelID: UUID?) {
+        self.dismiss(animated: true, completion: nil)
+        if let padelID {
+            // ゲーム再開
+            showDefaultGameView(groupID: groupID, padelID: padelID)
+        } else {
+            // ゲーム新規ならアクションシートを表示
+            let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+            actionSheet.popoverPresentationController?.sourceView = self.view
+            let screenSize = UIScreen.main.bounds
+            actionSheet.popoverPresentationController?.sourceRect = CGRect(x: screenSize.size.width / 4, y: screenSize.size.height / 2, width: 0, height: 0)
+            let action1 = UIAlertAction(title: "標準モード", style: .default) { _ in
+                self.showDefaultGameView(groupID: groupID, padelID: nil)
+            }
 
-        Analytics.setUserProperty(padelID?.uuidString ?? "", forName: "padel_id")
-        Analytics.logEvent("show_menu_view", parameters: [:])
+            let action2 = UIAlertAction(title: "簡易モード", style: .default) { _ in
+                let tabBarCon = UIHostingController(rootView: MixGameTabView(viewModel: MixGameViewModel(groupID: groupID!)))
+                self.navigationController?.setNavigationBarHidden(false, animated: true)
+                self.navigationController?.pushViewController(tabBarCon, animated: true)
+            }
 
+            let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
+
+            actionSheet.addAction(action1)
+            actionSheet.addAction(action2)
+            actionSheet.addAction(cancelAction)
+
+            self.present(actionSheet, animated: true, completion: nil)
+        }
+    }
+
+    private func showDefaultGameView(groupID: String?, padelID: UUID?) {
         let tabBarCon = UITabBarController()
         let gameViewSettingViewController = GameViewSettingViewController.make(groupID: groupID, padelId: padelID?.uuidString)
-        let gameData = R.storyboard.gameData.instantiateInitialViewController()!
-        let gameResult = R.storyboard.gameResult.instantiateInitialViewController()!
+        let gameData = UIStoryboard(name: "GameData", bundle: nil).instantiateInitialViewController() as! GameDataTableViewController
+        let gameResult = UIStoryboard(name: "GameResult", bundle: nil).instantiateInitialViewController() as! GameResultViewController
         tabBarCon.setViewControllers([gameViewSettingViewController, gameData, gameResult], animated: true)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.navigationController?.pushViewController(tabBarCon, animated: true)

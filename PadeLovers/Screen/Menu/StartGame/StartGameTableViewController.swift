@@ -67,7 +67,5 @@ final class StartGameTableViewController: UITableViewController {
             let padelID = gameData[indexPath.row].padelID
             delegate?.callBackFromStartGameModalVC(groupID: nil, padelID: padelID)
         }
-
-        self.dismiss(animated: true, completion: nil)
     }
 }

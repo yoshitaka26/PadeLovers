@@ -27,7 +27,7 @@ final class ReplacePlayerViewModel: BaseViewModel {
 
     let coreDataManager = CoreDataManager.shared
     let gameCreateManager = GameOrganizeManager.shared
-    var padelID: String = UserDefaults.standard.value(forKey: "PadelID") as! String
+    var padelID = UserDefaultsUtil.shared.padelID ?? ""
     
     var playersOnGame: BehaviorRelay<[Player]> = BehaviorRelay(value: [])
     var playersForReplace: BehaviorRelay<[Player]> = BehaviorRelay(value: [])

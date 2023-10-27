@@ -14,12 +14,12 @@ final class GameViewSettingViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView! {
         didSet {
-            tableView.register(R.nib.gameViewGameModeTableViewCell)
-            tableView.register(R.nib.gameViewCourtTableViewCell)
-            tableView.register(R.nib.gameViewGameResultTableViewCell)
-            tableView.register(R.nib.gameViewPairingTableViewCell)
-            tableView.register(R.nib.gameViewPlayerCountTableViewCell)
-            tableView.register(R.nib.gameViewPlayerTableViewCell)
+            tableView.register(GameViewGameModeTableViewCell.nib(), forCellReuseIdentifier: GameViewGameModeTableViewCell.identifier)
+            tableView.register(GameViewCourtTableViewCell.nib(), forCellReuseIdentifier: GameViewCourtTableViewCell.identifier)
+            tableView.register(GameViewGameResultTableViewCell.nib(), forCellReuseIdentifier: GameViewGameResultTableViewCell.identifier)
+            tableView.register(GameViewPairingTableViewCell.nib(), forCellReuseIdentifier: GameViewPairingTableViewCell.identifier)
+            tableView.register(GameViewPlayerCountTableViewCell.nib(), forCellReuseIdentifier: GameViewPlayerCountTableViewCell.identifier)
+            tableView.register(GameViewPlayerTableViewCell.nib(), forCellReuseIdentifier: GameViewPlayerTableViewCell.identifier)
 
             tableView.rx
                 .setDataSource(self)
@@ -38,14 +38,12 @@ final class GameViewSettingViewController: UIViewController {
             tableView.addGestureRecognizer(longPressRecognizer)
         }
     }
-    
+
     private let disposeBag = DisposeBag()
     private var viewModel: GameViewSettingViewModel!
 
     static func make(groupID: String?, padelId: String?) -> GameViewSettingViewController {
-        let viewController = R.storyboard
-            .gameViewSetting
-            .instantiateInitialViewController()! // swiftlint:disable:this force_unwrapping
+        let viewController = UIStoryboard(name: "GameViewSetting", bundle: nil).instantiateInitialViewController() as! GameViewSettingViewController // swiftlint:disable:this force_unwrapping
         viewController.viewModel = GameViewSettingViewModel(padelId: padelId, groupID: groupID, coreDataManager: CoreDataManager.shared)
         return viewController
     }
@@ -60,10 +58,10 @@ final class GameViewSettingViewController: UIViewController {
     }
 
     private func setup() {
-        tabBarController?.navigationItem.title = R.string.localizable.gameViewSetting()
+        tabBarController?.navigationItem.title = String(localized: "Game view setting")
         tabBarController?.navigationItem.leftBarButtonItem = self.createBarButtonItem(image: UIImage.named("questionmark.circle"), select: #selector(self.questionBarButtonItem))
         tabBarController?.navigationItem.rightBarButtonItem = nil
-        tabBarController?.tabBarItem.title = R.string.localizable.gameViewSetting()
+        tabBarController?.tabBarItem.title = String(localized: "Game view setting")
     }
 
     private func bind() {
@@ -71,14 +69,16 @@ final class GameViewSettingViewController: UIViewController {
         rx.viewWillAppear
             .bind(to: viewModel.viewWillAppear)
             .disposed(by: disposeBag)
+
         rx.viewWillDisappear
             .bind(to: viewModel.viewWillDisappear)
             .disposed(by: disposeBag)
+
         viewModel.presentScreen
             .drive(onNext: { [unowned self] screen in
                 switch screen {
                 case .autoPlayMode:
-                    let modalVC = R.storyboard.autoPlayMode.instantiateInitialViewController()!
+                    let modalVC = UIStoryboard(name: "AutoPlayMode", bundle: nil).instantiateInitialViewController() as! AutoPlayModeViewController
                     modalVC.delegate = self
                     modalVC.modalPresentationStyle = .popover
                     if let popover = modalVC.popoverPresentationController {
@@ -98,11 +98,11 @@ final class GameViewSettingViewController: UIViewController {
                     }
                     self.present(modalVC, animated: true)
                 case .playerDataEdit(let playerId):
-                    let modalVC = R.storyboard.editData.instantiateInitialViewController()!
+                    let modalVC = UIStoryboard(name: "EditData", bundle: nil).instantiateInitialViewController() as! EditDataViewController
                     modalVC.playerID = playerId
                     self.openReplaceWindow(windowNavigation: modalVC, modalSize: CGSize(width: 400, height: 600))
                 case .pairing(let pairing):
-                    let modalVC = R.storyboard.fixedPair.instantiateInitialViewController()!
+                    let modalVC = UIStoryboard(name: "FixedPair", bundle: nil).instantiateInitialViewController() as! FixedPairViewController
                     modalVC.pairing = pairing.checkPairingType()
                     self.present(modalVC, animated: true)
                 default:
@@ -110,20 +110,23 @@ final class GameViewSettingViewController: UIViewController {
                 }
             })
             .disposed(by: disposeBag)
+
         viewModel.pushScreen
             .drive(onNext: { [unowned self] screen in
                 let navigationController = self.tabBarController?.parent as? UINavigationController
                 navigationController?.pushScreen(screen)
             })
             .disposed(by: disposeBag)
+
         NotificationCenter.default.rx.notification(.updateDataNotificationByEditPair, object: nil)
-            .subscribe(onNext: { [weak self] notification in
+            .subscribe(onNext: { [weak self] _ in
                 guard let self = self else { return }
                 self.viewModel.handelPairingSetNotification()
             })
             .disposed(by: disposeBag)
+
         NotificationCenter.default.rx.notification(.updateDataNotificationByEditData, object: nil)
-            .subscribe(onNext: { [weak self] notification in
+            .subscribe(onNext: { [weak self] _ in
                 guard let self = self else { return }
                 self.viewModel.handlePlayerDataEditNotification()
             })
@@ -169,28 +172,29 @@ extension GameViewSettingViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch GameViewSettingSection(rawValue: indexPath.section) {
         case .gameModeSection:
-            let cell = tableView.dequeueReusableCell(withIdentifier: R.nib.gameViewGameModeTableViewCell, for: indexPath)!
+            let cell = tableView.dequeueReusableCell(withIdentifier: GameViewGameModeTableViewCell.identifier, for: indexPath) as! GameViewGameModeTableViewCell
             cell.render(delegate: self, modeType: GameModeType(rawValue: indexPath.row) ?? .combination, playMode: viewModel.padelPlayMode.value, isAuto: viewModel.autoPlayMode.value)
             return cell
         case .gameResultSection:
-            let cell = tableView.dequeueReusableCell(withIdentifier: R.nib.gameViewGameResultTableViewCell, for: indexPath)!
+            let cell = tableView.dequeueReusableCell(withIdentifier: GameViewGameResultTableViewCell.identifier, for: indexPath) as! GameViewGameResultTableViewCell
             cell.render(delegate: self, gameResult: viewModel.gameResult.value)
             return cell
         case .courtSection:
-            let cell = tableView.dequeueReusableCell(withIdentifier: R.nib.gameViewCourtTableViewCell, for: indexPath)!
+            let cell = tableView.dequeueReusableCell(withIdentifier: GameViewCourtTableViewCell.identifier, for: indexPath) as! GameViewCourtTableViewCell
             cell.render(delegate: self, court: viewModel.courtList.value[indexPath.row])
             return cell
         case .pairingSection:
-            let cell = tableView.dequeueReusableCell(withIdentifier: R.nib.gameViewPairingTableViewCell, for: indexPath)!
+            let cell = tableView.dequeueReusableCell(withIdentifier: GameViewPairingTableViewCell.identifier, for: indexPath) as! GameViewPairingTableViewCell
             cell.render(delegate: self, pairing: viewModel.pairingList.value[indexPath.row])
             return cell
         case .playerSection:
             if indexPath.row == 0 {
-                let cell = tableView.dequeueReusableCell(withIdentifier: R.nib.gameViewPlayerCountTableViewCell, for: indexPath)!
+                let cell = tableView.dequeueReusableCell(withIdentifier: GameViewPlayerCountTableViewCell.identifier, for: indexPath) as! GameViewPlayerCountTableViewCell
+
                 cell.render(minPlayerCount: viewModel.playingPlayerCounts.value)
                 return cell
             } else {
-                let cell = tableView.dequeueReusableCell(withIdentifier: R.nib.gameViewPlayerTableViewCell, for: indexPath)!
+                let cell = tableView.dequeueReusableCell(withIdentifier: GameViewPlayerTableViewCell.identifier, for: indexPath) as! GameViewPlayerTableViewCell
                 cell.render(delegate: self, player: viewModel.playerList.value[indexPath.row - 1])
                 return cell
             }

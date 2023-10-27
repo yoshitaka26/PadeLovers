@@ -47,7 +47,7 @@ extension GameResultViewModel {
     func mutate() {
         setPadelID.subscribe(onNext: { [weak self] _ in
             guard let self = self else { return }
-            let padelID = UserDefaults.standard.value(forKey: "PadelID") as! String
+            let padelID = UserDefaultsUtil.shared.padelID ?? ""
             self.padelID.accept(padelID)
         }).disposed(by: disposeBag)
         loadGameData.subscribe(onNext: { [weak self] _ in

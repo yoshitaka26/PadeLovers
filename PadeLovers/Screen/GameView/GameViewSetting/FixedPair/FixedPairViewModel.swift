@@ -23,7 +23,7 @@ final class FixedPairViewModel: BaseViewModel {
     }
 
     let coreDataManager = CoreDataManager.shared
-    var padelID: String = UserDefaults.standard.value(forKey: "PadelID") as! String
+    var padelID = UserDefaultsUtil.shared.padelID ?? ""
     
     var pairingType: BehaviorRelay<PairingType?> = BehaviorRelay(value: nil)
     var pairingPlayers: BehaviorRelay<[Player]> = BehaviorRelay(value: [])

@@ -57,7 +57,6 @@ final class CommonDataViewModel: BaseViewModel {
 
 extension CommonDataViewModel {
     func dataBind() {
-        // swiftlint:disable line_length
         courtList.accept([court1Label, court2Label, court3Label])
 
         // [改修]CoreDataからプレイヤー情報を取得
@@ -74,18 +73,12 @@ extension CommonDataViewModel {
             masterPlayerGroupList = groupList
         }
 
-        if let court = UserDefaults.standard.value(forKey: "court") as? [String], court.count == 2 {
-            self.court1Label.accept(court[0])
-            self.court2Label.accept(court[1])
-            UserDefaults.standard.removeObject(forKey: "court")
-        }
-
-        guard let courtNames = UserDefaults.standard.value(forKey: "newCourt") as? [String] else { return }
+        let courtNames = UserDefaultsUtil.shared.courtNames
         for (index, court) in courtNames.enumerated() {
             self.courtList.value[index].accept(court)
         }
+
         self.reloadTableView.onNext(())
-        // swiftlint:enable line_length
     }
     
     func mutate() {
@@ -120,7 +113,7 @@ extension CommonDataViewModel {
                 switch self.tableType.value {
                 case .court:
                     let courtNames = [self.court1Label.value, self.court2Label.value, self.court3Label.value]
-                    UserDefaults.standard.set(courtNames, forKey: "newCourt")
+                    UserDefaultsUtil.shared.courtNames = courtNames
                 default:
                     let masterPlayerList = self.masterPlayerList.value.map { $0.value }
                     self.saveGroupData(
@@ -145,7 +138,7 @@ extension CommonDataViewModel {
 
                 switch self.tableType.value {
                 case .court:
-                    guard let courtNames = UserDefaults.standard.value(forKey: "newCourt") as? [String] else { return }
+                    let courtNames = UserDefaultsUtil.shared.courtNames
                     for (index, court) in courtNames.enumerated() {
                         self.courtList.value[index].accept(court)
                     }

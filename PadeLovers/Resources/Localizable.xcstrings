@@ -1,0 +1,275 @@
+{
+  "sourceLanguage" : "ja",
+  "strings" : {
+    "" : {
+
+    },
+    "%@" : {
+
+    },
+    "Auto play mode fired" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "試合数重視モードに\n切り替えました"
+          }
+        }
+      }
+    },
+    "Auto play mode reset" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "自動切り替わりを\nリセットしました"
+          }
+        }
+      }
+    },
+    "Auto play mode set" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "分後に試合数重視モードへ\n自動で切り替わります"
+          }
+        }
+      }
+    },
+    "Auto Switching Mode" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "自動切り替わり"
+          }
+        }
+      }
+    },
+    "Combination oriented mode" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "組み合わせ重視モード"
+          }
+        }
+      }
+    },
+    "Court" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "コート数"
+          }
+        }
+      }
+    },
+    "Game Result" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "試合結果"
+          }
+        }
+      }
+    },
+    "Game view match" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "試合組合せ"
+          }
+        }
+      }
+    },
+    "Game view result" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "試合結果"
+          }
+        }
+      }
+    },
+    "Game view setting" : {
+      "comment" : "画面タイトル",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "試合設定"
+          }
+        }
+      }
+    },
+    "Get out of the match" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "試合から抜けました"
+          }
+        }
+      }
+    },
+    "Match count" : {
+      "comment" : "メッセージ",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "試合数"
+          }
+        }
+      }
+    },
+    "Match count oriented mode" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "試合数重視モード"
+          }
+        }
+      }
+    },
+    "Mode" : {
+      "comment" : "試合画面　プレイヤー管理",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "試合組み"
+          }
+        }
+      }
+    },
+    "Need more players" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "不足しています"
+          }
+        }
+      }
+    },
+    "Pairing" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "固定ペア"
+          }
+        }
+      }
+    },
+    "Participate in the match" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "試合に参加しました"
+          }
+        }
+      }
+    },
+    "Player" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "プレイヤー"
+          }
+        }
+      }
+    },
+    "Player count" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "人"
+          }
+        }
+      }
+    },
+    "Playing Player" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "参加人数"
+          }
+        }
+      }
+    },
+    "Reset pairing" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "固定ペアをリセットしました"
+          }
+        }
+      }
+    },
+    "Save Game Result" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Save Game Result"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "試合結果を記録"
+          }
+        }
+      }
+    },
+    "コート" : {
+
+    },
+    "データは保存されません。試合データを削除してホーム画面に戻ります。終了してよろしいですか？" : {
+
+    },
+    "プレイヤー" : {
+
+    },
+    "プレイヤーが足りません" : {
+
+    },
+    "取消" : {
+
+    },
+    "終了" : {
+
+    },
+    "終了する" : {
+
+    },
+    "試合" : {
+
+    },
+    "試合データ削除" : {
+
+    },
+    "試合数： %lld" : {
+
+    },
+    "開始" : {
+
+    }
+  },
+  "version" : "1.0"
+}
