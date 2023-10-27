@@ -166,7 +166,7 @@ extension CommonDataViewController: UITableViewDelegate, UITableViewDataSource {
                     })
                     .disposed(by: cell.disposeBag)
 
-                cell.nameTextField.rx.controlEvent(.editingChanged).asDriver()
+                cell.nameTextField.rx.controlEvent(.editingDidEnd).asDriver()
                     .drive(onNext: { [weak self] _ in
                         guard let self else { return }
                         let result: ValidationResult = self.validationManager.validate(cell.nameTextField.text ?? "")

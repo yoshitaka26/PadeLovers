@@ -85,7 +85,7 @@ final class ValidationManager: CompositeValidator {
     
     var validators: [Validator] = [
         EmptyValidator(),
-        LengthValidator(min: 1, max: 7),
+        LengthValidator(min: 0, max: 7),
         CharacterValidatior()
     ]
 }
