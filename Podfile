@@ -7,8 +7,6 @@ target 'PadeLovers' do
 
   # Pods for PadeLovers
   pod 'SwiftLint'
-  pod 'FBSDKLoginKit', '~> 13.2.0'
-  pod 'LineSDKSwift', '~> 5.8.1'
   pod 'RxSwift', '~> 6.5.0'
   pod 'RxCocoa', '~> 6.5.0'
   

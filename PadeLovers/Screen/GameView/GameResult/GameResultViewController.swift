@@ -27,7 +27,6 @@ final class GameResultViewController: BaseViewController {
     private func setup() {
         tabBarController?.navigationItem.title = String(localized: "Game view result")
         tabBarController?.navigationItem.hidesBackButton = true
-//        tabBarController?.navigationItem.leftBarButtonItem = self.createBarButtonItem(image: UIImage.named("icloud.and.arrow.up"), select: #selector(self.shareGame))
         tabBarController?.navigationItem.rightBarButtonItem = self.createBarButtonItem(image: UIImage.named("house.fill"), select: #selector(self.back))
         tabBarItem.title = String(localized: "Game view result")
     }
@@ -98,16 +97,6 @@ final class GameResultViewController: BaseViewController {
         self.confirmationAlertView(withTitle: "ホーム画面に戻ります", cancelString: "キャンセル", confirmString: "OK") {
             let navigationController = self.tabBarController?.parent as? UINavigationController
             navigationController?.popToRootViewController(animated: true)
-        }
-    }
-    @objc
-    func shareGame() {
-        let vc = ShareGameViewController()
-        self.present(vc, animated: true)
-        self.confirmationAlertView(withTitle: "ホーム画面に戻ります", cancelString: "キャンセル", confirmString: "OK") {
-            guard let tabBarCon = self.navigationController?.parent as? UITabBarController else { return }
-            guard let mainNavCon = tabBarCon.parent as? UINavigationController else { return }
-            mainNavCon.popViewController(animated: true)
         }
     }
 }

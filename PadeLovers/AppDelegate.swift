@@ -8,8 +8,6 @@
 
 import UIKit
 import CoreData
-import FBSDKCoreKit
-import LineSDK
 import FirebaseCore
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,13 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().titleTextAttributes = [
             NSAttributedString.Key.foregroundColor: UIColor.label
         ]
-        
-        ApplicationDelegate.shared.application(
-            application,
-            didFinishLaunchingWithOptions: launchOptions
-        )
-
-        LoginManager.shared.setup(channelID: "1657150279", universalLinkURL: nil)
 
         #if RELEASE
         FirebaseApp.configure()
@@ -40,19 +31,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
 
         return true
-    }
-    
-    func application(
-        _ app: UIApplication,
-        open url: URL,
-        options: [UIApplication.OpenURLOptionsKey: Any] = [:]
-    ) -> Bool {
-        ApplicationDelegate.shared.application(
-            app,
-            open: url,
-            sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
-            annotation: options[UIApplication.OpenURLOptionsKey.annotation]
-        )
     }
     
     // MARK: UISceneSession Lifecycle
