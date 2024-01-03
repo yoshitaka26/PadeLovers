@@ -130,6 +130,8 @@
 		E483165A27EEF22B0091B0DF /* APIDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E483165927EEF22B0091B0DF /* APIDataManager.swift */; };
 		E48627DA268386A300453425 /* StartGame.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E48627D9268386A300453425 /* StartGame.storyboard */; };
 		E48627DD268386F500453425 /* StartGameTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48627DC268386F500453425 /* StartGameTableViewController.swift */; };
+		E48D89362B459CA0000A8883 /* PadeLoversApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48D89352B459CA0000A8883 /* PadeLoversApp.swift */; };
+		E48D89392B459D6F000A8883 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48D89382B459D6F000A8883 /* HomeView.swift */; };
 		E48EE3CD267753E40001E54D /* GameResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48EE3CC267753E40001E54D /* GameResultViewModel.swift */; };
 		E498854C267368AE004ECB01 /* Game+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = E498854B267368AE004ECB01 /* Game+Additional.swift */; };
 		E4C434172680EE85006652A7 /* CommonData.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4C434162680EE85006652A7 /* CommonData.storyboard */; };
@@ -297,6 +299,8 @@
 		E483165927EEF22B0091B0DF /* APIDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIDataManager.swift; sourceTree = "<group>"; };
 		E48627D9268386A300453425 /* StartGame.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StartGame.storyboard; sourceTree = "<group>"; };
 		E48627DC268386F500453425 /* StartGameTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartGameTableViewController.swift; sourceTree = "<group>"; };
+		E48D89352B459CA0000A8883 /* PadeLoversApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PadeLoversApp.swift; sourceTree = "<group>"; };
+		E48D89382B459D6F000A8883 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		E48EE3CC267753E40001E54D /* GameResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResultViewModel.swift; sourceTree = "<group>"; };
 		E498854B267368AE004ECB01 /* Game+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Game+Additional.swift"; sourceTree = "<group>"; };
 		E4C434162680EE85006652A7 /* CommonData.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CommonData.storyboard; sourceTree = "<group>"; };
@@ -740,6 +744,7 @@
 		E47F202B2547D56B00996B19 /* PadeLovers */ = {
 			isa = PBXGroup;
 			children = (
+				E48D89342B459A67000A8883 /* Features */,
 				E426C91629FB9AF700F7A52D /* GoogleService-Info.plist */,
 				E4F9D37E283735AA00759465 /* PadeLovers.entitlements */,
 				E47F202C2547D56B00996B19 /* AppDelegate.swift */,
@@ -807,6 +812,23 @@
 				E48627DC268386F500453425 /* StartGameTableViewController.swift */,
 			);
 			path = StartGame;
+			sourceTree = "<group>";
+		};
+		E48D89342B459A67000A8883 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				E48D89352B459CA0000A8883 /* PadeLoversApp.swift */,
+				E48D89372B459D59000A8883 /* Home */,
+			);
+			name = Features;
+			sourceTree = "<group>";
+		};
+		E48D89372B459D59000A8883 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				E48D89382B459D6F000A8883 /* HomeView.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		E4C434152680EE60006652A7 /* CommonData */ = {
@@ -1130,6 +1152,7 @@
 				E433EA582684BA0D00EFC20B /* Court+CoreDataClass.swift in Sources */,
 				E4E3DA252673AA8F0009D809 /* ReplacePlayerViewModel.swift in Sources */,
 				E43C707C267AC46800E28E8A /* RecordScoreViewController.swift in Sources */,
+				E48D89362B459CA0000A8883 /* PadeLoversApp.swift in Sources */,
 				E4F9D38128373C5E00759465 /* ShareGameViewController.swift in Sources */,
 				E433EA532684BA0D00EFC20B /* PairingA+CoreDataProperties.swift in Sources */,
 				E42F2189285401750029970D /* Pairing.swift in Sources */,
@@ -1202,6 +1225,7 @@
 				E42FAD2F2678AFDB00F9B7DD /* PlayerResultCollectionViewCell.swift in Sources */,
 				E433EA64268622F900EFC20B /* RandomNumberTableViewModel.swift in Sources */,
 				E4E0A6CF2ABED0A700666523 /* MixGameMatchGame.swift in Sources */,
+				E48D89392B459D6F000A8883 /* HomeView.swift in Sources */,
 				E433EA562684BA0D00EFC20B /* Padel+CoreDataClass.swift in Sources */,
 				E433EA4E2684BA0D00EFC20B /* Player+CoreDataClass.swift in Sources */,
 				E4C4341D2680EEC5006652A7 /* CommonDataViewModel.swift in Sources */,
