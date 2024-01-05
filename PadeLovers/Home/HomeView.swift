@@ -16,30 +16,30 @@ struct HomeView: View {
                 HStack(spacing: 20) {
                     MenuButton(
                         image: "btn_game_setting",
-                        size: geometry.size.width/3) {}
+                        size: geometry.size.width / 3) {}
                     MenuButton(
                         image: "btn_game_record",
-                        size: geometry.size.width/3) {}
+                        size: geometry.size.width / 3) {}
                 }
                 .frame(maxWidth: .infinity)
                 Spacer()
                 HStack(spacing: 20) {
                     MenuButton(
                         image: "btn_game_start",
-                        size: geometry.size.width/3) {}
+                        size: geometry.size.width / 3) {}
                     MenuButton(
                         image: "btn_randomNumber_table",
-                        size: geometry.size.width/3) {}
+                        size: geometry.size.width / 3) {}
                 }
                 .frame(maxWidth: .infinity)
                 Spacer()
                 HStack(spacing: 20) {
                     MenuButton(
                         image: "btn_uses",
-                        size: geometry.size.width/3) {}
+                        size: geometry.size.width / 3) {}
                     MenuButton(
                         image: "btn_mainSetting",
-                        size: geometry.size.width/3) {}
+                        size: geometry.size.width / 3) {}
                 }
                 .frame(maxWidth: .infinity)
                 Spacer()
@@ -60,7 +60,8 @@ struct HomeView: View {
                 Image(image)
                     .resizable()
                     .frame(width: size, height: size)
-                    .foregroundColor(.black)
+                    .background(Color.white)
+                    .cornerRadius(16)
             })
             .padding(20)
         }

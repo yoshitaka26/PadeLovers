@@ -508,7 +508,6 @@
 		E44672DE264562770092DEFE /* Screen */ = {
 			isa = PBXGroup;
 			children = (
-				E4E0A6C72ABECB7000666523 /* MixGameView */,
 				E44672ED264565120092DEFE /* Menu */,
 				E447EF072755FE4A001601A7 /* HowToUse */,
 				E447EF062755FE3C001601A7 /* MainSetting */,
@@ -815,6 +814,7 @@
 			isa = PBXGroup;
 			children = (
 				E48D89352B459CA0000A8883 /* PadeLoversApp.swift */,
+				E4E0A6C72ABECB7000666523 /* MixGameView */,
 				E48D89372B459D59000A8883 /* Home */,
 			);
 			name = Features;

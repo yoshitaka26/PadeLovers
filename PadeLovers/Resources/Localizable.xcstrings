@@ -115,9 +115,6 @@
         }
       }
     },
-    "Hello, World!" : {
-
-    },
     "Match count" : {
       "comment" : "メッセージ",
       "localizations" : {
