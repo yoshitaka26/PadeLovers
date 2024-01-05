@@ -73,7 +73,7 @@ struct HomeView: View {
                 .navigationDestination(for: Screen.self) { screen in
                     switch screen {
                     case .randomNumber:
-                        RandomNumberTableViewRepresentable()
+                        RandomNumberTableView()
                     default:
                         EmptyView()
                     }
