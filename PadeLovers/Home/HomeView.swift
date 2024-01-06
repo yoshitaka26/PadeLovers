@@ -72,6 +72,8 @@ struct HomeView: View {
                 .padding(20)
                 .navigationDestination(for: Screen.self) { screen in
                     switch screen {
+                    case .gameSetting:
+                        CommonDataView()
                     case .randomNumber:
                         RandomNumberTableView()
                     default:

@@ -17,7 +17,6 @@ final class CommonDataViewController: BaseViewController {
     
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var customToolbar: UIToolbar!
-    @IBOutlet private weak var backButton: UIBarButtonItem!
     @IBOutlet private weak var courtButton: UIBarButtonItem!
     @IBOutlet private weak var group1Button: UIBarButtonItem!
     @IBOutlet private weak var group2Button: UIBarButtonItem!
@@ -44,10 +43,6 @@ final class CommonDataViewController: BaseViewController {
         viewModel.reloadTableView.subscribe(onNext: { [weak self] _ in
             guard let self = self else { return }
             self.tableView.reloadData()
-        }).disposed(by: disposeBag)
-        _ = backButton.rx.tap.subscribe(onNext: { [weak self] _ in
-            guard let self = self else { return }
-            self.dismiss(animated: true)
         }).disposed(by: disposeBag)
         _ = courtButton.rx.tap.subscribe(onNext: { [weak self] _ in
             guard let self = self else { return }
