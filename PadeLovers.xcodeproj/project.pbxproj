@@ -134,6 +134,7 @@
 		E48D89392B459D6F000A8883 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48D89382B459D6F000A8883 /* HomeView.swift */; };
 		E48D893E2B479812000A8883 /* RandomNumberTableViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48D893D2B479812000A8883 /* RandomNumberTableViewRepresentable.swift */; };
 		E48D89402B48D3C0000A8883 /* CommonDataViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48D893F2B48D3C0000A8883 /* CommonDataViewRepresentable.swift */; };
+		E48D89422B48D6BF000A8883 /* PadelDataViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48D89412B48D6BF000A8883 /* PadelDataViewRepresentable.swift */; };
 		E48EE3CD267753E40001E54D /* GameResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48EE3CC267753E40001E54D /* GameResultViewModel.swift */; };
 		E498854C267368AE004ECB01 /* Game+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = E498854B267368AE004ECB01 /* Game+Additional.swift */; };
 		E4C434172680EE85006652A7 /* CommonData.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4C434162680EE85006652A7 /* CommonData.storyboard */; };
@@ -304,6 +305,7 @@
 		E48D89382B459D6F000A8883 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		E48D893D2B479812000A8883 /* RandomNumberTableViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomNumberTableViewRepresentable.swift; sourceTree = "<group>"; };
 		E48D893F2B48D3C0000A8883 /* CommonDataViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonDataViewRepresentable.swift; sourceTree = "<group>"; };
+		E48D89412B48D6BF000A8883 /* PadelDataViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PadelDataViewRepresentable.swift; sourceTree = "<group>"; };
 		E48EE3CC267753E40001E54D /* GameResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResultViewModel.swift; sourceTree = "<group>"; };
 		E498854B267368AE004ECB01 /* Game+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Game+Additional.swift"; sourceTree = "<group>"; };
 		E4C434162680EE85006652A7 /* CommonData.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CommonData.storyboard; sourceTree = "<group>"; };
@@ -838,6 +840,7 @@
 			children = (
 				E48D893D2B479812000A8883 /* RandomNumberTableViewRepresentable.swift */,
 				E48D893F2B48D3C0000A8883 /* CommonDataViewRepresentable.swift */,
+				E48D89412B48D6BF000A8883 /* PadelDataViewRepresentable.swift */,
 			);
 			name = Misc;
 			sourceTree = "<group>";
@@ -1157,6 +1160,7 @@
 				E43C707C267AC46800E28E8A /* RecordScoreViewController.swift in Sources */,
 				E48D89362B459CA0000A8883 /* PadeLoversApp.swift in Sources */,
 				E433EA532684BA0D00EFC20B /* PairingA+CoreDataProperties.swift in Sources */,
+				E48D89422B48D6BF000A8883 /* PadelDataViewRepresentable.swift in Sources */,
 				E42F2189285401750029970D /* Pairing.swift in Sources */,
 				E4313D98254830F30045447F /* GameDataTableViewController.swift in Sources */,
 				E483164827ED606D0091B0DF /* ResponseError.swift in Sources */,

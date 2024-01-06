@@ -74,6 +74,8 @@ struct HomeView: View {
                     switch screen {
                     case .gameSetting:
                         CommonDataView()
+                    case .gameRecord:
+                        PadelDataView()
                     case .randomNumber:
                         RandomNumberTableView()
                     default:
