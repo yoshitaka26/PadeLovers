@@ -86,6 +86,8 @@ struct HomeView: View {
                         MixGameTabView(viewModel: MixGameViewModel(groupID: groupID))
                     case .randomNumber:
                         RandomNumberTableView()
+                    case .uses:
+                        HowToUseView()
                     default:
                         EmptyView()
                     }

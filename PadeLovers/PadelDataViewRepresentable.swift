@@ -17,7 +17,7 @@ struct PadelDataView: View {
 }
 
 #Preview {
-    RandomNumberTableView()
+    PadelDataView()
 }
 
 struct PadelDataViewRepresentable: UIViewControllerRepresentable {

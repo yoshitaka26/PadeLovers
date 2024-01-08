@@ -17,7 +17,7 @@ struct CommonDataView: View {
 }
 
 #Preview {
-    RandomNumberTableView()
+    CommonDataView()
 }
 
 struct CommonDataViewRepresentable: UIViewControllerRepresentable {

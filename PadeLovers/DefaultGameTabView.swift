@@ -10,10 +10,25 @@ import SwiftUI
 
 struct DefaultGameTabView: View {
     @Binding var path: [HomeView.Screen]
-    @State private var selection: Int = 0
+    @State private var selection: Screen = .gameSetting
     @State private var showAlert = false
     var groupID: String?
     var padelID: UUID?
+
+    enum Screen {
+        case gameSetting, gameData, gameResult
+
+        var title: String {
+            switch self {
+            case .gameSetting:
+                "試合設定"
+            case .gameData:
+                "試合組合せ"
+            case .gameResult:
+                "試合結果"
+            }
+        }
+    }
 
     var body: some View {
         TabView(selection: $selection) {
@@ -22,26 +37,27 @@ struct DefaultGameTabView: View {
                     Image(systemName: "person.3")
                     Text("試合組合せ")
                 }
-                .tag(0)
+                .tag(Screen.gameSetting)
             GameDataRepresentable()
                 .tabItem {
                     Image(systemName: "person.crop.rectangle.stack")
                     Text("試合設定")
                 }
-                .tag(1)
+                .tag(Screen.gameData)
             GameResultRepresentable()
                 .tabItem {
                     Image(systemName: "doc.text.magnifyingglass")
                     Text("試合結果")
                 }
-                .tag(2)
+                .tag(Screen.gameResult)
         }
         .accentColor(.appSpecialRed)
         .navigationBarBackButtonHidden(true)
+        .navigationTitle(selection.title)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
                 switch selection {
-                case 0, 1:
+                case .gameSetting:
                     Button(action: {
                         path.append(.uses)
                     }, label: {
@@ -55,7 +71,7 @@ struct DefaultGameTabView: View {
 
             ToolbarItem(placement: .navigationBarTrailing) {
                 switch selection {
-                case 2:
+                case .gameResult:
                     Button(action: {
                         showAlert = true
                     }, label: {
@@ -76,10 +92,6 @@ struct DefaultGameTabView: View {
             Text("ホーム画面に戻ります。データは一時保存されます。終了してよろしいですか？")
         })
     }
-}
-
-#Preview {
-    RandomNumberTableView()
 }
 
 struct GameViewSettingRepresentable: UIViewControllerRepresentable {
