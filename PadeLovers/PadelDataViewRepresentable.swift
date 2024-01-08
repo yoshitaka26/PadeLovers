@@ -30,4 +30,3 @@ struct PadelDataViewRepresentable: UIViewControllerRepresentable {
 
     func updateUIViewController(_ uiViewController: UIViewController, context: Context) { }
 }
-

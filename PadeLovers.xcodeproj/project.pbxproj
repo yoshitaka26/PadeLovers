@@ -135,6 +135,7 @@
 		E48D893E2B479812000A8883 /* RandomNumberTableViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48D893D2B479812000A8883 /* RandomNumberTableViewRepresentable.swift */; };
 		E48D89402B48D3C0000A8883 /* CommonDataViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48D893F2B48D3C0000A8883 /* CommonDataViewRepresentable.swift */; };
 		E48D89422B48D6BF000A8883 /* PadelDataViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48D89412B48D6BF000A8883 /* PadelDataViewRepresentable.swift */; };
+		E48D89442B4A9E5C000A8883 /* StartGameViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48D89432B4A9E5C000A8883 /* StartGameViewRepresentable.swift */; };
 		E48EE3CD267753E40001E54D /* GameResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48EE3CC267753E40001E54D /* GameResultViewModel.swift */; };
 		E498854C267368AE004ECB01 /* Game+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = E498854B267368AE004ECB01 /* Game+Additional.swift */; };
 		E4C434172680EE85006652A7 /* CommonData.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4C434162680EE85006652A7 /* CommonData.storyboard */; };
@@ -306,6 +307,7 @@
 		E48D893D2B479812000A8883 /* RandomNumberTableViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomNumberTableViewRepresentable.swift; sourceTree = "<group>"; };
 		E48D893F2B48D3C0000A8883 /* CommonDataViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonDataViewRepresentable.swift; sourceTree = "<group>"; };
 		E48D89412B48D6BF000A8883 /* PadelDataViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PadelDataViewRepresentable.swift; sourceTree = "<group>"; };
+		E48D89432B4A9E5C000A8883 /* StartGameViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartGameViewRepresentable.swift; sourceTree = "<group>"; };
 		E48EE3CC267753E40001E54D /* GameResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResultViewModel.swift; sourceTree = "<group>"; };
 		E498854B267368AE004ECB01 /* Game+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Game+Additional.swift"; sourceTree = "<group>"; };
 		E4C434162680EE85006652A7 /* CommonData.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CommonData.storyboard; sourceTree = "<group>"; };
@@ -841,6 +843,7 @@
 				E48D893D2B479812000A8883 /* RandomNumberTableViewRepresentable.swift */,
 				E48D893F2B48D3C0000A8883 /* CommonDataViewRepresentable.swift */,
 				E48D89412B48D6BF000A8883 /* PadelDataViewRepresentable.swift */,
+				E48D89432B4A9E5C000A8883 /* StartGameViewRepresentable.swift */,
 			);
 			name = Misc;
 			sourceTree = "<group>";
@@ -1138,6 +1141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E48D89442B4A9E5C000A8883 /* StartGameViewRepresentable.swift in Sources */,
 				E433EA552684BA0D00EFC20B /* Score+CoreDataProperties.swift in Sources */,
 				E4F29F682A077811006BC063 /* MasterPlayerGroup+Additional.swift in Sources */,
 				E42F215F2852C24B0029970D /* GameViewCourtTableViewCell.swift in Sources */,

@@ -11,8 +11,10 @@ import SwiftUI
 struct HomeView: View {
     @State private var path: [Screen] = []
 
-    enum Screen {
+    enum Screen: Hashable {
         case gameSetting, gameRecord, gameStart, randomNumber, uses, mainSetting
+        case gameStartDefault(groupID: String? = nil, padelID: UUID? = nil)
+        case gameStartMix(groupID: String)
     }
 
     var body: some View {
@@ -76,12 +78,16 @@ struct HomeView: View {
                         CommonDataView()
                     case .gameRecord:
                         PadelDataView()
+                    case .gameStart:
+                        StartGameView(path: $path)
+                    case .gameStartMix(let groupID):
+                        MixGameTabView(viewModel: MixGameViewModel(groupID: groupID))
                     case .randomNumber:
                         RandomNumberTableView()
                     default:
                         EmptyView()
                     }
-                        }
+                }
             }
         }
     }
