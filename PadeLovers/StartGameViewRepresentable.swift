@@ -6,7 +6,6 @@
 //  Copyright © 2024 Yoshitaka. All rights reserved.
 //
 
-import Foundation
 import SwiftUI
 import Combine
 
@@ -47,7 +46,8 @@ final class StartGameViewModel: ObservableObject {
     init() {
         $groupID
             .sink { [weak self] groupID in
-                guard let groupID = groupID else { return }
+                guard groupID != nil else { return }
+                self?.padelID = nil
                 self?.showOption = true
             }
             .store(in: &cancellables)
