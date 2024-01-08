@@ -51,7 +51,7 @@ struct DefaultGameTabView: View {
                 }
                 .tag(Screen.gameResult)
         }
-        .accentColor(.appSpecialRed)
+        .tint(Color.appSpecialRed)
         .navigationBarBackButtonHidden(true)
         .navigationTitle(selection.title)
         .toolbar {
