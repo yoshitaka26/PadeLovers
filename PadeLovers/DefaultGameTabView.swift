@@ -36,6 +36,7 @@ struct DefaultGameTabView: View {
                 }
                 .tag(2)
         }
+        .accentColor(.appSpecialRed)
         .navigationBarBackButtonHidden(true)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
@@ -45,6 +46,7 @@ struct DefaultGameTabView: View {
                         path.append(.uses)
                     }, label: {
                         Image(systemName: "questionmark.circle")
+                            .foregroundStyle(Color.appNavBarButtonColor)
                     })
                 default:
                     Spacer()
@@ -58,6 +60,8 @@ struct DefaultGameTabView: View {
                         showAlert = true
                     }, label: {
                         Image(systemName: "house.fill")
+                            .foregroundStyle(Color.appNavBarButtonColor)
+
                     })
                 default:
                     Spacer()

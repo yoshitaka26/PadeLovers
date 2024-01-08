@@ -28,6 +28,7 @@ struct MixGameTabView: View {
                 }
                 .tag(MixGameViewModel.MixGameTab.game)
         }
+        .accentColor(.appSpecialRed)
         .navigationBarBackButtonHidden(true)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
