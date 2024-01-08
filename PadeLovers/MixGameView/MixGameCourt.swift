@@ -11,7 +11,7 @@ import Foundation
 
 class MixGameCourt: ObservableObject {
     @Published var game: MixGameMatchGame?
-    @Published var isOn: Bool = true
+    @Published var isOn = true
 
     let name: String
     let id = UUID()

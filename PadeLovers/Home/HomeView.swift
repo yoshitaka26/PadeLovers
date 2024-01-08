@@ -24,13 +24,13 @@ struct HomeView: View {
                     Spacer()
                     HStack(spacing: 20) {
                         NavigationLink(value: Screen.gameSetting) {
-                            MenuButton(
+                            MenuButtonImage(
                                 image: "btn_game_setting",
                                 size: geometry.size.width / 3
                             )
                         }
                         NavigationLink(value: Screen.gameRecord) {
-                            MenuButton(
+                            MenuButtonImage(
                                 image: "btn_game_record",
                                 size: geometry.size.width / 3
                             )
@@ -40,13 +40,13 @@ struct HomeView: View {
                     Spacer()
                     HStack(spacing: 20) {
                         NavigationLink(value: Screen.gameStart) {
-                            MenuButton(
+                            MenuButtonImage(
                                 image: "btn_game_start",
                                 size: geometry.size.width / 3
                             )
                         }
                         NavigationLink(value: Screen.randomNumber) {
-                            MenuButton(
+                            MenuButtonImage(
                                 image: "btn_randomNumber_table",
                                 size: geometry.size.width / 3
                             )
@@ -56,13 +56,13 @@ struct HomeView: View {
                     Spacer()
                     HStack(spacing: 20) {
                         NavigationLink(value: Screen.uses) {
-                            MenuButton(
+                            MenuButtonImage(
                                 image: "btn_uses",
                                 size: geometry.size.width / 3
                             )
                         }
                         NavigationLink(value: Screen.mainSetting) {
-                            MenuButton(
+                            MenuButtonImage(
                                 image: "btn_mainSetting",
                                 size: geometry.size.width / 3
                             )
@@ -97,7 +97,7 @@ struct HomeView: View {
         .tint(Color.appNavBarButtonColor)
     }
 
-    private struct MenuButton: View {
+    private struct MenuButtonImage: View {
         var image: String
         var size: CGFloat
 

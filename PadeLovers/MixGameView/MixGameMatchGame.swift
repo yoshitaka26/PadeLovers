@@ -11,7 +11,7 @@ import Foundation
 
 class MixGameMatchGame: ObservableObject {
     @Published var players: [MixGamePlayer] = []
-    @Published var isFinished: Bool = false
+    @Published var isFinished = false
 
     let id = UUID()
 

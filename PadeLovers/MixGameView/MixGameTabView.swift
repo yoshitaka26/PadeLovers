@@ -20,15 +20,17 @@ struct MixGameTabView: View {
                     Image(systemName: "person.crop.rectangle.stack")
                     Text("プレイヤー")
                 }
+                .tint(nil)
                 .tag(MixGameViewModel.MixGameTab.player)
             GameSettingList(viewModel: viewModel)
                 .tabItem {
                     Image(systemName: "figure.tennis")
                     Text("試合")
                 }
+                .tint(nil)
                 .tag(MixGameViewModel.MixGameTab.game)
         }
-        .accentColor(.appSpecialRed)
+        .tint(.appSpecialRed)
         .navigationBarBackButtonHidden(true)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
