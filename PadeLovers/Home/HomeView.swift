@@ -80,8 +80,8 @@ struct HomeView: View {
                         PadelDataView()
                     case .gameStart:
                         StartGameView(path: $path)
-                    case .gameStartDefault(let groupID, let padelID):
-                        DefaultGameTabView(groupID: groupID, padelID: padelID)
+                    case let .gameStartDefault(groupID, padelID):
+                        DefaultGameTabView(path: $path, groupID: groupID, padelID: padelID)
                     case .gameStartMix(let groupID):
                         MixGameTabView(viewModel: MixGameViewModel(groupID: groupID))
                     case .randomNumber:

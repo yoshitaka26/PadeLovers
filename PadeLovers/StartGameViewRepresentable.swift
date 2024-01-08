@@ -21,7 +21,7 @@ struct StartGameView: View {
             guard let padelID else { return }
             path.append(.gameStartDefault(groupID: nil, padelID: padelID))
         }
-        .confirmationDialog("モード選択", isPresented: $viewModel.showOption) {
+        .confirmationDialog("", isPresented: $viewModel.showOption) {
             if let groupID = viewModel.groupID {
                 NavigationLink(value: HomeView.Screen.gameStartDefault(groupID: groupID)) {
                     Text("標準モード")
@@ -31,7 +31,7 @@ struct StartGameView: View {
                 }
             }
         } message: {
-            Text("詳しい説明")
+            Text("モードを選択してください")
         }
     }
 }

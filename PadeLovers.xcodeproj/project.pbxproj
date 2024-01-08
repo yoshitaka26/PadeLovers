@@ -16,7 +16,7 @@
 		E40F93FD26718E2700231511 /* EditDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40F93FC26718E2700231511 /* EditDataViewModel.swift */; };
 		E40F940226718FDB00231511 /* EditData.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E40F940126718FDB00231511 /* EditData.storyboard */; };
 		E4103C902794007100E12348 /* GamePlayerViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4103C8F2794007100E12348 /* GamePlayerViewModelTest.swift */; };
-		E41363932B4BC57C00B1CB5E /* GameViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41363922B4BC57C00B1CB5E /* GameViewRepresentable.swift */; };
+		E41363932B4BC57C00B1CB5E /* DefaultGameTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41363922B4BC57C00B1CB5E /* DefaultGameTabView.swift */; };
 		E426C91529FB8E2600F7A52D /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = E426C91429FB8E2600F7A52D /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		E426C91729FB9AF700F7A52D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E426C91629FB9AF700F7A52D /* GoogleService-Info.plist */; };
 		E42C89332672022200961EB1 /* GameDataTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42C89322672022200961EB1 /* GameDataTableViewModel.swift */; };
@@ -188,7 +188,7 @@
 		E40F940126718FDB00231511 /* EditData.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditData.storyboard; sourceTree = "<group>"; };
 		E4103C8627912AEF00E12348 /* PadeLoversTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PadeLoversTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4103C8F2794007100E12348 /* GamePlayerViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePlayerViewModelTest.swift; sourceTree = "<group>"; };
-		E41363922B4BC57C00B1CB5E /* GameViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewRepresentable.swift; sourceTree = "<group>"; };
+		E41363922B4BC57C00B1CB5E /* DefaultGameTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultGameTabView.swift; sourceTree = "<group>"; };
 		E426C91629FB9AF700F7A52D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E42C89322672022200961EB1 /* GameDataTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDataTableViewModel.swift; sourceTree = "<group>"; };
 		E42C8936267205D700961EB1 /* GameOrganizeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOrganizeManager.swift; sourceTree = "<group>"; };
@@ -846,7 +846,7 @@
 				E48D893F2B48D3C0000A8883 /* CommonDataViewRepresentable.swift */,
 				E48D89412B48D6BF000A8883 /* PadelDataViewRepresentable.swift */,
 				E48D89432B4A9E5C000A8883 /* StartGameViewRepresentable.swift */,
-				E41363922B4BC57C00B1CB5E /* GameViewRepresentable.swift */,
+				E41363922B4BC57C00B1CB5E /* DefaultGameTabView.swift */,
 			);
 			name = Misc;
 			sourceTree = "<group>";
@@ -1167,7 +1167,7 @@
 				E43C707C267AC46800E28E8A /* RecordScoreViewController.swift in Sources */,
 				E48D89362B459CA0000A8883 /* PadeLoversApp.swift in Sources */,
 				E433EA532684BA0D00EFC20B /* PairingA+CoreDataProperties.swift in Sources */,
-				E41363932B4BC57C00B1CB5E /* GameViewRepresentable.swift in Sources */,
+				E41363932B4BC57C00B1CB5E /* DefaultGameTabView.swift in Sources */,
 				E48D89422B48D6BF000A8883 /* PadelDataViewRepresentable.swift in Sources */,
 				E42F2189285401750029970D /* Pairing.swift in Sources */,
 				E4313D98254830F30045447F /* GameDataTableViewController.swift in Sources */,
