@@ -10,8 +10,8 @@ import Combine
 import Foundation
 
 class MixGamePlayer: Identifiable, ObservableObject {
-    @Published var isPlaying: Bool = true
-    @Published var isOnGame: Bool = false
+    @Published var isPlaying = true
+    @Published var isOnGame = false
     @Published var playedCount: Int = 0
 
     let id: Int
