@@ -55,29 +55,26 @@ struct DefaultGameTabView: View {
         .navigationBarBackButtonHidden(true)
         .navigationTitle(selection.title)
         .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
+            ToolbarItem(placement: .topBarLeading) {
                 switch selection {
                 case .gameSetting:
                     Button(action: {
                         path.append(.uses)
                     }, label: {
                         Image(systemName: "questionmark.circle")
-                            .foregroundStyle(Color.appNavBarButtonColor)
                     })
                 default:
                     Spacer()
                 }
             }
 
-            ToolbarItem(placement: .navigationBarTrailing) {
+            ToolbarItem(placement: .topBarTrailing) {
                 switch selection {
                 case .gameResult:
                     Button(action: {
                         showAlert = true
                     }, label: {
                         Image(systemName: "house.fill")
-                            .foregroundStyle(Color.appNavBarButtonColor)
-
                     })
                 default:
                     Spacer()

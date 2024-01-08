@@ -19,6 +19,7 @@
 		E41363932B4BC57C00B1CB5E /* DefaultGameTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41363922B4BC57C00B1CB5E /* DefaultGameTabView.swift */; };
 		E41363952B4BD6F200B1CB5E /* ColorExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41363942B4BD6F200B1CB5E /* ColorExtention.swift */; };
 		E41363972B4BDAC900B1CB5E /* HowToUseViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41363962B4BDAC900B1CB5E /* HowToUseViewRepresentable.swift */; };
+		E41363992B4C1ED300B1CB5E /* MainSettingViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41363982B4C1ED300B1CB5E /* MainSettingViewRepresentable.swift */; };
 		E426C91529FB8E2600F7A52D /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = E426C91429FB8E2600F7A52D /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		E426C91729FB9AF700F7A52D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E426C91629FB9AF700F7A52D /* GoogleService-Info.plist */; };
 		E42C89332672022200961EB1 /* GameDataTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42C89322672022200961EB1 /* GameDataTableViewModel.swift */; };
@@ -193,6 +194,7 @@
 		E41363922B4BC57C00B1CB5E /* DefaultGameTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultGameTabView.swift; sourceTree = "<group>"; };
 		E41363942B4BD6F200B1CB5E /* ColorExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtention.swift; sourceTree = "<group>"; };
 		E41363962B4BDAC900B1CB5E /* HowToUseViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToUseViewRepresentable.swift; sourceTree = "<group>"; };
+		E41363982B4C1ED300B1CB5E /* MainSettingViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSettingViewRepresentable.swift; sourceTree = "<group>"; };
 		E426C91629FB9AF700F7A52D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E42C89322672022200961EB1 /* GameDataTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDataTableViewModel.swift; sourceTree = "<group>"; };
 		E42C8936267205D700961EB1 /* GameOrganizeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOrganizeManager.swift; sourceTree = "<group>"; };
@@ -853,6 +855,7 @@
 				E48D89432B4A9E5C000A8883 /* StartGameViewRepresentable.swift */,
 				E41363962B4BDAC900B1CB5E /* HowToUseViewRepresentable.swift */,
 				E41363922B4BC57C00B1CB5E /* DefaultGameTabView.swift */,
+				E41363982B4C1ED300B1CB5E /* MainSettingViewRepresentable.swift */,
 			);
 			name = Misc;
 			sourceTree = "<group>";
@@ -1217,6 +1220,7 @@
 				E483164C27ED7FD90091B0DF /* RequestBody.swift in Sources */,
 				E48D89402B48D3C0000A8883 /* CommonDataViewRepresentable.swift in Sources */,
 				E40F93FA26718E1600231511 /* EditDataViewController.swift in Sources */,
+				E41363992B4C1ED300B1CB5E /* MainSettingViewRepresentable.swift in Sources */,
 				E4467307264574190092DEFE /* MenuViewModel.swift in Sources */,
 				E45BB7CF287050D500E722D6 /* NotificationName+Extension.swift in Sources */,
 				E42F216F2852C2D90029970D /* GameViewGameModeTableViewCell.swift in Sources */,

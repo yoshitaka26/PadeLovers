@@ -88,12 +88,13 @@ struct HomeView: View {
                         RandomNumberTableView()
                     case .uses:
                         HowToUseView()
-                    default:
-                        EmptyView()
+                    case .mainSetting:
+                        MainSettingView()
                     }
                 }
             }
         }
+        .tint(Color.appNavBarButtonColor)
     }
 
     private struct MenuButton: View {
