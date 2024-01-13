@@ -13,7 +13,7 @@ class AlertObject: ObservableObject {
     @Published var model: Model?
 
     struct Model {
-        var title: String = "エラー"
+        var title: String
         var messageView: MessageView?
         var actionView: ActionView
     }
@@ -36,27 +36,18 @@ class AlertObject: ObservableObject {
 
         var body: some View {
             switch kind {
-            case .single(let text, let action):
-                Button(text, action: action ?? {})
-            case .double(let text, let action, let cancelAction):
-                Button("キャンセル", action: cancelAction ?? {})
-                Button(text, action: action ?? {})
+            case let .single(text, action):
+                Button(text, role: .none, action: action ?? {})
+            case let .double(text, action, cancelAction):
+                Button("キャンセル", role: .cancel, action: cancelAction ?? {})
+                Button(text, role: .destructive, action: action ?? {})
             }
         }
     }
 
     @MainActor func showError(message: String) {
         self.model = Model(
-            messageView: MessageView(message: message),
-            actionView: ActionView(kind: .single(text: "OK"))
-        )
-        self.isShow.toggle()
-    }
-
-    @MainActor func showError(error: Error) {
-        if error.localizedDescription == "cancelled" { return }
-        let message = "エラーが発生しました"
-        self.model = Model(
+            title: "エラー",
             messageView: MessageView(message: message),
             actionView: ActionView(kind: .single(text: "OK"))
         )
@@ -99,4 +90,3 @@ class AlertObject: ObservableObject {
         self.isShow.toggle()
     }
 }
-
