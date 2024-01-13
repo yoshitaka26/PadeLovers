@@ -143,6 +143,12 @@
 		E48EE3CD267753E40001E54D /* GameResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48EE3CC267753E40001E54D /* GameResultViewModel.swift */; };
 		E498854C267368AE004ECB01 /* Game+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = E498854B267368AE004ECB01 /* Game+Additional.swift */; };
 		E4BCC99E2B52B2A2005F65F0 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = E4BCC99D2B52B2A2005F65F0 /* FirebaseAnalyticsWithoutAdIdSupport */; };
+		E4BCC9A12B52BAA2005F65F0 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BCC9A02B52BAA2005F65F0 /* WebView.swift */; };
+		E4BCC9A42B52CB3F005F65F0 /* ToastObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BCC9A32B52CB3F005F65F0 /* ToastObject.swift */; };
+		E4BCC9A62B52CB4D005F65F0 /* AlertObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BCC9A52B52CB4D005F65F0 /* AlertObject.swift */; };
+		E4BCC9A82B52CC1E005F65F0 /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BCC9A72B52CC1E005F65F0 /* CustomAlertView.swift */; };
+		E4BCC9AA2B52CC49005F65F0 /* CustomToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BCC9A92B52CC49005F65F0 /* CustomToastView.swift */; };
+		E4BCC9AD2B52CCF3005F65F0 /* PopupView in Frameworks */ = {isa = PBXBuildFile; productRef = E4BCC9AC2B52CCF3005F65F0 /* PopupView */; };
 		E4C434172680EE85006652A7 /* CommonData.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4C434162680EE85006652A7 /* CommonData.storyboard */; };
 		E4C4341A2680EEB5006652A7 /* CommonDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C434192680EEB5006652A7 /* CommonDataViewController.swift */; };
 		E4C4341D2680EEC5006652A7 /* CommonDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C4341C2680EEC5006652A7 /* CommonDataViewModel.swift */; };
@@ -320,6 +326,11 @@
 		E48D89432B4A9E5C000A8883 /* StartGameViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartGameViewRepresentable.swift; sourceTree = "<group>"; };
 		E48EE3CC267753E40001E54D /* GameResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResultViewModel.swift; sourceTree = "<group>"; };
 		E498854B267368AE004ECB01 /* Game+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Game+Additional.swift"; sourceTree = "<group>"; };
+		E4BCC9A02B52BAA2005F65F0 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		E4BCC9A32B52CB3F005F65F0 /* ToastObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastObject.swift; sourceTree = "<group>"; };
+		E4BCC9A52B52CB4D005F65F0 /* AlertObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertObject.swift; sourceTree = "<group>"; };
+		E4BCC9A72B52CC1E005F65F0 /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
+		E4BCC9A92B52CC49005F65F0 /* CustomToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomToastView.swift; sourceTree = "<group>"; };
 		E4C434162680EE85006652A7 /* CommonData.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CommonData.storyboard; sourceTree = "<group>"; };
 		E4C434192680EEB5006652A7 /* CommonDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonDataViewController.swift; sourceTree = "<group>"; };
 		E4C4341C2680EEC5006652A7 /* CommonDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonDataViewModel.swift; sourceTree = "<group>"; };
@@ -361,6 +372,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4BCC9AD2B52CCF3005F65F0 /* PopupView in Frameworks */,
 				B7C49D69804C4EA3B9AA5C13 /* Pods_PadeLovers.framework in Frameworks */,
 				E4BCC99E2B52B2A2005F65F0 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 			);
@@ -767,6 +779,8 @@
 		E47F202B2547D56B00996B19 /* PadeLovers */ = {
 			isa = PBXGroup;
 			children = (
+				E4BCC9A22B52CB2C005F65F0 /* Object */,
+				E4BCC99F2B52BA8B005F65F0 /* CommonView */,
 				E413639A2B51712100B1CB5E /* ViewStyle */,
 				E48D89342B459A67000A8883 /* Features */,
 				E426C91629FB9AF700F7A52D /* GoogleService-Info.plist */,
@@ -871,6 +885,25 @@
 			name = Misc;
 			sourceTree = "<group>";
 		};
+		E4BCC99F2B52BA8B005F65F0 /* CommonView */ = {
+			isa = PBXGroup;
+			children = (
+				E4BCC9A02B52BAA2005F65F0 /* WebView.swift */,
+			);
+			path = CommonView;
+			sourceTree = "<group>";
+		};
+		E4BCC9A22B52CB2C005F65F0 /* Object */ = {
+			isa = PBXGroup;
+			children = (
+				E4BCC9A32B52CB3F005F65F0 /* ToastObject.swift */,
+				E4BCC9A52B52CB4D005F65F0 /* AlertObject.swift */,
+				E4BCC9A72B52CC1E005F65F0 /* CustomAlertView.swift */,
+				E4BCC9A92B52CC49005F65F0 /* CustomToastView.swift */,
+			);
+			path = Object;
+			sourceTree = "<group>";
+		};
 		E4C434152680EE60006652A7 /* CommonData */ = {
 			isa = PBXGroup;
 			children = (
@@ -973,6 +1006,7 @@
 			name = PadeLovers;
 			packageProductDependencies = (
 				E4BCC99D2B52B2A2005F65F0 /* FirebaseAnalyticsWithoutAdIdSupport */,
+				E4BCC9AC2B52CCF3005F65F0 /* PopupView */,
 			);
 			productName = PadeLovers;
 			productReference = E47F20292547D56B00996B19 /* PadeLovers.app */;
@@ -1007,6 +1041,7 @@
 			mainGroup = E47F20202547D56B00996B19;
 			packageReferences = (
 				E4BCC99C2B52B2A2005F65F0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				E4BCC9AB2B52CCF3005F65F0 /* XCRemoteSwiftPackageReference "PopupView" */,
 			);
 			productRefGroup = E47F202A2547D56B00996B19 /* Products */;
 			projectDirPath = "";
@@ -1173,6 +1208,7 @@
 				E42F217D285300A20029970D /* GameViewPlayerTableDelegate.swift in Sources */,
 				E406DF472691B97600DF22F8 /* UIImageExtension.swift in Sources */,
 				E42F218328535F7D0029970D /* GameViewSettingViewModel.swift in Sources */,
+				E4BCC9A12B52BAA2005F65F0 /* WebView.swift in Sources */,
 				E4C4343126815979006652A7 /* CourtTableViewCell.swift in Sources */,
 				E483165827EEEE1E0091B0DF /* WetherRequest.swift in Sources */,
 				E447EF112755FF2E001601A7 /* HowToUseViewController.swift in Sources */,
@@ -1188,6 +1224,7 @@
 				E48D89362B459CA0000A8883 /* PadeLoversApp.swift in Sources */,
 				E433EA532684BA0D00EFC20B /* PairingA+CoreDataProperties.swift in Sources */,
 				E41363932B4BC57C00B1CB5E /* DefaultGameTabView.swift in Sources */,
+				E4BCC9A82B52CC1E005F65F0 /* CustomAlertView.swift in Sources */,
 				E48D89422B48D6BF000A8883 /* PadelDataViewRepresentable.swift in Sources */,
 				E42F2189285401750029970D /* Pairing.swift in Sources */,
 				E4313D98254830F30045447F /* GameDataTableViewController.swift in Sources */,
@@ -1231,6 +1268,7 @@
 				E4324F2F2547EDAB00063A9F /* GameTableViewCell.swift in Sources */,
 				E483164C27ED7FD90091B0DF /* RequestBody.swift in Sources */,
 				E48D89402B48D3C0000A8883 /* CommonDataViewRepresentable.swift in Sources */,
+				E4BCC9A42B52CB3F005F65F0 /* ToastObject.swift in Sources */,
 				E40F93FA26718E1600231511 /* EditDataViewController.swift in Sources */,
 				E41363992B4C1ED300B1CB5E /* MainSettingViewRepresentable.swift in Sources */,
 				E4467307264574190092DEFE /* MenuViewModel.swift in Sources */,
@@ -1238,6 +1276,7 @@
 				E42F216F2852C2D90029970D /* GameViewGameModeTableViewCell.swift in Sources */,
 				E4C4342A2680F10E006652A7 /* PlayerTableViewCell.swift in Sources */,
 				E44672FE2645672B0092DEFE /* BaseTableViewController.swift in Sources */,
+				E4BCC9AA2B52CC49005F65F0 /* CustomToastView.swift in Sources */,
 				E446737F26554FB20092DEFE /* UIColorExtension.swift in Sources */,
 				E4E0A6C92ABECBDC00666523 /* MixGameTabView.swift in Sources */,
 				E47F202D2547D56B00996B19 /* AppDelegate.swift in Sources */,
@@ -1245,6 +1284,7 @@
 				E44783D627579A2D001E1065 /* HowToUseDetailViewController.swift in Sources */,
 				E43C7074267A18D800E28E8A /* GameResultCollectionViewCell.swift in Sources */,
 				E44672E72645641E0092DEFE /* UIViewController+Common.swift in Sources */,
+				E4BCC9A62B52CB4D005F65F0 /* AlertObject.swift in Sources */,
 				E42C89332672022200961EB1 /* GameDataTableViewModel.swift in Sources */,
 				E433EA5A2684BA0D00EFC20B /* Game+CoreDataClass.swift in Sources */,
 				E452C6ED266A4038009A6EC3 /* Operators.swift in Sources */,
@@ -1560,6 +1600,14 @@
 				minimumVersion = 10.19.1;
 			};
 		};
+		E4BCC9AB2B52CCF3005F65F0 /* XCRemoteSwiftPackageReference "PopupView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:exyte/PopupView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.8.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1567,6 +1615,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E4BCC99C2B52B2A2005F65F0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAnalyticsWithoutAdIdSupport;
+		};
+		E4BCC9AC2B52CCF3005F65F0 /* PopupView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E4BCC9AB2B52CCF3005F65F0 /* XCRemoteSwiftPackageReference "PopupView" */;
+			productName = PopupView;
 		};
 /* End XCSwiftPackageProductDependency section */
 

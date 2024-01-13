@@ -83,7 +83,7 @@ struct HomeView: View {
                     case let .gameStartDefault(groupID, padelID):
                         DefaultGameTabView(path: $path, groupID: groupID, padelID: padelID)
                     case .gameStartMix(let groupID):
-                        MixGameTabView(viewModel: MixGameViewModel(groupID: groupID))
+                        MixGameTabView(path: $path, viewModel: MixGameViewModel(groupID: groupID))
                     case .randomNumber:
                         RandomNumberTableView()
                     case .uses:

@@ -31,7 +31,8 @@ struct StartGameView: View {
                 }
             }
         } message: {
-            Text("モードを選択してください")
+            Text("モードを選択してください☝️\n標準モード:試合をする2対2のペアを選びます\n簡易モード:試合をする4プレイヤーを選びます")
+                .font(.title)
         }
     }
 }

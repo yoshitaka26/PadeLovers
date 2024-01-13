@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct MixGameTabView: View {
+    @Binding var path: [HomeView.Screen]
     @StateObject var viewModel: MixGameViewModel
     @State var dismissAlert = false
     @Environment(\.dismiss) private var dismiss
@@ -18,10 +19,10 @@ struct MixGameTabView: View {
             PlayerSettingList(viewModel: viewModel)
                 .tabItem {
                     Image(systemName: "person.crop.rectangle.stack")
-                    Text("プレイヤー")
+                    Text("設定")
                 }
                 .tint(nil)
-                .tag(MixGameViewModel.MixGameTab.player)
+                .tag(MixGameViewModel.MixGameTab.setting)
             GameSettingList(viewModel: viewModel)
                 .tabItem {
                     Image(systemName: "figure.tennis")
@@ -32,13 +33,31 @@ struct MixGameTabView: View {
         }
         .tint(.appSpecialRed)
         .navigationBarBackButtonHidden(true)
+        .navigationTitle(viewModel.tab.title)
         .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button {
-                    dismissAlert = true
-                } label: {
-                    Image(systemName: "house")
-                        .foregroundStyle(Color(UIColor.appNavBarButtonColor))
+            ToolbarItem(placement: .topBarLeading) {
+                switch viewModel.tab {
+                case .setting:
+                    Button(action: {
+                        path.append(.uses)
+                    }, label: {
+                        Image(systemName: "questionmark.circle")
+                    })
+                default:
+                    Spacer()
+                }
+            }
+            ToolbarItem(placement: .topBarTrailing) {
+                switch viewModel.tab {
+                case .game:
+                    Button {
+                        dismissAlert = true
+                    } label: {
+                        Image(systemName: "house")
+                            .foregroundStyle(Color(UIColor.appNavBarButtonColor))
+                    }
+                default:
+                    Spacer()
                 }
             }
         }
@@ -49,7 +68,8 @@ struct MixGameTabView: View {
         } message: {
             Text("データは保存されません。試合データを削除してホーム画面に戻ります。終了してよろしいですか？")
         }
-
+        .customAlert(for: viewModel.alertObject)
+        .customToast(for: viewModel.toastObject)
     }
 }
 

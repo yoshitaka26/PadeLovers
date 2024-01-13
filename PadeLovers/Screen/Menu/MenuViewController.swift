@@ -96,16 +96,16 @@ extension MenuViewController: StartGameTableViewControllerDelegate {
                 self.showDefaultGameView(groupID: groupID, padelID: nil)
             }
 
-            let action2 = UIAlertAction(title: "簡易モード", style: .default) { _ in
-                let tabBarCon = UIHostingController(rootView: MixGameTabView(viewModel: MixGameViewModel(groupID: groupID!)))
-                self.navigationController?.setNavigationBarHidden(false, animated: true)
-                self.navigationController?.pushViewController(tabBarCon, animated: true)
-            }
+//            let action2 = UIAlertAction(title: "簡易モード", style: .default) { _ in
+//                let tabBarCon = UIHostingController(rootView: MixGameTabView(viewModel: MixGameViewModel(groupID: groupID!)))
+//                self.navigationController?.setNavigationBarHidden(false, animated: true)
+//                self.navigationController?.pushViewController(tabBarCon, animated: true)
+//            }
 
             let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
 
             actionSheet.addAction(action1)
-            actionSheet.addAction(action2)
+//            actionSheet.addAction(action2)
             actionSheet.addAction(cancelAction)
 
             self.present(actionSheet, animated: true, completion: nil)

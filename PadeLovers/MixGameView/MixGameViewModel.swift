@@ -10,16 +10,28 @@ import Combine
 
 @MainActor
 final class MixGameViewModel: ObservableObject {
-    @Published var tab: MixGameTab = .player
+    @Published var tab: MixGameTab = .setting
     @Published var replacePlayerGame: MixGameMatchGame?
 
     @Published var replaceFrom: MixGamePlayer?
     @Published var replaceTo: MixGamePlayer?
     @Published var randomSelection = false
 
+    var alertObject = AlertObject()
+    var toastObject = ToastObject()
+
     enum MixGameTab {
-        case player
+        case setting
         case game
+
+        var title: String {
+            switch self {
+            case .setting:
+                "設定"
+            case .game:
+                "試合"
+            }
+        }
     }
 
     @Published var players: [MixGamePlayer] = []
@@ -47,6 +59,9 @@ final class MixGameViewModel: ObservableObject {
             player.$isPlaying.dropFirst().sink { [weak self] isPlaying in
                 if isPlaying == true {
                     player.fixCount(newValue: self?.getMinCount() ?? 0)
+                    if player.playedCount > 0 {
+                        self?.toastObject.showToast(text: "試合数\(player.playedCount)回で参加しました")
+                    }
                 }
             }.store(in: &cancellables)
         }
@@ -97,6 +112,7 @@ final class MixGameViewModel: ObservableObject {
         }
 
         dismissReplacePlayerView()
+        toastObject.showToast(text: "入れ替えました")
     }
 
     func showReplacePlayerView(_ game: MixGameMatchGame) {
@@ -139,10 +155,19 @@ final class MixGameViewModel: ObservableObject {
     func resetGame(court: MixGameCourt) {
         court.resetGame()
         matchGame.removeAll(where: { $0.id == court.gameId })
+        toastObject.showToast(text: "取消しました")
     }
 
     func endGame(court: MixGameCourt) {
-        court.finishGame(totalPlayers: playingPlayers.map { $0.id })
+        alertObject.showDouble(
+            title: "試合を終了しますか？",
+            message: nil,
+            actionText: "終了",
+            action: {
+                court.finishGame(totalPlayers: self.playingPlayers.map { $0.id })
+                self.toastObject.showToast(text: "終了しました")
+            }
+        )
     }
 
     private var playingPlayers: [MixGamePlayer] {
