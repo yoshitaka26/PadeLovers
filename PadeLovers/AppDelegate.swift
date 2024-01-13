@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import FirebaseCore
+import FirebaseAnalytics
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -19,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         #if RELEASE
         FirebaseApp.configure()
+        Analytics.setAnalyticsCollectionEnabled(true)
         #endif
 
         // UserDefaultsセットアップ
