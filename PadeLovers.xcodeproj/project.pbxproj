@@ -781,8 +781,6 @@
 			children = (
 				E4BCC9A22B52CB2C005F65F0 /* Object */,
 				E4BCC99F2B52BA8B005F65F0 /* CommonView */,
-				E413639A2B51712100B1CB5E /* ViewStyle */,
-				E48D89342B459A67000A8883 /* Features */,
 				E426C91629FB9AF700F7A52D /* GoogleService-Info.plist */,
 				E4F9D37E283735AA00759465 /* PadeLovers.entitlements */,
 				E413639A2B51712100B1CB5E /* ViewStyle */,
@@ -1512,7 +1510,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 21;
+				CURRENT_PROJECT_VERSION = 22;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = VKV3Y2GW5Q;
 				INFOPLIST_FILE = PadeLovers/Info.plist;
@@ -1521,7 +1519,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 4.0.0;
+				MARKETING_VERSION = 4.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yoshitaka.PadeLovers;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1541,7 +1539,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 21;
+				CURRENT_PROJECT_VERSION = 22;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = VKV3Y2GW5Q;
 				INFOPLIST_FILE = PadeLovers/Info.plist;
@@ -1550,7 +1548,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 4.0.0;
+				MARKETING_VERSION = 4.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yoshitaka.PadeLovers;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
