@@ -9,6 +9,7 @@
 import Combine
 import Foundation
 
+@MainActor
 class MixGamePlayer: Identifiable, ObservableObject {
     @Published var isPlaying = true
     @Published var isOnGame = false

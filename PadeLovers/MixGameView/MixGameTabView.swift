@@ -75,12 +75,8 @@ struct PlayerSettingList: View {
         }
         .listStyle(.grouped)
         .sheet(item: $viewModel.playerDetail) { player in
-            if #available(iOS 16.0, *) {
-                PlayerDetail(player: player)
-                    .presentationDetents([.height(180)])
-            } else {
-                PlayerDetail(player: player)
-            }
+            PlayerDetail(player: player)
+                .presentationDetents([.height(180)])
         }
     }
 }
@@ -132,7 +128,7 @@ struct PlayerCell: View {
         HStack {
             Text(player.name)
                 .font(.subheadline)
-                .foregroundColor(player.isMale ? .primary : .red)
+                .foregroundColor(player.isMale ? .primary : .appSpecialRed)
             Spacer()
             Toggle("", isOn: $player.isPlaying)
                 .labelsHidden()
@@ -140,6 +136,7 @@ struct PlayerCell: View {
         }
     }
 }
+
 struct GameSettingList: View {
     @ObservedObject var viewModel: MixGameViewModel
 
@@ -150,6 +147,72 @@ struct GameSettingList: View {
                     GameView(viewModel: viewModel, court: court)
                 }
             }
+        }
+        .sheet(item: $viewModel.replacePlayerGame) { game in
+            ScrollView {
+                HStack(spacing: 10) {
+                    Button(action: {
+                        viewModel.dismissReplacePlayerView()
+                    }) {
+                        Text("キャンセル")
+                            .font(.title3)
+                            .frame(minWidth: 100, minHeight: 30)
+                    }
+                    .buttonStyle(ButtonSecondaryStyle())
+                    Button(action: {
+                        viewModel.replacePlayers()
+                    }) {
+                        Text("入れ替え")
+                            .font(.title3)
+                            .frame(minWidth: 100, minHeight: 30)
+                    }
+                    .buttonStyle(ButtonPrimaryStyle(
+                        disabled: !viewModel.isSelectedTwoPlayersForReplacement)
+                    )
+                }
+                .padding(.vertical, 20)
+                HStack(alignment: .top, spacing: 10) {
+                    VStack {
+                        ForEach(game.players, id: \.id) { playingPlayer in
+                            Button(action: {
+                                viewModel.selectPlayerFrom(playingPlayer)
+                            }) {
+                                Text(playingPlayer.name)
+                                    .font(.headline)
+                                    .frame(minWidth: 100, minHeight: 20)
+                            }
+                            .buttonStyle(SelectButtonStyle(isSelected: viewModel.isSelectedWithPlayerFrom(playingPlayer)))
+                        }
+                    }
+                    Image(systemName: "arrowshape.right")
+                        .resizable()
+                        .frame(width: 40, height: 40)
+                        .foregroundStyle(Color.appSpecialRed)
+                        .padding(.top, 80)
+                    VStack {
+                        Button(action: {
+                            viewModel.selectPlayerToWithRandom()
+                        }) {
+                            Text("ランダム")
+                                .font(.headline)
+                                .frame(minWidth: 100, minHeight: 20)
+                        }
+                        .buttonStyle(SelectButtonStyle(isSelected: viewModel.randomSelection))
+                        ForEach(viewModel.replaceablePlayers, id: \.id) { replaceablePlayer in
+                            Button(action: {
+                                viewModel.selectPlayerTo(replaceablePlayer)
+                            }) {
+                                Text(replaceablePlayer.name)
+                                    .font(.headline)
+                                    .frame(minWidth: 100, minHeight: 20)
+                            }
+                            .buttonStyle(SelectButtonStyle(isSelected: viewModel.isSelectedWithPlayerTo(replaceablePlayer)))
+                        }
+                    }
+                }
+                .padding(10)
+            }
+            .scrollIndicators(.never)
         }
     }
 }
@@ -163,33 +226,60 @@ struct GameView: View {
             if viewModel.isAvailable() || court.isSet {
                 VStack {
                     if court.isSet {
-                        Button("取消", role: .cancel) {
+                        Button {
                             viewModel.resetGame(court: court)
+                        } label: {
+                            Text("取消")
+                                .font(.headline)
                         }
-                        .buttonStyle(.bordered)
-                        Button("終了", role: .destructive) {
+                        .buttonStyle(ButtonSecondaryStyle())
+
+                        Button {
                             viewModel.endGame(court: court)
+                        } label: {
+                            Text("終了")
+                                .font(.headline)
                         }
-                        .buttonStyle(.bordered)
+                        .buttonStyle(ButtonPrimaryStyle())
                     } else {
-                        Button("開始", role: .none) {
+                        Button {
                             viewModel.setGame(court: court)
+                        } label: {
+                            Text("開始")
+                                .font(.headline)
                         }
-                        .buttonStyle(.bordered)
+                        .buttonStyle(ButtonTertiaryStyle())
                     }
                 }
                 .padding()
-                Spacer()
-                if court.isSet {
-                    VStack {
-                        ForEach(court.game!.players, id: \.id) { player in
+                if court.isSet, let game = court.game {
+                    LazyVGrid(
+                        columns: [GridItem(.flexible()), GridItem(.flexible())],
+                        spacing: 10
+                    ) {
+                        ForEach(game.players, id: \.id) { player in
                             Text(player.name)
-                                .font(.subheadline)
-                                .foregroundColor(player.isMale ? .primary : .red)
+                                .multilineTextAlignment(.center)
+                                .font(.headline)
+                                .foregroundStyle(.white)
+                                .frame(minWidth: 100, minHeight: 40)
+                                .padding(4)
+                                .cornerRadius(4)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 4)
+                                        .fill(player.isMale ?  Color.appSpecialBlue : Color.appSpecialRed)
+                                        .stroke(Color.appNavBarButtonColor, lineWidth: 1)
+                                )
                         }
+                        .padding(6)
+                    }
+                    .frame(maxWidth: .infinity)
+                    .padding(10)
+                    .onTapGesture {
+                        guard let game = court.game else { return }
+                        viewModel.showReplacePlayerView(game)
                     }
                 }
-                Spacer()
             } else {
                 Text("プレイヤーが足りません")
             }

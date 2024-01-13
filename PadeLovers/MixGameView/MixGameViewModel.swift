@@ -11,6 +11,11 @@ import Combine
 @MainActor
 final class MixGameViewModel: ObservableObject {
     @Published var tab: MixGameTab = .player
+    @Published var replacePlayerGame: MixGameMatchGame?
+
+    @Published var replaceFrom: MixGamePlayer?
+    @Published var replaceTo: MixGamePlayer?
+    @Published var randomSelection = false
 
     enum MixGameTab {
         case player
@@ -32,8 +37,8 @@ final class MixGameViewModel: ObservableObject {
         self.players = playersData
             .sorted { $0.order < $1.order }
             .map {
-            return MixGamePlayer(id: Int($0.order), name: $0.name ?? "ゲスト", isMale: $0.gender)
-        }
+                return MixGamePlayer(id: Int($0.order), name: $0.name ?? "ゲスト", isMale: $0.gender)
+            }
         self.courts = courtData.map {
             return MixGameCourt(name: $0)
         }
@@ -45,6 +50,64 @@ final class MixGameViewModel: ObservableObject {
                 }
             }.store(in: &cancellables)
         }
+    }
+    
+    // 入れ替え画面用
+    var replaceablePlayers: [MixGamePlayer] {
+        playingPlayers.filter { !$0.isOnGame }
+    }
+
+    var isSelectedTwoPlayersForReplacement: Bool {
+        replaceFrom != nil && (replaceTo != nil || randomSelection)
+    }
+
+    func isSelectedWithPlayerFrom(_ player: MixGamePlayer) -> Bool {
+        replaceFrom?.id == player.id
+    }
+
+    func selectPlayerFrom(_ player: MixGamePlayer) {
+        replaceFrom = player
+    }
+
+    func isSelectedWithPlayerTo(_ player: MixGamePlayer) -> Bool {
+        replaceTo?.id == player.id
+    }
+
+    func selectPlayerTo(_ player: MixGamePlayer) {
+        randomSelection = false
+        replaceTo = player
+    }
+
+    func selectPlayerToWithRandom() {
+        replaceTo = nil
+        randomSelection = true
+    }
+
+    func replacePlayers() {
+        guard let replacePlayerGame,
+              let replaceFrom else { return }
+        if let replaceTo {
+            replacePlayerGame.replacePlayer(from: replaceFrom, to: replaceTo)
+        } else if randomSelection {
+            if let player = replaceablePlayers.randomElement() {
+                replacePlayerGame.replacePlayer(from: replaceFrom, to: player)
+            }
+        } else {
+            assertionFailure("ありえない")
+        }
+
+        dismissReplacePlayerView()
+    }
+
+    func showReplacePlayerView(_ game: MixGameMatchGame) {
+        replacePlayerGame = game
+    }
+
+    func dismissReplacePlayerView() {
+        replacePlayerGame = nil
+        replaceFrom = nil
+        replaceTo = nil
+        randomSelection = false
     }
 
     func isAvailable() -> Bool {
