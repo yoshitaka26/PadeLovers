@@ -767,10 +767,10 @@
 		E47F202B2547D56B00996B19 /* PadeLovers */ = {
 			isa = PBXGroup;
 			children = (
-				E413639A2B51712100B1CB5E /* ViewStyle */,
-				E48D89342B459A67000A8883 /* Features */,
 				E426C91629FB9AF700F7A52D /* GoogleService-Info.plist */,
 				E4F9D37E283735AA00759465 /* PadeLovers.entitlements */,
+				E413639A2B51712100B1CB5E /* ViewStyle */,
+				E48D89342B459A67000A8883 /* Features */,
 				E47F202C2547D56B00996B19 /* AppDelegate.swift */,
 				E47F202E2547D56B00996B19 /* SceneDelegate.swift */,
 				E44672B026455D9C0092DEFE /* RxBase */,
@@ -1470,7 +1470,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 20;
+				CURRENT_PROJECT_VERSION = 21;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = VKV3Y2GW5Q;
 				INFOPLIST_FILE = PadeLovers/Info.plist;
@@ -1499,7 +1499,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 20;
+				CURRENT_PROJECT_VERSION = 21;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = VKV3Y2GW5Q;
 				INFOPLIST_FILE = PadeLovers/Info.plist;

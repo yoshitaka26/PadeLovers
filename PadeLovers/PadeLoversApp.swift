@@ -10,6 +10,7 @@ import SwiftUI
 
 @main
 struct PadeLoversApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     var body: some Scene {
         WindowGroup {
             HomeView()
