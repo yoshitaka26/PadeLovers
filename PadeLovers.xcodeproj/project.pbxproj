@@ -21,7 +21,6 @@
 		E41363972B4BDAC900B1CB5E /* HowToUseViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41363962B4BDAC900B1CB5E /* HowToUseViewRepresentable.swift */; };
 		E41363992B4C1ED300B1CB5E /* MainSettingViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41363982B4C1ED300B1CB5E /* MainSettingViewRepresentable.swift */; };
 		E413639C2B51713F00B1CB5E /* SelectButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E413639B2B51713F00B1CB5E /* SelectButtonStyle.swift */; };
-		E426C91529FB8E2600F7A52D /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = E426C91429FB8E2600F7A52D /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		E426C91729FB9AF700F7A52D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E426C91629FB9AF700F7A52D /* GoogleService-Info.plist */; };
 		E42C89332672022200961EB1 /* GameDataTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42C89322672022200961EB1 /* GameDataTableViewModel.swift */; };
 		E42C8937267205D700961EB1 /* GameOrganizeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42C8936267205D700961EB1 /* GameOrganizeManager.swift */; };
@@ -143,6 +142,7 @@
 		E48D89442B4A9E5C000A8883 /* StartGameViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48D89432B4A9E5C000A8883 /* StartGameViewRepresentable.swift */; };
 		E48EE3CD267753E40001E54D /* GameResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48EE3CC267753E40001E54D /* GameResultViewModel.swift */; };
 		E498854C267368AE004ECB01 /* Game+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = E498854B267368AE004ECB01 /* Game+Additional.swift */; };
+		E4BCC99E2B52B2A2005F65F0 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = E4BCC99D2B52B2A2005F65F0 /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		E4C434172680EE85006652A7 /* CommonData.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4C434162680EE85006652A7 /* CommonData.storyboard */; };
 		E4C4341A2680EEB5006652A7 /* CommonDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C434192680EEB5006652A7 /* CommonDataViewController.swift */; };
 		E4C4341D2680EEC5006652A7 /* CommonDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C4341C2680EEC5006652A7 /* CommonDataViewModel.swift */; };
@@ -362,7 +362,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7C49D69804C4EA3B9AA5C13 /* Pods_PadeLovers.framework in Frameworks */,
-				E426C91529FB8E2600F7A52D /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
+				E4BCC99E2B52B2A2005F65F0 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -972,7 +972,7 @@
 			);
 			name = PadeLovers;
 			packageProductDependencies = (
-				E426C91429FB8E2600F7A52D /* FirebaseAnalyticsWithoutAdIdSupport */,
+				E4BCC99D2B52B2A2005F65F0 /* FirebaseAnalyticsWithoutAdIdSupport */,
 			);
 			productName = PadeLovers;
 			productReference = E47F20292547D56B00996B19 /* PadeLovers.app */;
@@ -1006,7 +1006,7 @@
 			);
 			mainGroup = E47F20202547D56B00996B19;
 			packageReferences = (
-				E426C91329FB8E2600F7A52D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				E4BCC99C2B52B2A2005F65F0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = E47F202A2547D56B00996B19 /* Products */;
 			projectDirPath = "";
@@ -1552,20 +1552,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		E426C91329FB8E2600F7A52D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+		E4BCC99C2B52B2A2005F65F0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 10.0.0;
+				minimumVersion = 10.19.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		E426C91429FB8E2600F7A52D /* FirebaseAnalyticsWithoutAdIdSupport */ = {
+		E4BCC99D2B52B2A2005F65F0 /* FirebaseAnalyticsWithoutAdIdSupport */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = E426C91329FB8E2600F7A52D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = E4BCC99C2B52B2A2005F65F0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAnalyticsWithoutAdIdSupport;
 		};
 /* End XCSwiftPackageProductDependency section */
