@@ -20,6 +20,8 @@ final class UserDefaultsUtil {
         case appLastLaunchDate
         case appLaunchCount
         case playerDataMigratedToCoreData
+        case isReviewRequested
+        case reviewRequestedDate
 
         // 過去に使用
         case court
@@ -77,6 +79,26 @@ extension UserDefaultsUtil {
         }
         set {
             userDefaults.set(newValue, forKey: StringKey.playerDataMigratedToCoreData.rawValue)
+        }
+    }
+
+    var isReviewRequested: Bool {
+        get {
+            return userDefaults.bool(forKey: StringKey.isReviewRequested.rawValue)
+        }
+        set {
+            userDefaults.set(newValue, forKey: StringKey.isReviewRequested.rawValue)
+        }
+    }
+
+    var reviewRequestedDate: Date {
+        get {
+            return Date(
+                timeIntervalSince1970: TimeInterval(userDefaults.integer(forKey: StringKey.reviewRequestedDate.rawValue))
+            )
+        }
+        set {
+            userDefaults.set(newValue.timeIntervalSince1970, forKey: StringKey.reviewRequestedDate.rawValue)
         }
     }
 }

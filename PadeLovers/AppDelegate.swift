@@ -8,27 +8,19 @@
 
 import UIKit
 import CoreData
-import FBSDKCoreKit
-import LineSDK
 import FirebaseCore
+import FirebaseAnalytics
 
-@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         UINavigationBar.appearance().titleTextAttributes = [
             NSAttributedString.Key.foregroundColor: UIColor.label
         ]
-        
-        ApplicationDelegate.shared.application(
-            application,
-            didFinishLaunchingWithOptions: launchOptions
-        )
-
-        LoginManager.shared.setup(channelID: "1657150279", universalLinkURL: nil)
 
         #if RELEASE
         FirebaseApp.configure()
+        Analytics.setAnalyticsCollectionEnabled(true)
         #endif
 
         // UserDefaultsセットアップ
@@ -41,19 +33,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
 
         return true
-    }
-    
-    func application(
-        _ app: UIApplication,
-        open url: URL,
-        options: [UIApplication.OpenURLOptionsKey: Any] = [:]
-    ) -> Bool {
-        ApplicationDelegate.shared.application(
-            app,
-            open: url,
-            sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
-            annotation: options[UIApplication.OpenURLOptionsKey.annotation]
-        )
     }
     
     // MARK: UISceneSession Lifecycle

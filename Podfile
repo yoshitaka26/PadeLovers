@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, '15.0'
+platform :ios, '17.0'
 
 target 'PadeLovers' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -7,8 +7,6 @@ target 'PadeLovers' do
 
   # Pods for PadeLovers
   pod 'SwiftLint'
-  pod 'FBSDKLoginKit', '~> 13.2.0'
-  pod 'LineSDKSwift', '~> 5.8.1'
   pod 'RxSwift', '~> 6.5.0'
   pod 'RxCocoa', '~> 6.5.0'
   

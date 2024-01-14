@@ -25,6 +25,11 @@ final class PadelDataTableViewController: BaseTableViewController {
             self.tableView.tableFooterView = UIView()
         }).disposed(by: disposeBag)
     }
+
+    func editTableView(isEdit: Bool) {
+        tableView.isEditing = isEdit
+    }
+
     @objc
     func back() {
         self.navigationController?.popViewController(animated: true)

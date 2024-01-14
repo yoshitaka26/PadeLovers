@@ -10,11 +10,28 @@ import Combine
 
 @MainActor
 final class MixGameViewModel: ObservableObject {
-    @Published var tab: MixGameTab = .player
+    @Published var tab: MixGameTab = .setting
+    @Published var replacePlayerGame: MixGameMatchGame?
+
+    @Published var replaceFrom: MixGamePlayer?
+    @Published var replaceTo: MixGamePlayer?
+    @Published var randomSelection = false
+
+    var alertObject = AlertObject()
+    var toastObject = ToastObject()
 
     enum MixGameTab {
-        case player
+        case setting
         case game
+
+        var title: String {
+            switch self {
+            case .setting:
+                "設定"
+            case .game:
+                "試合"
+            }
+        }
     }
 
     @Published var players: [MixGamePlayer] = []
@@ -32,8 +49,8 @@ final class MixGameViewModel: ObservableObject {
         self.players = playersData
             .sorted { $0.order < $1.order }
             .map {
-            return MixGamePlayer(id: Int($0.order), name: $0.name ?? "ゲスト", isMale: $0.gender)
-        }
+                return MixGamePlayer(id: Int($0.order), name: $0.name ?? "ゲスト", isMale: $0.gender)
+            }
         self.courts = courtData.map {
             return MixGameCourt(name: $0)
         }
@@ -42,9 +59,71 @@ final class MixGameViewModel: ObservableObject {
             player.$isPlaying.dropFirst().sink { [weak self] isPlaying in
                 if isPlaying == true {
                     player.fixCount(newValue: self?.getMinCount() ?? 0)
+                    if player.playedCount > 0 {
+                        self?.toastObject.showToast(text: "試合数\(player.playedCount)回で参加しました")
+                    }
                 }
             }.store(in: &cancellables)
         }
+    }
+    
+    // 入れ替え画面用
+    var replaceablePlayers: [MixGamePlayer] {
+        playingPlayers.filter { !$0.isOnGame }
+    }
+
+    var isSelectedTwoPlayersForReplacement: Bool {
+        replaceFrom != nil && (replaceTo != nil || randomSelection)
+    }
+
+    func isSelectedWithPlayerFrom(_ player: MixGamePlayer) -> Bool {
+        replaceFrom?.id == player.id
+    }
+
+    func selectPlayerFrom(_ player: MixGamePlayer) {
+        replaceFrom = player
+    }
+
+    func isSelectedWithPlayerTo(_ player: MixGamePlayer) -> Bool {
+        replaceTo?.id == player.id
+    }
+
+    func selectPlayerTo(_ player: MixGamePlayer) {
+        randomSelection = false
+        replaceTo = player
+    }
+
+    func selectPlayerToWithRandom() {
+        replaceTo = nil
+        randomSelection = true
+    }
+
+    func replacePlayers() {
+        guard let replacePlayerGame,
+              let replaceFrom else { return }
+        if let replaceTo {
+            replacePlayerGame.replacePlayer(from: replaceFrom, to: replaceTo)
+        } else if randomSelection {
+            if let player = replaceablePlayers.randomElement() {
+                replacePlayerGame.replacePlayer(from: replaceFrom, to: player)
+            }
+        } else {
+            assertionFailure("ありえない")
+        }
+
+        dismissReplacePlayerView()
+        toastObject.showToast(text: "入れ替えました")
+    }
+
+    func showReplacePlayerView(_ game: MixGameMatchGame) {
+        replacePlayerGame = game
+    }
+
+    func dismissReplacePlayerView() {
+        replacePlayerGame = nil
+        replaceFrom = nil
+        replaceTo = nil
+        randomSelection = false
     }
 
     func isAvailable() -> Bool {
@@ -76,10 +155,19 @@ final class MixGameViewModel: ObservableObject {
     func resetGame(court: MixGameCourt) {
         court.resetGame()
         matchGame.removeAll(where: { $0.id == court.gameId })
+        toastObject.showToast(text: "取消しました")
     }
 
     func endGame(court: MixGameCourt) {
-        court.finishGame(totalPlayers: playingPlayers.map { $0.id })
+        alertObject.showDouble(
+            title: "試合を終了しますか？",
+            message: nil,
+            actionText: "終了",
+            action: {
+                court.finishGame(totalPlayers: self.playingPlayers.map { $0.id })
+                self.toastObject.showToast(text: "終了しました")
+            }
+        )
     }
 
     private var playingPlayers: [MixGamePlayer] {

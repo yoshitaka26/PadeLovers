@@ -33,8 +33,8 @@ disabled_rules:
 #- legacy_hashing
 #- legacy_nsgeometry_functions
 #- mark
-#- multiple_closures_with_trailing_closure
-#- nesting
+- multiple_closures_with_trailing_closure
+- nesting
 #- no_fallthrough_only
 #- notification_center_detachment
 #- opening_brace
@@ -120,7 +120,7 @@ opt_in_rules:
     #- file_header # このルールの意味を理解していないため
     #- file_name # extensionの場合を除きたいため　※※※
     - first_where
-    - force_unwrapping
+    #- force_unwrapping
     - function_default_parameter_at_end
     - identical_operands
     #- implicit_return # returnがあった方がわかりやすい　※※※
@@ -158,7 +158,7 @@ opt_in_rules:
     - quick_discouraged_focused_test
     - quick_discouraged_pending_test
     - redundant_nil_coalescing
-    - redundant_type_annotation
+    #- redundant_type_annotation
     #- required_deinit # できる限りデイニシャライザを省略したいため
     - required_enum_case
     - single_test_class

@@ -9,14 +9,24 @@
 import Combine
 import Foundation
 
-class MixGameMatchGame: ObservableObject {
+@MainActor
+class MixGameMatchGame: ObservableObject, Identifiable {
     @Published var players: [MixGamePlayer] = []
-    @Published var isFinished: Bool = false
+    @Published var isFinished = false
 
     let id = UUID()
 
     init(players: [MixGamePlayer]) {
         self.players = players
+    }
+
+    func replacePlayer(from: MixGamePlayer, to: MixGamePlayer) {
+        from.resetGame()
+        to.startGame()
+        guard let fromIndex = players.firstIndex(where: { $0.id == from.id }) else { return }
+        var newPlayers = players
+        newPlayers[fromIndex] = to
+        players = newPlayers // 配列全体を更新
     }
 
     func finishGame(totalPlayers: [Int]) {

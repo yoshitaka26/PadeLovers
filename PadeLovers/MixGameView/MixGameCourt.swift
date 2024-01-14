@@ -9,9 +9,10 @@
 import Combine
 import Foundation
 
+@MainActor
 class MixGameCourt: ObservableObject {
     @Published var game: MixGameMatchGame?
-    @Published var isOn: Bool = true
+    @Published var isOn = true
 
     let name: String
     let id = UUID()
@@ -39,6 +40,10 @@ class MixGameCourt: ObservableObject {
 
     var switchDisabled: Bool {
         isOn && isSet
+    }
+
+    func replacePlayer(from: MixGamePlayer, to: MixGamePlayer) {
+        game?.replacePlayer(from: from, to: to)
     }
 
     func setGame(players: [MixGamePlayer]) -> MixGameMatchGame {
