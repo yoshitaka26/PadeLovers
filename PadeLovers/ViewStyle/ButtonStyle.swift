@@ -1,5 +1,5 @@
 //
-//  SelectButtonStyle.swift
+//  ButtonStyle.swift
 //  PadeLovers
 //
 //  Created by Yoshitaka Tanaka on 2024/01/12.
@@ -78,5 +78,26 @@ struct ButtonTertiaryStyle: ButtonStyle {
             .scaleEffect(configuration.isPressed ? 0.95 : 1.0)
             .disabled(disabled)
             .opacity(disabled ? 0.7 : 1.0)
+    }
+}
+
+extension View {
+    func addPrimaryButtonStyle() -> some View {
+        modifier(PrimaryButtonStyle())
+    }
+}
+
+struct PrimaryButtonStyle: ViewModifier {
+
+    func body(content: Content) -> some View {
+        content
+            .foregroundColor(.white)
+            .padding()
+            .background(Color.appSpecialRed)
+            .cornerRadius(10)
+            .overlay(
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(Color.appSpecialRed, lineWidth: 1)
+            )
     }
 }

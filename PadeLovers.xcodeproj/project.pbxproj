@@ -20,7 +20,7 @@
 		E41363952B4BD6F200B1CB5E /* ColorExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41363942B4BD6F200B1CB5E /* ColorExtention.swift */; };
 		E41363972B4BDAC900B1CB5E /* HowToUseViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41363962B4BDAC900B1CB5E /* HowToUseViewRepresentable.swift */; };
 		E41363992B4C1ED300B1CB5E /* MainSettingViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41363982B4C1ED300B1CB5E /* MainSettingViewRepresentable.swift */; };
-		E413639C2B51713F00B1CB5E /* SelectButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E413639B2B51713F00B1CB5E /* SelectButtonStyle.swift */; };
+		E413639C2B51713F00B1CB5E /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E413639B2B51713F00B1CB5E /* ButtonStyle.swift */; };
 		E426C91729FB9AF700F7A52D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E426C91629FB9AF700F7A52D /* GoogleService-Info.plist */; };
 		E42C89332672022200961EB1 /* GameDataTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42C89322672022200961EB1 /* GameDataTableViewModel.swift */; };
 		E42C8937267205D700961EB1 /* GameOrganizeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42C8936267205D700961EB1 /* GameOrganizeManager.swift */; };
@@ -149,6 +149,7 @@
 		E4BCC9A82B52CC1E005F65F0 /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BCC9A72B52CC1E005F65F0 /* CustomAlertView.swift */; };
 		E4BCC9AA2B52CC49005F65F0 /* CustomToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BCC9A92B52CC49005F65F0 /* CustomToastView.swift */; };
 		E4BCC9AD2B52CCF3005F65F0 /* PopupView in Frameworks */ = {isa = PBXBuildFile; productRef = E4BCC9AC2B52CCF3005F65F0 /* PopupView */; };
+		E4BCC9C92B538EE3005F65F0 /* DeviceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BCC9C82B538EE3005F65F0 /* DeviceType.swift */; };
 		E4C434172680EE85006652A7 /* CommonData.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4C434162680EE85006652A7 /* CommonData.storyboard */; };
 		E4C4341A2680EEB5006652A7 /* CommonDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C434192680EEB5006652A7 /* CommonDataViewController.swift */; };
 		E4C4341D2680EEC5006652A7 /* CommonDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C4341C2680EEC5006652A7 /* CommonDataViewModel.swift */; };
@@ -202,7 +203,7 @@
 		E41363942B4BD6F200B1CB5E /* ColorExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtention.swift; sourceTree = "<group>"; };
 		E41363962B4BDAC900B1CB5E /* HowToUseViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToUseViewRepresentable.swift; sourceTree = "<group>"; };
 		E41363982B4C1ED300B1CB5E /* MainSettingViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSettingViewRepresentable.swift; sourceTree = "<group>"; };
-		E413639B2B51713F00B1CB5E /* SelectButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectButtonStyle.swift; sourceTree = "<group>"; };
+		E413639B2B51713F00B1CB5E /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
 		E426C91629FB9AF700F7A52D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E42C89322672022200961EB1 /* GameDataTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDataTableViewModel.swift; sourceTree = "<group>"; };
 		E42C8936267205D700961EB1 /* GameOrganizeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOrganizeManager.swift; sourceTree = "<group>"; };
@@ -331,6 +332,7 @@
 		E4BCC9A52B52CB4D005F65F0 /* AlertObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertObject.swift; sourceTree = "<group>"; };
 		E4BCC9A72B52CC1E005F65F0 /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
 		E4BCC9A92B52CC49005F65F0 /* CustomToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomToastView.swift; sourceTree = "<group>"; };
+		E4BCC9C82B538EE3005F65F0 /* DeviceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceType.swift; sourceTree = "<group>"; };
 		E4C434162680EE85006652A7 /* CommonData.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CommonData.storyboard; sourceTree = "<group>"; };
 		E4C434192680EEB5006652A7 /* CommonDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonDataViewController.swift; sourceTree = "<group>"; };
 		E4C4341C2680EEC5006652A7 /* CommonDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonDataViewModel.swift; sourceTree = "<group>"; };
@@ -456,7 +458,7 @@
 		E413639A2B51712100B1CB5E /* ViewStyle */ = {
 			isa = PBXGroup;
 			children = (
-				E413639B2B51713F00B1CB5E /* SelectButtonStyle.swift */,
+				E413639B2B51713F00B1CB5E /* ButtonStyle.swift */,
 			);
 			path = ViewStyle;
 			sourceTree = "<group>";
@@ -484,6 +486,7 @@
 		E42F21792852FAF10029970D /* Enum */ = {
 			isa = PBXGroup;
 			children = (
+				E4BCC9C82B538EE3005F65F0 /* DeviceType.swift */,
 				E42F217A2852FB330029970D /* GameModeType.swift */,
 				E42F218E28542C770029970D /* Screen.swift */,
 				E45BB7CA286B465A00E722D6 /* GameViewSettingSection.swift */,
@@ -1247,7 +1250,7 @@
 				E48EE3CD267753E40001E54D /* GameResultViewModel.swift in Sources */,
 				E42F21632852C2730029970D /* GameViewPairingTableViewCell.swift in Sources */,
 				E41363972B4BDAC900B1CB5E /* HowToUseViewRepresentable.swift in Sources */,
-				E413639C2B51713F00B1CB5E /* SelectButtonStyle.swift in Sources */,
+				E413639C2B51713F00B1CB5E /* ButtonStyle.swift in Sources */,
 				E446733226492AC40092DEFE /* InfoAlertView.swift in Sources */,
 				E46739A92686908200C7F745 /* RandomNumberTableManager.swift in Sources */,
 				E42F217B2852FB330029970D /* GameModeType.swift in Sources */,
@@ -1320,6 +1323,7 @@
 				E4575099265698C50036194F /* CoreDataManager.swift in Sources */,
 				E433EA4F2684BA0D00EFC20B /* Player+CoreDataProperties.swift in Sources */,
 				E433EA522684BA0D00EFC20B /* PairingA+CoreDataClass.swift in Sources */,
+				E4BCC9C92B538EE3005F65F0 /* DeviceType.swift in Sources */,
 				E47F202F2547D56B00996B19 /* SceneDelegate.swift in Sources */,
 				E433EA5B2684BA0D00EFC20B /* Game+CoreDataProperties.swift in Sources */,
 				E4529E232682E93E003DEC63 /* ValidationManager.swift in Sources */,
@@ -1510,7 +1514,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 23;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = VKV3Y2GW5Q;
 				INFOPLIST_FILE = PadeLovers/Info.plist;
@@ -1539,7 +1543,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 23;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = VKV3Y2GW5Q;
 				INFOPLIST_FILE = PadeLovers/Info.plist;

@@ -8,31 +8,66 @@
 
 import SwiftUI
 import Combine
+import PopupView
 
 struct StartGameView: View {
     @Binding var path: [HomeView.Screen]
     @ObservedObject var viewModel = StartGameViewModel()
 
     var body: some View {
-        VStack {
-            StartGameViewRepresentable(groupID: $viewModel.groupID, padelID: $viewModel.padelID)
+        ZStack {
+            if currentDeviceType() == .iPad {
+                StartGameViewRepresentable(groupID: $viewModel.groupID, padelID: $viewModel.padelID)
+                    .popup(isPresented: $viewModel.showOption) {
+                        VStack(spacing: 20) {
+                            if let groupID = viewModel.groupID {
+                                Text("モードを選択してください☝️\n標準モード:試合をする2対2のペアを選びます\n簡易モード:試合をする4プレイヤーを選びます")
+                                    .font(.title)
+                                    .foregroundStyle(.white)
+                                NavigationLink(value: HomeView.Screen.gameStartDefault(groupID: groupID)) {
+                                    Text("標準モード")
+                                        .font(.title)
+                                        .addPrimaryButtonStyle()
+                                        .padding(.horizontal, 40)
+                                        .padding(.vertical, 10)
+                                }
+                                NavigationLink(value: HomeView.Screen.gameStartMix(groupID: groupID)) {
+                                    Text("簡易モード")
+                                        .font(.title)
+                                        .addPrimaryButtonStyle()
+                                        .padding(.horizontal, 40)
+                                        .padding(.vertical, 10)
+                                }
+                            }
+                        }
+                    } customize: {
+                        $0
+                            .type(.floater())
+                            .position(.center)
+                            .animation(.default)
+                            .closeOnTapOutside(true)
+                            .backgroundColor(.black.opacity(0.8))
+                    }
+            } else {
+                StartGameViewRepresentable(groupID: $viewModel.groupID, padelID: $viewModel.padelID)
+                    .confirmationDialog("", isPresented: $viewModel.showOption) {
+                        if let groupID = viewModel.groupID {
+                            NavigationLink(value: HomeView.Screen.gameStartDefault(groupID: groupID)) {
+                                Text("標準モード")
+                            }
+                            NavigationLink(value: HomeView.Screen.gameStartMix(groupID: groupID)) {
+                                Text("簡易モード")
+                            }
+                        }
+                    } message: {
+                        Text("モードを選択してください☝️\n標準モード:試合をする2対2のペアを選びます\n簡易モード:試合をする4プレイヤーを選びます")
+                            .font(.title)
+                    }
+            }
         }
         .onReceive(Just(viewModel.padelID)) { padelID in
             guard let padelID else { return }
             path.append(.gameStartDefault(groupID: nil, padelID: padelID))
-        }
-        .confirmationDialog("", isPresented: $viewModel.showOption) {
-            if let groupID = viewModel.groupID {
-                NavigationLink(value: HomeView.Screen.gameStartDefault(groupID: groupID)) {
-                    Text("標準モード")
-                }
-                NavigationLink(value: HomeView.Screen.gameStartMix(groupID: groupID)) {
-                    Text("簡易モード")
-                }
-            }
-        } message: {
-            Text("モードを選択してください☝️\n標準モード:試合をする2対2のペアを選びます\n簡易モード:試合をする4プレイヤーを選びます")
-                .font(.title)
         }
     }
 }
