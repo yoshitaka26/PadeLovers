@@ -34,14 +34,14 @@ struct DefaultGameTabView: View {
         TabView(selection: $selection) {
             GameViewSettingRepresentable(groupID: groupID, padelID: padelID)
                 .tabItem {
-                    Image(systemName: "person.3")
-                    Text("試合組合せ")
+                    Image(systemName: "person.crop.rectangle.stack")
+                    Text("試合設定")
                 }
                 .tag(Screen.gameSetting)
             GameDataRepresentable()
                 .tabItem {
-                    Image(systemName: "person.crop.rectangle.stack")
-                    Text("試合設定")
+                    Image(systemName: "person.3")
+                    Text("試合組合せ")
                 }
                 .tag(Screen.gameData)
             GameResultRepresentable()
