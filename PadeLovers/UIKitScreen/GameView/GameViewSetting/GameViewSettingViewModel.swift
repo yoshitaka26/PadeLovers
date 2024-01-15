@@ -14,15 +14,11 @@ final class GameViewSettingViewModel {
     private(set) var viewWillAppear = PublishRelay<Void>()
     private(set) var viewWillDisappear = PublishRelay<Void>()
 
-    private(set) var padelPlayMode = BehaviorRelay<Bool>(value: false)
-    private(set) var autoPlayMode = BehaviorRelay<Bool>(value: false)
     private(set) var gameResult = BehaviorRelay<Bool>(value: false)
     private(set) var courtList = BehaviorRelay<[Court]>(value: [])
     private(set) var pairingList = BehaviorRelay<[Pairing]>(value: [])
     private(set) var playingPlayerCounts = BehaviorRelay<Int>(value: 0)
     private(set) var playerList = BehaviorRelay<[Player]>(value: [])
-
-    private var autoPlayModeTimer: Disposable?
 
     private(set) var reloadTableSubject = PublishSubject<Void>()
     var reloadTable: Driver<Void> {
@@ -43,8 +39,6 @@ final class GameViewSettingViewModel {
     private let coreDataManager: CoreDataManagerable
     private let userDefaultsManager = UserDefaultsUtil.shared
     private var padelID: String
-    // テストの為privateにはしない
-    let minuteSeconds = 60
 
     init(padelId: String?, groupID: String?, coreDataManager: CoreDataManagerable) {
         self.padelID = padelId ?? UUID().uuidString
@@ -65,17 +59,6 @@ final class GameViewSettingViewModel {
             .subscribe(onNext: { [unowned self] _ in
                 self.loadPadelData()
                 UIApplication.shared.isIdleTimerDisabled = false
-            })
-            .disposed(by: disposeBag)
-
-        padelPlayMode
-            .subscribe(onNext: { [unowned self] _ in
-                self.reloadTableSubject.onNext(())
-            })
-            .disposed(by: disposeBag)
-        autoPlayMode
-            .subscribe(onNext: { [unowned self] _ in
-                self.reloadTableSubject.onNext(())
             })
             .disposed(by: disposeBag)
         courtList
@@ -121,7 +104,6 @@ final class GameViewSettingViewModel {
 
     private func loadPadelData() {
         if let padel = coreDataManager.loadPadel(uuidString: padelID) {
-            padelPlayMode.accept(padel.playMode)
             gameResult.accept(padel.showResult)
             courtList.accept(coreDataManager.loadCourts(uuidString: padelID))
             pairingList.accept(coreDataManager.loadPairing(uuidString: padelID))
@@ -145,25 +127,6 @@ final class GameViewSettingViewModel {
 }
 
 extension GameViewSettingViewModel {
-    func handleGameModeSwitchChanged(gameMode: GameModeType, isOn: Bool) {
-        switch gameMode {
-        case .combination:
-            coreDataManager.updateGameMode(uuidString: padelID, isOn: isOn)
-            padelPlayMode.accept(isOn)
-        case .matchCount:
-            coreDataManager.updateGameMode(uuidString: padelID, isOn: !isOn)
-            padelPlayMode.accept(!isOn)
-        case .auto:
-            if isOn {
-                presentScreenSubject.accept(.autoPlayMode)
-            } else {
-                resetAutoModeTimer()
-                autoPlayMode.accept(false)
-                presentScreenSubject.accept(.infoAlert(message: String(localized: "Auto play mode reset")))
-            }
-        }
-    }
-
     func handleGameResultSwitchChanged(isOn: Bool) {
         coreDataManager.updateShowResult(uuidString: padelID, isOn: isOn)
         gameResult.accept(isOn)
@@ -224,30 +187,5 @@ extension GameViewSettingViewModel {
     func handlePlayerDataEditNotification() {
         pairingList.accept(coreDataManager.loadPairing(uuidString: padelID))
         playerList.accept(coreDataManager.loadAllPlayers(uuidString: padelID))
-    }
-    func handleAutoPlayModeDelegate(setTime: Int) {
-        resetAutoModeTimer()
-        if setTime != 0 {
-            autoPlayMode.accept(true)
-            handleGameModeSwitchChanged(gameMode: .combination, isOn: true)
-            presentScreenSubject.accept(.infoAlert(message: "\(setTime)" + String(localized: "Auto play mode set")))
-            autoPlayModeTimer = Observable<Int>
-                .interval(DispatchTimeInterval.seconds(setTime * minuteSeconds), scheduler: MainScheduler.instance)
-                .subscribe { [weak self] _ in
-                    guard let self = self else { return }
-                    if self.padelPlayMode.value {
-                        self.presentScreenSubject.accept(.infoAlert(message: String(localized: "Auto play mode fired")))
-                    }
-                    self.autoPlayMode.accept(false)
-                    self.handleGameModeSwitchChanged(gameMode: .matchCount, isOn: true)
-                    self.resetAutoModeTimer()
-                }
-        } else {
-            autoPlayMode.accept(false)
-        }
-    }
-
-    private func resetAutoModeTimer() {
-        autoPlayModeTimer?.dispose()
     }
 }

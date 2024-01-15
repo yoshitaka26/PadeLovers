@@ -136,10 +136,8 @@ final class GameOrganizeManager {
         }
         
         if !gamePlayers.keys.contains(.backA) {
-            if padel.playMode {
-                if !driveA.pair1.isEmpty {
-                    temp3 = temp3.filter { !driveA.pair1.contains($0.playerID) }
-                }
+            if !driveA.pair1.isEmpty {
+                temp3 = temp3.filter { !driveA.pair1.contains($0.playerID) }
             }
             if temp3.isEmpty {
                 temp3 = players

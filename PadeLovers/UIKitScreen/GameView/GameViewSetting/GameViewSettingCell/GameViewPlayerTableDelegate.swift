@@ -9,7 +9,6 @@
 import Foundation
 
 protocol GameViewPlayerTableDelegate: AnyObject {
-    func gameModeSwitchChanged(gameMode: GameModeType, isOn: Bool)
     func gameResultSwitchChanged(isOn: Bool)
     func pairingSwitchChanged(pairing: Pairing, isOn: Bool)
     func courtSwitchChanged(courtId: Int16, isOn: Bool)

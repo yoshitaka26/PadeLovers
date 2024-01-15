@@ -14,7 +14,6 @@ final class GameViewSettingViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView! {
         didSet {
-            tableView.register(GameViewGameModeTableViewCell.nib(), forCellReuseIdentifier: GameViewGameModeTableViewCell.identifier)
             tableView.register(GameViewCourtTableViewCell.nib(), forCellReuseIdentifier: GameViewCourtTableViewCell.identifier)
             tableView.register(GameViewGameResultTableViewCell.nib(), forCellReuseIdentifier: GameViewGameResultTableViewCell.identifier)
             tableView.register(GameViewPairingTableViewCell.nib(), forCellReuseIdentifier: GameViewPairingTableViewCell.identifier)
@@ -77,26 +76,6 @@ final class GameViewSettingViewController: UIViewController {
         viewModel.presentScreen
             .drive(onNext: { [unowned self] screen in
                 switch screen {
-                case .autoPlayMode:
-                    let modalVC = UIStoryboard(name: "AutoPlayMode", bundle: nil).instantiateInitialViewController() as! AutoPlayModeViewController
-                    modalVC.delegate = self
-                    modalVC.modalPresentationStyle = .popover
-                    if let popover = modalVC.popoverPresentationController {
-                        if #available(iOS 15.0, *) {
-                            let sheet = popover.adaptiveSheetPresentationController
-                            sheet.detents = [.medium()]
-                            sheet.prefersScrollingExpandsWhenScrolledToEdge = false
-                            sheet.largestUndimmedDetentIdentifier = nil
-                            sheet.prefersEdgeAttachedInCompactHeight = true
-                            sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true
-                        }
-                        if UIDevice.current.userInterfaceIdiom == .pad {
-                            popover.sourceView = self.view
-                            popover.permittedArrowDirections = []
-                            popover.sourceRect = CGRect(x: self.view.center.x, y: self.view.center.y / 2, width: 0, height: 0)
-                        }
-                    }
-                    self.present(modalVC, animated: true)
                 case .playerDataEdit(let playerId):
                     let modalVC = UIStoryboard(name: "EditData", bundle: nil).instantiateInitialViewController() as! EditDataViewController
                     modalVC.playerID = playerId
@@ -154,8 +133,6 @@ extension GameViewSettingViewController: UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch GameViewSettingSection(rawValue: section) {
-        case .gameModeSection:
-            return 3
         case .gameResultSection:
             return 1
         case .courtSection:
@@ -171,10 +148,6 @@ extension GameViewSettingViewController: UITableViewDataSource {
     // swiftlint:disable force_unwrapping
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch GameViewSettingSection(rawValue: indexPath.section) {
-        case .gameModeSection:
-            let cell = tableView.dequeueReusableCell(withIdentifier: GameViewGameModeTableViewCell.identifier, for: indexPath) as! GameViewGameModeTableViewCell
-            cell.render(delegate: self, modeType: GameModeType(rawValue: indexPath.row) ?? .combination, playMode: viewModel.padelPlayMode.value, isAuto: viewModel.autoPlayMode.value)
-            return cell
         case .gameResultSection:
             let cell = tableView.dequeueReusableCell(withIdentifier: GameViewGameResultTableViewCell.identifier, for: indexPath) as! GameViewGameResultTableViewCell
             cell.render(delegate: self, gameResult: viewModel.gameResult.value)
@@ -207,10 +180,6 @@ extension GameViewSettingViewController: UITableViewDataSource {
 }
 
 extension GameViewSettingViewController: GameViewPlayerTableDelegate {
-    func gameModeSwitchChanged(gameMode: GameModeType, isOn: Bool) {
-        viewModel.handleGameModeSwitchChanged(gameMode: gameMode, isOn: isOn)
-    }
-
     func gameResultSwitchChanged(isOn: Bool) {
         viewModel.handleGameResultSwitchChanged(isOn: isOn)
     }
@@ -225,12 +194,6 @@ extension GameViewSettingViewController: GameViewPlayerTableDelegate {
 
     func playerSwitchChanged(playerId: Int16, isPlaying: Bool) {
         viewModel.handlePlayerSwitchChanged(playerId: playerId, isPlaying: isPlaying)
-    }
-}
-
-extension GameViewSettingViewController: AutoPlayModeViewDelegate {
-    func autoPlayModeSelected(setTime: Int) {
-        viewModel.handleAutoPlayModeDelegate(setTime: setTime)
     }
 }
 
