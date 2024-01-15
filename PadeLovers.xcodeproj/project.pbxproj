@@ -85,7 +85,6 @@
 		E43DCAF52686FF980078C4AF /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43DCAF42686FF980078C4AF /* SettingViewController.swift */; };
 		E44672AE26455D930092DEFE /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44672AD26455D930092DEFE /* BaseViewController.swift */; };
 		E44672B4264560000092DEFE /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44672B3264560000092DEFE /* BaseViewModel.swift */; };
-		E44672E3264563D30092DEFE /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44672E2264563D30092DEFE /* Const.swift */; };
 		E44672E72645641E0092DEFE /* UIViewController+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44672E62645641E0092DEFE /* UIViewController+Common.swift */; };
 		E44672FE2645672B0092DEFE /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44672FD2645672B0092DEFE /* BaseTableViewController.swift */; };
 		E446731F264828D40092DEFE /* FixedPairViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E446731E264828D40092DEFE /* FixedPairViewModel.swift */; };
@@ -93,8 +92,6 @@
 		E446733226492AC40092DEFE /* InfoAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E446733126492AC40092DEFE /* InfoAlertView.swift */; };
 		E44673662655229F0092DEFE /* GameResult.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E44673652655229F0092DEFE /* GameResult.storyboard */; };
 		E446737F26554FB20092DEFE /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E446737E26554FB20092DEFE /* UIColorExtension.swift */; };
-		E44783D4275799FB001E1065 /* HowToUseDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E44783D3275799FB001E1065 /* HowToUseDetail.storyboard */; };
-		E44783D627579A2D001E1065 /* HowToUseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44783D527579A2D001E1065 /* HowToUseDetailViewController.swift */; };
 		E451432F266EE5EF00BE6329 /* NSManagedObject+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E451432E266EE5EF00BE6329 /* NSManagedObject+Extensions.swift */; };
 		E4514333266F247300BE6329 /* Player+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4514332266F247300BE6329 /* Player+Additional.swift */; };
 		E4529E232682E93E003DEC63 /* ValidationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4529E222682E93E003DEC63 /* ValidationManager.swift */; };
@@ -261,7 +258,6 @@
 		E43DCAF42686FF980078C4AF /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		E44672AD26455D930092DEFE /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		E44672B3264560000092DEFE /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
-		E44672E2264563D30092DEFE /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		E44672E62645641E0092DEFE /* UIViewController+Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Common.swift"; sourceTree = "<group>"; };
 		E44672FD2645672B0092DEFE /* BaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
 		E446731E264828D40092DEFE /* FixedPairViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixedPairViewModel.swift; sourceTree = "<group>"; };
@@ -269,8 +265,6 @@
 		E446733126492AC40092DEFE /* InfoAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoAlertView.swift; sourceTree = "<group>"; };
 		E44673652655229F0092DEFE /* GameResult.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GameResult.storyboard; sourceTree = "<group>"; };
 		E446737E26554FB20092DEFE /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
-		E44783D3275799FB001E1065 /* HowToUseDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HowToUseDetail.storyboard; sourceTree = "<group>"; };
-		E44783D527579A2D001E1065 /* HowToUseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToUseDetailViewController.swift; sourceTree = "<group>"; };
 		E451432E266EE5EF00BE6329 /* NSManagedObject+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Extensions.swift"; sourceTree = "<group>"; };
 		E4514332266F247300BE6329 /* Player+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Player+Additional.swift"; sourceTree = "<group>"; };
 		E4529E222682E93E003DEC63 /* ValidationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationManager.swift; sourceTree = "<group>"; };
@@ -532,7 +526,7 @@
 			path = RxBase;
 			sourceTree = "<group>";
 		};
-		E44672DE264562770092DEFE /* Screen */ = {
+		E44672DE264562770092DEFE /* UIKitScreen */ = {
 			isa = PBXGroup;
 			children = (
 				E48627D82683866800453425 /* StartGame */,
@@ -540,8 +534,9 @@
 				E44673022645686B0092DEFE /* GameView */,
 				E406DEAB2690090E00DF22F8 /* PadelData */,
 				E433EA5E2686228900EFC20B /* RandomNumberTable */,
+				E446733026492A9F0092DEFE /* ViewParts */,
 			);
-			path = Screen;
+			path = UIKitScreen;
 			sourceTree = "<group>";
 		};
 		E44672DF264562810092DEFE /* Entity */ = {
@@ -552,14 +547,6 @@
 				E4575094265695590036194F /* PadeLovers.xcdatamodeld */,
 			);
 			path = Entity;
-			sourceTree = "<group>";
-		};
-		E44672E0264562970092DEFE /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				E44672E2264563D30092DEFE /* Const.swift */,
-			);
-			path = Common;
 			sourceTree = "<group>";
 		};
 		E44672E12645629D0092DEFE /* Extensions */ = {
@@ -641,7 +628,6 @@
 				E4D131D827AA38250034B2D0 /* AutoPlayMode */,
 				E40F93F526718DB600231511 /* EditData */,
 				E4467316264825BF0092DEFE /* FixedPair */,
-				E44783D2275799A4001E1065 /* HowToUseDetail */,
 			);
 			path = GameViewSetting;
 			sourceTree = "<group>";
@@ -668,15 +654,6 @@
 				E42FAD222678AD4900F9B7DD /* ResultCells */,
 			);
 			path = GameResult;
-			sourceTree = "<group>";
-		};
-		E44783D2275799A4001E1065 /* HowToUseDetail */ = {
-			isa = PBXGroup;
-			children = (
-				E44783D3275799FB001E1065 /* HowToUseDetail.storyboard */,
-				E44783D527579A2D001E1065 /* HowToUseDetailViewController.swift */,
-			);
-			path = HowToUseDetail;
 			sourceTree = "<group>";
 		};
 		E4514331266F244900BE6329 /* Additions */ = {
@@ -737,22 +714,20 @@
 		E47F202B2547D56B00996B19 /* PadeLovers */ = {
 			isa = PBXGroup;
 			children = (
-				E4BCC9A22B52CB2C005F65F0 /* Object */,
-				E4BCC99F2B52BA8B005F65F0 /* CommonView */,
 				E426C91629FB9AF700F7A52D /* GoogleService-Info.plist */,
 				E4F9D37E283735AA00759465 /* PadeLovers.entitlements */,
-				E413639A2B51712100B1CB5E /* ViewStyle */,
-				E48D89342B459A67000A8883 /* Features */,
 				E47F202C2547D56B00996B19 /* AppDelegate.swift */,
 				E47F202E2547D56B00996B19 /* SceneDelegate.swift */,
+				E4BCC9A22B52CB2C005F65F0 /* Object */,
+				E4BCC99F2B52BA8B005F65F0 /* CommonView */,
+				E413639A2B51712100B1CB5E /* ViewStyle */,
+				E48D89342B459A67000A8883 /* Features */,
 				E44672B026455D9C0092DEFE /* RxBase */,
 				E42F21792852FAF10029970D /* Enum */,
-				E44672DE264562770092DEFE /* Screen */,
-				E446733026492A9F0092DEFE /* ViewParts */,
+				E44672DE264562770092DEFE /* UIKitScreen */,
 				E44672DF264562810092DEFE /* Entity */,
 				E483164027ED53C10091B0DF /* API */,
 				E457509B26569A8B0036194F /* Service */,
-				E44672E0264562970092DEFE /* Common */,
 				E44672E12645629D0092DEFE /* Extensions */,
 				E4D131EB27B8C8CE0034B2D0 /* Resources */,
 				E47F203A2547D56D00996B19 /* Info.plist */,
@@ -1030,7 +1005,6 @@
 				E433EA672686231D00EFC20B /* RandomNumberTable.storyboard in Resources */,
 				E40F940226718FDB00231511 /* EditData.storyboard in Resources */,
 				E42F21602852C24B0029970D /* GameViewCourtTableViewCell.xib in Resources */,
-				E44783D4275799FB001E1065 /* HowToUseDetail.storyboard in Resources */,
 				E431C4112AB83AC500734523 /* LaunchScreen.storyboard in Resources */,
 				E44673662655229F0092DEFE /* GameResult.storyboard in Resources */,
 				E42F21702852C2D90029970D /* GameViewGameModeTableViewCell.xib in Resources */,
@@ -1167,7 +1141,6 @@
 				E4C4343126815979006652A7 /* CourtTableViewCell.swift in Sources */,
 				E483165827EEEE1E0091B0DF /* WetherRequest.swift in Sources */,
 				E433EA60268622DF00EFC20B /* RandomNumberTableViewController.swift in Sources */,
-				E44672E3264563D30092DEFE /* Const.swift in Sources */,
 				E433EA542684BA0D00EFC20B /* Score+CoreDataClass.swift in Sources */,
 				E4C4343B26822672006652A7 /* CommonDataBrain.swift in Sources */,
 				E436135B254B7BAB00A2DB3E /* ReplacePlayerViewController.swift in Sources */,
@@ -1232,7 +1205,6 @@
 				E4E0A6C92ABECBDC00666523 /* MixGameTabView.swift in Sources */,
 				E47F202D2547D56B00996B19 /* AppDelegate.swift in Sources */,
 				E452C6F0266A4B68009A6EC3 /* PlayersDefine.swift in Sources */,
-				E44783D627579A2D001E1065 /* HowToUseDetailViewController.swift in Sources */,
 				E43C7074267A18D800E28E8A /* GameResultCollectionViewCell.swift in Sources */,
 				E44672E72645641E0092DEFE /* UIViewController+Common.swift in Sources */,
 				E4BCC9A62B52CB4D005F65F0 /* AlertObject.swift in Sources */,

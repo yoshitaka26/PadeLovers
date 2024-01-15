@@ -64,20 +64,20 @@ final class FixedPairViewController: BaseViewController {
             switch type {
             case .setPairing:
                 NotificationCenter.default.post(name: .updateDataNotificationByEditPair, object: nil)
-                self.warningAlertView(withTitle: TITLE_FIXED_PAIR_COLLECTLY, action: {
+                self.warningAlertView(withTitle: "ペアを固定しました", action: {
                     self.dismiss(animated: true, completion: nil)
                 })
             case .samePlayerSelected:
-                self.infoAlertViewWithTitle(title: ALERT_MESSAGE_SELECTED_SAME_PLAYER)
+                self.infoAlertViewWithTitle(title: "同じプレイヤーを\n選択しています")
             case .resetPairing:
                 NotificationCenter.default.post(name: .updateDataNotificationByEditPair, object: nil)
                 switch self.pairing {
                 case .pairingA:
-                    self.warningAlertView(withTitle: TITLE_FIXED_PAIR_1_RESET, action: {
+                    self.warningAlertView(withTitle: " 固定ペア１をリセット", action: {
                         self.dismiss(animated: true, completion: nil)
                     })
                 case .pairingB:
-                    self.warningAlertView(withTitle: TITLE_FIXED_PAIR_2_RESET, action: {
+                    self.warningAlertView(withTitle: " 固定ペア２をリセット", action: {
                         self.dismiss(animated: true, completion: nil)
                     })
                 case .none:

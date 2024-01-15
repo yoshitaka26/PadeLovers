@@ -12,7 +12,7 @@ final class InfoAlertView: UIAlertController {
     var afterDismiss: (() -> Void)?
     
     func timerStart() {
-        Timer.scheduledTimer(timeInterval: TimeInterval(integerLiteral: infoDialogTime), target: self, selector: #selector(performDismiss), userInfo: nil, repeats: false)
+        Timer.scheduledTimer(timeInterval: TimeInterval(integerLiteral: 1.0), target: self, selector: #selector(performDismiss), userInfo: nil, repeats: false)
     }
     
     @objc

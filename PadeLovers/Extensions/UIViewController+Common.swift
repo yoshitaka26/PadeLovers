@@ -87,7 +87,7 @@ extension UIViewController: UIPopoverPresentationControllerDelegate {
     
     func warningAlertView(withTitle: String?, message: String? = nil, action: (() -> Void)? = nil) {
         UIAlertController(title: withTitle, message: message, preferredStyle: .alert)
-            .addCancelAction(title: DIALOG_OK, handler: action)
+            .addCancelAction(title: "OK", handler: action)
             .show(in: self)
     }
     // 表示とともにタイマーをセットする
