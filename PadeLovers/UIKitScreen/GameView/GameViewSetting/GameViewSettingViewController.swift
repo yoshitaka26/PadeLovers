@@ -202,7 +202,7 @@ extension GameViewSettingViewController: UIGestureRecognizerDelegate {
     func cellLongPressed(recognizer: UILongPressGestureRecognizer) {
         let point = recognizer.location(in: tableView)
         let indexPath = tableView.indexPathForRow(at: point)
-        guard let index = indexPath, index.section == 4, index.row != 0 else { return }
+        guard let index = indexPath, index.section == 3, index.row != 0 else { return }
         viewModel.handleLongPressedPlayerCell(index: index.row)
     }
 }
