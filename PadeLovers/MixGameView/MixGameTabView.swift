@@ -54,7 +54,7 @@ struct MixGameTabView: View {
                         dismissAlert = true
                     } label: {
                         Image(systemName: "house")
-                            .foregroundStyle(Color(UIColor.appNavBarButtonColor))
+                            .foregroundStyle(Color(UIColor.appGray))
                     }
                 default:
                     Spacer()

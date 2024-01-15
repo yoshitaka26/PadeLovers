@@ -16,7 +16,7 @@ extension UIViewController: UIPopoverPresentationControllerDelegate {
     func createBarButtonItem(image: UIImage, select: Selector) -> UIBarButtonItem {
         let button = UIButton(type: .custom)
         button.setImage(image, for: .normal)
-        button.tintColor = .appNavBarButtonColor
+        button.tintColor = .appGray
         button.addTarget(self, action: select, for: .touchUpInside)
         let barButtonItem = UIBarButtonItem(customView: button)
         return barButtonItem
