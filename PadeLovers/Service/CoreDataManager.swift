@@ -419,21 +419,6 @@ extension CoreDataManager: CoreDataManagerable {
             fatalError("countPlayers error")
         }
     }
-    // MARK: GameMode
-    func updateGameMode(uuidString: String, isOn: Bool) {
-        let fetchRequest = createRequest(objectType: .padel)
-        let uuid = NSUUID(uuidString: uuidString)
-        let predicate = NSPredicate(format: "%K == %@", "padelID", uuid!)
-        fetchRequest.predicate = predicate
-        do {
-            let padels = try managerObjectContext.fetch(fetchRequest) as! [Padel]
-            guard let padel = padels.first else { return }
-            padel.playMode = isOn
-            saveContext()
-        } catch {
-            fatalError("loadData error")
-        }
-    }
     // MARK: GameResult
     func updateShowResult(uuidString: String, isOn: Bool) {
         let fetchRequest = createRequest(objectType: .padel)

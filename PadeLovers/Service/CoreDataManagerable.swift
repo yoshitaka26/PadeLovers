@@ -11,8 +11,6 @@ import Foundation
 protocol CoreDataManagerable {
     // MARK: Padel
     func loadPadel(uuidString: String) -> Padel?
-    // MARK: GameMode
-    func updateGameMode(uuidString: String, isOn: Bool)
     // MARK: GameResult
     func updateShowResult(uuidString: String, isOn: Bool)
     // MARK: Court

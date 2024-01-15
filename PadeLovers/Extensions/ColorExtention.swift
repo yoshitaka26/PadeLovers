@@ -13,5 +13,5 @@ extension Color {
     static let appSpecialYellow = Color(UIColor.appSpecialYellow)
     static let appSpecialGreen = Color(UIColor.appSpecialGreen)
     static let appSpecialBlue = Color(UIColor.appSpecialBlue)
-    static let appNavBarButtonColor = Color(UIColor.appNavBarButtonColor)
+    static let appNavBarButtonColor = Color(UIColor.appGray)
 }

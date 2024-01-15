@@ -31,6 +31,12 @@ struct MixGameTabView: View {
                 .tint(nil)
                 .tag(MixGameViewModel.MixGameTab.game)
         }
+        .onAppear(perform: {
+            UIApplication.shared.isIdleTimerDisabled = true
+        })
+        .onDisappear(perform: {
+            UIApplication.shared.isIdleTimerDisabled = false
+        })
         .tint(.appSpecialRed)
         .navigationBarBackButtonHidden(true)
         .navigationTitle(viewModel.tab.title)
@@ -49,12 +55,12 @@ struct MixGameTabView: View {
             }
             ToolbarItem(placement: .topBarTrailing) {
                 switch viewModel.tab {
-                case .game:
+                case .setting:
                     Button {
                         dismissAlert = true
                     } label: {
                         Image(systemName: "house")
-                            .foregroundStyle(Color(UIColor.appNavBarButtonColor))
+                            .foregroundStyle(Color(UIColor.appGray))
                     }
                 default:
                     Spacer()

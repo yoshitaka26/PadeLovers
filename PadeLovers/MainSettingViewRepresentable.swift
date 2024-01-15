@@ -90,13 +90,3 @@ struct SettingView: View {
 #Preview {
     MainSettingView()
 }
-
-struct MainSettingViewRepresentable: UIViewControllerRepresentable {
-    func makeUIViewController(context: Context) -> UIViewController {
-        let storyboard = UIStoryboard(name: "MainSetting", bundle: nil)
-        let viewController = storyboard.instantiateViewController(identifier: "MainSetting") as! MainSettingTableViewController
-        return viewController
-    }
-
-    func updateUIViewController(_ uiViewController: UIViewController, context: Context) { }
-}
