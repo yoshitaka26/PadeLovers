@@ -9,7 +9,6 @@
 import Foundation
 
 enum GameViewSettingSection: Int {
-    case gameModeSection
     case gameResultSection
     case courtSection
     case pairingSection
@@ -17,8 +16,6 @@ enum GameViewSettingSection: Int {
 
     var headerTitle: String {
         switch self {
-        case .gameModeSection:
-            return String(localized: "Mode")
         case .gameResultSection:
             return String(localized: "Game Result")
         case .courtSection:

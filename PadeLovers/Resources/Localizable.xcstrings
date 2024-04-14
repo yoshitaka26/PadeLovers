@@ -11,6 +11,7 @@
 
     },
     "Auto play mode fired" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -21,6 +22,7 @@
       }
     },
     "Auto play mode reset" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -31,6 +33,7 @@
       }
     },
     "Auto play mode set" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -41,6 +44,7 @@
       }
     },
     "Auto Switching Mode" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -51,6 +55,7 @@
       }
     },
     "Combination oriented mode" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -142,6 +147,7 @@
       }
     },
     "Match count oriented mode" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -153,6 +159,7 @@
     },
     "Mode" : {
       "comment" : "試合画面　プレイヤー管理",
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {

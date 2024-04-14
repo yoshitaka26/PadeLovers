@@ -12,7 +12,6 @@ enum Screen {
     case main
     case setting
     case gameViewQuestion
-    case autoPlayMode
     case pairing(pairing: Pairing)
     case playerDataEdit(playerId: Int)
     case infoAlert(message: String)

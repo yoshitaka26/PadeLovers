@@ -16,7 +16,7 @@ extension UIViewController: UIPopoverPresentationControllerDelegate {
     func createBarButtonItem(image: UIImage, select: Selector) -> UIBarButtonItem {
         let button = UIButton(type: .custom)
         button.setImage(image, for: .normal)
-        button.tintColor = .appNavBarButtonColor
+        button.tintColor = .appGray
         button.addTarget(self, action: select, for: .touchUpInside)
         let barButtonItem = UIBarButtonItem(customView: button)
         return barButtonItem
@@ -87,7 +87,7 @@ extension UIViewController: UIPopoverPresentationControllerDelegate {
     
     func warningAlertView(withTitle: String?, message: String? = nil, action: (() -> Void)? = nil) {
         UIAlertController(title: withTitle, message: message, preferredStyle: .alert)
-            .addCancelAction(title: DIALOG_OK, handler: action)
+            .addCancelAction(title: "OK", handler: action)
             .show(in: self)
     }
     // 表示とともにタイマーをセットする
