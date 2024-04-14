@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 
 final class RandomNumberTableViewController: BaseViewController {
-    private let viewModel = RandomNumberTableViewModel()
+    let viewModel = RandomNumberTableViewModel()
     
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var toolbar: UIToolbar!
