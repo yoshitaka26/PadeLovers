@@ -1423,7 +1423,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.yoshitaka.PadeLovers;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match Development com.yoshitaka.PadeLovers";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match Development com.yoshitaka.PadeLovers 1716020378";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1452,7 +1452,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.yoshitaka.PadeLovers;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AppStore com.yoshitaka.PadeLovers";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AppStore com.yoshitaka.PadeLovers 1716021820";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
