@@ -19,78 +19,76 @@ struct HomeView: View {
 
     var body: some View {
         NavigationStack(path: $path) {
-            GeometryReader { geometry in
-                VStack {
-                    Spacer()
-                    HStack(spacing: 20) {
-                        NavigationLink(value: Screen.gameSetting) {
-                            MenuButtonImage(
-                                image: "btn_game_setting",
-                                size: geometry.size.width / 3
-                            )
-                        }
-                        NavigationLink(value: Screen.gameRecord) {
-                            MenuButtonImage(
-                                image: "btn_game_record",
-                                size: geometry.size.width / 3
-                            )
-                        }
+            VStack {
+                Spacer()
+                HStack(spacing: 10) {
+                    NavigationLink(value: Screen.gameSetting) {
+                        MenuButtonImage(
+                            image: "btn_game_setting",
+                            size: 140
+                        )
                     }
-                    .frame(maxWidth: .infinity)
-                    Spacer()
-                    HStack(spacing: 20) {
-                        NavigationLink(value: Screen.gameStart) {
-                            MenuButtonImage(
-                                image: "btn_game_start",
-                                size: geometry.size.width / 3
-                            )
-                        }
-                        NavigationLink(value: Screen.randomNumber) {
-                            MenuButtonImage(
-                                image: "btn_randomNumber_table",
-                                size: geometry.size.width / 3
-                            )
-                        }
+                    NavigationLink(value: Screen.gameRecord) {
+                        MenuButtonImage(
+                            image: "btn_game_record",
+                            size: 140
+                        )
                     }
-                    .frame(maxWidth: .infinity)
-                    Spacer()
-                    HStack(spacing: 20) {
-                        NavigationLink(value: Screen.uses) {
-                            MenuButtonImage(
-                                image: "btn_uses",
-                                size: geometry.size.width / 3
-                            )
-                        }
-                        NavigationLink(value: Screen.mainSetting) {
-                            MenuButtonImage(
-                                image: "btn_mainSetting",
-                                size: geometry.size.width / 3
-                            )
-                        }
-                    }
-                    .frame(maxWidth: .infinity)
-                    Spacer()
                 }
-                .padding(20)
-                .navigationDestination(for: Screen.self) { screen in
-                    switch screen {
-                    case .gameSetting:
-                        CommonDataView()
-                    case .gameRecord:
-                        PadelDataView()
-                    case .gameStart:
-                        StartGameView(path: $path)
-                    case let .gameStartDefault(groupID, padelID):
-                        DefaultGameTabView(path: $path, groupID: groupID, padelID: padelID)
-                    case .gameStartMix(let groupID):
-                        MixGameTabView(path: $path, viewModel: MixGameViewModel(groupID: groupID))
-                    case .randomNumber:
-                        RandomNumberTableView()
-                    case .uses:
-                        HowToUseView()
-                    case .mainSetting:
-                        MainSettingView()
+                .frame(maxWidth: .infinity)
+                Spacer()
+                HStack(spacing: 10) {
+                    NavigationLink(value: Screen.gameStart) {
+                        MenuButtonImage(
+                            image: "btn_game_start",
+                            size: 140
+                        )
                     }
+                    NavigationLink(value: Screen.randomNumber) {
+                        MenuButtonImage(
+                            image: "btn_randomNumber_table",
+                            size: 140
+                        )
+                    }
+                }
+                .frame(maxWidth: .infinity)
+                Spacer()
+                HStack(spacing: 10) {
+                    NavigationLink(value: Screen.uses) {
+                        MenuButtonImage(
+                            image: "btn_uses",
+                            size: 140
+                        )
+                    }
+                    NavigationLink(value: Screen.mainSetting) {
+                        MenuButtonImage(
+                            image: "btn_mainSetting",
+                            size: 140
+                        )
+                    }
+                }
+                .frame(maxWidth: .infinity)
+                Spacer()
+            }
+            .padding(10)
+            .navigationDestination(for: Screen.self) { screen in
+                switch screen {
+                case .gameSetting:
+                    CommonDataView()
+                case .gameRecord:
+                    PadelDataView()
+                case .gameStart:
+                    StartGameView(path: $path)
+                case let .gameStartDefault(groupID, padelID):
+                    DefaultGameTabView(path: $path, groupID: groupID, padelID: padelID)
+                case .gameStartMix(let groupID):
+                    MixGameTabView(path: $path, viewModel: MixGameViewModel(groupID: groupID))
+                case .randomNumber:
+                    RandomNumberTableView()
+                case .uses:
+                    HowToUseView()
+                case .mainSetting:
+                    MainSettingView()
                 }
             }
         }
