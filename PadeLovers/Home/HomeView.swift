@@ -17,60 +17,61 @@ struct HomeView: View {
         case gameStartMix(groupID: String)
     }
 
+    var buttonSize: CGFloat {
+        guard let window = UIApplication.shared.connectedScenes.first as? UIWindowScene else {
+            return 140
+        }
+        return window.screen.bounds.width / 3
+    }
+
     var body: some View {
         NavigationStack(path: $path) {
-            VStack {
-                Spacer()
-                HStack(spacing: 10) {
+            VStack(spacing: 20) {
+                HStack(spacing: 20) {
                     NavigationLink(value: Screen.gameSetting) {
                         MenuButtonImage(
                             image: "btn_game_setting",
-                            size: 140
+                            size: buttonSize
                         )
                     }
                     NavigationLink(value: Screen.gameRecord) {
                         MenuButtonImage(
                             image: "btn_game_record",
-                            size: 140
+                            size: buttonSize
                         )
                     }
                 }
-                .frame(maxWidth: .infinity)
-                Spacer()
-                HStack(spacing: 10) {
+                HStack(spacing: 20) {
                     NavigationLink(value: Screen.gameStart) {
                         MenuButtonImage(
                             image: "btn_game_start",
-                            size: 140
+                            size: buttonSize
                         )
                     }
                     NavigationLink(value: Screen.randomNumber) {
                         MenuButtonImage(
                             image: "btn_randomNumber_table",
-                            size: 140
+                            size: buttonSize
                         )
                     }
                 }
-                .frame(maxWidth: .infinity)
-                Spacer()
-                HStack(spacing: 10) {
+                HStack(spacing: 20) {
                     NavigationLink(value: Screen.uses) {
                         MenuButtonImage(
                             image: "btn_uses",
-                            size: 140
+                            size: buttonSize
                         )
                     }
                     NavigationLink(value: Screen.mainSetting) {
                         MenuButtonImage(
                             image: "btn_mainSetting",
-                            size: 140
+                            size: buttonSize
                         )
                     }
                 }
-                .frame(maxWidth: .infinity)
-                Spacer()
             }
-            .padding(10)
+            .padding(20)
+            .buttonStyle(.plain)
             .navigationDestination(for: Screen.self) { screen in
                 switch screen {
                 case .gameSetting:
